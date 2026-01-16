@@ -20,35 +20,19 @@
 
 body {
   font-family: var(--font-sans);
-  background: radial-gradient(circle at top, #1b1e33, var(--bg));
+  background: #000;
   color: var(--text);
   min-height: 100vh;
 }
 
 .page {
-  background-image: radial-gradient(
-      circle at 10% 20%,
-      rgba(88, 209, 255, 0.15),
-      transparent 40%
-    ),
-    radial-gradient(circle at 90% 15%, rgba(255, 58, 87, 0.18), transparent 45%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0));
-  padding: 32px clamp(20px, 4vw, 56px) 48px;
+  background: #000;
+  padding: 0 0 48px;
   position: relative;
 }
 
 .page::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.04) 1px,
-      transparent 1px
-    ),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 120px 120px, 120px 120px;
-  opacity: 0.3;
-  pointer-events: none;
+  content: none;
 }
 
 .site-header {
@@ -57,7 +41,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;
+  min-height: 100vh;
+  margin-bottom: 32px;
+  background: #000;
 }
 
 .logo-header {
@@ -76,12 +62,12 @@ body {
   width: 64px;
   height: 64px;
   object-fit: contain;
-  filter: drop-shadow(0 0 12px rgba(88, 209, 255, 0.35));
+  filter: none;
 }
 
 .logo-large {
-  width: clamp(140px, 24vw, 220px);
-  height: clamp(140px, 24vw, 220px);
+  width: min(100vw, 100vh);
+  height: min(100vw, 100vh);
 }
 
 .brand-text {
@@ -105,6 +91,7 @@ body {
   display: flex;
   gap: 18px;
   flex-wrap: wrap;
+  padding: 0 clamp(20px, 4vw, 56px);
 }
 
 .nav-centered {
@@ -126,6 +113,7 @@ body {
 main {
   position: relative;
   z-index: 1;
+  padding: 0 clamp(20px, 4vw, 56px);
 }
 
 .hero {
@@ -222,6 +210,7 @@ main {
 
 .footer {
   border-top: 1px solid var(--line);
+  margin: 0 clamp(20px, 4vw, 56px);
   padding-top: 20px;
   display: flex;
   flex-direction: column;
@@ -252,7 +241,7 @@ main {
   }
 
   .logo-large {
-    width: 120px;
-    height: 120px;
+    width: min(100vw, 100vh);
+    height: min(100vw, 100vh);
   }
 }
