@@ -26,9 +26,21 @@ body {
 }
 
 .page {
-  background: linear-gradient(180deg, #000 0%, #000 18%, #1b1e33 55%, var(--bg) 100%),
-    radial-gradient(circle at 12% 55%, rgba(88, 209, 255, 0.12), transparent 42%),
-    radial-gradient(circle at 88% 58%, rgba(255, 58, 87, 0.16), transparent 45%);
+  background: linear-gradient(
+      180deg,
+      #000 0%,
+      #000 36%,
+      #010203 46%,
+      #020306 56%,
+      #05060b 66%,
+      #0b0d17 76%,
+      #121429 86%,
+      #14172a 94%,
+      var(--bg) 100%
+    ),
+    radial-gradient(circle at 16% 64%, rgba(88, 209, 255, 0.14), transparent 62%),
+    radial-gradient(circle at 84% 66%, rgba(255, 58, 87, 0.16), transparent 64%),
+    radial-gradient(circle at 50% 90%, rgba(88, 209, 255, 0.08), transparent 70%);
   padding: 0 0 48px;
   position: relative;
 }
@@ -68,9 +80,9 @@ body {
 }
 
 .logo-large {
-  width: min(98vw, 1400px);
+  width: min(118vw, 1680px);
   height: auto;
-  max-height: 96vh;
+  max-height: 115vh;
 }
 
 .brand-text {
@@ -244,8 +256,8 @@ main {
   }
 
   .logo-large {
-    width: 98vw;
+    width: 118vw;
     height: auto;
-    max-height: 96vh;
+    max-height: 115vh;
   }
 }
