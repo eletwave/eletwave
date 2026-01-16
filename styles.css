@@ -68,9 +68,9 @@ body {
 }
 
 .logo-large {
-  width: min(92vw, 1200px);
+  width: min(98vw, 1400px);
   height: auto;
-  max-height: 92vh;
+  max-height: 96vh;
 }
 
 .brand-text {
@@ -244,8 +244,8 @@ main {
   }
 
   .logo-large {
-    width: 92vw;
+    width: 98vw;
     height: auto;
-    max-height: 92vh;
+    max-height: 96vh;
   }
 }
