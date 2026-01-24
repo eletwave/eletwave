@@ -463,6 +463,13 @@ main {
   margin-bottom: 16px;
 }
 
+.contact-icons a {
+  padding: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 @media (max-width: 720px) {
   .page {
     padding-top: 84px;
@@ -494,11 +501,16 @@ main {
   .social-links--center {
     justify-content: center;
     gap: 14px;
+    margin-bottom: 28px;
   }
 
   .contact-icons .social-icon {
     width: 32px;
     height: 32px;
+  }
+
+  .contact-icons a {
+    padding: 12px;
   }
 }
 
