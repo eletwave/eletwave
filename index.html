@@ -14,7 +14,7 @@
     <div class="page">
       <div class="sticky-nav">
         <a class="nav-item nav-item--primary" href="#chi-siamo">Chi siamo</a>
-        <a class="nav-item nav-item--services" href="#servizi">Servizzi</a>
+        <a class="nav-item nav-item--services" href="#servizi">Servizi</a>
         <a class="nav-item nav-item--service" href="#elettrico">Impianti elettrici</a>
         <a class="nav-item nav-item--service" href="#fotovoltaico">Fotovoltaico</a>
         <a class="nav-item nav-item--service" href="#wallbox">Wallbox</a>
@@ -62,9 +62,8 @@
                     alt="Impianto elettrico"
                   />
                   <p>
-                    Progettiamo e realizziamo impianti elettrici civili e industriali
-                    a norma, con quadri, linee e punti luce. Offriamo manutenzioni,
-                    adeguamenti e interventi rapidi su guasti.
+                    Impianti civili e industriali a norma, con quadri, linee e punti luce.
+                    Manutenzioni e interventi rapidi su guasti.
                   </p>
                 </div>
               </div>
@@ -80,10 +79,8 @@
                     alt="Impianto fotovoltaico"
                   />
                   <p>
-                    Analizziamo i consumi e dimensioniamo l'impianto fotovoltaico,
-                    installando pannelli, inverter e batterie di accumulo. Quando
-                    serve, integriamo anche ottimizzatori per massimizzare
-                    autoconsumo, efficienza e risparmio in bolletta.
+                    Pannelli, inverter e batterie su misura per massimizzare autoconsumo
+                    ed efficienza. Integriamo ottimizzatori quando serve.
                   </p>
                 </div>
               </div>
@@ -99,9 +96,8 @@
                     alt="Wallbox per ricarica auto elettriche"
                   />
                   <p>
-                    Forniamo e installiamo wallbox per auto elettriche, con
-                    configurazione della potenza, protezioni dedicate e
-                    integrazione con impianto fotovoltaico per ricariche intelligenti.
+                    Wallbox con potenza configurata, protezioni dedicate e
+                    integrazione con fotovoltaico.
                   </p>
                 </div>
               </div>
@@ -117,9 +113,8 @@
                     alt="Sistema di allarme e videosorveglianza"
                   />
                   <p>
-                    Installiamo telecamere, sensori e centraline antifurto con accesso
-                    da remoto, notifiche in tempo reale e registrazioni sicure per
-                    proteggere abitazioni e aziende.
+                    Telecamere e antifurto con accesso remoto, notifiche in tempo reale
+                    e registrazioni sicure.
                   </p>
                 </div>
               </div>
@@ -135,9 +130,8 @@
                     alt="Sistema domotico"
                   />
                   <p>
-                    Configuriamo sistemi domotici per controllare luci, clima,
-                    tapparelle e accessi da app o comando vocale, migliorando comfort,
-                    controllo e consumi.
+                    Controllo smart di luci, clima e accessi da app o voce,
+                    per piu comfort e risparmio.
                   </p>
                 </div>
               </div>
@@ -153,15 +147,17 @@
                     alt="Reti e cablaggi"
                   />
                   <p>
-                    Realizziamo reti dati e cablaggi strutturati, con armadi rack e
-                    punti rete certificati, per garantire connessioni stabili in
-                    uffici e abitazioni.
+                    Reti dati e cablaggi con rack e punti certificati
+                    per connessioni stabili.
                   </p>
                 </div>
               </div>
             </article>
           </div>
-          <div class="cards-beam" aria-hidden="true"></div>
+          <div class="scroll-hint" aria-hidden="true">
+            <span>Scorri</span>
+            <span class="scroll-hint__arrows">‹ ›</span>
+          </div>
         </section>
       </main>
 
@@ -169,6 +165,7 @@
         <div class="footer-content">
           <div class="footer-block">
             <h2>Contatti</h2>
+            <div class="cards-beam" aria-hidden="true"></div>
             <div class="contact-icons social-links social-links--center">
               <a href="tel:+390000000000" aria-label="Telefono">
                 <span class="social-icon" aria-hidden="true">
@@ -224,12 +221,10 @@
       const heroTitle = document.querySelector(".hero-title");
       const beamTitle = document.querySelector(".section-title--beam");
       const cardsBeam = document.querySelector(".cards-beam");
-      const cards = document.querySelectorAll(".scroll-card");
+      const companySection = document.querySelector(".company");
+      const cards = Array.from(document.querySelectorAll(".scroll-card"));
       const serviziTitle = document.querySelector("#servizi .section-title h2");
-      const contattiTitle = document.querySelector("#contatti h2");
-      const contactLines = document.querySelectorAll("#contatti p");
       const scrollContainer = document.querySelector(".scroll-container");
-      const cardStates = new Map();
       let ticking = false;
       let cardsTicking = false;
 
@@ -274,36 +269,16 @@
           }
         }
 
-        cards.forEach((card) => {
-          const rect = card.getBoundingClientRect();
+        if (companySection) {
+          const rect = companySection.getBoundingClientRect();
           const vh = window.innerHeight;
-          const start = vh * 0.85;
-          const end = vh * 0.2;
-          const inView = rect.top < vh && rect.bottom > 0;
-          const progress = inView ? (start - rect.top) / (start - end) : 0;
-          const clamped = Math.min(1, Math.max(0, progress));
-          const targetX = 90 * (1 - clamped);
-          const targetOpacity = 0.2 + 0.8 * clamped;
-          const state = cardStates.get(card) || { x: targetX, opacity: targetOpacity };
-          state.x += (targetX - state.x) * 0.18;
-          state.opacity += (targetOpacity - state.opacity) * 0.18;
-          cardStates.set(card, state);
-          card.style.transform = `translate3d(${state.x.toFixed(2)}px, 0, 0)`;
-          card.style.opacity = state.opacity.toFixed(3);
-        });
-
-        contactLines.forEach((line) => {
-          const rect = line.getBoundingClientRect();
-          const vh = window.innerHeight;
-          const progress = Math.min(1, Math.max(0, (vh * 0.85 - rect.top) / (vh * 0.45)));
-          line.style.transform = `translateY(${-18 * progress}px)`;
-        });
-
-        if (contattiTitle) {
-          const rect = contattiTitle.getBoundingClientRect();
-          const vh = window.innerHeight;
-          const progress = Math.min(1, Math.max(0, (vh * 0.85 - rect.top) / (vh * 0.45)));
-          contattiTitle.style.transform = `translateY(${-22 * progress}px)`;
+          const center = rect.top + rect.height / 2;
+          const distance = Math.abs(vh / 2 - center);
+          const range = vh * 0.8;
+          const intensity = Math.max(0, 1 - distance / range);
+          const scale = 0.85 + intensity * 0.2;
+          companySection.style.setProperty("--circuit-opacity", (0.15 + intensity * 0.55).toFixed(3));
+          companySection.style.setProperty("--circuit-scale", scale.toFixed(3));
         }
 
         ticking = false;
@@ -335,7 +310,21 @@
       updateScrollEffects();
 
       if (scrollContainer) {
-        const updateActiveCard = () => {
+        const updateSnapPadding = () => {
+          const firstCard = scrollContainer.querySelector(".scroll-card");
+          if (!firstCard) {
+            return;
+          }
+          const containerWidth = scrollContainer.getBoundingClientRect().width;
+          const cardWidth = firstCard.getBoundingClientRect().width;
+          const sidePadding = Math.max(0, (containerWidth - cardWidth) / 2);
+          scrollContainer.style.scrollPaddingLeft = `${sidePadding}px`;
+          scrollContainer.style.scrollPaddingRight = `${sidePadding}px`;
+        };
+
+        updateSnapPadding();
+
+        const getClosestCard = () => {
           const containerRect = scrollContainer.getBoundingClientRect();
           const centerX = containerRect.left + containerRect.width / 2;
           let closest = null;
@@ -351,6 +340,11 @@
             }
           });
 
+          return closest;
+        };
+
+        const updateActiveCard = () => {
+          const closest = getClosestCard();
           cards.forEach((card) => card.classList.remove("is-active"));
           if (closest) {
             closest.classList.add("is-active");
@@ -360,13 +354,19 @@
 
         const onCardsScroll = () => {
           if (!cardsTicking) {
-            window.requestAnimationFrame(updateActiveCard);
+            window.requestAnimationFrame(() => {
+              updateActiveCard();
+              cardsTicking = false;
+            });
             cardsTicking = true;
           }
         };
 
         scrollContainer.addEventListener("scroll", onCardsScroll, { passive: true });
-        window.addEventListener("resize", onCardsScroll);
+        window.addEventListener("resize", () => {
+          updateSnapPadding();
+          onCardsScroll();
+        });
         updateActiveCard();
       }
 
