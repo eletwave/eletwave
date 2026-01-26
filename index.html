@@ -61,7 +61,7 @@
                 <img src="assets/icon-place-marker.png" alt="" />
               </div>
               <div class="service-areas__list">
-                <p class="service-areas__title" data-i18n="areas.title">Operativi in</p>
+                <p class="service-areas__title" data-i18n="areas.title">Operativi a</p>
                 <div class="area-scroller">
                   <div class="area-track">
                     <span>Gorizia</span><span>Nova Gorica</span><span>Trieste</span><span>Koper</span>
@@ -246,7 +246,7 @@
             <p data-i18n="contacts.vat">P.IVA: inserisci partita IVA</p>
           </div>
         </div>
-        <p class="footer-note" data-i18n="footer.note">ELETWAVE. Impianti elettrici &amp; smart energy.</p>
+        <p class="footer-note" data-i18n="footer.note">ELETWAVE. smart energy &amp; security solution</p>
       </footer>
     </div>
     <script>
@@ -262,6 +262,7 @@
       const areaItems = areaScroller
         ? Array.from(areaScroller.querySelectorAll(".area-track span"))
         : [];
+      const stickyNav = document.querySelector(".sticky-nav");
       const langSelect = document.querySelector("#lang-select");
       let ticking = false;
       let cardsTicking = false;
@@ -269,6 +270,13 @@
 
       const updateScrollEffects = () => {
         const scrollY = window.scrollY;
+        if (stickyNav) {
+          if (scrollY > 60) {
+            stickyNav.classList.add("is-scrolled");
+          } else {
+            stickyNav.classList.remove("is-scrolled");
+          }
+        }
         if (heroTitle) {
           const lift = Math.min(180, scrollY * 0.35);
           heroTitle.style.transform = `translateY(${-lift}px)`;
@@ -340,20 +348,6 @@
 
       window.addEventListener("scroll", onScroll, { passive: true });
       window.addEventListener("resize", onScroll);
-      const stickyNav = document.querySelector(".sticky-nav");
-      const updateNavState = () => {
-        if (!stickyNav) {
-          return;
-        }
-        if (window.scrollY > 60) {
-          stickyNav.classList.add("is-scrolled");
-        } else {
-          stickyNav.classList.remove("is-scrolled");
-        }
-      };
-      window.addEventListener("scroll", updateNavState, { passive: true });
-      window.addEventListener("resize", updateNavState);
-      updateNavState();
       updateScrollEffects();
 
       const updateAreaFocus = () => {
@@ -463,13 +457,13 @@
           "services.networks.title": "Reti e cablaggi",
           "services.networks.desc": "Reti dati e cablaggi con rack e punti certificati per connessioni stabili.",
           "services.scroll": "Scorri",
-          "areas.title": "Operativi in",
+          "areas.title": "Operativi a",
           "contacts.title": "Contatti",
           "contacts.phone": "Telefono: inserisci il numero principale",
           "contacts.email": "Email: <a href=\"mailto:eletwave@gmail.com\">eletwave@gmail.com</a>",
           "contacts.area": "Zona operativa: FVG",
           "contacts.vat": "P.IVA: inserisci partita IVA",
-          "footer.note": "ELETWAVE. Impianti elettrici &amp; smart energy."
+          "footer.note": "ELETWAVE. smart energy &amp; security solution"
         },
         en: {
           "nav.about": "About",
@@ -510,7 +504,7 @@
           "contacts.email": "Email: <a href=\"mailto:eletwave@gmail.com\">eletwave@gmail.com</a>",
           "contacts.area": "Operating area: FVG",
           "contacts.vat": "VAT: add VAT number",
-          "footer.note": "ELETWAVE. Electrical systems &amp; smart energy."
+          "footer.note": "ELETWAVE. smart energy &amp; security solution"
         },
         sl: {
           "nav.about": "O nas",
@@ -551,7 +545,7 @@
           "contacts.email": "E-posta: <a href=\"mailto:eletwave@gmail.com\">eletwave@gmail.com</a>",
           "contacts.area": "Obmocje dela: FVG",
           "contacts.vat": "DDV: vnesite DDV stevilko",
-          "footer.note": "ELETWAVE. Elektricni sistemi &amp; pametna energija."
+          "footer.note": "ELETWAVE. smart energy &amp; security solution"
         }
       };
 
