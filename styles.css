@@ -145,14 +145,14 @@ main {
 .hero-title {
   transition: transform 0.2s ease-out;
   will-change: transform;
-  font-size: clamp(2.6rem, 4.2vw, 4.2rem);
+  font-size: clamp(2.1rem, 3.4vw, 3.4rem);
   line-height: 1.05;
   margin-bottom: 20px;
 }
 
 .brand-title {
   display: inline-block;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 700;
   letter-spacing: 0.04em;
   background: linear-gradient(
@@ -261,16 +261,17 @@ main {
 }
 
 .area-track span {
-  color: var(--muted);
-  letter-spacing: 0.02em;
-  font-size: 0.95rem;
-  opacity: 0.6;
-}
-
-.area-track span {
   font-size: 0.85rem;
   opacity: 0.4;
-  transition: opacity 0.4s ease, transform 0.4s ease, font-size 0.4s ease, color 0.4s ease;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  filter: blur(0.6px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    font-size 0.4s ease,
+    color 0.4s ease,
+    filter 0.4s ease;
 }
 
 .area-track span.is-active {
@@ -278,6 +279,7 @@ main {
   opacity: 1;
   color: var(--text);
   transform: translateX(6px);
+  filter: none;
 }
 
 .area-track span.is-up-1,
@@ -799,6 +801,10 @@ main {
     padding-top: 84px;
   }
 
+  .site-header {
+    min-height: calc(100vh - 84px);
+  }
+
   .sticky-nav {
     justify-content: center;
     gap: 12px;
@@ -869,6 +875,8 @@ main {
   .service-image {
     max-width: 100%;
     height: 240px;
+    object-fit: cover;
+    object-position: center;
   }
 
   .service-areas {
