@@ -13,15 +13,24 @@
   <body>
     <div class="page">
       <div class="sticky-nav">
-        <a class="nav-item nav-item--primary" href="#chi-siamo">Chi siamo</a>
-        <a class="nav-item nav-item--services" href="#servizi">Servizi</a>
-        <a class="nav-item nav-item--service" href="#elettrico">Impianti elettrici</a>
-        <a class="nav-item nav-item--service" href="#fotovoltaico">Fotovoltaico</a>
-        <a class="nav-item nav-item--service" href="#wallbox">Wallbox</a>
-        <a class="nav-item nav-item--service" href="#sicurezza">Videosorveglianza</a>
-        <a class="nav-item nav-item--service" href="#domotica">Domotica</a>
-        <a class="nav-item nav-item--service" href="#reti">Reti</a>
-        <a class="nav-item nav-item--primary" href="#contatti">Contatti</a>
+        <div class="nav-links">
+          <a class="nav-item nav-item--primary" href="#chi-siamo" data-i18n="nav.about">Chi siamo</a>
+          <a class="nav-item nav-item--services" href="#servizi" data-i18n="nav.services">Servizi</a>
+          <a class="nav-item nav-item--service" href="#elettrico" data-i18n="nav.electrical">Impianti elettrici</a>
+          <a class="nav-item nav-item--service" href="#fotovoltaico" data-i18n="nav.solar">Fotovoltaico</a>
+          <a class="nav-item nav-item--service" href="#wallbox" data-i18n="nav.wallbox">Wallbox</a>
+          <a class="nav-item nav-item--service" href="#sicurezza" data-i18n="nav.security">Videosorveglianza</a>
+          <a class="nav-item nav-item--service" href="#domotica" data-i18n="nav.domotics">Domotica</a>
+          <a class="nav-item nav-item--service" href="#reti" data-i18n="nav.networks">Reti</a>
+          <a class="nav-item nav-item--primary" href="#contatti" data-i18n="nav.contacts">Contatti</a>
+        </div>
+        <div class="lang-toggle" aria-label="Language selector">
+          <select class="lang-select" id="lang-select" aria-label="Seleziona lingua">
+            <option value="it">🇮🇹</option>
+            <option value="en">🇬🇧</option>
+            <option value="sl">🇸🇮</option>
+          </select>
+        </div>
       </div>
       <header class="site-header">
         <div class="logo-header">
@@ -30,38 +39,63 @@
       </header>
       <main>
         <section class="company" id="chi-siamo">
-          <div class="hero-copy">
-            <h1 class="hero-title">
-              <span class="brand-title">ELETWAVE</span> installa energia intelligente nei tuoi spazi.
-            </h1>
-            <p class="lead">
-              Soluzioni rapide e pulite per impianti civili e industriali, con
-              attenzione a sicurezza, efficienza e risparmio energetico. Seguiamo
-              ogni progetto dalla consulenza all'installazione, con standard
-              elevati, materiali affidabili e una cura artigianale che si vede
-              nel tempo. Pianifichiamo ogni intervento con precisione, riduciamo
-              al minimo i disagi e consegniamo impianti pronti a durare, con
-              assistenza continua e soluzioni pensate per crescere con le tue
-              esigenze.
-            </p>
+          <h1 class="hero-title">
+            <span class="brand-title">ELETWAVE</span>
+            <span data-i18n="hero.title">installa energia intelligente nei tuoi spazi.</span>
+          </h1>
+          <div class="company-grid">
+            <div class="hero-copy">
+              <p class="lead" data-i18n="hero.lead">
+                Soluzioni rapide e pulite per impianti civili e industriali, con
+                attenzione a sicurezza, efficienza e risparmio energetico. Seguiamo
+                ogni progetto dalla consulenza all'installazione, con standard
+                elevati, materiali affidabili e una cura artigianale che si vede
+                nel tempo. Pianifichiamo ogni intervento con precisione, riduciamo
+                al minimo i disagi e consegniamo impianti pronti a durare, con
+                assistenza continua e soluzioni pensate per crescere con le tue
+                esigenze.
+              </p>
+            </div>
+            <div class="service-areas">
+              <div class="service-areas__icon" aria-hidden="true">
+                <img src="assets/icon-place-marker.png" alt="" />
+              </div>
+              <div class="service-areas__list">
+                <p class="service-areas__title" data-i18n="areas.title">Operativi in</p>
+                <div class="area-scroller">
+                  <div class="area-track">
+                    <span>Gorizia</span><span>Trieste</span><span>Udine</span><span>Pordenone</span>
+                    <span>Milano</span><span>Torino</span><span>Genova</span><span>Bologna</span>
+                    <span>Verona</span><span>Venezia</span><span>Padova</span><span>Brescia</span>
+                    <span>Bergamo</span><span>Trento</span><span>Bolzano</span><span>Treviso</span>
+                    <span>Koper</span><span>Nova Gorica</span><span>Piran</span>
+                    <span>Gorizia</span><span>Trieste</span><span>Udine</span><span>Pordenone</span>
+                    <span>Milano</span><span>Torino</span><span>Genova</span><span>Bologna</span>
+                    <span>Verona</span><span>Venezia</span><span>Padova</span><span>Brescia</span>
+                    <span>Bergamo</span><span>Trento</span><span>Bolzano</span><span>Treviso</span>
+                    <span>Koper</span><span>Nova Gorica</span><span>Piran</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
         <section class="services-scroll" id="servizi">
           <div class="section-title section-title--beam">
-            <h2>Servizi</h2>
+            <h2 data-i18n="services.title">Servizi</h2>
           </div>
           <div class="scroll-container">
             <article class="service-card service-card--grey scroll-card" id="elettrico">
               <div class="service-card__content">
-                <h3>Impianti elettrici</h3>
+                <h3 data-i18n="services.electrical.title">Impianti elettrici</h3>
                 <div class="service-media">
                   <img
                     class="service-image"
-                    src="assets/impianto-elettrico.jpg"
+                    src="assets/man-electrical-technician-working-switchboard-with-fuses-installation-connection-electrical-equipment-close-up.jpg"
                     alt="Impianto elettrico"
                   />
-                  <p>
+                  <p data-i18n="services.electrical.desc">
                     Impianti civili e industriali a norma, con quadri, linee e punti luce.
                     Manutenzioni e interventi rapidi su guasti.
                   </p>
@@ -71,14 +105,14 @@
 
             <article class="service-card service-card--yellow scroll-card" id="fotovoltaico">
               <div class="service-card__content">
-                <h3>Impianti fotovoltaici con accumulo</h3>
+                <h3 data-i18n="services.solar.title">Impianti fotovoltaici con accumulo</h3>
                 <div class="service-media">
                   <img
                     class="service-image"
                     src="assets/impianto%20fotovoltaico.png"
                     alt="Impianto fotovoltaico"
                   />
-                  <p>
+                  <p data-i18n="services.solar.desc">
                     Pannelli, inverter e batterie su misura per massimizzare autoconsumo
                     ed efficienza. Integriamo ottimizzatori quando serve.
                   </p>
@@ -88,14 +122,14 @@
 
             <article class="service-card service-card--green scroll-card" id="wallbox">
               <div class="service-card__content">
-                <h3>Wallbox per ricarica EV</h3>
+                <h3 data-i18n="services.wallbox.title">Wallbox per ricarica EV</h3>
                 <div class="service-media">
                   <img
                     class="service-image"
                     src="assets/ChatGPT%20Image%2026%20gen%202026,%2010_29_34.png"
                     alt="Wallbox per ricarica auto elettriche"
                   />
-                  <p>
+                  <p data-i18n="services.wallbox.desc">
                     Wallbox con potenza configurata, protezioni dedicate e
                     integrazione con fotovoltaico.
                   </p>
@@ -105,14 +139,14 @@
 
             <article class="service-card service-card--red scroll-card" id="sicurezza">
               <div class="service-card__content">
-                <h3>Videosorveglianza e antifurti</h3>
+                <h3 data-i18n="services.security.title">Videosorveglianza e antifurti</h3>
                 <div class="service-media">
                   <img
                     class="service-image"
                     src="assets/ChatGPT%20Image%2026%20gen%202026,%2010_42_49.png"
                     alt="Sistema di allarme e videosorveglianza"
                   />
-                  <p>
+                  <p data-i18n="services.security.desc">
                     Telecamere e antifurto con accesso remoto, notifiche in tempo reale
                     e registrazioni sicure.
                   </p>
@@ -122,14 +156,14 @@
 
             <article class="service-card service-card--blue scroll-card" id="domotica">
               <div class="service-card__content">
-                <h3>Domotica</h3>
+                <h3 data-i18n="services.domotics.title">Domotica</h3>
                 <div class="service-media">
                   <img
                     class="service-image"
                     src="assets/ChatGPT%20Image%2023%20gen%202026,%2018_09_17.png"
                     alt="Sistema domotico"
                   />
-                  <p>
+                  <p data-i18n="services.domotics.desc">
                     Controllo smart di luci, clima e accessi da app o voce,
                     per piu comfort e risparmio.
                   </p>
@@ -139,14 +173,14 @@
 
             <article class="service-card service-card--cyan scroll-card" id="reti">
               <div class="service-card__content">
-                <h3>Reti e cablaggi</h3>
+                <h3 data-i18n="services.networks.title">Reti e cablaggi</h3>
                 <div class="service-media">
                   <img
                     class="service-image"
                     src="assets/ChatGPT%20Image%2023%20gen%202026,%2018_09_07.png"
                     alt="Reti e cablaggi"
                   />
-                  <p>
+                  <p data-i18n="services.networks.desc">
                     Reti dati e cablaggi con rack e punti certificati
                     per connessioni stabili.
                   </p>
@@ -155,7 +189,7 @@
             </article>
           </div>
           <div class="scroll-hint" aria-hidden="true">
-            <span>Scorri</span>
+            <span data-i18n="services.scroll">Scorri</span>
             <span class="scroll-hint__arrows">‹ ›</span>
           </div>
         </section>
@@ -164,7 +198,7 @@
       <footer class="footer" id="contatti">
         <div class="footer-content">
           <div class="footer-block">
-            <h2>Contatti</h2>
+            <h2 data-i18n="contacts.title">Contatti</h2>
             <div class="cards-beam" aria-hidden="true"></div>
             <div class="contact-icons social-links social-links--center">
               <a href="tel:+390000000000" aria-label="Telefono">
@@ -208,13 +242,13 @@
                 </span>
               </a>
             </div>
-            <p>Telefono: inserisci il numero principale</p>
-            <p>Email: <a href="mailto:eletwave@gmail.com">eletwave@gmail.com</a></p>
-            <p>Zona operativa: FVG</p>
-            <p>P.IVA: inserisci partita IVA</p>
+            <p data-i18n="contacts.phone">Telefono: inserisci il numero principale</p>
+            <p data-i18n-html="contacts.email">Email: <a href="mailto:eletwave@gmail.com">eletwave@gmail.com</a></p>
+            <p data-i18n="contacts.area">Zona operativa: FVG</p>
+            <p data-i18n="contacts.vat">P.IVA: inserisci partita IVA</p>
           </div>
         </div>
-        <p class="footer-note">ELETWAVE. Impianti elettrici &amp; smart energy.</p>
+        <p class="footer-note" data-i18n="footer.note">ELETWAVE. Impianti elettrici &amp; smart energy.</p>
       </footer>
     </div>
     <script>
@@ -225,8 +259,15 @@
       const cards = Array.from(document.querySelectorAll(".scroll-card"));
       const serviziTitle = document.querySelector("#servizi .section-title h2");
       const scrollContainer = document.querySelector(".scroll-container");
+      const servicesSection = document.querySelector(".services-scroll");
+      const areaScroller = document.querySelector(".area-scroller");
+      const areaItems = areaScroller
+        ? Array.from(areaScroller.querySelectorAll(".area-track span"))
+        : [];
+      const langSelect = document.querySelector("#lang-select");
       let ticking = false;
       let cardsTicking = false;
+      let areaLastTick = 0;
 
       const updateScrollEffects = () => {
         const scrollY = window.scrollY;
@@ -281,6 +322,14 @@
           companySection.style.setProperty("--circuit-scale", scale.toFixed(3));
         }
 
+        if (servicesSection) {
+          const rect = servicesSection.getBoundingClientRect();
+          const vh = window.innerHeight;
+          if (rect.top < vh * 0.8) {
+            servicesSection.classList.add("is-revealed");
+          }
+        }
+
         ticking = false;
       };
 
@@ -308,6 +357,236 @@
       window.addEventListener("resize", updateNavState);
       updateNavState();
       updateScrollEffects();
+
+      const updateAreaFocus = () => {
+        if (!areaScroller || areaItems.length === 0) {
+          return;
+        }
+        const scrollerRect = areaScroller.getBoundingClientRect();
+        const centerY = scrollerRect.top + scrollerRect.height / 2;
+        let active = null;
+        let activeDist = Infinity;
+        const above = [];
+        const below = [];
+
+        areaItems.forEach((item) => {
+          item.classList.remove("is-active", "is-up-1", "is-up-2", "is-down-1", "is-down-2");
+          const rect = item.getBoundingClientRect();
+          const itemCenter = rect.top + rect.height / 2;
+          const dist = Math.abs(itemCenter - centerY);
+          if (dist < activeDist) {
+            activeDist = dist;
+            active = item;
+          }
+        });
+
+        areaItems.forEach((item) => {
+          if (item === active) {
+            return;
+          }
+          const rect = item.getBoundingClientRect();
+          const itemCenter = rect.top + rect.height / 2;
+          const delta = itemCenter - centerY;
+          const dist = Math.abs(delta);
+          if (delta < 0) {
+            above.push({ item, dist });
+          } else {
+            below.push({ item, dist });
+          }
+        });
+
+        if (active) {
+          active.classList.add("is-active");
+        }
+
+        above.sort((a, b) => a.dist - b.dist);
+        below.sort((a, b) => a.dist - b.dist);
+
+        if (above[0]) {
+          above[0].item.classList.add("is-up-1");
+        }
+        if (above[1]) {
+          above[1].item.classList.add("is-up-2");
+        }
+        if (below[0]) {
+          below[0].item.classList.add("is-down-1");
+        }
+        if (below[1]) {
+          below[1].item.classList.add("is-down-2");
+        }
+      };
+
+      const areaLoop = (time) => {
+        if (!areaScroller) {
+          return;
+        }
+        if (time - areaLastTick > 120) {
+          updateAreaFocus();
+          areaLastTick = time;
+        }
+        window.requestAnimationFrame(areaLoop);
+      };
+
+      if (areaScroller && areaItems.length) {
+        window.requestAnimationFrame(areaLoop);
+        window.addEventListener("resize", updateAreaFocus);
+      }
+
+      const translations = {
+        it: {
+          "nav.about": "Chi siamo",
+          "nav.services": "Servizi",
+          "nav.electrical": "Impianti elettrici",
+          "nav.solar": "Fotovoltaico",
+          "nav.wallbox": "Wallbox",
+          "nav.security": "Videosorveglianza",
+          "nav.domotics": "Domotica",
+          "nav.networks": "Reti",
+          "nav.contacts": "Contatti",
+          "hero.title": "installa energia intelligente nei tuoi spazi.",
+          "hero.lead":
+            "Soluzioni rapide e pulite per impianti civili e industriali, con attenzione a sicurezza, efficienza e risparmio energetico. Seguiamo ogni progetto dalla consulenza all'installazione, con standard elevati, materiali affidabili e una cura artigianale che si vede nel tempo. Pianifichiamo ogni intervento con precisione, riduciamo al minimo i disagi e consegniamo impianti pronti a durare, con assistenza continua e soluzioni pensate per crescere con le tue esigenze.",
+          "services.title": "Servizi",
+          "services.electrical.title": "Impianti elettrici",
+          "services.electrical.desc":
+            "Impianti civili e industriali a norma, con quadri, linee e punti luce. Manutenzioni e interventi rapidi su guasti.",
+          "services.solar.title": "Impianti fotovoltaici con accumulo",
+          "services.solar.desc":
+            "Pannelli, inverter e batterie su misura per massimizzare autoconsumo ed efficienza. Integriamo ottimizzatori quando serve.",
+          "services.wallbox.title": "Wallbox per ricarica EV",
+          "services.wallbox.desc":
+            "Wallbox con potenza configurata, protezioni dedicate e integrazione con fotovoltaico.",
+          "services.security.title": "Videosorveglianza e antifurti",
+          "services.security.desc":
+            "Telecamere e antifurto con accesso remoto, notifiche in tempo reale e registrazioni sicure.",
+          "services.domotics.title": "Domotica",
+          "services.domotics.desc":
+            "Controllo smart di luci, clima e accessi da app o voce, per piu comfort e risparmio.",
+          "services.networks.title": "Reti e cablaggi",
+          "services.networks.desc": "Reti dati e cablaggi con rack e punti certificati per connessioni stabili.",
+          "services.scroll": "Scorri",
+          "areas.title": "Operativi in",
+          "contacts.title": "Contatti",
+          "contacts.phone": "Telefono: inserisci il numero principale",
+          "contacts.email": "Email: <a href=\"mailto:eletwave@gmail.com\">eletwave@gmail.com</a>",
+          "contacts.area": "Zona operativa: FVG",
+          "contacts.vat": "P.IVA: inserisci partita IVA",
+          "footer.note": "ELETWAVE. Impianti elettrici &amp; smart energy."
+        },
+        en: {
+          "nav.about": "About",
+          "nav.services": "Services",
+          "nav.electrical": "Electrical",
+          "nav.solar": "Solar",
+          "nav.wallbox": "Wallbox",
+          "nav.security": "Security",
+          "nav.domotics": "Domotics",
+          "nav.networks": "Networks",
+          "nav.contacts": "Contacts",
+          "hero.title": "installs smart energy in your spaces.",
+          "hero.lead":
+            "Fast, clean solutions for residential and industrial systems, focused on safety, efficiency, and energy savings. We follow every project from consultation to installation, with high standards, reliable materials, and craftsmanship that lasts. We plan every intervention precisely, minimize disruptions, and deliver systems built to endure, with ongoing support and solutions that grow with your needs.",
+          "services.title": "Services",
+          "services.electrical.title": "Electrical systems",
+          "services.electrical.desc":
+            "Compliant residential and industrial systems with panels, lines, and lighting points. Maintenance and fast fault response.",
+          "services.solar.title": "Solar with storage",
+          "services.solar.desc":
+            "Tailored panels, inverters, and batteries to maximize self-consumption and efficiency. Optimizers when needed.",
+          "services.wallbox.title": "EV wallbox charging",
+          "services.wallbox.desc":
+            "Wallbox with configured power, dedicated protections, and solar integration.",
+          "services.security.title": "CCTV and alarms",
+          "services.security.desc":
+            "Cameras and alarms with remote access, real-time alerts, and secure recordings.",
+          "services.domotics.title": "Domotics",
+          "services.domotics.desc":
+            "Smart control of lights, climate, and access via app or voice for more comfort and savings.",
+          "services.networks.title": "Networks and cabling",
+          "services.networks.desc":
+            "Data networks and cabling with racks and certified points for stable connections.",
+          "services.scroll": "Scroll",
+          "areas.title": "Operating in",
+          "contacts.title": "Contacts",
+          "contacts.phone": "Phone: add main number",
+          "contacts.email": "Email: <a href=\"mailto:eletwave@gmail.com\">eletwave@gmail.com</a>",
+          "contacts.area": "Operating area: FVG",
+          "contacts.vat": "VAT: add VAT number",
+          "footer.note": "ELETWAVE. Electrical systems &amp; smart energy."
+        },
+        sl: {
+          "nav.about": "O nas",
+          "nav.services": "Storitve",
+          "nav.electrical": "Elektrika",
+          "nav.solar": "Fotovoltaika",
+          "nav.wallbox": "Wallbox",
+          "nav.security": "Varnost",
+          "nav.domotics": "Domotika",
+          "nav.networks": "Omrezja",
+          "nav.contacts": "Kontakti",
+          "hero.title": "namešča pametno energijo v vaše prostore.",
+          "hero.lead":
+            "Hitre in ciste resitve za stanovanjske in industrijske sisteme, s poudarkom na varnosti, ucinkovitosti in prihranku energije. Vsak projekt vodimo od svetovanja do montaze, z visokimi standardi, zanesljivimi materiali in kakovostjo, ki traja. Vsak poseg nacrtujemo natancno, zmanjsamo motnje in vgradimo sisteme, ki vzdrzijo, z nadaljnjo podporo in resitvami, ki rastejo z vasimi potrebami.",
+          "services.title": "Storitve",
+          "services.electrical.title": "Elektricni sistemi",
+          "services.electrical.desc":
+            "Skladni stanovanjski in industrijski sistemi s paneli, vodi in tockami razsvetljave. Vzdrzevanje in hitri posegi.",
+          "services.solar.title": "Fotovoltaika z hranilniki",
+          "services.solar.desc":
+            "Prilagojeni paneli, razsmerniki in baterije za najvecjo samooskrbo in ucinkovitost. Po potrebi dodamo optimizatorje.",
+          "services.wallbox.title": "Wallbox polnjenje EV",
+          "services.wallbox.desc":
+            "Wallbox z nastavljeno mocjo, namensko zascito in povezavo s fotovoltaiko.",
+          "services.security.title": "Videonadzor in alarmi",
+          "services.security.desc":
+            "Kamere in alarmi z oddaljenim dostopom, obvestili v realnem casu in varnimi posnetki.",
+          "services.domotics.title": "Domotika",
+          "services.domotics.desc":
+            "Pametni nadzor luci, klime in dostopa prek aplikacije ali glasu za vec udobja in prihrankov.",
+          "services.networks.title": "Omrezja in kabliranje",
+          "services.networks.desc":
+            "Podatkovna omrezja in kabliranje z racki in certificiranimi tockami za stabilne povezave.",
+          "services.scroll": "Pomakni",
+          "areas.title": "Aktivni v",
+          "contacts.title": "Kontakti",
+          "contacts.phone": "Telefon: vnesite glavno stevilko",
+          "contacts.email": "E-posta: <a href=\"mailto:eletwave@gmail.com\">eletwave@gmail.com</a>",
+          "contacts.area": "Obmocje dela: FVG",
+          "contacts.vat": "DDV: vnesite DDV stevilko",
+          "footer.note": "ELETWAVE. Elektricni sistemi &amp; pametna energija."
+        }
+      };
+
+      const applyTranslations = (lang) => {
+        const dict = translations[lang] || translations.it;
+        document.documentElement.lang = lang;
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (dict[key]) {
+            el.textContent = dict[key];
+          }
+        });
+        document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+          const key = el.getAttribute("data-i18n-html");
+          if (dict[key]) {
+            el.innerHTML = dict[key];
+          }
+        });
+        if (langSelect) {
+          langSelect.value = lang;
+        }
+      };
+
+      const savedLang = localStorage.getItem("eletwave-lang") || "it";
+      applyTranslations(savedLang);
+      if (langSelect) {
+        langSelect.value = savedLang;
+        langSelect.addEventListener("change", () => {
+          const lang = langSelect.value;
+          localStorage.setItem("eletwave-lang", lang);
+          applyTranslations(lang);
+        });
+      }
 
       if (scrollContainer) {
         const updateSnapPadding = () => {
