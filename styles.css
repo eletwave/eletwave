@@ -346,9 +346,6 @@ main {
   flex-direction: column;
   justify-content: center;
   padding: 24px 0;
-}
-
-.services-scroll {
   opacity: 0.2;
   transform: translateY(16px);
   transition: opacity 0.6s ease, transform 0.6s ease;
@@ -875,8 +872,10 @@ main {
   }
 
   .service-areas {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 28px;
   }
 
   .service-areas__icon {
