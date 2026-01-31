@@ -37,8 +37,8 @@
           <img class="logo logo-large" src="assets/logo.png" alt="ELETWAVE logo" />
         </div>
         <div class="header-scroll-hint" aria-hidden="true">
-          <span>Scorri</span>
-          <span class="header-scroll-hint__arrow">↓</span>
+          <span class="header-scroll-hint__arrow"></span>
+          <span class="header-scroll-hint__arrow"></span>
         </div>
       </header>
       <main>
@@ -204,7 +204,10 @@
           </div>
           <div class="scroll-hint" aria-hidden="true">
             <span data-i18n="services.scroll">Scorri</span>
-            <span class="scroll-hint__arrows">‹ ›</span>
+            <span class="scroll-hint__chevrons" aria-hidden="true">
+              <span class="scroll-hint__chevron"></span>
+              <span class="scroll-hint__chevron"></span>
+            </span>
           </div>
         </section>
       </main>
@@ -267,6 +270,7 @@
     </div>
     <script>
       const heroTitle = document.querySelector(".hero-title");
+      const headerScrollHint = document.querySelector(".header-scroll-hint");
       const beamTitle = document.querySelector(".section-title--beam");
       const cardsBeam = document.querySelector(".cards-beam");
       const companySection = document.querySelector(".company");
@@ -292,6 +296,13 @@
           } else {
             stickyNav.classList.remove("is-scrolled");
           }
+        }
+
+        if (headerScrollHint) {
+          const fadePoint = 160;
+          const progress = Math.min(scrollY / fadePoint, 1);
+          headerScrollHint.style.opacity = (1 - progress).toFixed(2);
+          headerScrollHint.style.transform = `translateX(-50%) translateY(${(progress * 18).toFixed(1)}px)`;
         }
         if (heroTitle) {
           const lift = Math.min(180, scrollY * 0.35);

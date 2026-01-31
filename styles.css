@@ -131,34 +131,52 @@ body::-webkit-scrollbar {
 
 .header-scroll-hint {
   position: absolute;
-  bottom: 26px;
+  bottom: clamp(80px, 14vh, 140px);
   left: 50%;
   transform: translateX(-50%);
-  display: inline-flex;
+  width: 28px;
+  height: 48px;
+  display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
-  animation: hintFloat 1.8s ease-in-out infinite;
+  transition: opacity 0.4s ease;
+  will-change: transform, opacity;
+  pointer-events: none;
 }
 
 .header-scroll-hint__arrow {
-  font-size: 1.4rem;
-  line-height: 1;
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid rgba(255, 255, 255, 0.7);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+  transform: rotate(45deg);
+  opacity: 0.2;
+  filter: drop-shadow(0 0 6px rgba(84, 213, 251, 0.35));
+  animation: arrowPulse 1.8s ease-in-out infinite;
 }
 
-@keyframes hintFloat {
-  0%,
-  100% {
-    transform: translateX(-50%) translateY(0);
-    opacity: 0.7;
+.header-scroll-hint__arrow:nth-child(2) {
+  animation-delay: 0.2s;
+  opacity: 0.45;
+}
+
+@keyframes arrowPulse {
+  0% {
+    opacity: 0;
+    transform: translateY(-6px) rotate(45deg);
   }
-  50% {
-    transform: translateX(-50%) translateY(6px);
-    opacity: 1;
+  40% {
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0.25;
+    transform: translateY(6px) rotate(45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px) rotate(45deg);
   }
 }
 
@@ -337,6 +355,24 @@ main {
   }
   100% {
     transform: translateY(-50%);
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .area-scroller {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    touch-action: pan-y;
+  }
+
+  .area-scroller::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  .area-track {
+    animation: none;
   }
 }
 
@@ -644,21 +680,43 @@ main {
   opacity: 0.8;
 }
 
-.scroll-hint__arrows {
-  font-size: 1.2rem;
+.scroll-hint__chevrons {
   display: inline-flex;
-  animation: hintNudge 1.6s ease-in-out infinite;
+  align-items: center;
+  gap: 6px;
 }
 
-@keyframes hintNudge {
-  0%,
-  100% {
-    transform: translateX(0);
-    opacity: 0.7;
+.scroll-hint__chevron {
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid rgba(255, 255, 255, 0.7);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+  transform: rotate(-45deg);
+  opacity: 0.2;
+  filter: drop-shadow(0 0 6px rgba(84, 213, 251, 0.35));
+  animation: chevronSlide 1.6s ease-in-out infinite;
+}
+
+.scroll-hint__chevron:nth-child(2) {
+  animation-delay: 0.2s;
+  opacity: 0.45;
+}
+
+@keyframes chevronSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(-6px) rotate(-45deg);
   }
-  50% {
-    transform: translateX(8px);
-    opacity: 1;
+  40% {
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0.25;
+    transform: translateX(6px) rotate(-45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(10px) rotate(-45deg);
   }
 }
 
@@ -940,15 +998,66 @@ main {
   }
 
   .service-areas {
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 28px;
+    margin-left: auto;
+    margin-right: auto;
+    transform: none;
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
   }
 
   .service-areas__icon {
-    width: 44px;
-    height: 44px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .service-areas__list {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .service-areas__title {
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+  }
+
+  .area-scroller {
+    width: min(78vw, 340px);
+    height: 200px;
+    margin: 0 auto;
+    padding: 6px 0;
+  }
+
+  .area-track {
+    align-items: center;
+    gap: 10px;
+  }
+
+  .area-track span {
+    font-size: 0.95rem;
+  }
+
+  .area-track span.is-active {
+    font-size: 1.5rem;
+    transform: translateX(0);
+  }
+
+  .area-track span.is-up-1,
+  .area-track span.is-down-1 {
+    font-size: 1.15rem;
+  }
+
+  .area-track span.is-up-2,
+  .area-track span.is-down-2 {
+    font-size: 1.02rem;
+  }
+
+  .area-track span.is-down-1 {
+    font-size: 1.2rem;
   }
 
   .company-grid {
