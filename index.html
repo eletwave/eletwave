@@ -24,7 +24,7 @@
           <a class="nav-item nav-item--service" href="#reti" data-i18n="nav.networks">Reti</a>
           <a class="nav-item nav-item--primary" href="#contatti" data-i18n="nav.contacts">Contatti</a>
         </div>
-        <div class="lang-toggle" aria-label="Language selector">
+        <div class="lang-toggle">
           <select class="lang-select" id="lang-select" aria-label="Seleziona lingua">
             <option value="it">🇮🇹</option>
             <option value="en">🇬🇧</option>
@@ -44,21 +44,29 @@
       <main>
         <section class="company" id="chi-siamo">
           <h1 class="hero-title">
-            <span class="brand-title">ELETWAVE</span>
-            <span data-i18n="hero.title">installa energia intelligente nei tuoi spazi.</span>
+            <span class="hero-title__main" data-i18n="hero.title">Energia intelligente, sicurezza concreta.</span>
           </h1>
           <div class="company-grid">
             <div class="hero-copy">
               <p class="lead" data-i18n="hero.lead">
-                Soluzioni rapide e pulite per impianti civili e industriali, con
-                attenzione a sicurezza, efficienza e risparmio energetico. Seguiamo
-                ogni progetto dalla consulenza all'installazione, con standard
-                elevati, materiali affidabili e una cura artigianale che si vede
-                nel tempo. Pianifichiamo ogni intervento con precisione, riduciamo
-                al minimo i disagi e consegniamo impianti pronti a durare, con
-                assistenza continua e soluzioni pensate per crescere con le tue
-                esigenze.
+                Eletwave e una realta dinamica specializzata nella progettazione, realizzazione e manutenzione di impianti elettrici e soluzioni tecnologiche integrate per privati e aziende. Con sede in Friuli Venezia Giulia e operativita su un ampio territorio, offriamo servizi completi che spaziano dagli impianti elettrici civili e industriali alla domotica, sicurezza, automazioni ed energie rinnovabili, accompagnando il cliente in ogni fase del progetto: dall'analisi delle esigenze fino all'assistenza post-installazione.
               </p>
+              <button class="hero-more-button" type="button" aria-expanded="false" aria-controls="hero-more-content">
+                <span class="hero-more-button__icon" aria-hidden="true">
+                  <span class="scroll-hint__chevron hero-more-button__chevron"></span>
+                  <span class="scroll-hint__chevron hero-more-button__chevron"></span>
+                  <span class="scroll-hint__chevron hero-more-button__chevron"></span>
+                </span>
+                <span class="hero-more-button__label">Approfondisci</span>
+              </button>
+              <div class="hero-more-content" id="hero-more-content" aria-hidden="true">
+                <p class="lead lead--more" data-i18n="hero.lead.more.1">
+                  L'azienda nasce dall'iniziativa di professionisti del settore con una solida esperienza nell'impiantistica elettrica e una forte attenzione all'innovazione tecnologica. La competenza maturata sul campo, unita alla formazione continua e al costante aggiornamento sulle normative di sicurezza, consente di proporre soluzioni efficienti, sicure e su misura, progettate per migliorare comfort, prestazioni energetiche e funzionalita degli ambienti.
+                </p>
+                <p class="lead lead--more" data-i18n="hero.lead.more.2">
+                  L'obiettivo di Eletwave e diventare un punto di riferimento per chi cerca qualita, trasparenza e supporto costante nel tempo. Crediamo nel valore del rapporto diretto con il cliente, nella cura dei dettagli e in un servizio completo capace di coniugare innovazione, affidabilita e sostenibilita, garantendo risultati concreti e duraturi.
+                </p>
+              </div>
             </div>
             <div class="service-areas">
               <div class="service-areas__icon" aria-hidden="true">
@@ -68,14 +76,14 @@
                 <p class="service-areas__title" data-i18n="areas.title">Operativi a</p>
                 <div class="area-scroller">
                   <div class="area-track">
-                    <span>Gorizia</span><span>Nova Gorica</span><span>Trieste</span><span>Koper</span>
-                    <span>Piran</span><span>Udine</span><span>Pordenone</span><span>Venezia</span>
-                    <span>Treviso</span><span>Padova</span><span>Vicenza</span><span>Verona</span>
-                    <span>Trento</span><span>Bolzano</span><span>Milano</span>
-                    <span>Gorizia</span><span>Nova Gorica</span><span>Trieste</span><span>Koper</span>
-                    <span>Piran</span><span>Udine</span><span>Pordenone</span><span>Venezia</span>
-                    <span>Treviso</span><span>Padova</span><span>Vicenza</span><span>Verona</span>
-                    <span>Trento</span><span>Bolzano</span><span>Milano</span>
+                    <span>Gorizia</span><span>Udine</span><span>Trieste</span><span>Nova Gorica</span>
+                    <span>Grado</span><span>Lignano</span><span>Pordenone</span><span>Tarvisio</span>
+                    <span>Venezia</span><span>Treviso</span><span>Padova</span><span>Desenzano</span>
+                    <span>Nova Gorica</span><span>Koper</span>
+                    <span>Gorizia</span><span>Udine</span><span>Trieste</span><span>Nova Gorica</span>
+                    <span>Grado</span><span>Lignano</span><span>Pordenone</span><span>Tarvisio</span>
+                    <span>Venezia</span><span>Treviso</span><span>Padova</span><span>Desenzano</span>
+                    <span>Nova Gorica</span><span>Koper</span>
                   </div>
                 </div>
               </div>
@@ -202,12 +210,30 @@
               </div>
             </article>
           </div>
-          <div class="scroll-hint" aria-hidden="true">
-            <span data-i18n="services.scroll">Scorri</span>
-            <span class="scroll-hint__chevrons" aria-hidden="true">
-              <span class="scroll-hint__chevron"></span>
-              <span class="scroll-hint__chevron"></span>
-            </span>
+          <div class="scroll-hint">
+            <button
+              class="scroll-hint__button scroll-hint__button--prev"
+              type="button"
+              aria-label="Scorri verso sinistra"
+            >
+              <span class="scroll-hint__button-icon" aria-hidden="true">
+                <span class="scroll-hint__chevron scroll-hint__button-chevron"></span>
+                <span class="scroll-hint__chevron scroll-hint__button-chevron"></span>
+                <span class="scroll-hint__chevron scroll-hint__button-chevron"></span>
+              </span>
+            </button>
+            <span class="scroll-hint__label" data-i18n="services.scroll">Scorri</span>
+            <button
+              class="scroll-hint__button scroll-hint__button--next"
+              type="button"
+              aria-label="Scorri verso destra"
+            >
+              <span class="scroll-hint__button-icon" aria-hidden="true">
+                <span class="scroll-hint__chevron scroll-hint__button-chevron"></span>
+                <span class="scroll-hint__chevron scroll-hint__button-chevron"></span>
+                <span class="scroll-hint__chevron scroll-hint__button-chevron"></span>
+              </span>
+            </button>
           </div>
         </section>
       </main>
@@ -216,7 +242,6 @@
         <div class="footer-content">
           <div class="footer-block">
             <h2 data-i18n="contacts.title">Contatti</h2>
-            <div class="cards-beam" aria-hidden="true"></div>
             <div class="contact-icons social-links social-links--center">
               <a href="tel:+393930036372" aria-label="Telefono">
                 <span class="social-icon" aria-hidden="true">
@@ -255,7 +280,7 @@
             <p data-i18n="contacts.vat">P.IVA: 01245000318</p>
           </div>
         </div>
-        <p class="footer-note" data-i18n="footer.note">ELETWAVE. smart energy & security solutions</p>
+        <p class="footer-note" data-i18n="footer.note">ELETWAVE. smart energy &amp; security solutions</p>
       </footer>
     </div>
     <script>
@@ -267,6 +292,8 @@
       const cards = Array.from(document.querySelectorAll(".scroll-card"));
       const serviziTitle = document.querySelector("#servizi .section-title h2");
       const scrollContainer = document.querySelector(".scroll-container");
+      const scrollPrevButton = document.querySelector(".scroll-hint__button--prev");
+      const scrollNextButton = document.querySelector(".scroll-hint__button--next");
       const servicesSection = document.querySelector(".services-scroll");
       const areaScroller = document.querySelector(".area-scroller");
       const areaItems = areaScroller
@@ -274,28 +301,223 @@
         : [];
       const stickyNav = document.querySelector(".sticky-nav");
       const langSelect = document.querySelector("#lang-select");
+      const heroMoreButton = document.querySelector(".hero-more-button");
+      const heroMoreContent = document.querySelector("#hero-more-content");
+      const heroMoreLabel = document.querySelector(".hero-more-button__label");
+      const navLinks = Array.from(document.querySelectorAll(".sticky-nav .nav-item[href^=\"#\"]"));
+      const internalAnchorLinks = Array.from(document.querySelectorAll("a[href^=\"#\"]"));
+      const navLinkByHash = new Map(
+        navLinks.map((link) => [link.getAttribute("href"), link])
+      );
+      const mainSections = ["#chi-siamo", "#servizi", "#contatti"]
+        .map((hash) => ({ hash, el: document.querySelector(hash) }))
+        .filter((item) => item.el);
+      const serviceCardByHash = new Map(
+        cards
+          .filter((card) => card.id)
+          .map((card) => [`#${card.id}`, card])
+      );
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       let ticking = false;
       let cardsTicking = false;
       let areaLastTick = 0;
+      let areaLoopId = null;
+      let serviceAlignTimeout = null;
+      let getClosestCard = null;
+      let currentLang = "it";
+
+      const setCurrentNav = (hash) => {
+        navLinks.forEach((link) => link.classList.remove("is-current"));
+        const target = navLinkByHash.get(hash);
+        if (target) {
+          target.classList.add("is-current");
+        }
+      };
+
+      const getStickyOffset = () => {
+        if (!stickyNav) {
+          return 16;
+        }
+        return Math.ceil(stickyNav.getBoundingClientRect().height) + 14;
+      };
+
+      const scrollToHashTarget = (hash, behavior = prefersReducedMotion ? "auto" : "smooth") => {
+        const target = document.querySelector(hash);
+        if (!target) {
+          return false;
+        }
+        const stickyOffset = getStickyOffset();
+        let top = target.getBoundingClientRect().top + window.scrollY - stickyOffset;
+        if (hash === "#chi-siamo") {
+          const servicesTarget = document.querySelector("#servizi");
+          if (servicesTarget) {
+            const servicesTop = servicesTarget.getBoundingClientRect().top + window.scrollY;
+            const topBeforeServices = servicesTop - window.innerHeight - 6;
+            top = Math.min(top, topBeforeServices);
+          }
+        }
+        window.scrollTo({
+          top: Math.max(0, top),
+          behavior
+        });
+        return true;
+      };
+
+      const scrollToServiceByHash = (hash, behavior = prefersReducedMotion ? "auto" : "smooth") => {
+        if (!scrollContainer) {
+          return false;
+        }
+        const targetCard = serviceCardByHash.get(hash);
+        if (!targetCard) {
+          return false;
+        }
+        scrollToHashTarget("#servizi", behavior);
+        const alignCard = (cardBehavior = behavior) => {
+          const containerWidth = scrollContainer.clientWidth;
+          const maxLeft = Math.max(0, scrollContainer.scrollWidth - containerWidth);
+          const targetLeft =
+            targetCard.offsetLeft + targetCard.offsetWidth / 2 - containerWidth / 2;
+          const nextLeft = Math.min(Math.max(targetLeft, 0), maxLeft);
+          scrollContainer.scrollTo({
+            left: nextLeft,
+            behavior: cardBehavior
+          });
+        };
+        alignCard(behavior);
+        if (serviceAlignTimeout !== null) {
+          window.clearTimeout(serviceAlignTimeout);
+        }
+        serviceAlignTimeout = window.setTimeout(() => {
+          alignCard(prefersReducedMotion ? "auto" : "smooth");
+          serviceAlignTimeout = null;
+        }, 500);
+        return true;
+      };
+
+      const getCurrentMainSectionHash = () => {
+        const markerY = window.scrollY + window.innerHeight * 0.38;
+        let activeHash = mainSections[0] ? mainSections[0].hash : "#chi-siamo";
+        mainSections.forEach(({ hash, el }) => {
+          if (el.offsetTop <= markerY) {
+            activeHash = hash;
+          }
+        });
+        return activeHash;
+      };
+
+      const updateActiveNav = () => {
+        let targetHash = getCurrentMainSectionHash();
+        const hasReachedServices = servicesSection
+          ? window.scrollY >= servicesSection.offsetTop - getStickyOffset() - 2
+          : false;
+        if (targetHash === "#servizi" && !hasReachedServices) {
+          targetHash = "#chi-siamo";
+        }
+        if (targetHash === "#servizi" && hasReachedServices && typeof getClosestCard === "function") {
+          const closest = getClosestCard();
+          if (closest && closest.id) {
+            const serviceHash = `#${closest.id}`;
+            const serviceLink = navLinkByHash.get(serviceHash);
+            if (serviceLink && window.getComputedStyle(serviceLink).display !== "none") {
+              targetHash = serviceHash;
+            }
+          }
+        }
+        setCurrentNav(targetHash);
+      };
+
+      const updateHeroMoreLabel = (lang) => {
+        if (!heroMoreButton || !heroMoreLabel) {
+          return;
+        }
+        const dict = translations[lang] || translations.it;
+        const isExpanded = heroMoreButton.getAttribute("aria-expanded") === "true";
+        heroMoreLabel.textContent = isExpanded ? dict["hero.less"] : dict["hero.more"];
+      };
+
+      const syncHeroMoreHeight = () => {
+        if (!heroMoreButton || !heroMoreContent) {
+          return;
+        }
+        const isExpanded = heroMoreButton.getAttribute("aria-expanded") === "true";
+        heroMoreContent.style.maxHeight = isExpanded ? `${heroMoreContent.scrollHeight}px` : "0px";
+      };
+
+      const setHeroMoreExpanded = (expanded) => {
+        if (!heroMoreButton || !heroMoreContent) {
+          return;
+        }
+        heroMoreButton.setAttribute("aria-expanded", String(expanded));
+        heroMoreContent.setAttribute("aria-hidden", String(!expanded));
+        heroMoreButton.classList.toggle("is-open", expanded);
+        heroMoreContent.classList.toggle("is-open", expanded);
+        if (expanded) {
+          heroMoreContent.style.maxHeight = `${heroMoreContent.scrollHeight}px`;
+        } else {
+          heroMoreContent.style.maxHeight = `${heroMoreContent.scrollHeight}px`;
+          window.requestAnimationFrame(() => {
+            heroMoreContent.style.maxHeight = "0px";
+          });
+        }
+        updateHeroMoreLabel(currentLang);
+      };
 
       const updateScrollEffects = () => {
         const scrollY = window.scrollY;
+        const scrollRange = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+        const scrollProgress = Math.min(scrollY / scrollRange, 1);
         if (stickyNav) {
           if (scrollY > 60) {
             stickyNav.classList.add("is-scrolled");
           } else {
             stickyNav.classList.remove("is-scrolled");
           }
+          stickyNav.style.setProperty("--scroll-progress", scrollProgress.toFixed(4));
         }
 
         if (headerScrollHint) {
-          const fadePoint = 160;
-          const progress = Math.min(scrollY / fadePoint, 1);
+          const fadeStart = 60;
+          const fadeEnd = 430;
+          const progress = Math.min(
+            Math.max((scrollY - fadeStart) / Math.max(fadeEnd - fadeStart, 1), 0),
+            1
+          );
           headerScrollHint.style.opacity = (1 - progress).toFixed(2);
-          headerScrollHint.style.transform = `translateX(-50%) translateY(${(progress * 18).toFixed(1)}px)`;
+          headerScrollHint.style.transform = `translateX(-50%) translateY(${(progress * 14).toFixed(1)}px)`;
+        }
+        if (prefersReducedMotion) {
+          if (heroTitle) {
+            heroTitle.style.transform = "none";
+            heroTitle.classList.add("is-lit");
+          }
+          if (serviziTitle) {
+            serviziTitle.style.transform = "none";
+          }
+          if (beamTitle) {
+            beamTitle.classList.add("is-lit");
+          }
+          if (cardsBeam) {
+            cardsBeam.classList.add("is-lit");
+          }
+          if (companySection) {
+            companySection.style.setProperty("--circuit-opacity", "0.5");
+            companySection.style.setProperty("--circuit-scale", "1");
+          }
+          if (servicesSection) {
+            servicesSection.classList.add("is-revealed");
+          }
+          updateActiveNav();
+          ticking = false;
+          return;
         }
         if (heroTitle) {
-          const lift = Math.min(180, scrollY * 0.35);
+          const companyTop = companySection
+            ? companySection.offsetTop - getStickyOffset()
+            : 0;
+          const localScroll = companySection
+            ? Math.max(0, scrollY - companyTop)
+            : scrollY;
+          const lift = Math.min(120, localScroll * 0.35);
           heroTitle.style.transform = `translateY(${-lift}px)`;
           const rect = heroTitle.getBoundingClientRect();
           const vh = window.innerHeight;
@@ -353,6 +575,7 @@
           }
         }
 
+        updateActiveNav();
         ticking = false;
       };
 
@@ -426,19 +649,43 @@
       };
 
       const areaLoop = (time) => {
-        if (!areaScroller) {
+        if (!areaScroller || areaItems.length === 0 || prefersReducedMotion) {
+          areaLoopId = null;
+          return;
+        }
+        const rect = areaScroller.getBoundingClientRect();
+        const inView = rect.bottom > 0 && rect.top < window.innerHeight;
+        if (document.hidden || !inView) {
+          areaLoopId = null;
           return;
         }
         if (time - areaLastTick > 120) {
           updateAreaFocus();
           areaLastTick = time;
         }
-        window.requestAnimationFrame(areaLoop);
+        areaLoopId = window.requestAnimationFrame(areaLoop);
+      };
+
+      const ensureAreaLoop = () => {
+        if (!areaScroller || areaItems.length === 0 || prefersReducedMotion) {
+          return;
+        }
+        const rect = areaScroller.getBoundingClientRect();
+        const inView = rect.bottom > 0 && rect.top < window.innerHeight;
+        if (!document.hidden && inView && areaLoopId === null) {
+          areaLoopId = window.requestAnimationFrame(areaLoop);
+        }
       };
 
       if (areaScroller && areaItems.length) {
-        window.requestAnimationFrame(areaLoop);
-        window.addEventListener("resize", updateAreaFocus);
+        updateAreaFocus();
+        ensureAreaLoop();
+        window.addEventListener("resize", () => {
+          updateAreaFocus();
+          ensureAreaLoop();
+        });
+        window.addEventListener("scroll", ensureAreaLoop, { passive: true });
+        document.addEventListener("visibilitychange", ensureAreaLoop);
       }
 
       const translations = {
@@ -452,9 +699,15 @@
           "nav.domotics": "Domotica",
           "nav.networks": "Reti",
           "nav.contacts": "Contatti",
-          "hero.title": "installa energia intelligente nei tuoi spazi.",
+          "hero.title": "Energia intelligente, sicurezza concreta.",
           "hero.lead":
-            "Soluzioni rapide e pulite per impianti civili e industriali, con attenzione a sicurezza, efficienza e risparmio energetico. Seguiamo ogni progetto dalla consulenza all'installazione, con standard elevati, materiali affidabili e una cura artigianale che si vede nel tempo. Pianifichiamo ogni intervento con precisione, riduciamo al minimo i disagi e consegniamo impianti pronti a durare, con assistenza continua e soluzioni pensate per crescere con le tue esigenze.",
+            "Eletwave e una realta dinamica specializzata nella progettazione, realizzazione e manutenzione di impianti elettrici e soluzioni tecnologiche integrate per privati e aziende. Con sede in Friuli Venezia Giulia e operativita su un ampio territorio, offriamo servizi completi che spaziano dagli impianti elettrici civili e industriali alla domotica, sicurezza, automazioni ed energie rinnovabili, accompagnando il cliente in ogni fase del progetto: dall'analisi delle esigenze fino all'assistenza post-installazione.",
+          "hero.lead.more.1":
+            "L'azienda nasce dall'iniziativa di professionisti del settore con una solida esperienza nell'impiantistica elettrica e una forte attenzione all'innovazione tecnologica. La competenza maturata sul campo, unita alla formazione continua e al costante aggiornamento sulle normative di sicurezza, consente di proporre soluzioni efficienti, sicure e su misura, progettate per migliorare comfort, prestazioni energetiche e funzionalita degli ambienti.",
+          "hero.lead.more.2":
+            "L'obiettivo di Eletwave e diventare un punto di riferimento per chi cerca qualita, trasparenza e supporto costante nel tempo. Crediamo nel valore del rapporto diretto con il cliente, nella cura dei dettagli e in un servizio completo capace di coniugare innovazione, affidabilita e sostenibilita, garantendo risultati concreti e duraturi.",
+          "hero.more": "Approfondisci",
+          "hero.less": "Mostra meno",
           "services.title": "Servizi",
           "services.electrical.title": "Impianti elettrici",
           "services.electrical.desc":
@@ -480,6 +733,7 @@
           "contacts.email": "Email: <a href=\"mailto:eletwave@gmail.com\">eletwave@gmail.com</a>",
           "contacts.area": "Zona operativa: FVG",
           "contacts.vat": "P.IVA: 01245000318",
+          "footer.nav": "Navigazione",
           "footer.note": "ELETWAVE. smart energy & security solutions"
         },
         en: {
@@ -492,9 +746,15 @@
           "nav.domotics": "Domotics",
           "nav.networks": "Networks",
           "nav.contacts": "Contacts",
-          "hero.title": "installs smart energy in your spaces.",
+          "hero.title": "Smart energy, real security.",
           "hero.lead":
-            "Fast, clean solutions for residential and industrial systems, focused on safety, efficiency, and energy savings. We follow every project from consultation to installation, with high standards, reliable materials, and craftsmanship that lasts. We plan every intervention precisely, minimize disruptions, and deliver systems built to endure, with ongoing support and solutions that grow with your needs.",
+            "Eletwave is a dynamic company specialized in the design, implementation, and maintenance of electrical systems and integrated technology solutions for private clients and businesses. Based in Friuli Venezia Giulia and operating across a wide territory, we provide complete services ranging from residential and industrial electrical systems to domotics, security, automation, and renewable energy, supporting clients through every project phase: from needs analysis to post-installation assistance.",
+          "hero.lead.more.1":
+            "The company was founded by industry professionals with solid experience in electrical engineering and a strong focus on technological innovation. Field expertise, continuous training, and constant updates on safety regulations allow us to deliver efficient, safe, and tailored solutions designed to improve comfort, energy performance, and the functionality of spaces.",
+          "hero.lead.more.2":
+            "Eletwave's goal is to become a trusted reference for those seeking quality, transparency, and consistent support over time. We believe in direct client relationships, attention to detail, and a complete service that combines innovation, reliability, and sustainability to deliver concrete, long-lasting results.",
+          "hero.more": "Read more",
+          "hero.less": "Show less",
           "services.title": "Services",
           "services.electrical.title": "Electrical systems",
           "services.electrical.desc":
@@ -521,6 +781,7 @@
           "contacts.email": "Email: <a href=\"mailto:eletwave@gmail.com\">eletwave@gmail.com</a>",
           "contacts.area": "Operating area: FVG",
           "contacts.vat": "VAT: 01245000318",
+          "footer.nav": "Navigation",
           "footer.note": "ELETWAVE. smart energy & security solutions"
         },
         sl: {
@@ -533,9 +794,15 @@
           "nav.domotics": "Domotika",
           "nav.networks": "Omrezja",
           "nav.contacts": "Kontakti",
-          "hero.title": "namešča pametno energijo v vaše prostore.",
+          "hero.title": "Pametna energija, resnicna varnost.",
           "hero.lead":
-            "Hitre in ciste resitve za stanovanjske in industrijske sisteme, s poudarkom na varnosti, ucinkovitosti in prihranku energije. Vsak projekt vodimo od svetovanja do montaze, z visokimi standardi, zanesljivimi materiali in kakovostjo, ki traja. Vsak poseg nacrtujemo natancno, zmanjsamo motnje in vgradimo sisteme, ki vzdrzijo, z nadaljnjo podporo in resitvami, ki rastejo z vasimi potrebami.",
+            "Eletwave je dinamicno podjetje, specializirano za nacrtovanje, izvedbo in vzdrzevanje elektricnih sistemov ter integriranih tehnoloskih resitev za zasebne in poslovne stranke. S sedezem v Furlaniji-Julijski krajini in delovanjem na sirokem obmocju nudimo celovite storitve od stanovanjskih in industrijskih elektricnih instalacij do domotike, varnosti, avtomatizacije in obnovljivih virov energije ter spremljamo stranko v vseh fazah projekta: od analize potreb do podpore po izvedbi.",
+          "hero.lead.more.1":
+            "Podjetje je nastalo na pobudo strokovnjakov z bogatimi izkusnjami na podrocju elektricnih instalacij in z mocnim poudarkom na tehnoloskih inovacijah. Znanje s terena, stalno izobrazevanje in redno spremljanje varnostnih predpisov nam omogocajo pripravo ucinkovitih, varnih in prilagojenih resitev za boljse udobje, energetsko ucinkovitost in funkcionalnost prostorov.",
+          "hero.lead.more.2":
+            "Cilj podjetja Eletwave je postati referencna izbira za vse, ki iscejo kakovost, preglednost in stalno podporo skozi cas. Verjamemo v neposreden odnos s stranko, pozornost do podrobnosti in celovito storitev, ki zdruzuje inovacije, zanesljivost in trajnost za konkretne in dolgotrajne rezultate.",
+          "hero.more": "Preberi vec",
+          "hero.less": "Prikazi manj",
           "services.title": "Storitve",
           "services.electrical.title": "Elektricni sistemi",
           "services.electrical.desc":
@@ -562,12 +829,14 @@
           "contacts.email": "E-posta: <a href=\"mailto:eletwave@gmail.com\">eletwave@gmail.com</a>",
           "contacts.area": "Obmocje dela: FVG",
           "contacts.vat": "DDV: 01245000318",
+          "footer.nav": "Navigacija",
           "footer.note": "ELETWAVE. smart energy & security solutions"
         }
       };
 
       const applyTranslations = (lang) => {
         const dict = translations[lang] || translations.it;
+        currentLang = lang;
         document.documentElement.lang = lang;
         document.querySelectorAll("[data-i18n]").forEach((el) => {
           const key = el.getAttribute("data-i18n");
@@ -584,10 +853,20 @@
         if (langSelect) {
           langSelect.value = lang;
         }
+        updateHeroMoreLabel(lang);
+        syncHeroMoreHeight();
       };
 
       const savedLang = localStorage.getItem("eletwave-lang") || "it";
       applyTranslations(savedLang);
+      if (heroMoreButton && heroMoreContent) {
+        setHeroMoreExpanded(false);
+        heroMoreButton.addEventListener("click", () => {
+          const isExpanded = heroMoreButton.getAttribute("aria-expanded") === "true";
+          setHeroMoreExpanded(!isExpanded);
+        });
+        window.addEventListener("resize", syncHeroMoreHeight);
+      }
       if (langSelect) {
         langSelect.value = savedLang;
         langSelect.addEventListener("change", () => {
@@ -595,6 +874,32 @@
           localStorage.setItem("eletwave-lang", lang);
           applyTranslations(lang);
         });
+      }
+
+      internalAnchorLinks.forEach((link) => {
+        const hash = link.getAttribute("href");
+        if (!hash || hash === "#") {
+          return;
+        }
+        link.addEventListener("click", (event) => {
+          const handledByService = scrollToServiceByHash(hash);
+          const handledBySection = handledByService ? true : scrollToHashTarget(hash);
+          if (!handledBySection) {
+            return;
+          }
+          event.preventDefault();
+          if (history.replaceState) {
+            history.replaceState(null, "", hash);
+          }
+        });
+      });
+
+      if (window.location.hash) {
+        window.setTimeout(() => {
+          if (!scrollToServiceByHash(window.location.hash, "auto")) {
+            scrollToHashTarget(window.location.hash, "auto");
+          }
+        }, 0);
       }
 
       if (scrollContainer) {
@@ -612,7 +917,7 @@
 
         updateSnapPadding();
 
-        const getClosestCard = () => {
+        getClosestCard = () => {
           const containerRect = scrollContainer.getBoundingClientRect();
           const centerX = containerRect.left + containerRect.width / 2;
           let closest = null;
@@ -637,7 +942,28 @@
           if (closest) {
             closest.classList.add("is-active");
           }
+          const activeIndex = closest ? cards.indexOf(closest) : 0;
+          if (scrollPrevButton) {
+            scrollPrevButton.disabled = activeIndex <= 0;
+          }
+          if (scrollNextButton) {
+            scrollNextButton.disabled = activeIndex >= cards.length - 1;
+          }
+          updateActiveNav();
           cardsTicking = false;
+        };
+
+        const scrollToCard = (nextIndex) => {
+          const targetIndex = Math.min(Math.max(nextIndex, 0), cards.length - 1);
+          const targetCard = cards[targetIndex];
+          if (!targetCard) {
+            return;
+          }
+          targetCard.scrollIntoView({
+            behavior: prefersReducedMotion ? "auto" : "smooth",
+            inline: "center",
+            block: "nearest"
+          });
         };
 
         const onCardsScroll = () => {
@@ -651,6 +977,20 @@
         };
 
         scrollContainer.addEventListener("scroll", onCardsScroll, { passive: true });
+        if (scrollPrevButton) {
+          scrollPrevButton.addEventListener("click", () => {
+            const closest = getClosestCard();
+            const activeIndex = closest ? cards.indexOf(closest) : 0;
+            scrollToCard(activeIndex - 1);
+          });
+        }
+        if (scrollNextButton) {
+          scrollNextButton.addEventListener("click", () => {
+            const closest = getClosestCard();
+            const activeIndex = closest ? cards.indexOf(closest) : 0;
+            scrollToCard(activeIndex + 1);
+          });
+        }
         window.addEventListener("resize", () => {
           updateSnapPadding();
           onCardsScroll();
