@@ -687,35 +687,38 @@ main {
   bottom: 12px;
   margin: 0;
   padding: 12px 54px 14px 14px;
-  color: #ffffff;
+  color: transparent;
   line-height: 1.5;
-  background: rgba(5, 8, 14, 0.93);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(5, 8, 14, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 12px;
   font-size: 0.95rem;
   text-shadow: none;
   -webkit-text-stroke: 0;
-  opacity: 0;
-  visibility: hidden;
-  max-height: 0;
+  opacity: 0.34;
+  visibility: visible;
+  max-height: 22px;
   overflow: hidden;
-  transform: translateY(110%);
+  transform: translateY(calc(100% - 22px));
   z-index: 2;
   pointer-events: none;
   transition:
     opacity 0.35s ease,
-    visibility 0s linear 0.35s,
     max-height 0.35s ease,
-    transform 0.35s ease;
+    transform 0.35s ease,
+    color 0.2s ease,
+    background 0.35s ease,
+    border-color 0.35s ease;
 }
 
 .service-card.is-active .service-media.is-expanded .service-description {
+  color: #ffffff;
+  background: rgba(5, 8, 14, 0.93);
+  border-color: rgba(255, 255, 255, 0.12);
   opacity: 1;
-  visibility: visible;
   max-height: 14.5em;
   transform: translateY(0);
   pointer-events: auto;
-  transition-delay: 0s;
 }
 
 .service-description-toggle {
