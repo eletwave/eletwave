@@ -234,44 +234,116 @@
 
       <footer class="footer" id="contatti">
         <div class="footer-content">
-          <div class="footer-block">
-            <h2 data-i18n="contacts.title">Contatti</h2>
-            <div class="contact-icons social-links social-links--center">
-              <a href="tel:+393930036372" aria-label="Telefono">
-                <span class="social-icon" aria-hidden="true">
-                  <img src="assets/icon-phone.png" alt="" />
-                </span>
-              </a>
-              <a href="mailto:eletwave@gmail.com" aria-label="Email">
-                <span class="social-icon" aria-hidden="true">
-                  <img src="assets/icon-email.png" alt="" />
-                </span>
-              </a>
-              <a
-                href="https://www.instagram.com/eletwave/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-              >
-                <span class="social-icon" aria-hidden="true">
-                  <img src="assets/icon-instagram.png" alt="" />
-                </span>
-              </a>
-              <a
-                href="https://wa.me/393930036372"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="WhatsApp"
-              >
-                <span class="social-icon" aria-hidden="true">
-                  <img src="assets/icon-whatsapp.png" alt="" />
-                </span>
-              </a>
-            </div>
-            <p data-i18n="contacts.phone">Telefono: +39 3930036372</p>
-            <p data-i18n-html="contacts.email">Email: <a href="mailto:eletwave@gmail.com">eletwave@gmail.com</a></p>
-            <p data-i18n="contacts.area">Zona operativa: FVG</p>
-            <p data-i18n="contacts.vat">P.IVA: 01287600314</p>
+          <div class="footer-layout">
+            <section class="footer-block footer-block--contacts">
+              <h2 data-i18n="contacts.title">Contatti</h2>
+              <div class="contact-icons social-links social-links--contact">
+                <a href="tel:+393930036372" aria-label="Telefono">
+                  <span class="social-icon" aria-hidden="true">
+                    <img src="assets/icon-phone.png" alt="" />
+                  </span>
+                </a>
+                <a href="mailto:eletwave@gmail.com" aria-label="Email">
+                  <span class="social-icon" aria-hidden="true">
+                    <img src="assets/icon-email.png" alt="" />
+                  </span>
+                </a>
+                <a
+                  href="https://www.instagram.com/eletwave/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                >
+                  <span class="social-icon" aria-hidden="true">
+                    <img src="assets/icon-instagram.png" alt="" />
+                  </span>
+                </a>
+                <a
+                  href="https://wa.me/393930036372"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="WhatsApp"
+                >
+                  <span class="social-icon" aria-hidden="true">
+                    <img src="assets/icon-whatsapp.png" alt="" />
+                  </span>
+                </a>
+              </div>
+              <p data-i18n="contacts.phone">Telefono: +39 3930036372</p>
+              <p data-i18n-html="contacts.email">Email: <a href="mailto:eletwave@gmail.com">eletwave@gmail.com</a></p>
+              <p data-i18n="contacts.area">Zona operativa: FVG</p>
+              <p data-i18n="contacts.vat">P.IVA: 01287600314</p>
+            </section>
+
+            <section class="footer-block footer-block--quote" aria-labelledby="quote-title">
+              <h3 id="quote-title" data-i18n="quote.title">Richiedi un preventivo</h3>
+              <p class="quote-lead" data-i18n="quote.lead">
+                Compila il modulo e ti ricontattiamo con una proposta su misura.
+              </p>
+              <form class="quote-form" id="quote-form">
+                <label class="quote-field" for="quote-name">
+                  <span data-i18n="quote.name">Nome e cognome</span>
+                  <input
+                    id="quote-name"
+                    name="name"
+                    type="text"
+                    autocomplete="name"
+                    required
+                    data-i18n-placeholder="quote.placeholder.name"
+                    placeholder="Mario Rossi"
+                  />
+                </label>
+                <label class="quote-field" for="quote-phone">
+                  <span data-i18n="quote.phone">Telefono</span>
+                  <input
+                    id="quote-phone"
+                    name="phone"
+                    type="tel"
+                    autocomplete="tel"
+                    required
+                    data-i18n-placeholder="quote.placeholder.phone"
+                    placeholder="+39 3xx xxx xxxx"
+                  />
+                </label>
+                <label class="quote-field" for="quote-email">
+                  <span data-i18n="quote.email">Email</span>
+                  <input
+                    id="quote-email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    required
+                    data-i18n-placeholder="quote.placeholder.email"
+                    placeholder="nome@azienda.it"
+                  />
+                </label>
+                <label class="quote-field" for="quote-service">
+                  <span data-i18n="quote.service">Servizio di interesse</span>
+                  <select id="quote-service" name="service" required>
+                    <option value="" data-i18n="quote.service.choose">Seleziona un servizio</option>
+                    <option data-i18n="quote.service.electrical">Impianti elettrici</option>
+                    <option data-i18n="quote.service.solar">Impianti fotovoltaici</option>
+                    <option data-i18n="quote.service.wallbox">Wallbox</option>
+                    <option data-i18n="quote.service.security">Videosorveglianza e antifurti</option>
+                    <option data-i18n="quote.service.domotics">Domotica</option>
+                    <option data-i18n="quote.service.networks">Reti e cablaggi</option>
+                  </select>
+                </label>
+                <label class="quote-field" for="quote-message">
+                  <span data-i18n="quote.message">Dettagli del progetto</span>
+                  <textarea
+                    id="quote-message"
+                    name="message"
+                    rows="4"
+                    required
+                    data-i18n-placeholder="quote.placeholder.message"
+                    placeholder="Descrivi brevemente l'intervento richiesto"
+                  ></textarea>
+                </label>
+                <button class="quote-submit" type="submit" data-i18n="quote.submit">Invia richiesta</button>
+              </form>
+              <p class="quote-note" data-i18n="quote.note">Risposta rapida via email o telefono.</p>
+            </section>
           </div>
         </div>
         <p class="footer-note" data-i18n="footer.note">ELETWAVE. smart energy &amp; security solutions</p>
@@ -299,6 +371,8 @@
       const heroMoreButton = document.querySelector(".hero-more-button");
       const heroMoreContent = document.querySelector("#hero-more-content");
       const heroMoreLabel = document.querySelector(".hero-more-button__label");
+      const quoteForm = document.querySelector("#quote-form");
+      const quoteServiceSelect = document.querySelector("#quote-service");
       const navLinks = Array.from(document.querySelectorAll(".sticky-nav .nav-item[href^=\"#\"]"));
       const internalAnchorLinks = Array.from(document.querySelectorAll("a[href^=\"#\"]"));
       const navLinkByHash = new Map(
@@ -755,6 +829,32 @@
           "contacts.email": "Email: <a href=\"mailto:eletwave@gmail.com\">eletwave@gmail.com</a>",
           "contacts.area": "Zona operativa: FVG",
           "contacts.vat": "P.IVA: 01287600314",
+          "quote.title": "Richiedi un preventivo",
+          "quote.lead": "Compila il modulo e ti ricontattiamo con una proposta su misura.",
+          "quote.name": "Nome e cognome",
+          "quote.phone": "Telefono",
+          "quote.email": "Email",
+          "quote.service": "Servizio di interesse",
+          "quote.service.choose": "Seleziona un servizio",
+          "quote.service.electrical": "Impianti elettrici",
+          "quote.service.solar": "Impianti fotovoltaici",
+          "quote.service.wallbox": "Wallbox",
+          "quote.service.security": "Videosorveglianza e antifurti",
+          "quote.service.domotics": "Domotica",
+          "quote.service.networks": "Reti e cablaggi",
+          "quote.message": "Dettagli del progetto",
+          "quote.submit": "Invia richiesta",
+          "quote.note": "Risposta rapida via email o telefono.",
+          "quote.subject": "Richiesta preventivo sito web",
+          "quote.field.name": "Nome",
+          "quote.field.phone": "Telefono",
+          "quote.field.email": "Email",
+          "quote.field.service": "Servizio",
+          "quote.field.message": "Dettagli",
+          "quote.placeholder.name": "Mario Rossi",
+          "quote.placeholder.phone": "+39 3xx xxx xxxx",
+          "quote.placeholder.email": "nome@azienda.it",
+          "quote.placeholder.message": "Descrivi brevemente l'intervento richiesto",
           "footer.nav": "Navigazione",
           "footer.note": "ELETWAVE. smart energy & security solutions"
         },
@@ -804,6 +904,32 @@
           "contacts.email": "Email: <a href=\"mailto:eletwave@gmail.com\">eletwave@gmail.com</a>",
           "contacts.area": "Operating area: FVG",
           "contacts.vat": "VAT: 01287600314",
+          "quote.title": "Request a quote",
+          "quote.lead": "Fill in the form and we will get back to you with a tailored proposal.",
+          "quote.name": "Full name",
+          "quote.phone": "Phone",
+          "quote.email": "Email",
+          "quote.service": "Service of interest",
+          "quote.service.choose": "Select a service",
+          "quote.service.electrical": "Electrical systems",
+          "quote.service.solar": "Solar systems",
+          "quote.service.wallbox": "Wallbox",
+          "quote.service.security": "CCTV and alarms",
+          "quote.service.domotics": "Domotics",
+          "quote.service.networks": "Networks and cabling",
+          "quote.message": "Project details",
+          "quote.submit": "Send request",
+          "quote.note": "Fast response by email or phone.",
+          "quote.subject": "Website quote request",
+          "quote.field.name": "Name",
+          "quote.field.phone": "Phone",
+          "quote.field.email": "Email",
+          "quote.field.service": "Service",
+          "quote.field.message": "Details",
+          "quote.placeholder.name": "Mario Rossi",
+          "quote.placeholder.phone": "+39 3xx xxx xxxx",
+          "quote.placeholder.email": "name@company.com",
+          "quote.placeholder.message": "Briefly describe the requested project",
           "footer.nav": "Navigation",
           "footer.note": "ELETWAVE. smart energy & security solutions"
         },
@@ -853,6 +979,32 @@
           "contacts.email": "E-posta: <a href=\"mailto:eletwave@gmail.com\">eletwave@gmail.com</a>",
           "contacts.area": "Obmocje dela: FVG",
           "contacts.vat": "DDV: 01287600314",
+          "quote.title": "Zahtevaj ponudbo",
+          "quote.lead": "Izpolnite obrazec in pripravimo prilagojeno ponudbo.",
+          "quote.name": "Ime in priimek",
+          "quote.phone": "Telefon",
+          "quote.email": "E-posta",
+          "quote.service": "Izbrana storitev",
+          "quote.service.choose": "Izberite storitev",
+          "quote.service.electrical": "Elektricni sistemi",
+          "quote.service.solar": "Fotovoltaika",
+          "quote.service.wallbox": "Wallbox",
+          "quote.service.security": "Videonadzor in alarmi",
+          "quote.service.domotics": "Domotika",
+          "quote.service.networks": "Omrezja in kabliranje",
+          "quote.message": "Podrobnosti projekta",
+          "quote.submit": "Poslji zahtevo",
+          "quote.note": "Hiter odgovor po e-posti ali telefonu.",
+          "quote.subject": "Zahteva za ponudbo s spletne strani",
+          "quote.field.name": "Ime",
+          "quote.field.phone": "Telefon",
+          "quote.field.email": "E-posta",
+          "quote.field.service": "Storitev",
+          "quote.field.message": "Podrobnosti",
+          "quote.placeholder.name": "Mario Rossi",
+          "quote.placeholder.phone": "+39 3xx xxx xxxx",
+          "quote.placeholder.email": "ime@podjetje.si",
+          "quote.placeholder.message": "Na kratko opisite zeljeni poseg",
           "footer.nav": "Navigacija",
           "footer.note": "ELETWAVE. smart energy & security solutions"
         }
@@ -880,6 +1032,12 @@
           const key = el.getAttribute("data-i18n-html");
           if (dict[key]) {
             el.innerHTML = dict[key];
+          }
+        });
+        document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+          const key = el.getAttribute("data-i18n-placeholder");
+          if (dict[key]) {
+            el.setAttribute("placeholder", dict[key]);
           }
         });
         if (langSelect) {
@@ -923,6 +1081,34 @@
               toggleServiceDescription(media);
             }
           });
+        });
+      }
+      if (quoteForm) {
+        quoteForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const formData = new FormData(quoteForm);
+          const name = String(formData.get("name") || "").trim();
+          const phone = String(formData.get("phone") || "").trim();
+          const email = String(formData.get("email") || "").trim();
+          const message = String(formData.get("message") || "").trim();
+          let serviceText = "";
+          if (quoteServiceSelect && quoteServiceSelect.selectedOptions.length) {
+            serviceText = quoteServiceSelect.selectedOptions[0].textContent.trim();
+          }
+          const dict = translations[currentLang] || translations.it;
+          const getCopy = (key, fallback) => dict[key] || translations.it[key] || fallback;
+          const subject = getCopy("quote.subject", "Richiesta preventivo sito web");
+          const body = [
+            `${getCopy("quote.field.name", "Nome")}: ${name || "-"}`,
+            `${getCopy("quote.field.phone", "Telefono")}: ${phone || "-"}`,
+            `${getCopy("quote.field.email", "Email")}: ${email || "-"}`,
+            `${getCopy("quote.field.service", "Servizio")}: ${serviceText || "-"}`,
+            "",
+            `${getCopy("quote.field.message", "Dettagli")}:`,
+            message || "-"
+          ].join("\n");
+          const mailto = `mailto:eletwave@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+          window.location.href = mailto;
         });
       }
       if (langSelect) {

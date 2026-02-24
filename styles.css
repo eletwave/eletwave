@@ -937,7 +937,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 30px 0 24px;
+  padding: 34px 0 24px;
   color: var(--muted);
   font-size: 0.9rem;
   position: relative;
@@ -964,28 +964,48 @@ main {
 }
 
 .footer-content {
-  width: min(720px, 100%);
+  width: min(1160px, 100%);
   margin: 0 auto 18px;
 }
 
-.footer-block {
-  padding: 0;
-  text-align: center;
+.footer-layout {
+  width: min(560px, 100%);
+  margin-left: auto;
+  display: grid;
+  gap: 18px;
 }
 
-.footer-block h2 {
+.footer-block {
+  padding: 22px 24px;
+  text-align: right;
+  border-radius: 16px;
+  border: 1px solid rgba(88, 209, 255, 0.22);
+  background: linear-gradient(155deg, rgba(18, 24, 40, 0.86), rgba(9, 13, 24, 0.92));
+  box-shadow:
+    0 20px 46px rgba(6, 8, 16, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+}
+
+.footer-block h2,
+.footer-block h3 {
   font-size: 1.02rem;
-  margin-bottom: 10px;
+  margin: 0 0 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--text);
   transition: transform 0.2s ease-out;
   will-change: transform;
 }
 
 .footer-block p {
-  margin-bottom: 6px;
+  margin: 0 0 6px;
   line-height: 1.55;
   transition: transform 0.2s ease-out;
   will-change: transform;
+}
+
+.footer-block p:last-child {
+  margin-bottom: 0;
 }
 
 .footer-block .social-links {
@@ -995,6 +1015,7 @@ main {
 .footer a {
   color: var(--text);
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .footer a:hover {
@@ -1038,20 +1059,20 @@ main {
   display: block;
 }
 
-.social-links--center {
+.social-links--contact {
   margin-top: 14px;
   flex-direction: row;
-  justify-content: center;
-  gap: 18px;
-  margin-bottom: 22px;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
 .contact-icons a {
-  padding: 10px;
-  border-radius: 50%;
-  background: #ffffff;
+  padding: 8px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.24);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1060,14 +1081,105 @@ main {
 }
 
 .contact-icons .social-icon {
-  width: 38px;
-  height: 38px;
+  width: 30px;
+  height: 30px;
 }
 
 .contact-icons a:hover {
   background: #54d5fb;
-  box-shadow: 0 12px 26px rgba(84, 213, 251, 0.35);
+  box-shadow: 0 12px 24px rgba(84, 213, 251, 0.32);
   transform: translateY(-2px);
+}
+
+.quote-lead {
+  color: rgba(199, 212, 236, 0.88);
+}
+
+.quote-form {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.quote-field {
+  display: grid;
+  gap: 6px;
+  text-align: right;
+}
+
+.quote-field span {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(199, 212, 236, 0.76);
+}
+
+.quote-field input,
+.quote-field select,
+.quote-field textarea {
+  width: 100%;
+  border: 1px solid rgba(88, 209, 255, 0.26);
+  background: rgba(7, 11, 20, 0.74);
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: 10px;
+  font: inherit;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.quote-field textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+.quote-field select {
+  cursor: pointer;
+}
+
+.quote-field input::placeholder,
+.quote-field textarea::placeholder {
+  color: rgba(199, 212, 236, 0.52);
+}
+
+.quote-field input:focus-visible,
+.quote-field select:focus-visible,
+.quote-field textarea:focus-visible {
+  outline: 2px solid rgba(84, 213, 251, 0.6);
+  outline-offset: 1px;
+  border-color: rgba(84, 213, 251, 0.62);
+}
+
+.quote-submit {
+  justify-self: end;
+  margin-top: 2px;
+  border: 1px solid rgba(88, 209, 255, 0.42);
+  background: linear-gradient(90deg, rgba(84, 213, 251, 0.36), rgba(224, 117, 231, 0.3));
+  color: #f4f8ff;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.quote-submit:hover {
+  transform: translateY(-1px);
+  border-color: rgba(88, 209, 255, 0.68);
+  box-shadow: 0 10px 22px rgba(84, 213, 251, 0.22);
+}
+
+.quote-submit:focus-visible {
+  outline: 2px solid rgba(84, 213, 251, 0.72);
+  outline-offset: 2px;
+}
+
+.quote-note {
+  margin-top: 10px;
+  font-size: 0.78rem;
+  color: rgba(199, 212, 236, 0.76);
 }
 
 .sticky-nav a {
@@ -1187,19 +1299,19 @@ main {
     display: inline-flex;
   }
 
-  .social-links--center {
-    justify-content: center;
-    gap: 14px;
-    margin-bottom: 28px;
+  .social-links--contact {
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 16px;
   }
 
   .contact-icons .social-icon {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
   }
 
   .contact-icons a {
-    padding: 12px;
+    padding: 8px;
   }
 
   .services-scroll {
@@ -1336,9 +1448,17 @@ main {
     padding-right: 40px;
   }
 
+  .footer-layout {
+    width: 100%;
+  }
+
   .footer-block {
-    padding-left: 14px;
-    padding-right: 14px;
+    padding: 20px 16px;
+  }
+
+  .quote-submit {
+    width: 100%;
+    justify-self: stretch;
   }
 
   .footer-note {
@@ -1451,6 +1571,7 @@ main {
   .header-scroll-hint,
   .section-title h2,
   .footer-block h2,
+  .footer-block h3,
   .footer-block p {
     transition: none !important;
   }
@@ -1463,6 +1584,7 @@ main {
 
 
 .footer-note {
+  text-align: right;
   color: var(--muted);
   font-size: 0.8rem;
   letter-spacing: 0.08em;
