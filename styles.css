@@ -9,7 +9,7 @@
   --accent-glow: rgba(88, 209, 255, 0.35);
   --accent-warm: rgba(255, 58, 87, 0.35);
   --line: rgba(255, 255, 255, 0.08);
-  --font-sans: "Space Grotesk", "Sora", "Avenir Next", "Trebuchet MS", sans-serif;
+  --font-sans: "Montserrat", "Avenir Next", "Trebuchet MS", sans-serif;
 }
 
 * {
@@ -270,9 +270,8 @@ main {
   display: inline-flex;
   align-items: center;
   align-self: flex-start;
-  gap: 14px;
-  margin-top: 8px;
-  padding: 2px 0;
+  margin-top: 10px;
+  padding: 0;
   border: none;
   background: transparent;
   color: var(--muted);
@@ -284,36 +283,9 @@ main {
   transition: color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
 }
 
-.hero-more-button__icon {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.hero-more-button__chevron {
-  animation: none;
-  transform: rotate(-45deg);
-}
-
-.hero-more-button__chevron:nth-child(1) {
-  opacity: 0.28;
-}
-
-.hero-more-button__chevron:nth-child(2) {
-  opacity: 0.45;
-}
-
-.hero-more-button__chevron:nth-child(3) {
-  opacity: 0.7;
-}
-
 .hero-more-button:hover {
   color: var(--text);
   transform: translateY(-1px);
-}
-
-.hero-more-button:hover .hero-more-button__chevron {
-  opacity: 0.9;
 }
 
 .hero-more-button:focus-visible {
@@ -321,38 +293,33 @@ main {
   outline-offset: 3px;
 }
 
-.hero-more-button.is-open .hero-more-button__chevron {
-  transform: rotate(45deg);
-}
-
 .hero-more-content {
   margin-top: 0;
-  padding-left: 14px;
-  border-left: 2px solid rgba(84, 213, 251, 0.28);
-  display: grid;
-  gap: 14px;
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  transform: translateY(-6px);
+  transform: translateY(-3px);
   pointer-events: none;
   transition:
     max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1),
     opacity 0.32s ease,
-    transform 0.32s ease,
-    margin-top 0.32s ease;
+    transform 0.32s ease;
 }
 
 .hero-more-content.is-open {
-  margin-top: 10px;
+  margin-top: 0;
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
 
 .lead--more {
-  max-width: 60ch;
-  color: rgba(199, 212, 236, 0.9);
+  max-width: 56ch;
+  color: rgba(216, 225, 242, 0.9);
+}
+
+.lead--more + .lead--more {
+  margin-top: 10px;
 }
 
 .section-title {
@@ -694,13 +661,13 @@ main {
   padding: 12px 14px 14px;
   color: transparent;
   line-height: 1.5;
-  background: rgba(5, 8, 14, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(3, 7, 14, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 12px;
   font-size: 0.95rem;
   text-shadow: none;
   -webkit-text-stroke: 0;
-  opacity: 0.34;
+  opacity: 0.62;
   visibility: visible;
   max-height: 24px;
   overflow: hidden;
@@ -1192,6 +1159,43 @@ main {
   margin-top: 10px;
   font-size: 0.78rem;
   color: rgba(199, 212, 236, 0.76);
+}
+
+@media (min-width: 1025px) {
+  .footer-layout {
+    width: min(1080px, 100%);
+    margin-left: auto;
+    margin-right: 0;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(28px, 4vw, 56px);
+    align-items: start;
+  }
+
+  .footer-block {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .footer-block--quote {
+    grid-column: 1;
+    text-align: left;
+  }
+
+  .footer-block--quote .quote-field {
+    text-align: left;
+  }
+
+  .footer-block--quote .quote-submit {
+    justify-self: start;
+  }
+
+  .footer-block--contacts {
+    grid-column: 2;
+    text-align: right;
+  }
 }
 
 .sticky-nav a {
