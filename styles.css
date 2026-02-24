@@ -538,6 +538,7 @@ main {
 
 .scroll-container {
   display: flex;
+  align-items: flex-start;
   gap: 22px;
   flex-wrap: nowrap;
   overflow-x: auto;
@@ -556,6 +557,8 @@ main {
 .service-card {
   flex: 0 0 clamp(340px, 86vw, 640px);
   position: relative;
+  display: flex;
+  justify-content: center;
   background: transparent;
   border: none;
   border-radius: 0;
@@ -580,10 +583,16 @@ main {
 .service-card__content {
   max-width: 560px;
   width: min(560px, 90vw);
+  display: flex;
+  flex-direction: column;
 }
 
 .service-card__content h3 {
   font-size: 1.45rem;
+  line-height: 1.14;
+  min-height: 2.3em;
+  display: flex;
+  align-items: flex-end;
   margin-bottom: 12px;
   background-clip: text;
   -webkit-background-clip: text;
@@ -636,6 +645,7 @@ main {
 
 .service-media {
   position: relative;
+  width: 100%;
   margin-top: 12px;
   max-width: 640px;
   border-radius: 18px;
@@ -1381,6 +1391,10 @@ main {
     padding: 0 16px;
   }
 
+  .service-card__content h3 {
+    min-height: 0;
+  }
+
   .service-image {
     max-width: none;
     width: 100vw;
@@ -1537,7 +1551,6 @@ main {
   .service-card {
     flex: 0 0 100vw;
     padding: 10px 0 18px;
-    scroll-snap-align: start;
     transform: none;
     opacity: 0.82;
   }
