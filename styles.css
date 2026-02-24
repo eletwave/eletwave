@@ -676,8 +676,13 @@ main {
     0 20px 42px rgba(8, 10, 20, 0.52),
     0 0 0 1px rgba(255, 255, 255, 0.03) inset;
   overflow: hidden;
-  cursor: default;
+  cursor: pointer;
   transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.service-media:focus-visible {
+  outline: 2px solid rgba(88, 209, 255, 0.9);
+  outline-offset: 2px;
 }
 
 .service-description {
@@ -686,7 +691,7 @@ main {
   right: 12px;
   bottom: 12px;
   margin: 0;
-  padding: 12px 54px 14px 14px;
+  padding: 12px 14px 14px;
   color: transparent;
   line-height: 1.5;
   background: rgba(5, 8, 14, 0.45);
@@ -697,9 +702,9 @@ main {
   -webkit-text-stroke: 0;
   opacity: 0.34;
   visibility: visible;
-  max-height: 22px;
+  max-height: 24px;
   overflow: hidden;
-  transform: translateY(calc(100% - 22px));
+  transform: translateY(calc(100% - 24px));
   z-index: 2;
   pointer-events: none;
   transition:
@@ -711,6 +716,20 @@ main {
     border-color 0.35s ease;
 }
 
+.service-description::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid rgba(255, 255, 255, 0.9);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.9);
+  transform: translateX(-50%) rotate(-135deg);
+  opacity: 0.95;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
 .service-card.is-active .service-media.is-expanded .service-description {
   color: #ffffff;
   background: rgba(5, 8, 14, 0.93);
@@ -718,53 +737,11 @@ main {
   opacity: 1;
   max-height: 14.5em;
   transform: translateY(0);
-  pointer-events: auto;
 }
 
-.service-description-toggle {
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
-  width: 40px;
-  height: 34px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 10px;
-  background: rgba(0, 0, 0, 0.12);
-  color: #ffffff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 3;
-  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
-}
-
-.service-description-toggle:hover {
-  background: rgba(0, 0, 0, 0.22);
-  transform: translateY(-1px);
-}
-
-.service-description-toggle:focus-visible {
-  outline: 2px solid rgba(88, 209, 255, 0.9);
-  outline-offset: 2px;
-}
-
-.service-description-toggle__arrow {
-  width: 10px;
-  height: 10px;
-  border-right: 2px solid rgba(255, 255, 255, 0.9);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.9);
-  transform: rotate(45deg) translateY(-1px);
-  transition: transform 0.25s ease;
-}
-
-.service-description-toggle.is-open {
-  background: rgba(6, 12, 22, 0.78);
-  border-color: rgba(88, 209, 255, 0.7);
-}
-
-.service-description-toggle.is-open .service-description-toggle__arrow {
-  transform: rotate(-135deg) translateY(-1px);
+.service-card.is-active .service-media.is-expanded .service-description::before {
+  opacity: 0;
+  transform: translateX(-50%) rotate(-135deg) translateY(-4px);
 }
 
 .service-card.is-active .service-media {
