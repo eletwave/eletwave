@@ -537,10 +537,6 @@
         }
         media.classList.toggle("is-expanded", expanded);
         media.setAttribute("aria-expanded", String(expanded));
-        const image = media.querySelector(".service-image");
-        if (image) {
-          image.setAttribute("aria-expanded", String(expanded));
-        }
       };
 
       const toggleServiceDescription = (media) => {
@@ -822,7 +818,7 @@
           "services.networks.desc":
             "Realizziamo reti dati e cablaggi strutturati per case, uffici e capannoni con rack ordinati e punti certificati. Configuriamo switch, Wi-Fi e segmentazione di rete per connessioni stabili e veloci. Eseguiamo test e collaudo per garantire continuita operativa e affidabilita nel tempo.",
           "services.scroll": "Scorri",
-          "services.expand": "Tocca o premi Invio sull'immagine per leggere di piu",
+          "services.expand": "Tocca o premi Invio sulla card per aprire il testo",
           "areas.title": "Operativi a",
           "contacts.title": "Contatti",
           "contacts.phone": "Telefono: +39 3930036372",
@@ -897,7 +893,7 @@
           "services.networks.desc":
             "We build structured data networks and cabling for homes, offices, and industrial sites with organized racks and certified points. We configure switching, Wi-Fi, and network segmentation for stable and fast connectivity. Final tests and commissioning ensure reliability over time.",
           "services.scroll": "Scroll",
-          "services.expand": "Tap or press Enter on the image to read more",
+          "services.expand": "Tap or press Enter on the card to open the text",
           "areas.title": "Operating in",
           "contacts.title": "Contacts",
           "contacts.phone": "Phone: +39 3930036372",
@@ -972,7 +968,7 @@
           "services.networks.desc":
             "Izvajamo strukturirana podatkovna omrezja in kabliranje za domove, pisarne in industrijske objekte z urejenimi racki in certificiranimi tockami. Nastavimo switching, Wi-Fi in segmentacijo omrezja za stabilne in hitre povezave. Z zakljucnimi testi zagotovimo zanesljivo delovanje skozi cas.",
           "services.scroll": "Pomakni",
-          "services.expand": "Tapni ali pritisni Enter na sliko za vec besedila",
+          "services.expand": "Tapni ali pritisni Enter na kartico za prikaz besedila",
           "areas.title": "Aktivni v",
           "contacts.title": "Kontakti",
           "contacts.phone": "Telefon: +39 3930036372",
@@ -1010,11 +1006,11 @@
         }
       };
 
-      const updateServiceImageLabels = (lang) => {
+      const updateServiceMediaLabels = (lang) => {
         const dict = translations[lang] || translations.it;
         const label = dict["services.expand"] || translations.it["services.expand"];
-        document.querySelectorAll(".service-image").forEach((image) => {
-          image.setAttribute("aria-label", label);
+        document.querySelectorAll(".service-media").forEach((media) => {
+          media.setAttribute("aria-label", label);
         });
       };
 
@@ -1045,7 +1041,7 @@
         }
         updateHeroMoreLabel(lang);
         syncHeroMoreHeight();
-        updateServiceImageLabels(lang);
+        updateServiceMediaLabels(lang);
       };
 
       const savedLang = localStorage.getItem("eletwave-lang") || "it";
@@ -1067,18 +1063,31 @@
           }
           if (description && !description.id) {
             description.id = `service-description-${index + 1}`;
-            image.setAttribute("aria-controls", description.id);
+            media.setAttribute("aria-controls", description.id);
           }
-          image.setAttribute("role", "button");
-          image.setAttribute("tabindex", "0");
+          media.setAttribute("role", "button");
+          media.setAttribute("tabindex", "0");
           setServiceDescriptionExpanded(media, false);
-          image.addEventListener("click", () => {
+          const handleMediaActivation = () => {
+            const card = media.closest(".service-card");
+            if (!card) {
+              return;
+            }
+            if (!card.classList.contains("is-active")) {
+              card.scrollIntoView({
+                behavior: prefersReducedMotion ? "auto" : "smooth",
+                inline: "center",
+                block: "nearest"
+              });
+              return;
+            }
             toggleServiceDescription(media);
-          });
-          image.addEventListener("keydown", (event) => {
+          };
+          media.addEventListener("click", handleMediaActivation);
+          media.addEventListener("keydown", (event) => {
             if (event.key === "Enter" || event.key === " ") {
               event.preventDefault();
-              toggleServiceDescription(media);
+              handleMediaActivation();
             }
           });
         });
