@@ -702,18 +702,28 @@ main {
   );
   border-radius: inherit;
   font-size: 0.95rem;
-  opacity: 0.9;
-  max-height: 4.7em;
+  opacity: 0;
+  max-height: 0;
   overflow: hidden;
+  transform: translateY(12px);
   pointer-events: none;
+  text-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.95),
+    1px 0 1px rgba(0, 0, 0, 0.82),
+    -1px 0 1px rgba(0, 0, 0, 0.82),
+    0 -1px 1px rgba(0, 0, 0, 0.82),
+    0 0 8px rgba(0, 0, 0, 0.55);
   transition:
     opacity 0.35s ease,
     max-height 0.35s ease,
+    transform 0.35s ease,
     background 0.35s ease;
 }
 
 .service-card.is-active .service-description {
   opacity: 1;
+  max-height: 4.7em;
+  transform: translateY(0);
 }
 
 .service-card.is-active .service-image {
@@ -721,7 +731,7 @@ main {
   transform: scale(1.02);
 }
 
-.service-media.is-expanded .service-description {
+.service-card.is-active .service-media.is-expanded .service-description {
   max-height: 14.5em;
   background: linear-gradient(
     180deg,
