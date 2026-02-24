@@ -107,9 +107,8 @@
                     decoding="async"
                     alt="Impianto elettrico"
                   />
-                  <p data-i18n="services.electrical.desc">
-                    Impianti civili e industriali a norma, con quadri, linee e punti luce.
-                    Manutenzioni e interventi rapidi su guasti.
+                  <p class="service-description" data-i18n="services.electrical.desc">
+                    Realizziamo impianti civili e industriali a norma, con quadri, linee e punti luce progettati in base agli ambienti. Eseguiamo verifiche strumentali, adeguamenti normativi e manutenzione programmata. Interveniamo rapidamente su guasti e anomalie per ridurre i tempi di fermo.
                   </p>
                 </div>
               </div>
@@ -126,9 +125,8 @@
                     decoding="async"
                     alt="Impianto fotovoltaico"
                   />
-                  <p data-i18n="services.solar.desc">
-                    Pannelli, inverter e batterie su misura per massimizzare autoconsumo
-                    ed efficienza. Integriamo ottimizzatori quando serve.
+                  <p class="service-description" data-i18n="services.solar.desc">
+                    Progettiamo impianti fotovoltaici con accumulo dimensionati sui consumi reali, per aumentare autoconsumo ed efficienza. Installiamo inverter e batterie di ultima generazione con monitoraggio da app. Gestiamo pratiche, configurazione e assistenza per mantenere alte le prestazioni nel tempo.
                   </p>
                 </div>
               </div>
@@ -145,9 +143,8 @@
                     decoding="async"
                     alt="Wallbox per ricarica auto elettriche"
                   />
-                  <p data-i18n="services.wallbox.desc">
-                    Wallbox con potenza configurata, protezioni dedicate e
-                    integrazione con fotovoltaico.
+                  <p class="service-description" data-i18n="services.wallbox.desc">
+                    Forniamo wallbox per ricarica domestica e aziendale con potenza configurata e protezioni dedicate. Integriamo la ricarica con impianto fotovoltaico e gestione intelligente dei carichi. Configuriamo fasce orarie, priorita e monitoraggio per una ricarica sicura, veloce ed efficiente.
                   </p>
                 </div>
               </div>
@@ -164,9 +161,8 @@
                     decoding="async"
                     alt="Sistema di allarme e videosorveglianza"
                   />
-                  <p data-i18n="services.security.desc">
-                    Telecamere e antifurto con accesso remoto, notifiche in tempo reale
-                    e registrazioni sicure.
+                  <p class="service-description" data-i18n="services.security.desc">
+                    Installiamo sistemi di videosorveglianza e antifurto personalizzati per abitazioni, uffici e attivita commerciali. Configuriamo accesso remoto, notifiche in tempo reale e registrazione protetta su cloud o NVR. Ottimizziamo copertura e sensibilita per ridurre falsi allarmi e aumentare la sicurezza.
                   </p>
                 </div>
               </div>
@@ -183,9 +179,8 @@
                     decoding="async"
                     alt="Sistema domotico"
                   />
-                  <p data-i18n="services.domotics.desc">
-                    Controllo smart di luci, clima e accessi da app o voce,
-                    per piu comfort e risparmio.
+                  <p class="service-description" data-i18n="services.domotics.desc">
+                    Progettiamo soluzioni domotiche per controllare luci, clima, tapparelle e accessi da app, voce o scenari automatici. Integriamo dispositivi compatibili in un unico sistema semplice da usare. Miglioriamo comfort, efficienza energetica e sicurezza con logiche su misura per ogni ambiente.
                   </p>
                 </div>
               </div>
@@ -202,9 +197,8 @@
                     decoding="async"
                     alt="Reti e cablaggi"
                   />
-                  <p data-i18n="services.networks.desc">
-                    Reti dati e cablaggi con rack e punti certificati
-                    per connessioni stabili.
+                  <p class="service-description" data-i18n="services.networks.desc">
+                    Realizziamo reti dati e cablaggi strutturati per case, uffici e capannoni con rack ordinati e punti certificati. Configuriamo switch, Wi-Fi e segmentazione di rete per connessioni stabili e veloci. Eseguiamo test e collaudo per garantire continuita operativa e affidabilita nel tempo.
                   </p>
                 </div>
               </div>
@@ -290,6 +284,7 @@
       const cardsBeam = document.querySelector(".cards-beam");
       const companySection = document.querySelector(".company");
       const cards = Array.from(document.querySelectorAll(".scroll-card"));
+      const serviceMediaItems = Array.from(document.querySelectorAll(".service-media"));
       const serviziTitle = document.querySelector("#servizi .section-title h2");
       const scrollContainer = document.querySelector(".scroll-container");
       const scrollPrevButton = document.querySelector(".scroll-hint__button--prev");
@@ -460,6 +455,31 @@
           });
         }
         updateHeroMoreLabel(currentLang);
+      };
+
+      const setServiceDescriptionExpanded = (media, expanded) => {
+        if (!media) {
+          return;
+        }
+        media.classList.toggle("is-expanded", expanded);
+        media.setAttribute("aria-expanded", String(expanded));
+        const image = media.querySelector(".service-image");
+        if (image) {
+          image.setAttribute("aria-expanded", String(expanded));
+        }
+      };
+
+      const toggleServiceDescription = (media) => {
+        if (!media) {
+          return;
+        }
+        const nextExpanded = !media.classList.contains("is-expanded");
+        serviceMediaItems.forEach((item) => {
+          if (item !== media) {
+            setServiceDescriptionExpanded(item, false);
+          }
+        });
+        setServiceDescriptionExpanded(media, nextExpanded);
       };
 
       const updateScrollEffects = () => {
@@ -711,22 +731,24 @@
           "services.title": "Servizi",
           "services.electrical.title": "Impianti elettrici",
           "services.electrical.desc":
-            "Impianti civili e industriali a norma, con quadri, linee e punti luce. Manutenzioni e interventi rapidi su guasti.",
+            "Realizziamo impianti civili e industriali a norma, con quadri, linee e punti luce progettati in base agli ambienti. Eseguiamo verifiche strumentali, adeguamenti normativi e manutenzione programmata. Interveniamo rapidamente su guasti e anomalie per ridurre i tempi di fermo.",
           "services.solar.title": "Impianti fotovoltaici con accumulo",
           "services.solar.desc":
-            "Pannelli, inverter e batterie su misura per massimizzare autoconsumo ed efficienza. Integriamo ottimizzatori quando serve.",
+            "Progettiamo impianti fotovoltaici con accumulo dimensionati sui consumi reali, per aumentare autoconsumo ed efficienza. Installiamo inverter e batterie di ultima generazione con monitoraggio da app. Gestiamo pratiche, configurazione e assistenza per mantenere alte le prestazioni nel tempo.",
           "services.wallbox.title": "Wallbox per ricarica EV",
           "services.wallbox.desc":
-            "Wallbox con potenza configurata, protezioni dedicate e integrazione con fotovoltaico.",
+            "Forniamo wallbox per ricarica domestica e aziendale con potenza configurata e protezioni dedicate. Integriamo la ricarica con impianto fotovoltaico e gestione intelligente dei carichi. Configuriamo fasce orarie, priorita e monitoraggio per una ricarica sicura, veloce ed efficiente.",
           "services.security.title": "Videosorveglianza e antifurti",
           "services.security.desc":
-            "Telecamere e antifurto con accesso remoto, notifiche in tempo reale e registrazioni sicure.",
+            "Installiamo sistemi di videosorveglianza e antifurto personalizzati per abitazioni, uffici e attivita commerciali. Configuriamo accesso remoto, notifiche in tempo reale e registrazione protetta su cloud o NVR. Ottimizziamo copertura e sensibilita per ridurre falsi allarmi e aumentare la sicurezza.",
           "services.domotics.title": "Domotica",
           "services.domotics.desc":
-            "Controllo smart di luci, clima e accessi da app o voce, per piu comfort e risparmio.",
+            "Progettiamo soluzioni domotiche per controllare luci, clima, tapparelle e accessi da app, voce o scenari automatici. Integriamo dispositivi compatibili in un unico sistema semplice da usare. Miglioriamo comfort, efficienza energetica e sicurezza con logiche su misura per ogni ambiente.",
           "services.networks.title": "Reti e cablaggi",
-          "services.networks.desc": "Reti dati e cablaggi con rack e punti certificati per connessioni stabili.",
+          "services.networks.desc":
+            "Realizziamo reti dati e cablaggi strutturati per case, uffici e capannoni con rack ordinati e punti certificati. Configuriamo switch, Wi-Fi e segmentazione di rete per connessioni stabili e veloci. Eseguiamo test e collaudo per garantire continuita operativa e affidabilita nel tempo.",
           "services.scroll": "Scorri",
+          "services.expand": "Tocca o premi Invio sull'immagine per leggere di piu",
           "areas.title": "Operativi a",
           "contacts.title": "Contatti",
           "contacts.phone": "Telefono: +39 3930036372",
@@ -758,23 +780,24 @@
           "services.title": "Services",
           "services.electrical.title": "Electrical systems",
           "services.electrical.desc":
-            "Compliant residential and industrial systems with panels, lines, and lighting points. Maintenance and fast fault response.",
+            "We deliver compliant residential and industrial electrical systems with panels, lines, and lighting points designed around each space. We perform technical checks, regulation upgrades, and scheduled maintenance. We also provide fast troubleshooting to reduce downtime and restore full operation quickly.",
           "services.solar.title": "Solar with storage",
           "services.solar.desc":
-            "Tailored panels, inverters, and batteries to maximize self-consumption and efficiency. Optimizers when needed.",
+            "We design solar and storage systems sized around real energy usage to increase self-consumption and efficiency. We install modern inverters and batteries with app-based monitoring. We handle setup, configuration, and support to keep performance high over time.",
           "services.wallbox.title": "EV wallbox charging",
           "services.wallbox.desc":
-            "Wallbox with configured power, dedicated protections, and solar integration.",
+            "We provide EV wallboxes for homes and businesses with configured power and dedicated electrical protection. Charging can be integrated with solar production and smart load management. We configure schedules, priorities, and monitoring for safe and efficient daily charging.",
           "services.security.title": "CCTV and alarms",
           "services.security.desc":
-            "Cameras and alarms with remote access, real-time alerts, and secure recordings.",
+            "We install custom CCTV and alarm systems for homes, offices, and commercial spaces. Systems include remote access, real-time alerts, and secure cloud or NVR recording. We tune coverage and sensitivity to reduce false alarms and improve protection.",
           "services.domotics.title": "Domotics",
           "services.domotics.desc":
-            "Smart control of lights, climate, and access via app or voice for more comfort and savings.",
+            "We build domotic solutions to control lights, climate, shutters, and access from app, voice, or automations. Compatible devices are integrated into one simple control system. The result is better comfort, energy efficiency, and everyday safety.",
           "services.networks.title": "Networks and cabling",
           "services.networks.desc":
-            "Data networks and cabling with racks and certified points for stable connections.",
+            "We build structured data networks and cabling for homes, offices, and industrial sites with organized racks and certified points. We configure switching, Wi-Fi, and network segmentation for stable and fast connectivity. Final tests and commissioning ensure reliability over time.",
           "services.scroll": "Scroll",
+          "services.expand": "Tap or press Enter on the image to read more",
           "areas.title": "Operating in",
           "contacts.title": "Contacts",
           "contacts.phone": "Phone: +39 3930036372",
@@ -806,23 +829,24 @@
           "services.title": "Storitve",
           "services.electrical.title": "Elektricni sistemi",
           "services.electrical.desc":
-            "Skladni stanovanjski in industrijski sistemi s paneli, vodi in tockami razsvetljave. Vzdrzevanje in hitri posegi.",
+            "Izvajamo skladne stanovanjske in industrijske elektricne sisteme s paneli, vodi in svetlobnimi tockami, prilagojenimi prostoru. Opravljamo meritve, uskladitve s predpisi in nacrtovano vzdrzevanje. Ob okvarah posredujemo hitro, da skrajsamo cas izpada.",
           "services.solar.title": "Fotovoltaika z hranilniki",
           "services.solar.desc":
-            "Prilagojeni paneli, razsmerniki in baterije za najvecjo samooskrbo in ucinkovitost. Po potrebi dodamo optimizatorje.",
+            "Nacrtujemo fotovoltaicne sisteme z hranilniki glede na dejansko porabo, za visjo samooskrbo in ucinkovitost. Vgradimo sodobne razsmernike in baterije z nadzorom prek aplikacije. Poskrbimo za nastavitev, konfiguracijo in podporo za dolgorocno visoko delovanje.",
           "services.wallbox.title": "Wallbox polnjenje EV",
           "services.wallbox.desc":
-            "Wallbox z nastavljeno mocjo, namensko zascito in povezavo s fotovoltaiko.",
+            "Dobavimo wallbox polnilnice za dom in podjetje z nastavljeno mocjo in namensko elektricno zascito. Polnjenje lahko povezemo s fotovoltaiko in pametnim upravljanjem porabe. Nastavimo urnike, prioritete in nadzor za varno ter ucinkovito uporabo.",
           "services.security.title": "Videonadzor in alarmi",
           "services.security.desc":
-            "Kamere in alarmi z oddaljenim dostopom, obvestili v realnem casu in varnimi posnetki.",
+            "Vgrajujemo prilagojene sisteme videonadzora in alarmov za domove, pisarne in poslovne prostore. Omogocimo oddaljen dostop, obvestila v realnem casu in varno snemanje v oblaku ali na NVR. Pokritost in zaznavanje optimiziramo za manj laznih alarmov in vecjo varnost.",
           "services.domotics.title": "Domotika",
           "services.domotics.desc":
-            "Pametni nadzor luci, klime in dostopa prek aplikacije ali glasu za vec udobja in prihrankov.",
+            "Pripravljamo domoticne resitve za upravljanje luci, klime, sencil in dostopa prek aplikacije, glasu ali scenarijev. Zdruzimo zdruzljive naprave v enostaven skupni sistem. Tako izboljsamo udobje, energetsko ucinkovitost in dnevno varnost.",
           "services.networks.title": "Omrezja in kabliranje",
           "services.networks.desc":
-            "Podatkovna omrezja in kabliranje z racki in certificiranimi tockami za stabilne povezave.",
+            "Izvajamo strukturirana podatkovna omrezja in kabliranje za domove, pisarne in industrijske objekte z urejenimi racki in certificiranimi tockami. Nastavimo switching, Wi-Fi in segmentacijo omrezja za stabilne in hitre povezave. Z zakljucnimi testi zagotovimo zanesljivo delovanje skozi cas.",
           "services.scroll": "Pomakni",
+          "services.expand": "Tapni ali pritisni Enter na sliko za vec besedila",
           "areas.title": "Aktivni v",
           "contacts.title": "Kontakti",
           "contacts.phone": "Telefon: +39 3930036372",
@@ -832,6 +856,14 @@
           "footer.nav": "Navigacija",
           "footer.note": "ELETWAVE. smart energy & security solutions"
         }
+      };
+
+      const updateServiceImageLabels = (lang) => {
+        const dict = translations[lang] || translations.it;
+        const label = dict["services.expand"] || translations.it["services.expand"];
+        document.querySelectorAll(".service-image").forEach((image) => {
+          image.setAttribute("aria-label", label);
+        });
       };
 
       const applyTranslations = (lang) => {
@@ -855,6 +887,7 @@
         }
         updateHeroMoreLabel(lang);
         syncHeroMoreHeight();
+        updateServiceImageLabels(lang);
       };
 
       const savedLang = localStorage.getItem("eletwave-lang") || "it";
@@ -866,6 +899,31 @@
           setHeroMoreExpanded(!isExpanded);
         });
         window.addEventListener("resize", syncHeroMoreHeight);
+      }
+      if (serviceMediaItems.length) {
+        serviceMediaItems.forEach((media, index) => {
+          const image = media.querySelector(".service-image");
+          const description = media.querySelector(".service-description");
+          if (!image) {
+            return;
+          }
+          if (description && !description.id) {
+            description.id = `service-description-${index + 1}`;
+            image.setAttribute("aria-controls", description.id);
+          }
+          image.setAttribute("role", "button");
+          image.setAttribute("tabindex", "0");
+          setServiceDescriptionExpanded(media, false);
+          image.addEventListener("click", () => {
+            toggleServiceDescription(media);
+          });
+          image.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              toggleServiceDescription(media);
+            }
+          });
+        });
       }
       if (langSelect) {
         langSelect.value = savedLang;
@@ -938,10 +996,14 @@
 
         const updateActiveCard = () => {
           const closest = getClosestCard();
-          cards.forEach((card) => card.classList.remove("is-active"));
-          if (closest) {
-            closest.classList.add("is-active");
-          }
+          cards.forEach((card) => {
+            const isClosest = card === closest;
+            card.classList.toggle("is-active", isClosest);
+            if (!isClosest) {
+              const media = card.querySelector(".service-media");
+              setServiceDescriptionExpanded(media, false);
+            }
+          });
           const activeIndex = closest ? cards.indexOf(closest) : 0;
           if (scrollPrevButton) {
             scrollPrevButton.disabled = activeIndex <= 0;
