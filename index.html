@@ -10,10 +10,7 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -354,7 +351,6 @@
       const heroTitle = document.querySelector(".hero-title");
       const headerScrollHint = document.querySelector(".header-scroll-hint");
       const beamTitle = document.querySelector(".section-title--beam");
-      const cardsBeam = document.querySelector(".cards-beam");
       const companySection = document.querySelector(".company");
       const cards = Array.from(document.querySelectorAll(".scroll-card"));
       const serviceMediaItems = Array.from(document.querySelectorAll(".service-media"));
@@ -590,9 +586,6 @@
           if (beamTitle) {
             beamTitle.classList.add("is-lit");
           }
-          if (cardsBeam) {
-            cardsBeam.classList.add("is-lit");
-          }
           if (companySection) {
             companySection.style.setProperty("--circuit-opacity", "0.5");
             companySection.style.setProperty("--circuit-scale", "1");
@@ -636,16 +629,6 @@
             beamTitle.classList.add("is-lit");
           } else {
             beamTitle.classList.remove("is-lit");
-          }
-        }
-
-        if (cardsBeam) {
-          const rect = cardsBeam.getBoundingClientRect();
-          const vh = window.innerHeight;
-          if (rect.top < vh * 0.8 && rect.bottom > 0) {
-            cardsBeam.classList.add("is-lit");
-          } else {
-            cardsBeam.classList.remove("is-lit");
           }
         }
 
@@ -779,6 +762,7 @@
           ensureAreaLoop();
         });
         window.addEventListener("scroll", ensureAreaLoop, { passive: true });
+        areaScroller.addEventListener("scroll", updateAreaFocus, { passive: true });
         document.addEventListener("visibilitychange", ensureAreaLoop);
       }
 
