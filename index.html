@@ -110,6 +110,9 @@
                   <p class="service-description" data-i18n="services.electrical.desc">
                     Realizziamo impianti civili e industriali a norma, con quadri, linee e punti luce progettati in base agli ambienti. Eseguiamo verifiche strumentali, adeguamenti normativi e manutenzione programmata. Interveniamo rapidamente su guasti e anomalie per ridurre i tempi di fermo.
                   </p>
+                  <button class="service-description-toggle" type="button" aria-expanded="false">
+                    <span class="service-description-toggle__arrow" aria-hidden="true"></span>
+                  </button>
                 </div>
               </div>
             </article>
@@ -128,6 +131,9 @@
                   <p class="service-description" data-i18n="services.solar.desc">
                     Progettiamo impianti fotovoltaici con accumulo dimensionati sui consumi reali, per aumentare autoconsumo ed efficienza. Installiamo inverter e batterie di ultima generazione con monitoraggio da app. Gestiamo pratiche, configurazione e assistenza per mantenere alte le prestazioni nel tempo.
                   </p>
+                  <button class="service-description-toggle" type="button" aria-expanded="false">
+                    <span class="service-description-toggle__arrow" aria-hidden="true"></span>
+                  </button>
                 </div>
               </div>
             </article>
@@ -146,6 +152,9 @@
                   <p class="service-description" data-i18n="services.wallbox.desc">
                     Forniamo wallbox per ricarica domestica e aziendale con potenza configurata e protezioni dedicate. Integriamo la ricarica con impianto fotovoltaico e gestione intelligente dei carichi. Configuriamo fasce orarie, priorita e monitoraggio per una ricarica sicura, veloce ed efficiente.
                   </p>
+                  <button class="service-description-toggle" type="button" aria-expanded="false">
+                    <span class="service-description-toggle__arrow" aria-hidden="true"></span>
+                  </button>
                 </div>
               </div>
             </article>
@@ -164,6 +173,9 @@
                   <p class="service-description" data-i18n="services.security.desc">
                     Installiamo sistemi di videosorveglianza e antifurto personalizzati per abitazioni, uffici e attivita commerciali. Configuriamo accesso remoto, notifiche in tempo reale e registrazione protetta su cloud o NVR. Ottimizziamo copertura e sensibilita per ridurre falsi allarmi e aumentare la sicurezza.
                   </p>
+                  <button class="service-description-toggle" type="button" aria-expanded="false">
+                    <span class="service-description-toggle__arrow" aria-hidden="true"></span>
+                  </button>
                 </div>
               </div>
             </article>
@@ -182,6 +194,9 @@
                   <p class="service-description" data-i18n="services.domotics.desc">
                     Progettiamo soluzioni domotiche per controllare luci, clima, tapparelle e accessi da app, voce o scenari automatici. Integriamo dispositivi compatibili in un unico sistema semplice da usare. Miglioriamo comfort, efficienza energetica e sicurezza con logiche su misura per ogni ambiente.
                   </p>
+                  <button class="service-description-toggle" type="button" aria-expanded="false">
+                    <span class="service-description-toggle__arrow" aria-hidden="true"></span>
+                  </button>
                 </div>
               </div>
             </article>
@@ -200,6 +215,9 @@
                   <p class="service-description" data-i18n="services.networks.desc">
                     Realizziamo reti dati e cablaggi strutturati per case, uffici e capannoni con rack ordinati e punti certificati. Configuriamo switch, Wi-Fi e segmentazione di rete per connessioni stabili e veloci. Eseguiamo test e collaudo per garantire continuita operativa e affidabilita nel tempo.
                   </p>
+                  <button class="service-description-toggle" type="button" aria-expanded="false">
+                    <span class="service-description-toggle__arrow" aria-hidden="true"></span>
+                  </button>
                 </div>
               </div>
             </article>
@@ -536,7 +554,14 @@
           return;
         }
         media.classList.toggle("is-expanded", expanded);
-        media.setAttribute("aria-expanded", String(expanded));
+        const toggleButton = media.querySelector(".service-description-toggle");
+        if (toggleButton) {
+          toggleButton.setAttribute("aria-expanded", String(expanded));
+          toggleButton.classList.toggle("is-open", expanded);
+          const expandLabel = toggleButton.dataset.labelExpand || "Apri scheda servizio";
+          const collapseLabel = toggleButton.dataset.labelCollapse || "Chiudi scheda servizio";
+          toggleButton.setAttribute("aria-label", expanded ? collapseLabel : expandLabel);
+        }
       };
 
       const toggleServiceDescription = (media) => {
@@ -818,7 +843,8 @@
           "services.networks.desc":
             "Realizziamo reti dati e cablaggi strutturati per case, uffici e capannoni con rack ordinati e punti certificati. Configuriamo switch, Wi-Fi e segmentazione di rete per connessioni stabili e veloci. Eseguiamo test e collaudo per garantire continuita operativa e affidabilita nel tempo.",
           "services.scroll": "Scorri",
-          "services.expand": "Tocca o premi Invio sulla card per aprire il testo",
+          "services.expand": "Apri scheda servizio",
+          "services.collapse": "Chiudi scheda servizio",
           "areas.title": "Operativi a",
           "contacts.title": "Contatti",
           "contacts.phone": "Telefono: +39 3930036372",
@@ -893,7 +919,8 @@
           "services.networks.desc":
             "We build structured data networks and cabling for homes, offices, and industrial sites with organized racks and certified points. We configure switching, Wi-Fi, and network segmentation for stable and fast connectivity. Final tests and commissioning ensure reliability over time.",
           "services.scroll": "Scroll",
-          "services.expand": "Tap or press Enter on the card to open the text",
+          "services.expand": "Open service card",
+          "services.collapse": "Close service card",
           "areas.title": "Operating in",
           "contacts.title": "Contacts",
           "contacts.phone": "Phone: +39 3930036372",
@@ -968,7 +995,8 @@
           "services.networks.desc":
             "Izvajamo strukturirana podatkovna omrezja in kabliranje za domove, pisarne in industrijske objekte z urejenimi racki in certificiranimi tockami. Nastavimo switching, Wi-Fi in segmentacijo omrezja za stabilne in hitre povezave. Z zakljucnimi testi zagotovimo zanesljivo delovanje skozi cas.",
           "services.scroll": "Pomakni",
-          "services.expand": "Tapni ali pritisni Enter na kartico za prikaz besedila",
+          "services.expand": "Odpri kartico storitve",
+          "services.collapse": "Zapri kartico storitve",
           "areas.title": "Aktivni v",
           "contacts.title": "Kontakti",
           "contacts.phone": "Telefon: +39 3930036372",
@@ -1006,11 +1034,15 @@
         }
       };
 
-      const updateServiceMediaLabels = (lang) => {
+      const updateServiceToggleLabels = (lang) => {
         const dict = translations[lang] || translations.it;
-        const label = dict["services.expand"] || translations.it["services.expand"];
-        document.querySelectorAll(".service-media").forEach((media) => {
-          media.setAttribute("aria-label", label);
+        const expandLabel = dict["services.expand"] || translations.it["services.expand"];
+        const collapseLabel = dict["services.collapse"] || translations.it["services.collapse"];
+        document.querySelectorAll(".service-description-toggle").forEach((button) => {
+          button.dataset.labelExpand = expandLabel;
+          button.dataset.labelCollapse = collapseLabel;
+          const isExpanded = button.getAttribute("aria-expanded") === "true";
+          button.setAttribute("aria-label", isExpanded ? collapseLabel : expandLabel);
         });
       };
 
@@ -1041,7 +1073,7 @@
         }
         updateHeroMoreLabel(lang);
         syncHeroMoreHeight();
-        updateServiceMediaLabels(lang);
+        updateServiceToggleLabels(lang);
       };
 
       const savedLang = localStorage.getItem("eletwave-lang") || "it";
@@ -1056,17 +1088,15 @@
       }
       if (serviceMediaItems.length) {
         serviceMediaItems.forEach((media, index) => {
-          const image = media.querySelector(".service-image");
           const description = media.querySelector(".service-description");
-          if (!image) {
+          const toggleButton = media.querySelector(".service-description-toggle");
+          if (!description || !toggleButton) {
             return;
           }
           if (description && !description.id) {
             description.id = `service-description-${index + 1}`;
-            media.setAttribute("aria-controls", description.id);
+            toggleButton.setAttribute("aria-controls", description.id);
           }
-          media.setAttribute("role", "button");
-          media.setAttribute("tabindex", "0");
           setServiceDescriptionExpanded(media, false);
           const handleMediaActivation = () => {
             const card = media.closest(".service-card");
@@ -1079,16 +1109,18 @@
                 inline: "center",
                 block: "nearest"
               });
+              window.setTimeout(() => {
+                if (card.classList.contains("is-active")) {
+                  setServiceDescriptionExpanded(media, true);
+                }
+              }, prefersReducedMotion ? 0 : 420);
               return;
             }
             toggleServiceDescription(media);
           };
-          media.addEventListener("click", handleMediaActivation);
-          media.addEventListener("keydown", (event) => {
-            if (event.key === "Enter" || event.key === " ") {
-              event.preventDefault();
-              handleMediaActivation();
-            }
+          toggleButton.addEventListener("click", (event) => {
+            event.preventDefault();
+            handleMediaActivation();
           });
         });
       }
