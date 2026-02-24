@@ -898,7 +898,7 @@ main {
 }
 
 .scroll-hint__button {
-  display: none;
+  display: inline-flex;
   width: auto;
   min-width: 64px;
   height: 42px;
@@ -952,12 +952,6 @@ main {
   opacity: 0.22;
   cursor: default;
   transform: none;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .scroll-hint__button {
-    display: inline-flex;
-  }
 }
 
 .scroll-hint__chevron {
