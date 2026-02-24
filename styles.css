@@ -24,11 +24,15 @@ body {
   color: var(--text);
   min-height: 100vh;
   overflow-x: hidden;
+  overflow-x: clip;
+  overscroll-behavior-x: none;
   scrollbar-width: none;
 }
 
 html {
   overflow-x: hidden;
+  overflow-x: clip;
+  overscroll-behavior-x: none;
   scroll-behavior: smooth;
 }
 
@@ -61,6 +65,7 @@ footer[id] {
     radial-gradient(circle at 50% 90%, rgba(88, 209, 255, 0.08), transparent 70%);
   padding: 64px 0 48px;
   position: relative;
+  overflow-x: clip;
 }
 
 .sticky-nav {
@@ -141,6 +146,7 @@ footer[id] {
   min-height: 85vh;
   margin-bottom: 0;
   background: #000;
+  overflow-x: clip;
 }
 
 .logo-header {
@@ -371,6 +377,7 @@ main {
   justify-content: center;
   padding: 24px 0;
   position: relative;
+  overflow-x: clip;
   --circuit-opacity: 0;
   --circuit-scale: 0.85;
 }
@@ -484,6 +491,15 @@ main {
 }
 
 @media (hover: none) and (pointer: coarse) {
+  html,
+  body {
+    touch-action: pan-y;
+  }
+
+  .scroll-container {
+    touch-action: pan-x;
+  }
+
   .area-scroller {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
