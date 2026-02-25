@@ -333,6 +333,7 @@ main {
 .section-title h2 {
   font-size: clamp(1.7rem, 3vw, 2.4rem);
   color: var(--text);
+  padding-left: clamp(18px, 2.4vw, 36px);
   transition: transform 0.2s ease-out;
   will-change: transform;
 }
@@ -465,7 +466,7 @@ main {
   }
 
   .scroll-container {
-    touch-action: pan-x;
+    touch-action: pan-x pan-y;
   }
 
   .area-scroller {
@@ -539,7 +540,7 @@ main {
 .scroll-container {
   display: flex;
   align-items: flex-start;
-  gap: 22px;
+  gap: 0;
   flex-wrap: nowrap;
   overflow-x: auto;
   padding-bottom: 20px;
@@ -555,7 +556,7 @@ main {
 }
 
 .service-card {
-  flex: 0 0 clamp(340px, 86vw, 640px);
+  flex: 0 0 clamp(340px, 90vw, 560px);
   position: relative;
   display: flex;
   justify-content: center;
@@ -593,6 +594,7 @@ main {
   min-height: 2.3em;
   display: flex;
   align-items: flex-end;
+  padding-left: clamp(16px, 2.2vw, 30px);
   margin-bottom: 12px;
   background-clip: text;
   -webkit-background-clip: text;
@@ -874,12 +876,12 @@ main {
 
 .brands-strip {
   width: 100%;
-  margin: 8px 0 20px;
+  margin: 10px 0 6px;
   padding: 18px 0;
   overflow: hidden;
   background: linear-gradient(180deg, rgba(10, 13, 23, 0.78), rgba(7, 10, 18, 0.92));
-  border-top: 1px solid rgba(88, 209, 255, 0.2);
-  border-bottom: 1px solid rgba(88, 209, 255, 0.18);
+  border-top: none;
+  border-bottom: none;
 }
 
 .brands-marquee {
@@ -899,8 +901,8 @@ main {
 }
 
 .brand-logo-item {
-  min-width: clamp(132px, 14vw, 198px);
-  height: clamp(42px, 4.4vw, 56px);
+  min-width: clamp(150px, 16vw, 228px);
+  height: clamp(52px, 5.2vw, 70px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -908,9 +910,9 @@ main {
 }
 
 .brand-logo {
-  height: clamp(24px, 2.8vw, 34px);
+  height: clamp(32px, 3.6vw, 46px);
   width: auto;
-  max-width: min(100%, 186px);
+  max-width: min(100%, 220px);
   max-height: none;
   object-fit: contain;
   filter: brightness(0) saturate(0) invert(1);
@@ -919,8 +921,8 @@ main {
 
 .brand-logo--tesla,
 .brand-logo--unifi {
-  height: clamp(30px, 3.2vw, 42px);
-  max-width: min(100%, 200px);
+  height: clamp(40px, 4.2vw, 56px);
+  max-width: min(100%, 240px);
 }
 
 .brands-strip:hover .brands-marquee {
@@ -961,10 +963,40 @@ main {
     rgba(250, 60, 81, 0.45) 75%,
     rgba(13, 15, 26, 0) 100%
   );
-  clip-path: polygon(0 50%, 22% 0, 94% 40%, 100% 50%, 94% 60%, 22% 100%);
+  clip-path: polygon(100% 50%, 78% 0, 6% 40%, 0 50%, 6% 60%, 78% 100%);
   filter: blur(0.2px);
-  transform: translateX(-50%);
+  opacity: 0;
+  transform: translateX(-50%) translateX(24px) scaleX(0.7);
+  transition: opacity 0.7s ease, transform 0.7s ease;
   pointer-events: none;
+}
+
+.footer::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -9px;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(
+    90deg,
+    rgba(84, 213, 251, 0.18) 0%,
+    rgba(224, 117, 231, 0.12) 40%,
+    rgba(250, 60, 81, 0.08) 65%,
+    rgba(13, 15, 26, 0) 100%
+  );
+  clip-path: polygon(100% 50%, 82% 0, 8% 35%, 0 50%, 8% 65%, 82% 100%);
+  filter: blur(0.2px);
+  opacity: 0;
+  transform: translateX(-50%) translateX(24px) scaleX(0.7);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+  pointer-events: none;
+}
+
+.footer.is-lit::before,
+.footer.is-lit::after {
+  opacity: 1;
+  transform: translateX(-50%) translateX(0) scaleX(1);
 }
 
 .footer-content {
@@ -1498,13 +1530,6 @@ main {
     margin-right: -20px;
   }
 
-  .footer::before {
-    left: 0;
-    right: 0;
-    width: auto;
-    transform: none;
-  }
-
   .footer-content {
     padding-left: 40px;
     padding-right: 40px;
@@ -1540,7 +1565,7 @@ main {
   }
 
   .brands-strip {
-    margin-bottom: 16px;
+    margin-bottom: 4px;
     padding: 14px 0;
   }
 
@@ -1550,19 +1575,19 @@ main {
   }
 
   .brand-logo-item {
-    min-width: 120px;
-    height: 40px;
+    min-width: 138px;
+    height: 48px;
   }
 
   .brand-logo {
-    height: 23px;
-    max-width: 160px;
+    height: 30px;
+    max-width: 186px;
   }
 
   .brand-logo--tesla,
   .brand-logo--unifi {
-    height: 30px;
-    max-width: 168px;
+    height: 38px;
+    max-width: 200px;
   }
 }
 
