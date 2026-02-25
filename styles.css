@@ -917,6 +917,12 @@ main {
   opacity: 0.92;
 }
 
+.brand-logo--tesla,
+.brand-logo--unifi {
+  height: clamp(30px, 3.2vw, 42px);
+  max-width: min(100%, 200px);
+}
+
 .brands-strip:hover .brands-marquee {
   animation-play-state: paused;
 }
@@ -1355,10 +1361,10 @@ main {
 
   .footer-block--contacts {
     padding: 0;
-    border: none;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
+    border: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
   }
 
   .services-scroll {
@@ -1391,9 +1397,9 @@ main {
   .service-media {
     max-width: none;
     margin-top: 0;
-    margin-left: -16px;
-    margin-right: -16px;
-    width: calc(100% + 32px);
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
     border-radius: 0;
     border: none;
     box-shadow: none;
@@ -1411,7 +1417,7 @@ main {
 
   .service-image {
     max-width: none;
-    width: 100vw;
+    width: 100%;
     height: clamp(240px, 38vh, 300px);
     border-radius: 0;
     box-shadow: none;
@@ -1552,6 +1558,12 @@ main {
     height: 23px;
     max-width: 160px;
   }
+
+  .brand-logo--tesla,
+  .brand-logo--unifi {
+    height: 30px;
+    max-width: 168px;
+  }
 }
 
 @media (min-width: 721px) and (max-width: 1024px) and (orientation: portrait) {
@@ -1594,16 +1606,16 @@ main {
   .service-media {
     max-width: none;
     margin-top: 0;
-    margin-left: -18px;
-    margin-right: -18px;
-    width: calc(100% + 36px);
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
     border-radius: 0;
     border: none;
     box-shadow: none;
   }
 
   .service-image {
-    width: 100vw;
+    width: 100%;
     max-width: none;
     height: 220px;
     border-radius: 0;
@@ -1618,6 +1630,14 @@ main {
   .footer-content {
     padding-left: 40px;
     padding-right: 40px;
+  }
+
+  .footer-block--contacts {
+    padding: 0;
+    border: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
   }
 
   .footer-note {
