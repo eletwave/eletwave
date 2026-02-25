@@ -164,9 +164,9 @@ footer[id] {
 }
 
 .logo-large {
-  width: min(118vw, 1680px);
+  width: min(128vw, 1860px);
   height: auto;
-  max-height: 115vh;
+  max-height: 122vh;
 }
 
 .header-scroll-hint {
@@ -1534,9 +1534,9 @@ main {
   }
 
   .logo-large {
-    width: 118vw;
+    width: 128vw;
     height: auto;
-    max-height: 115vh;
+    max-height: 122vh;
   }
 
   .brands-strip {
