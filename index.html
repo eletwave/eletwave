@@ -1286,6 +1286,19 @@
       }
 
       if (scrollContainer) {
+        const getMaxScrollLeft = () =>
+          Math.max(0, scrollContainer.scrollWidth - scrollContainer.clientWidth);
+
+        const getCardTargetLeft = (card) => {
+          if (!card) {
+            return 0;
+          }
+          const containerWidth = scrollContainer.clientWidth;
+          const rawLeft = card.offsetLeft + card.offsetWidth / 2 - containerWidth / 2;
+          const maxLeft = getMaxScrollLeft();
+          return Math.min(Math.max(rawLeft, 0), maxLeft);
+        };
+
         const updateSnapPadding = () => {
           const firstCard = scrollContainer.querySelector(".scroll-card");
           if (!firstCard) {
@@ -1301,15 +1314,13 @@
         updateSnapPadding();
 
         getClosestCard = () => {
-          const containerRect = scrollContainer.getBoundingClientRect();
-          const centerX = containerRect.left + containerRect.width / 2;
+          const currentLeft = scrollContainer.scrollLeft;
           let closest = null;
           let closestDist = Infinity;
 
           cards.forEach((card) => {
-            const rect = card.getBoundingClientRect();
-            const cardCenter = rect.left + rect.width / 2;
-            const dist = Math.abs(centerX - cardCenter);
+            const targetLeft = getCardTargetLeft(card);
+            const dist = Math.abs(currentLeft - targetLeft);
             if (dist < closestDist) {
               closestDist = dist;
               closest = card;
@@ -1346,10 +1357,9 @@
           if (!targetCard) {
             return;
           }
-          targetCard.scrollIntoView({
-            behavior: prefersReducedMotion ? "auto" : "smooth",
-            inline: "center",
-            block: "nearest"
+          scrollContainer.scrollTo({
+            left: getCardTargetLeft(targetCard),
+            behavior: prefersReducedMotion ? "auto" : "smooth"
           });
         };
 
