@@ -2550,10 +2550,11 @@ section[id] {
   .why__media img {
     width: min(96vw, 560px);
     max-width: none;
-    left: 50%;
+    display: block;
+    left: auto;
     justify-self: center;
-    margin-inline: 0;
-    transform: translate3d(-50%, var(--why-logo-shift, 24px), 0)
+    margin-inline: auto;
+    transform: translate3d(0, var(--why-logo-shift, 24px), 0)
       scale(var(--why-logo-scale, 0.34));
   }
 
