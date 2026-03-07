@@ -677,6 +677,7 @@ section[id] {
   min-height: 660px;
   display: grid;
   place-items: center;
+  justify-items: center;
   border-radius: 0;
   overflow: visible;
   border: 0;
@@ -684,6 +685,8 @@ section[id] {
 }
 
 .why__media img {
+  position: relative;
+  left: 50%;
   width: clamp(1120px, 88vw, 1760px);
   max-width: none;
   height: auto;
@@ -691,7 +694,7 @@ section[id] {
   object-fit: contain;
   transform-origin: center 72%;
   opacity: var(--why-logo-opacity, 0);
-  transform: translate3d(0, var(--why-logo-shift, 220px), 0)
+  transform: translate3d(-50%, var(--why-logo-shift, 220px), 0)
     scale(var(--why-logo-scale, 0.92));
   filter: blur(var(--why-logo-blur, 0px));
   will-change: transform, opacity, filter;
