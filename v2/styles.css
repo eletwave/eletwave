@@ -57,6 +57,9 @@ body {
     #05060b 100%
   );
   color: var(--text);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 body {
@@ -66,7 +69,8 @@ body {
   font-family: var(--font-ui);
   font-weight: 300;
   line-height: 1.45;
-  overflow-x: hidden;
+  overflow-x: clip;
+  overscroll-behavior-x: none;
 }
 
 body::before,
@@ -137,6 +141,13 @@ a {
 img,
 video {
   display: block;
+  max-width: 100%;
+}
+
+main,
+header,
+section,
+footer {
   max-width: 100%;
 }
 
@@ -2128,6 +2139,11 @@ section[id] {
 }
 
 @media (max-width: 760px) {
+  html,
+  body {
+    overflow-x: clip;
+  }
+
   body::before,
   body::after,
   .bg-glow {
