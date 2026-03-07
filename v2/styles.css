@@ -2115,6 +2115,16 @@ section[id] {
     width: min(248px, 100%);
     font-size: 0.78rem;
   }
+
+  .why__media {
+    min-height: 380px;
+    overflow: hidden;
+  }
+
+  .why__media img {
+    width: min(132vw, 760px);
+    max-width: calc(100vw - 40px);
+  }
 }
 
 @media (max-width: 760px) {
@@ -2453,6 +2463,15 @@ section[id] {
   .service-feature__content {
     padding: 26px 20px 26px;
     gap: 18px;
+  }
+
+  .why__media {
+    min-height: 300px;
+  }
+
+  .why__media img {
+    width: min(96vw, 560px);
+    max-width: calc(100vw - 20px);
   }
 
   .floating-wa {
