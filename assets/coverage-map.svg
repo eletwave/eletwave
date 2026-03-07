@@ -14,7 +14,7 @@
     .map-states { opacity: 0.98; }
     .map-state {
       stroke: #f6f8ff;
-      stroke-width: 3.4;
+      stroke-width: 5.1;
       stroke-opacity: 0.99;
       stroke-linecap: round;
       stroke-linejoin: round;
