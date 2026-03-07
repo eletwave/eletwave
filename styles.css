@@ -2651,7 +2651,7 @@ section[id] {
   }
 
   .coverage__layout {
-    min-height: 520px;
+    min-height: 500px;
     align-items: flex-start;
     padding-top: 0;
   }
@@ -2709,7 +2709,7 @@ section[id] {
   }
 
   .coverage-areas__title {
-    margin: 0 0 12px;
+    margin: 0 0 8px;
   }
 
   .coverage-areas__track span.is-active,
@@ -2725,7 +2725,7 @@ section[id] {
   }
 
   .coverage__radar {
-    top: 72%;
+    top: 68%;
     left: 50%;
     right: auto;
     width: 172%;
