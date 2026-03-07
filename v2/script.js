@@ -2,9 +2,6 @@
   const revealItems = document.querySelectorAll(".reveal");
   const topbar = document.querySelector(".topbar");
   const metaDescription = document.querySelector('meta[name="description"]');
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)",
-  ).matches;
   const yearNode = document.querySelector("#year");
   const topbarNav = document.querySelector(".topbar__nav");
   const navLinks = Array.from(document.querySelectorAll(".topbar__nav a"));
@@ -28,7 +25,6 @@
   const whyEyebrow = document.querySelector("#perche-noi .eyebrow");
   const whyTitle = document.querySelector("#perche-noi h2");
   const whyImage = document.querySelector("#perche-noi img");
-  const whySection = document.querySelector("#perche-noi");
   const whyItems = Array.from(
     document.querySelectorAll("#perche-noi .why-item"),
   ).map((item) => ({
@@ -52,12 +48,6 @@
   );
   const coverageVisual = document.querySelector(
     "#dove-operiamo .coverage__visual",
-  );
-  const coverageAreasScroller = document.querySelector(
-    ".coverage-areas__scroller",
-  );
-  const coverageAreaItems = Array.from(
-    document.querySelectorAll(".coverage-areas__track span"),
   );
   const brandsEyebrow = document.querySelector(
     "#brands .brands-orbit__content .eyebrow",
@@ -911,223 +901,6 @@
     revealItems.forEach((el) => io.observe(el));
   }
 
-  if (whySection && whyItems.length) {
-    whySection.classList.add("has-scroll-motion");
-  }
-
-  function updateWhyLogoMotion() {
-    if (!whyImage) {
-      return;
-    }
-
-    if (prefersReducedMotion) {
-      whyImage.style.setProperty("--why-logo-shift", "0px");
-      whyImage.style.setProperty("--why-logo-opacity", "1");
-      whyImage.style.setProperty("--why-logo-scale", "1");
-      whyImage.style.setProperty("--why-logo-blur", "0px");
-      return;
-    }
-
-    const section = whyImage.closest("#perche-noi");
-
-    if (!section) {
-      return;
-    }
-
-    const rect = section.getBoundingClientRect();
-    const viewportHeight = window.innerHeight || 1;
-    const totalDistance = Math.max(viewportHeight + rect.height, 1);
-    const progress = Math.min(
-      Math.max((viewportHeight - rect.top) / totalDistance, 0),
-      1,
-    );
-
-    let shift = 0;
-    let opacity = 1;
-    let scale = 1;
-    let blur = 0;
-
-    if (progress <= 0.4) {
-      const enterProgress = progress / 0.4;
-      shift = 34 - enterProgress * 34;
-      opacity = 0.02 + enterProgress * 0.98;
-      scale = 0.34 + enterProgress * 0.66;
-      blur = (1 - enterProgress) * 18;
-    } else if (progress <= 0.66) {
-      const settleProgress = (progress - 0.4) / 0.26;
-      shift = 0 - settleProgress * 10;
-      opacity = 1;
-      scale = 1 + settleProgress * 0.02;
-      blur = 0;
-    } else {
-      const exitProgress = (progress - 0.66) / 0.34;
-      shift = -10 - exitProgress * 120;
-      opacity = Math.max(0, 1 - exitProgress * 1.08);
-      scale = 1.02 - exitProgress * 0.18;
-      blur = exitProgress * 6.5;
-    }
-
-    whyImage.style.setProperty("--why-logo-shift", `${shift.toFixed(1)}px`);
-    whyImage.style.setProperty("--why-logo-opacity", opacity.toFixed(3));
-    whyImage.style.setProperty("--why-logo-scale", scale.toFixed(3));
-    whyImage.style.setProperty("--why-logo-blur", `${blur.toFixed(2)}px`);
-  }
-
-  function updateWhyItemsMotion() {
-    if (!whySection || !whyItems.length) {
-      return;
-    }
-
-    if (prefersReducedMotion) {
-      whyItems.forEach((item) => {
-        item.el.style.setProperty("--why-item-progress", "1");
-        item.el.classList.add("is-active");
-      });
-      return;
-    }
-
-    const rect = whySection.getBoundingClientRect();
-    const viewportHeight = window.innerHeight || 1;
-    const sectionProgress = Math.min(
-      Math.max(
-        (viewportHeight * 0.82 - rect.top) / Math.max(rect.height * 0.72, 1),
-        0,
-      ),
-      1,
-    );
-    const itemStep = 0.18;
-    const itemWindow = 0.24;
-
-    whyItems.forEach((item, index) => {
-      const itemProgress = Math.min(
-        Math.max((sectionProgress - index * itemStep) / itemWindow, 0),
-        1,
-      );
-
-      item.el.style.setProperty("--why-item-progress", itemProgress.toFixed(3));
-      item.el.classList.toggle("is-active", itemProgress >= 0.72);
-    });
-  }
-
-  if (coverageAreasScroller && coverageAreaItems.length) {
-    let coverageAreaLoopId = null;
-    let coverageAreaLastTick = 0;
-
-    const updateCoverageAreaFocus = () => {
-      const scrollerRect = coverageAreasScroller.getBoundingClientRect();
-      const centerY = scrollerRect.top + scrollerRect.height / 2;
-      let active = null;
-      let activeDist = Infinity;
-      const above = [];
-      const below = [];
-
-      coverageAreaItems.forEach((item) => {
-        item.classList.remove(
-          "is-active",
-          "is-up-1",
-          "is-up-2",
-          "is-down-1",
-          "is-down-2",
-        );
-        const rect = item.getBoundingClientRect();
-        const itemCenter = rect.top + rect.height / 2;
-        const dist = Math.abs(itemCenter - centerY);
-
-        if (dist < activeDist) {
-          activeDist = dist;
-          active = item;
-        }
-      });
-
-      coverageAreaItems.forEach((item) => {
-        if (item === active) {
-          return;
-        }
-
-        const rect = item.getBoundingClientRect();
-        const itemCenter = rect.top + rect.height / 2;
-        const delta = itemCenter - centerY;
-        const dist = Math.abs(delta);
-
-        if (delta < 0) {
-          above.push({ item, dist });
-        } else {
-          below.push({ item, dist });
-        }
-      });
-
-      if (active) {
-        active.classList.add("is-active");
-      }
-
-      above.sort((a, b) => a.dist - b.dist);
-      below.sort((a, b) => a.dist - b.dist);
-
-      if (above[0]) {
-        above[0].item.classList.add("is-up-1");
-      }
-
-      if (above[1]) {
-        above[1].item.classList.add("is-up-2");
-      }
-
-      if (below[0]) {
-        below[0].item.classList.add("is-down-1");
-      }
-
-      if (below[1]) {
-        below[1].item.classList.add("is-down-2");
-      }
-    };
-
-    const coverageAreaLoop = (time) => {
-      const rect = coverageAreasScroller.getBoundingClientRect();
-      const inView = rect.bottom > 0 && rect.top < window.innerHeight;
-
-      if (document.hidden || !inView) {
-        coverageAreaLoopId = null;
-        return;
-      }
-
-      if (time - coverageAreaLastTick > 120) {
-        updateCoverageAreaFocus();
-        coverageAreaLastTick = time;
-      }
-
-      coverageAreaLoopId = window.requestAnimationFrame(coverageAreaLoop);
-    };
-
-    const ensureCoverageAreaLoop = () => {
-      const rect = coverageAreasScroller.getBoundingClientRect();
-      const inView = rect.bottom > 0 && rect.top < window.innerHeight;
-
-      if (!document.hidden && inView && coverageAreaLoopId === null) {
-        coverageAreaLoopId = window.requestAnimationFrame(coverageAreaLoop);
-      }
-    };
-
-    updateCoverageAreaFocus();
-    ensureCoverageAreaLoop();
-    window.addEventListener("resize", () => {
-      updateCoverageAreaFocus();
-      ensureCoverageAreaLoop();
-    });
-    window.addEventListener("scroll", ensureCoverageAreaLoop, {
-      passive: true,
-    });
-    coverageAreasScroller.addEventListener("scroll", updateCoverageAreaFocus, {
-      passive: true,
-    });
-    document.addEventListener("visibilitychange", () => {
-      if (document.hidden && coverageAreaLoopId !== null) {
-        window.cancelAnimationFrame(coverageAreaLoopId);
-        coverageAreaLoopId = null;
-      } else {
-        ensureCoverageAreaLoop();
-      }
-    });
-  }
-
   function updateScrollState() {
     const y = window.scrollY || 0;
 
@@ -1148,17 +921,29 @@
         applyTopbarTheme(nextTheme.theme);
       }
     }
-
-    updateWhyLogoMotion();
-    updateWhyItemsMotion();
   }
 
   function updateMenuOnResize() {
     setMobileMenuState(topbar && topbar.classList.contains("is-menu-open"));
   }
 
-  window.addEventListener("scroll", updateScrollState, { passive: true });
-  window.addEventListener("resize", updateScrollState);
+  let scrollStateFrame = 0;
+
+  const requestScrollStateUpdate = () => {
+    if (scrollStateFrame) {
+      return;
+    }
+
+    scrollStateFrame = window.requestAnimationFrame(() => {
+      scrollStateFrame = 0;
+      updateScrollState();
+    });
+  };
+
+  window.addEventListener("scroll", requestScrollStateUpdate, {
+    passive: true,
+  });
+  window.addEventListener("resize", requestScrollStateUpdate);
   window.addEventListener("resize", updateMenuOnResize);
   updateScrollState();
   updateMenuOnResize();
