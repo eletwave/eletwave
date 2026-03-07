@@ -2322,7 +2322,7 @@ section[id] {
     position: relative;
     right: auto;
     justify-self: start;
-    margin-top: 8px;
+    margin-top: 12px;
     --lang-pill-width: 28px;
     --lang-pill-height: 16px;
   }
@@ -2331,26 +2331,25 @@ section[id] {
     grid-column: 1 / -1;
     grid-row: 2;
     display: grid;
-    width: 100%;
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
     gap: 0;
     max-height: 0;
-    padding: 0 12px;
+    padding: 0 20px;
     overflow: hidden;
-    border: 1px solid transparent;
-    border-radius: 14px;
+    border: 0;
+    border-radius: 0;
     background:
-      linear-gradient(180deg, rgba(18, 24, 40, 0.96), rgba(11, 15, 28, 0.94)),
+      linear-gradient(180deg, rgba(16, 22, 36, 0.98), rgba(10, 14, 25, 0.95)),
       linear-gradient(
         135deg,
         rgba(35, 198, 255, 0.08),
         rgba(111, 61, 255, 0.12) 56%,
         rgba(255, 47, 94, 0.08)
       );
-    box-shadow:
-      0 22px 48px rgba(2, 5, 12, 0.34),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(22px) saturate(145%);
-    -webkit-backdrop-filter: blur(22px) saturate(145%);
+    box-shadow: 0 22px 42px rgba(2, 5, 12, 0.22);
+    backdrop-filter: blur(18px) saturate(138%);
+    -webkit-backdrop-filter: blur(18px) saturate(138%);
     opacity: 0;
     transform: translateY(-8px);
     pointer-events: none;
@@ -2364,12 +2363,9 @@ section[id] {
   }
 
   .topbar.is-menu-open .topbar__nav {
-    max-height: 290px;
-    padding: 8px 12px 10px;
-    border-color: rgba(172, 195, 255, 0.18);
-    box-shadow:
-      0 26px 56px rgba(2, 5, 12, 0.38),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    max-height: 360px;
+    padding: 12px 20px 16px;
+    box-shadow: 0 26px 50px rgba(2, 5, 12, 0.28);
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
@@ -2378,10 +2374,13 @@ section[id] {
   .topbar__nav a,
   .topbar.is-scrolled .topbar__nav a {
     width: 100%;
-    padding: 7px 0;
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+    padding: 12px 0 11px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    font-size: 0.61rem;
-    letter-spacing: 0.07em;
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
     opacity: 0.96;
   }
 
@@ -2390,7 +2389,7 @@ section[id] {
     display: block;
     width: 0;
     height: 1px;
-    margin-top: 4px;
+    margin-top: 6px;
     background: linear-gradient(
       90deg,
       rgba(35, 198, 255, 0.82),
@@ -2407,7 +2406,7 @@ section[id] {
   .topbar__lang--menu::before {
     content: "";
     position: absolute;
-    top: -8px;
+    top: -12px;
     left: 0;
     width: 100%;
     height: 1px;
