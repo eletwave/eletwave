@@ -1815,6 +1815,16 @@ section[id] {
   }
 }
 
+@keyframes coverage-area-scroll-x {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 @keyframes ambient-drift {
   0% {
     transform: translate3d(-3%, -2%, 0) scale(1);
@@ -2641,9 +2651,9 @@ section[id] {
   }
 
   .coverage__layout {
-    min-height: 500px;
+    min-height: 520px;
     align-items: flex-start;
-    padding-top: 8px;
+    padding-top: 0;
   }
 
   .coverage__visual {
@@ -2652,37 +2662,66 @@ section[id] {
 
   .coverage__intro {
     max-width: none;
+    width: 100%;
   }
 
   .coverage-areas {
-    width: min(260px, 100%);
-    margin-top: 18px;
+    width: 100%;
+    margin-top: 0;
   }
 
   .coverage-areas__scroller {
-    height: 194px;
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      #000 10%,
+      #000 90%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      #000 10%,
+      #000 90%,
+      transparent 100%
+    );
   }
 
   .coverage-areas__track {
-    gap: 8px;
+    flex-direction: row;
+    align-items: center;
+    gap: 22px;
+    width: max-content;
+    animation: coverage-area-scroll-x 24s linear infinite;
   }
 
   .coverage-areas__track span {
-    font-size: 0.94rem;
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: 0.96rem;
+    opacity: 0.9;
+    color: rgba(229, 237, 250, 0.9);
+    filter: none;
+    transform: none;
   }
 
-  .coverage-areas__track span.is-active {
-    font-size: 1.42rem;
+  .coverage-areas__title {
+    margin: 0 0 12px;
   }
 
+  .coverage-areas__track span.is-active,
   .coverage-areas__track span.is-up-1,
-  .coverage-areas__track span.is-down-1 {
-    font-size: 1.14rem;
-  }
-
   .coverage-areas__track span.is-up-2,
+  .coverage-areas__track span.is-down-1,
   .coverage-areas__track span.is-down-2 {
-    font-size: 1.02rem;
+    font-size: 0.96rem;
+    opacity: 0.9;
+    color: rgba(229, 237, 250, 0.9);
+    filter: none;
+    transform: none;
   }
 
   .coverage__radar {
