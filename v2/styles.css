@@ -675,6 +675,7 @@ section[id] {
 
 .why__media {
   min-height: 660px;
+  min-width: 0;
   display: grid;
   place-items: center;
   justify-items: center;
@@ -682,6 +683,12 @@ section[id] {
   overflow: visible;
   border: 0;
   background: transparent;
+}
+
+.why__content {
+  min-width: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .why__media img {
