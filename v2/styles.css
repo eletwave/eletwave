@@ -680,7 +680,7 @@ section[id] {
   place-items: center;
   justify-items: center;
   border-radius: 0;
-  overflow: visible;
+  overflow: hidden;
   border: 0;
   background: transparent;
 }
@@ -2534,15 +2534,17 @@ section[id] {
 
   .why__media {
     min-height: 300px;
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
   }
 
   .why__media img {
     width: min(96vw, 560px);
-    max-width: calc(100vw - 20px);
-    left: auto;
+    max-width: none;
+    left: 50%;
     justify-self: center;
-    margin-inline: auto;
-    transform: translate3d(0, var(--why-logo-shift, 24px), 0)
+    margin-inline: 0;
+    transform: translate3d(-50%, var(--why-logo-shift, 24px), 0)
       scale(var(--why-logo-scale, 0.34));
   }
 
