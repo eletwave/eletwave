@@ -949,22 +949,22 @@
 
     if (progress <= 0.4) {
       const enterProgress = progress / 0.4;
-      shift = 360 - enterProgress * 360;
-      opacity = enterProgress;
-      scale = 0.84 + enterProgress * 0.16;
-      blur = (1 - enterProgress) * 8;
+      shift = 34 - enterProgress * 34;
+      opacity = 0.02 + enterProgress * 0.98;
+      scale = 0.34 + enterProgress * 0.66;
+      blur = (1 - enterProgress) * 18;
     } else if (progress <= 0.66) {
       const settleProgress = (progress - 0.4) / 0.26;
-      shift = 0 - settleProgress * 22;
+      shift = 0 - settleProgress * 10;
       opacity = 1;
-      scale = 1 + settleProgress * 0.022;
+      scale = 1 + settleProgress * 0.02;
       blur = 0;
     } else {
       const exitProgress = (progress - 0.66) / 0.34;
-      shift = -22 - exitProgress * 338;
-      opacity = Math.max(0, 1 - exitProgress * 1.12);
-      scale = 1.022 - exitProgress * 0.15;
-      blur = exitProgress * 4.4;
+      shift = -10 - exitProgress * 120;
+      opacity = Math.max(0, 1 - exitProgress * 1.08);
+      scale = 1.02 - exitProgress * 0.18;
+      blur = exitProgress * 6.5;
     }
 
     whyImage.style.setProperty("--why-logo-shift", `${shift.toFixed(1)}px`);

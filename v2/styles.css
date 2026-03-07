@@ -692,10 +692,10 @@ section[id] {
   height: auto;
   min-height: 0;
   object-fit: contain;
-  transform-origin: center 72%;
+  transform-origin: center center;
   opacity: var(--why-logo-opacity, 0);
-  transform: translate3d(-50%, var(--why-logo-shift, 220px), 0)
-    scale(var(--why-logo-scale, 0.92));
+  transform: translate3d(-50%, var(--why-logo-shift, 24px), 0)
+    scale(var(--why-logo-scale, 0.34));
   filter: blur(var(--why-logo-blur, 0px));
   will-change: transform, opacity, filter;
 }
