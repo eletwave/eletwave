@@ -589,7 +589,7 @@ section[id] {
   z-index: -2;
   background:
     linear-gradient(180deg, rgba(9, 15, 34, 0.2), rgba(9, 15, 34, 0.42)),
-    url("./assets/chi-siamo-bg.jpg") center 38% / cover no-repeat;
+    url("../assets/chi-siamo-bg.jpg") center 38% / cover no-repeat;
   opacity: 0.22;
   transform: scale(1.03);
   filter: saturate(0.94) contrast(1.04);
