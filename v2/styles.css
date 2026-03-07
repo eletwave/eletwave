@@ -2076,7 +2076,7 @@ section[id] {
   }
 
   .brands-orbit {
-    padding: 382px 0 42px;
+    padding: 446px 0 42px;
     border-radius: 20px;
   }
 
@@ -2109,13 +2109,13 @@ section[id] {
 
   .brands-orbit__visual {
     display: block;
-    inset: 0 0 auto;
-    height: 482px;
+    inset: -6px 0 auto;
+    height: 544px;
     overflow: hidden;
-    transform: scale(0.8);
+    transform: scale(0.9);
     transform-origin: top center;
-    -webkit-mask: linear-gradient(#000 78%, transparent 100%);
-    mask: linear-gradient(#000 78%, transparent 100%);
+    -webkit-mask: linear-gradient(#000 84%, transparent 100%);
+    mask: linear-gradient(#000 84%, transparent 100%);
   }
 
   .brands-orbit__content h2 {
@@ -2656,7 +2656,7 @@ section[id] {
   }
 
   .brands-orbit {
-    padding: 356px 0 32px;
+    padding: 416px 0 32px;
     border-radius: 18px;
   }
 
@@ -2683,11 +2683,11 @@ section[id] {
   }
 
   .brands-orbit__visual {
-    inset: 2px 0 auto;
-    height: 438px;
-    transform: scale(0.79);
-    -webkit-mask: linear-gradient(#000 80%, transparent 100%);
-    mask: linear-gradient(#000 80%, transparent 100%);
+    inset: -4px 0 auto;
+    height: 496px;
+    transform: scale(0.9);
+    -webkit-mask: linear-gradient(#000 86%, transparent 100%);
+    mask: linear-gradient(#000 86%, transparent 100%);
   }
 
   .brands-orbit__content {
