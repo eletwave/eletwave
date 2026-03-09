@@ -2836,3 +2836,14 @@ section[id] {
     letter-spacing: 0.06em;
   }
 }
+
+@media (min-width: 1121px) {
+  .why {
+    --why-edge-pad: max(24px, env(safe-area-inset-left, 0px));
+  }
+
+  .why__media {
+    margin-left: calc(var(--why-edge-pad) - var(--section-pad));
+    width: calc(100% + var(--section-pad) - var(--why-edge-pad));
+  }
+}
