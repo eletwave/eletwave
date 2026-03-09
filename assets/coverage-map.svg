@@ -20,6 +20,7 @@
       stroke-linejoin: round;
       vector-effect: non-scaling-stroke;
     }
+    .map-state--si { stroke-width: 1.52; }
     .map-state--at { display: none; }
   </style>
   <g class="map-regions">
