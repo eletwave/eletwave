@@ -704,8 +704,8 @@ section[id] {
   min-height: 660px;
   min-width: 0;
   display: grid;
-  place-items: center;
-  justify-items: center;
+  align-items: center;
+  justify-items: start;
   border-radius: 0;
   overflow: hidden;
   border: 0;
@@ -720,7 +720,8 @@ section[id] {
 
 .why__media img {
   position: relative;
-  left: 50%;
+  left: auto;
+  justify-self: start;
   width: clamp(1120px, 88vw, 1760px);
   max-width: none;
   height: auto;
@@ -728,7 +729,7 @@ section[id] {
   object-fit: contain;
   transform-origin: center center;
   opacity: var(--why-logo-opacity, 0);
-  transform: translate3d(-50%, var(--why-logo-shift, 24px), 0)
+  transform: translate3d(0, var(--why-logo-shift, 24px), 0)
     scale(var(--why-logo-scale, 0.34));
   filter: blur(var(--why-logo-blur, 0px));
   will-change: transform, opacity, filter;
