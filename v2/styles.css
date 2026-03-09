@@ -712,7 +712,7 @@ section[id] {
   position: relative;
   left: auto;
   justify-self: start;
-  width: min(112%, 980px);
+  width: min(100%, 980px);
   max-width: 980px;
   height: auto;
   min-height: 0;

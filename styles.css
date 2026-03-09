@@ -722,8 +722,8 @@ section[id] {
   position: relative;
   left: auto;
   justify-self: start;
-  width: clamp(1120px, 88vw, 1760px);
-  max-width: none;
+  width: min(100%, 980px);
+  max-width: 980px;
   height: auto;
   min-height: 0;
   object-fit: contain;

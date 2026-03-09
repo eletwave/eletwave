@@ -173,7 +173,7 @@
         eyebrow: "Chi siamo",
         title:
           "Una realta tecnica dinamica, costruita su competenza, velocita e supporto costante.",
-        lead: "Eletwave e una realta dinamica specializzata nella progettazione, realizzazione e manutenzione di impianti elettrici e soluzioni tecnologiche integrate per privati e aziende. Con sede in Friuli Venezia Giulia e operativita su un ampio territorio, offriamo servizi completi che spaziano dagli impianti elettrici civili e industriali alla domotica, sicurezza, automazioni ed energie rinnovabili, accompagnando il cliente in ogni fase del progetto: dall'analisi delle esigenze fino all'assistenza post-installazione.",
+        lead: "Eletwave è un’impresa artigiana del Friuli Venezia Giulia specializzata in impianti elettrici e soluzioni tecnologiche integrate per privati e aziende. Progettiamo, realizziamo e manteniamo impianti elettrici civili e industriali, impianti fotovoltaici, sistemi di domotica, sicurezza, automazioni e soluzioni per l’efficientamento energetico. Seguiamo ogni cliente in modo diretto e trasparente, dalla consulenza iniziale alla progettazione, fino all’installazione e all’assistenza post-vendita. Ogni intervento è realizzato con attenzione alla sicurezza, alla qualità dei materiali e alla conformità normativa. Operiamo su tutto il territorio del Friuli Venezia Giulia, garantendo professionalità, rapidità di intervento e un rapporto chiaro e affidabile. Eletwave: energia, tecnologia e sicurezza al servizio dei tuoi spazi.",
       },
       why: {
         eyebrow: "Perche noi",
