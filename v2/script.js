@@ -162,7 +162,7 @@
       manifesto: {
         eyebrow: "Chi siamo",
         title:
-          "Una realta tecnica dinamica, costruita su competenza, velocita e supporto costante.",
+          "Competenza tecnica, rapidita di intervento e supporto costante per privati e aziende.",
         lead: "Eletwave è un’impresa artigiana del Friuli Venezia Giulia specializzata in impianti elettrici e soluzioni tecnologiche integrate per privati e aziende. Progettiamo, realizziamo e manteniamo impianti elettrici civili e industriali, impianti fotovoltaici, sistemi di domotica, sicurezza, automazioni e soluzioni per l’efficientamento energetico. Seguiamo ogni cliente in modo diretto e trasparente, dalla consulenza iniziale alla progettazione, fino all’installazione e all’assistenza post-vendita. Ogni intervento è realizzato con attenzione alla sicurezza, alla qualità dei materiali e alla conformità normativa. Operiamo su tutto il territorio del Friuli Venezia Giulia, garantendo professionalità, rapidità di intervento e un rapporto chiaro e affidabile. Eletwave: energia, tecnologia e sicurezza al servizio dei tuoi spazi.",
       },
       why: {
@@ -292,7 +292,7 @@
       manifesto: {
         eyebrow: "About us",
         title:
-          "A dynamic technical company built on expertise, speed and reliable support.",
+          "Technical expertise, fast response and reliable support for homes and businesses.",
         lead: "Eletwave is a dynamic company specialized in the design, installation and maintenance of electrical systems and integrated technology solutions for homes and businesses. Based in Friuli Venezia Giulia and operating across a wide area, we provide complete services ranging from residential and industrial electrical systems to home automation, security, automation and renewable energy, supporting the client through every stage of the project, from needs assessment to post-installation assistance.",
       },
       why: {
@@ -423,7 +423,7 @@
     manifesto: {
       eyebrow: "O nas",
       title:
-        "Dinamicno tehnicno podjetje, zgrajeno na strokovnosti, hitrosti in zanesljivi podpori.",
+        "Tehnicna strokovnost, hitri posegi in zanesljiva podpora za zasebnike in podjetja.",
       lead: "Eletwave je dinamicno podjetje, specializirano za nacrtovanje, izvedbo in vzdrezevanje elektricnih sistemov ter integriranih tehnoloskih resitev za zasebnike in podjetja. S sedezem v Furlaniji-Julijski krajini in delovanjem na sirsem obmocju nudimo celovite storitve, od civilnih in industrijskih elektricnih instalacij do varnosti, avtomatizacije in obnovljivih virov, ter spremljamo narocnika v vseh fazah projekta, od analize potreb do podpore po izvedbi.",
     },
     why: {

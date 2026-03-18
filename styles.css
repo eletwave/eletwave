@@ -2827,6 +2827,34 @@ section[id] {
   }
 }
 
+@media (max-width: 480px) {
+  .coverage {
+    padding: 56px var(--section-pad) 46px;
+  }
+
+  .coverage__layout {
+    min-height: 448px;
+  }
+
+  .coverage__radar {
+    top: 61%;
+  }
+
+  .brands-orbit {
+    padding: 368px 0 24px;
+  }
+
+  .brands-orbit__visual {
+    inset: 10px 0 auto;
+    height: 444px;
+    transform: scale(0.87);
+  }
+
+  .brands-orbit__content {
+    gap: 6px;
+  }
+}
+
 @media (max-width: 1320px) and (min-width: 1121px) {
   .topbar__nav {
     gap: clamp(14px, 1.7vw, 30px);
