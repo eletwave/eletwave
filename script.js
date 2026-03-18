@@ -929,9 +929,9 @@
 
     const rect = section.getBoundingClientRect();
     const viewportHeight = window.innerHeight || 1;
-    const totalDistance = Math.max(viewportHeight + rect.height, 1);
+    const totalDistance = Math.max(viewportHeight * 0.82 + rect.height * 1.18, 1);
     const progress = Math.min(
-      Math.max((viewportHeight - rect.top) / totalDistance, 0),
+      Math.max((viewportHeight * 0.7 - rect.top) / totalDistance, 0),
       1,
     );
 
@@ -939,21 +939,21 @@
     let opacity = 1;
     let scale = 1;
 
-    if (progress <= 0.4) {
-      const enterProgress = progress / 0.4;
-      shift = 34 - enterProgress * 34;
+    if (progress <= 0.48) {
+      const enterProgress = progress / 0.48;
+      shift = 44 - enterProgress * 44;
       opacity = 0.02 + enterProgress * 0.98;
-      scale = 0.34 + enterProgress * 0.66;
-    } else if (progress <= 0.66) {
-      const settleProgress = (progress - 0.4) / 0.26;
-      shift = 0 - settleProgress * 10;
+      scale = 0.28 + enterProgress * 0.72;
+    } else if (progress <= 0.78) {
+      const settleProgress = (progress - 0.48) / 0.3;
+      shift = 0 - settleProgress * 12;
       opacity = 1;
-      scale = 1 + settleProgress * 0.02;
+      scale = 1 + settleProgress * 0.025;
     } else {
-      const exitProgress = (progress - 0.66) / 0.34;
-      shift = -10 - exitProgress * 120;
-      opacity = Math.max(0, 1 - exitProgress * 1.08);
-      scale = 1.02 - exitProgress * 0.18;
+      const exitProgress = (progress - 0.78) / 0.22;
+      shift = -12 - exitProgress * 104;
+      opacity = Math.max(0, 1 - exitProgress * 1.02);
+      scale = 1.025 - exitProgress * 0.16;
     }
 
     whyImage.style.setProperty("--why-logo-shift", `${shift.toFixed(1)}px`);
@@ -978,13 +978,13 @@
     const viewportHeight = window.innerHeight || 1;
     const sectionProgress = Math.min(
       Math.max(
-        (viewportHeight * 0.82 - rect.top) / Math.max(rect.height * 0.72, 1),
+        (viewportHeight * 0.62 - rect.top) / Math.max(rect.height * 1.1, 1),
         0,
       ),
       1,
     );
-    const itemStep = 0.18;
-    const itemWindow = 0.24;
+    const itemStep = 0.2;
+    const itemWindow = 0.38;
 
     whyItems.forEach((item, index) => {
       const itemProgress = Math.min(
@@ -993,7 +993,7 @@
       );
 
       item.el.style.setProperty("--why-item-progress", itemProgress.toFixed(3));
-      item.el.classList.toggle("is-active", itemProgress >= 0.72);
+      item.el.classList.toggle("is-active", itemProgress >= 0.84);
     });
   }
 

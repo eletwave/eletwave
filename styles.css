@@ -750,12 +750,12 @@ section[id] {
 
 .why.has-scroll-motion .why-item {
   --why-item-progress: 0;
-  opacity: calc(0.14 + var(--why-item-progress) * 0.86);
-  transform: translate3d(calc((1 - var(--why-item-progress)) * 88px), 0, 0);
+  opacity: calc(0.1 + var(--why-item-progress) * 0.9);
+  transform: translate3d(calc((1 - var(--why-item-progress)) * 112px), 0, 0);
   transition:
-    opacity 0.28s linear,
-    transform 0.42s cubic-bezier(0.2, 0.8, 0.2, 1),
-    border-color 0.35s ease;
+    opacity 0.62s ease,
+    transform 0.9s cubic-bezier(0.18, 0.84, 0.24, 1),
+    border-color 0.58s ease;
   will-change: transform, opacity;
 }
 
@@ -1463,11 +1463,26 @@ section[id] {
 }
 
 .brands-pill img[src$="fronius.png"],
-.brands-grid__item img[src$="fronius.png"],
-.brands-pill img[src$="tesla.png"],
-.brands-grid__item img[src$="tesla.png"] {
+.brands-grid__item img[src$="fronius.png"] {
   filter: none;
   opacity: 0.98;
+}
+
+.brands-pill img[src$="tesla.png"],
+.brands-grid__item img[src$="tesla.png"] {
+  filter: brightness(0) invert(1);
+  opacity: 0.98;
+}
+
+.brands-pill img[src$="ledvance.svg"],
+.brands-grid__item img[src$="ledvance.svg"] {
+  filter: none;
+  opacity: 0.98;
+}
+
+.brands-pill img[src$="philips.svg"],
+.brands-grid__item img[src$="philips.svg"] {
+  max-height: 38px;
 }
 
 .brands-pill.is-tesla,
@@ -1748,7 +1763,7 @@ section[id] {
   }
 
   50% {
-    opacity: 0.34;
+    opacity: 0.38;
     transform: scale(1.04);
   }
 }
@@ -2099,7 +2114,7 @@ section[id] {
   }
 
   .brands-orbit {
-    padding: 446px 0 42px;
+    padding: 272px 0 40px;
     border-radius: 20px;
   }
 
@@ -2132,13 +2147,13 @@ section[id] {
 
   .brands-orbit__visual {
     display: block;
-    inset: 18px 0 auto;
-    height: 544px;
-    overflow: hidden;
-    transform: scale(0.9);
+    inset: 10px 0 auto;
+    height: 322px;
+    overflow: visible;
+    transform: scale(0.58);
     transform-origin: top center;
-    -webkit-mask: linear-gradient(#000 84%, transparent 100%);
-    mask: linear-gradient(#000 84%, transparent 100%);
+    -webkit-mask: linear-gradient(#000 58%, transparent 88%);
+    mask: linear-gradient(#000 58%, transparent 88%);
   }
 
   .brands-orbit__content h2 {
@@ -2702,7 +2717,7 @@ section[id] {
   }
 
   .brands-orbit {
-    padding: 416px 0 32px;
+    padding: 246px 0 30px;
     border-radius: 18px;
   }
 
@@ -2729,11 +2744,9 @@ section[id] {
   }
 
   .brands-orbit__visual {
-    inset: 16px 0 auto;
-    height: 496px;
-    transform: scale(0.9);
-    -webkit-mask: linear-gradient(#000 86%, transparent 100%);
-    mask: linear-gradient(#000 86%, transparent 100%);
+    inset: 12px 0 auto;
+    height: 292px;
+    transform: scale(0.58);
   }
 
   .brands-orbit__content {
@@ -2769,19 +2782,6 @@ section[id] {
     top: 61%;
   }
 
-  .brands-orbit {
-    padding: 368px 0 24px;
-  }
-
-  .brands-orbit__visual {
-    inset: 10px 0 auto;
-    height: 444px;
-    transform: scale(0.87);
-  }
-
-  .brands-orbit__content {
-    gap: 6px;
-  }
 }
 
 @media (max-width: 1320px) and (min-width: 1121px) {
