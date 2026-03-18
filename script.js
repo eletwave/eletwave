@@ -53,12 +53,6 @@
   const coverageVisual = document.querySelector(
     "#dove-operiamo .coverage__visual",
   );
-  const coverageAreasScroller = document.querySelector(
-    ".coverage-areas__scroller",
-  );
-  const coverageAreaItems = Array.from(
-    document.querySelectorAll(".coverage-areas__track span"),
-  );
   const brandsEyebrow = document.querySelector(
     "#brands .brands-orbit__content .eyebrow",
   );
@@ -924,7 +918,6 @@
       whyImage.style.setProperty("--why-logo-shift", "0px");
       whyImage.style.setProperty("--why-logo-opacity", "1");
       whyImage.style.setProperty("--why-logo-scale", "1");
-      whyImage.style.setProperty("--why-logo-blur", "0px");
       return;
     }
 
@@ -945,32 +938,27 @@
     let shift = 0;
     let opacity = 1;
     let scale = 1;
-    let blur = 0;
 
     if (progress <= 0.4) {
       const enterProgress = progress / 0.4;
       shift = 34 - enterProgress * 34;
       opacity = 0.02 + enterProgress * 0.98;
       scale = 0.34 + enterProgress * 0.66;
-      blur = (1 - enterProgress) * 18;
     } else if (progress <= 0.66) {
       const settleProgress = (progress - 0.4) / 0.26;
       shift = 0 - settleProgress * 10;
       opacity = 1;
       scale = 1 + settleProgress * 0.02;
-      blur = 0;
     } else {
       const exitProgress = (progress - 0.66) / 0.34;
       shift = -10 - exitProgress * 120;
       opacity = Math.max(0, 1 - exitProgress * 1.08);
       scale = 1.02 - exitProgress * 0.18;
-      blur = exitProgress * 6.5;
     }
 
     whyImage.style.setProperty("--why-logo-shift", `${shift.toFixed(1)}px`);
     whyImage.style.setProperty("--why-logo-opacity", opacity.toFixed(3));
     whyImage.style.setProperty("--why-logo-scale", scale.toFixed(3));
-    whyImage.style.setProperty("--why-logo-blur", `${blur.toFixed(2)}px`);
   }
 
   function updateWhyItemsMotion() {
@@ -1009,125 +997,6 @@
     });
   }
 
-  if (coverageAreasScroller && coverageAreaItems.length) {
-    let coverageAreaLoopId = null;
-    let coverageAreaLastTick = 0;
-
-    const updateCoverageAreaFocus = () => {
-      const scrollerRect = coverageAreasScroller.getBoundingClientRect();
-      const centerY = scrollerRect.top + scrollerRect.height / 2;
-      let active = null;
-      let activeDist = Infinity;
-      const above = [];
-      const below = [];
-
-      coverageAreaItems.forEach((item) => {
-        item.classList.remove(
-          "is-active",
-          "is-up-1",
-          "is-up-2",
-          "is-down-1",
-          "is-down-2",
-        );
-        const rect = item.getBoundingClientRect();
-        const itemCenter = rect.top + rect.height / 2;
-        const dist = Math.abs(itemCenter - centerY);
-
-        if (dist < activeDist) {
-          activeDist = dist;
-          active = item;
-        }
-      });
-
-      coverageAreaItems.forEach((item) => {
-        if (item === active) {
-          return;
-        }
-
-        const rect = item.getBoundingClientRect();
-        const itemCenter = rect.top + rect.height / 2;
-        const delta = itemCenter - centerY;
-        const dist = Math.abs(delta);
-
-        if (delta < 0) {
-          above.push({ item, dist });
-        } else {
-          below.push({ item, dist });
-        }
-      });
-
-      if (active) {
-        active.classList.add("is-active");
-      }
-
-      above.sort((a, b) => a.dist - b.dist);
-      below.sort((a, b) => a.dist - b.dist);
-
-      if (above[0]) {
-        above[0].item.classList.add("is-up-1");
-      }
-
-      if (above[1]) {
-        above[1].item.classList.add("is-up-2");
-      }
-
-      if (below[0]) {
-        below[0].item.classList.add("is-down-1");
-      }
-
-      if (below[1]) {
-        below[1].item.classList.add("is-down-2");
-      }
-    };
-
-    const coverageAreaLoop = (time) => {
-      const rect = coverageAreasScroller.getBoundingClientRect();
-      const inView = rect.bottom > 0 && rect.top < window.innerHeight;
-
-      if (document.hidden || !inView) {
-        coverageAreaLoopId = null;
-        return;
-      }
-
-      if (time - coverageAreaLastTick > 120) {
-        updateCoverageAreaFocus();
-        coverageAreaLastTick = time;
-      }
-
-      coverageAreaLoopId = window.requestAnimationFrame(coverageAreaLoop);
-    };
-
-    const ensureCoverageAreaLoop = () => {
-      const rect = coverageAreasScroller.getBoundingClientRect();
-      const inView = rect.bottom > 0 && rect.top < window.innerHeight;
-
-      if (!document.hidden && inView && coverageAreaLoopId === null) {
-        coverageAreaLoopId = window.requestAnimationFrame(coverageAreaLoop);
-      }
-    };
-
-    updateCoverageAreaFocus();
-    ensureCoverageAreaLoop();
-    window.addEventListener("resize", () => {
-      updateCoverageAreaFocus();
-      ensureCoverageAreaLoop();
-    });
-    window.addEventListener("scroll", ensureCoverageAreaLoop, {
-      passive: true,
-    });
-    coverageAreasScroller.addEventListener("scroll", updateCoverageAreaFocus, {
-      passive: true,
-    });
-    document.addEventListener("visibilitychange", () => {
-      if (document.hidden && coverageAreaLoopId !== null) {
-        window.cancelAnimationFrame(coverageAreaLoopId);
-        coverageAreaLoopId = null;
-      } else {
-        ensureCoverageAreaLoop();
-      }
-    });
-  }
-
   function updateScrollState() {
     const y = window.scrollY || 0;
 
@@ -1157,7 +1026,21 @@
     setMobileMenuState(topbar && topbar.classList.contains("is-menu-open"));
   }
 
-  window.addEventListener("scroll", updateScrollState, { passive: true });
+  let scrollTicking = false;
+
+  function scheduleScrollState() {
+    if (scrollTicking) {
+      return;
+    }
+
+    scrollTicking = true;
+    window.requestAnimationFrame(() => {
+      scrollTicking = false;
+      updateScrollState();
+    });
+  }
+
+  window.addEventListener("scroll", scheduleScrollState, { passive: true });
   window.addEventListener("resize", updateScrollState);
   window.addEventListener("resize", updateMenuOnResize);
   updateScrollState();
