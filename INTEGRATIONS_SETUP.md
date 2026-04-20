@@ -6,15 +6,22 @@ Il sito ora e pronto per mostrare:
 - ultimi post `Instagram`
 - recensioni `Google`
 
-La soluzione consigliata per il tuo caso e:
+Hai due modalita automatiche possibili:
 
-- frontend statico su `GitHub Pages`
-- aggiornamento dati via `GitHub Actions`
-- file pubblici serviti da `data/google-business.json` e `data/instagram.json`
+- `GitHub Actions` + JSON pubblici: semplice, compatibile con `GitHub Pages`
+- `Cloudflare Worker` live: piu diretto, senza aspettare il commit dei file dati
+
+Il frontend ora supporta entrambe:
+
+- se imposti `apiBaseUrl`, usa prima gli endpoint live
+- se il worker non risponde, ripiega sui file `data/*.json`
+- se `apiBaseUrl` e vuoto, usa solo i file JSON pubblicati nel repo
 
 ## 1. Configura `site-config.js`
 
-Apri [site-config.js](./site-config.js) e lascia questa struttura:
+Apri [site-config.js](./site-config.js) e lascia una di queste strutture.
+
+Modalita `GitHub Actions` + JSON pubblici:
 
 ```js
 window.ELETWAVE_CONFIG = Object.freeze({
@@ -31,6 +38,24 @@ window.ELETWAVE_CONFIG = Object.freeze({
 
 Con questa configurazione il sito legge direttamente i file JSON pubblicati da
 GitHub Pages.
+
+Modalita `Worker live` con fallback automatico ai JSON:
+
+```js
+window.ELETWAVE_CONFIG = Object.freeze({
+  integrations: {
+    apiBaseUrl: "https://eletwave-integrations.<subdomain>.workers.dev",
+    googleDataUrl: "./data/google-business.json",
+    instagramDataUrl: "./data/instagram.json",
+    googleProfileUrl: "",
+    googleReviewUrl: "",
+    instagramProfileUrl: "https://www.instagram.com/eletwave/",
+  },
+});
+```
+
+In questo caso il sito prova prima il worker e usa i file `data/*.json` solo se
+serve un fallback.
 
 ## 2. GitHub Secrets e Variables
 
@@ -112,4 +137,10 @@ Doc ufficiali:
 
 ## Nota
 
-La cartella [worker/](./worker) resta nel repo come alternativa futura, ma per adesso non ti serve.
+Se vuoi il massimo automatismo, la soluzione migliore e:
+
+- `worker/` per i dati live
+- `GitHub Actions` come backup che aggiorna i JSON pubblici
+
+Se invece vuoi la configurazione piu semplice possibile, puoi usare solo
+`GitHub Actions`.

@@ -1256,16 +1256,34 @@
     return apiBaseUrl + normalizedPath;
   }
 
-  function getDataSourceUrl(type) {
+  function getDataSourceCandidates(type) {
+    const candidates = [];
+
     if (type === "google-business") {
-      return googleDataUrl || buildApiUrl("/google-business");
+      const liveUrl = buildApiUrl("/google-business");
+
+      if (liveUrl) {
+        candidates.push(liveUrl);
+      }
+
+      if (googleDataUrl && !candidates.includes(googleDataUrl)) {
+        candidates.push(googleDataUrl);
+      }
     }
 
     if (type === "instagram") {
-      return instagramDataUrl || buildApiUrl("/instagram");
+      const liveUrl = buildApiUrl("/instagram");
+
+      if (liveUrl) {
+        candidates.push(liveUrl);
+      }
+
+      if (instagramDataUrl && !candidates.includes(instagramDataUrl)) {
+        candidates.push(instagramDataUrl);
+      }
     }
 
-    return "";
+    return candidates;
   }
 
   function renderInstagramSkeletons(count) {
@@ -1738,15 +1756,7 @@
     renderInstagramPresence();
   }
 
-  async function fetchIntegrationJson(sourceType) {
-    const url = getDataSourceUrl(sourceType);
-
-    if (!url) {
-      throw new Error(
-        "Sorgente dati non configurata in site-config.js per " + sourceType,
-      );
-    }
-
+  async function fetchIntegrationJsonFromUrl(url) {
     const response = await fetch(url, {
       method: "GET",
       headers: {
@@ -1771,8 +1781,38 @@
     return payload;
   }
 
+  async function fetchIntegrationJson(sourceType) {
+    const sourceUrls = getDataSourceCandidates(sourceType);
+
+    if (!sourceUrls.length) {
+      throw new Error(
+        "Sorgente dati non configurata in site-config.js per " + sourceType,
+      );
+    }
+
+    let lastError = null;
+
+    for (const url of sourceUrls) {
+      try {
+        return await fetchIntegrationJsonFromUrl(url);
+      } catch (error) {
+        lastError = error;
+      }
+    }
+
+    throw lastError || new Error("Nessuna sorgente dati disponibile");
+  }
+
   async function loadGoogleBusiness() {
     if (!presenceSection) {
+      return;
+    }
+
+    if (!getDataSourceCandidates("google-business").length) {
+      googlePresencePayload = null;
+      googlePresenceErrorMessage = "";
+      googlePresenceState = "config_missing";
+      renderGooglePresence();
       return;
     }
 
@@ -1784,6 +1824,14 @@
 
   async function loadInstagramFeed() {
     if (!presenceSection) {
+      return;
+    }
+
+    if (!getDataSourceCandidates("instagram").length) {
+      instagramPresencePayload = null;
+      instagramPresenceErrorMessage = "";
+      instagramPresenceState = "config_missing";
+      renderInstagramPresence();
       return;
     }
 
@@ -1805,7 +1853,10 @@
     setLinkState(instagramProfileLink, instagramProfileUrl);
     setLinkState(instagramPostsLink, instagramProfileUrl);
 
-    if (!getDataSourceUrl("google-business") && !getDataSourceUrl("instagram")) {
+    if (
+      !getDataSourceCandidates("google-business").length &&
+      !getDataSourceCandidates("instagram").length
+    ) {
       googlePresenceState = "config_missing";
       instagramPresenceState = "config_missing";
       renderPresenceSection();

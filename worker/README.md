@@ -64,12 +64,17 @@ Dopo il deploy, copia l'URL del worker e incollalo in `site-config.js`:
 window.ELETWAVE_CONFIG = Object.freeze({
   integrations: {
     apiBaseUrl: "https://eletwave-integrations.<subdomain>.workers.dev",
+    googleDataUrl: "./data/google-business.json",
+    instagramDataUrl: "./data/instagram.json",
     googleProfileUrl: "",
     googleReviewUrl: "",
     instagramProfileUrl: "https://www.instagram.com/eletwave/",
   },
 });
 ```
+
+Il frontend usa il worker come sorgente principale. Se il worker non risponde,
+ripiega automaticamente sui file JSON pubblici del repository.
 
 ## Endpoint di discovery
 
