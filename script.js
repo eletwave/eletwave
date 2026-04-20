@@ -984,7 +984,7 @@
       1,
     );
     const itemStep = 0.19;
-    const itemWindow = 0.32;
+    const itemWindow = 0.24;
 
     whyItems.forEach((item, index) => {
       const itemProgress = Math.min(

@@ -753,9 +753,9 @@ section[id] {
   opacity: calc(0.1 + var(--why-item-progress) * 0.9);
   transform: translate3d(calc((1 - var(--why-item-progress)) * 112px), 0, 0);
   transition:
-    opacity 0.5s ease,
-    transform 0.72s cubic-bezier(0.18, 0.84, 0.24, 1),
-    border-color 0.46s ease;
+    opacity 0.34s ease,
+    transform 0.46s cubic-bezier(0.18, 0.84, 0.24, 1),
+    border-color 0.34s ease;
   will-change: transform, opacity;
 }
 
