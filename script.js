@@ -7,6 +7,7 @@
   ).matches;
   const yearNode = document.querySelector("#year");
   const topbarNav = document.querySelector(".topbar__nav");
+  const topbarBrand = document.querySelector(".topbar__brand");
   const navLinks = Array.from(document.querySelectorAll(".topbar__nav a"));
   const topbarMenuButton = document.querySelector(".topbar__menu");
   const languageOrder = ["it", "en", "sl"];
@@ -157,7 +158,7 @@
         open: "Apri menu",
         close: "Chiudi menu",
       },
-      nav: ["HOME", "CHI SIAMO", "PERCHE NOI", "SERVIZI", "CONTATTI"],
+      nav: ["CHI SIAMO", "PERCHE NOI", "SERVIZI", "CONTATTI"],
       hero: {
         eyebrow: "ELETWAVE • Smart Energy & Security",
         title: "Installatori di impianti elettrici, fotovoltaico e sicurezza.",
@@ -287,7 +288,7 @@
         open: "Open menu",
         close: "Close menu",
       },
-      nav: ["HOME", "ABOUT US", "WHY US", "SERVICES", "CONTACT"],
+      nav: ["ABOUT US", "WHY US", "SERVICES", "CONTACT"],
       hero: {
         eyebrow: "ELETWAVE • Smart Energy & Security",
         title: "Electrical, solar and security system installers.",
@@ -418,7 +419,7 @@
       open: "Odpri meni",
       close: "Zapri meni",
     },
-    nav: ["DOMOV", "O NAS", "ZAKAJ MI", "STORITVE", "KONTAKTI"],
+    nav: ["O NAS", "ZAKAJ MI", "STORITVE", "KONTAKTI"],
     hero: {
       eyebrow: "ELETWAVE • Smart Energy & Security",
       title: "Monterji elektricnih, soncnih in varnostnih sistemov.",
@@ -578,6 +579,78 @@
       } else {
         button.removeAttribute("tabindex");
       }
+    });
+  }
+
+
+  function scrollToHashTarget(hash) {
+    if (!hash || hash.charAt(0) !== "#") {
+      return false;
+    }
+
+    const target = document.querySelector(hash);
+
+    if (!target) {
+      return false;
+    }
+
+    target.scrollIntoView({
+      block: "start",
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+    });
+
+    return true;
+  }
+
+  function updateLocationHash(hash) {
+    if (
+      !hash ||
+      hash.charAt(0) !== "#" ||
+      !window.history ||
+      !window.history.pushState
+    ) {
+      return;
+    }
+
+    if (window.location.hash === hash) {
+      window.history.replaceState(null, "", hash);
+      return;
+    }
+
+    window.history.pushState(null, "", hash);
+  }
+
+  function bindHashLink(link) {
+    if (!link) {
+      return;
+    }
+
+    link.addEventListener("click", (event) => {
+      const hash = link.getAttribute("href");
+
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      ) {
+        return;
+      }
+
+      if (!hash || hash.charAt(0) !== "#" || !document.querySelector(hash)) {
+        setMobileMenuState(false);
+        return;
+      }
+
+      event.preventDefault();
+      setMobileMenuState(false);
+
+      window.requestAnimationFrame(() => {
+        scrollToHashTarget(hash);
+        updateLocationHash(hash);
+      });
     });
   }
 
@@ -858,13 +931,8 @@
     });
   }
 
-  if (navLinks.length) {
-    navLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        setMobileMenuState(false);
-      });
-    });
-  }
+  navLinks.forEach((link) => bindHashLink(link));
+  bindHashLink(topbarBrand);
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
@@ -1043,6 +1111,15 @@
   window.addEventListener("scroll", scheduleScrollState, { passive: true });
   window.addEventListener("resize", updateScrollState);
   window.addEventListener("resize", updateMenuOnResize);
+  window.addEventListener("hashchange", () => {
+    scrollToHashTarget(window.location.hash);
+  });
   updateScrollState();
   updateMenuOnResize();
+
+  if (window.location.hash) {
+    window.requestAnimationFrame(() => {
+      scrollToHashTarget(window.location.hash);
+    });
+  }
 })();
