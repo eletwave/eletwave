@@ -1,0 +1,24 @@
+{
+  "profile": {
+    "title": "ELETWAVE",
+    "description": "Profilo Google Business in attesa di sincronizzazione automatica da GitHub Actions.",
+    "status": "OPEN",
+    "phone": "+39 3930036372",
+    "website": "",
+    "isServiceAreaBusiness": true,
+    "placeId": null,
+    "mapsUrl": "",
+    "newReviewUrl": "",
+    "profileUrl": ""
+  },
+  "summary": {
+    "averageRating": 0,
+    "totalReviewCount": 0
+  },
+  "reviews": [],
+  "source": {
+    "accountId": "",
+    "locationId": ""
+  },
+  "syncedAt": null
+}

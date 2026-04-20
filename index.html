@@ -612,6 +612,186 @@
         </div>
       </section>
 
+      <section class="presence" id="presenza-online">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-presence-eyebrow>Presenza online</p>
+          <h2 data-presence-title>
+            Google Business Profile, Instagram e recensioni sempre aggiornati.
+          </h2>
+        </div>
+
+        <div class="presence__layout">
+          <article class="presence-card presence-card--google reveal">
+            <div class="presence-card__header">
+              <div>
+                <p class="presence-card__kicker" data-google-kicker>
+                  Google Business Profile
+                </p>
+                <h3 data-google-title>ELETWAVE</h3>
+              </div>
+              <span class="presence-chip" data-google-chip>
+                Service area business
+              </span>
+            </div>
+
+            <p class="presence-card__lead" data-google-summary>
+              Profilo attivita, reputazione online e link rapidi in un unico
+              punto, integrati nello stile del sito.
+            </p>
+
+            <div class="presence-stats">
+              <div class="presence-stat">
+                <span class="presence-stat__value" data-google-rating>--</span>
+                <span class="presence-stat__label" data-google-stat-label="rating">
+                  Valutazione media
+                </span>
+              </div>
+              <div class="presence-stat">
+                <span class="presence-stat__value" data-google-review-count>
+                  --
+                </span>
+                <span
+                  class="presence-stat__label"
+                  data-google-stat-label="reviews"
+                >
+                  Recensioni Google
+                </span>
+              </div>
+              <div class="presence-stat">
+                <span class="presence-stat__value" data-google-status>
+                  In setup
+                </span>
+                <span class="presence-stat__label" data-google-stat-label="status">
+                  Stato profilo
+                </span>
+              </div>
+            </div>
+
+            <div class="presence-card__meta" data-google-meta>
+              Profilo owner e recensioni vengono sincronizzati dal backend
+              dedicato, senza esporre chiavi nel frontend.
+            </div>
+
+            <div class="presence-actions">
+              <a
+                class="presence-button"
+                data-google-profile-link
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-disabled="true"
+                data-google-profile-cta
+              >
+                Apri profilo
+              </a>
+              <a
+                class="presence-button presence-button--ghost"
+                data-google-review-link
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-disabled="true"
+                data-google-review-cta
+              >
+                Lascia una recensione
+              </a>
+            </div>
+
+            <p class="presence-note" data-google-note aria-live="polite">
+              In attesa del collegamento al profilo Google Business.
+            </p>
+          </article>
+
+          <article class="presence-card presence-card--instagram reveal">
+            <div class="presence-card__header">
+              <div>
+                <p class="presence-card__kicker" data-instagram-kicker>
+                  Instagram business
+                </p>
+                <h3 data-instagram-title>Ultimi post dal profilo @eletwave.</h3>
+              </div>
+              <span class="presence-chip presence-chip--alt" data-instagram-chip>
+                Feed automatico
+              </span>
+            </div>
+
+            <p class="presence-card__lead" data-instagram-lead>
+              I contenuti vengono caricati automaticamente dal profilo business
+              e restano navigabili senza uscire dal linguaggio visivo del sito.
+            </p>
+
+            <div class="presence-card__meta" data-instagram-meta>
+              Profilo business pronto al collegamento. Appena la sincronizzazione
+              sara attiva, qui compariranno gli ultimi post reali.
+            </div>
+
+            <div class="presence-actions">
+              <a
+                class="presence-button"
+                data-instagram-profile-link
+                href="https://www.instagram.com/eletwave/"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-instagram-profile-cta
+              >
+                Apri profilo
+              </a>
+              <a
+                class="presence-button presence-button--ghost"
+                data-instagram-posts-link
+                href="https://www.instagram.com/eletwave/"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-instagram-posts-cta
+              >
+                Vedi tutti i post
+              </a>
+            </div>
+
+            <div class="presence-feed" data-instagram-feed></div>
+
+            <p class="presence-note" data-instagram-note aria-live="polite">
+              In attesa del collegamento all'API Instagram.
+            </p>
+          </article>
+        </div>
+
+        <article class="presence-card presence-card--reviews reveal">
+          <div class="presence-card__header presence-card__header--reviews">
+            <div>
+              <p class="presence-card__kicker" data-google-reviews-kicker>
+                Recensioni Google
+              </p>
+              <h3 data-google-reviews-title>
+                Feedback verificati, senza widget esterni invasivi.
+              </h3>
+            </div>
+            <a
+              class="presence-inline-link"
+              data-google-reviews-action
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-disabled="true"
+              data-google-reviews-cta
+            >
+              Vedi tutte
+            </a>
+          </div>
+
+          <div class="presence-reviews" data-google-reviews></div>
+
+          <p
+            class="presence-note presence-note--reviews"
+            data-google-reviews-note
+            aria-live="polite"
+          >
+            Le recensioni compariranno qui appena il profilo Google sara
+            collegato alla sincronizzazione dati.
+          </p>
+        </article>
+      </section>
+
       <section class="contact" id="contatti">
         <div class="contact__info reveal">
           <p class="eyebrow">Contatti</p>
@@ -668,6 +848,7 @@
       <img src="./assets/icon-whatsapp.png" alt="" aria-hidden="true" />
     </a>
 
+    <script src="./site-config.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>
