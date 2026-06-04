@@ -1146,7 +1146,9 @@ body.quote-body {
 }
 
 .quote-brand {
-  position: relative;
+  position: absolute;
+  left: 50%;
+  top: 50%;
   z-index: 2;
   display: inline-flex;
   align-items: center;
@@ -1156,6 +1158,7 @@ body.quote-body {
   font-size: clamp(1.45rem, 3.2vw, 3rem);
   font-weight: 300;
   line-height: 1;
+  transform: translate(-50%, -50%);
 }
 
 .quote-brand img {
