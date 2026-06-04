@@ -45,8 +45,8 @@
     placeholder,
   });
 
-  const uploads = (placeholder = "Elenca foto, documenti o file che puoi inviare: quadro, contatore, planimetria, preventivi, screenshot...") => ({
-    ...a("Upload disponibili", "Hai foto o documenti utili?", placeholder),
+  const uploads = () => ({
+    ...q("Upload disponibili", "Hai foto o documenti utili?", ["Si", "No"], "Se hai foto, planimetrie o documenti, potrai allegarli dopo in chat WhatsApp o email."),
     optional: true,
   });
 
@@ -1202,6 +1202,12 @@
 
     if (question.type === "options") {
       body = `<div class="option-grid">${question.options.map((option) => optionMarkup(option, value === (Array.isArray(option) ? option[0] : option), "", question.title)).join("")}</div>`;
+      if (question.key === "Upload disponibili" && value === "Si") {
+        body += `
+          <div class="inline-notice">
+            Perfetto: le foto o i documenti non vengono caricati dal sito. Inviali o allegali dopo nella chat WhatsApp o nella mail.
+          </div>`;
+      }
     }
 
     if (question.type === "multi") {
@@ -1302,10 +1308,9 @@
             <label for="notes">Note finali</label>
             <textarea id="notes" placeholder="Aggiungi dettagli, vincoli o preferenze...">${escapeHtml(answers["Note finali"] || "")}</textarea>
           </div>
-          <div class="field field--full field--photo">
-            <label for="photos">Foto utili</label>
-            <input id="photos" type="file" accept="image/*,.pdf" multiple />
-            <small>Le foto non vengono inviate automaticamente dal sito: inviale o allegale dopo nella chat WhatsApp/email.</small>
+          <div class="field field--full field--attachment-note">
+            <strong>Foto e documenti</strong>
+            <small>Il sito non carica allegati: se hai foto, planimetrie o documenti utili, inviali dopo nella chat WhatsApp o allegali alla mail.</small>
           </div>
           <label class="field field--full field--consent">
             <input id="consent" type="checkbox" ${answers.Consenso ? "checked" : ""} />
@@ -1441,8 +1446,7 @@
       Object.entries(fields).forEach(([id, key]) => {
         answers[key] = document.querySelector(`#${id}`)?.value.trim() || "";
       });
-      const photos = Array.from(document.querySelector("#photos")?.files || []).map((file) => file.name);
-      answers["Foto da inviare"] = photos.length ? photos : "Da inviare o allegare dopo in chat";
+      answers["Foto/documenti"] = "Se disponibili, da inviare o allegare dopo in chat WhatsApp o email";
       answers.Consenso = Boolean(document.querySelector("#consent")?.checked);
     }
   }
@@ -1562,6 +1566,10 @@
       answers[question.key] = value;
       stage.querySelectorAll(".option-card").forEach((card) => card.classList.toggle("is-selected", card === option));
       updateSummary();
+      if (question.key === "Upload disponibili") {
+        render();
+        return;
+      }
       window.setTimeout(goNext, 140);
     }
   });

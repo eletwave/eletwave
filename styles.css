@@ -1236,7 +1236,7 @@ body.quote-body {
 
 .quote-hero h1 mark {
   color: #ffffff;
-  background: linear-gradient(135deg, var(--red), var(--cyan));
+  background: #ff1fbf;
 }
 
 .quote-hero p {
@@ -1359,7 +1359,7 @@ body.quote-body {
   min-height: 0;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 5px;
+  gap: 8px;
   width: min(620px, 100%);
   margin: 14px auto 0;
 }
@@ -1376,19 +1376,15 @@ body.quote-body {
 
 .option-card {
   position: relative;
-  min-height: 39px;
-  padding: 8px 14px 8px 16px;
+  min-height: 50px;
+  padding: 12px 15px 12px 17px;
   border: 0;
   border-radius: 14px;
-  background:
-    linear-gradient(#ffffff, #ffffff) padding-box,
-    linear-gradient(135deg, rgba(255, 47, 94, 0.28), rgba(35, 198, 255, 0.28)) border-box;
+  background: #f7f9fc;
   color: #071225;
   text-align: left;
   cursor: pointer;
-  box-shadow:
-    0 10px 24px rgba(12, 18, 31, 0.06),
-    inset 0 0 0 1px #edf0f5;
+  box-shadow: none;
   transition:
     background 0.2s ease,
     box-shadow 0.2s ease,
@@ -1397,25 +1393,12 @@ body.quote-body {
 
 .option-card:hover,
 .option-card.is-selected {
-  background:
-    linear-gradient(135deg, rgba(255, 47, 94, 0.12), rgba(35, 198, 255, 0.14)) padding-box,
-    linear-gradient(135deg, var(--red), var(--violet), var(--cyan)) border-box;
-  box-shadow:
-    0 12px 28px rgba(35, 198, 255, 0.16),
-    inset 0 0 0 2px transparent;
+  background: linear-gradient(135deg, #f1e7ff, #dff7ff);
+  box-shadow: none;
 }
 
 .option-card.is-selected {
   transform: translateY(-1px);
-}
-
-.option-card.is-selected::before {
-  content: "";
-  position: absolute;
-  inset: 9px auto 9px 0;
-  width: 4px;
-  border-radius: 999px;
-  background: linear-gradient(180deg, var(--red), var(--cyan));
 }
 
 .option-card__head {
@@ -1442,9 +1425,9 @@ body.quote-body {
   width: 21px;
   height: 21px;
   border-radius: 999px;
-  color: var(--cyan);
+  color: #5c83ff;
   background: #ffffff;
-  box-shadow: 0 2px 8px rgba(22, 38, 63, 0.15);
+  box-shadow: none;
   font-size: 0.76rem;
   font-weight: 700;
   line-height: 1;
@@ -1524,10 +1507,35 @@ body.quote-body {
   resize: none;
 }
 
-.field--photo small {
+.field--attachment-note small {
   color: #66758a;
   font-size: 0.72rem;
   line-height: 1.35;
+}
+
+.field--attachment-note,
+.inline-notice {
+  padding: 12px 14px;
+  border-radius: 14px;
+  color: #263445;
+  background: linear-gradient(135deg, #f7f0ff, #eefbff);
+}
+
+.field--attachment-note strong {
+  color: #071225;
+  font-size: 0.82rem;
+}
+
+.field--attachment-note small,
+.inline-notice {
+  color: #536173;
+  font-size: 0.76rem;
+  line-height: 1.42;
+}
+
+.inline-notice {
+  width: min(620px, 100%);
+  margin: 10px auto 0;
 }
 
 .field--consent {
@@ -1570,7 +1578,7 @@ body.quote-body {
 
 .quote-body .button--primary {
   color: #ffffff;
-  background: linear-gradient(135deg, var(--red), var(--violet), var(--cyan));
+  background: linear-gradient(135deg, #8f5cff, #28bdf2);
   font-weight: 800;
 }
 
@@ -2199,7 +2207,7 @@ body.quote-body {
   }
 
   .form-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
     width: 100%;
   }
 
@@ -2232,7 +2240,7 @@ body.quote-body {
     min-height: 58px;
   }
 
-  .field--photo small,
+  .field--attachment-note small,
   .field--consent {
     font-size: 0.64rem;
   }
