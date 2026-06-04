@@ -1173,12 +1173,12 @@ body.quote-body {
   padding: 0 7px 1px;
   border-radius: 4px;
   color: #ffffff;
-  background: linear-gradient(135deg, var(--red), var(--cyan));
+  background: var(--cyan);
   font-size: 0.72em;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: -0.02em;
-  box-shadow: 0 0 0 2px rgba(35, 198, 255, 0.18);
+  box-shadow: none;
 }
 
 .quote-body .topbar__nav,
@@ -1228,7 +1228,7 @@ body.quote-body {
 .quote-hero h1 mark {
   display: inline;
   padding: 0 7px 2px;
-  color: #ffffff;
+  color: #9b5cff;
   background: #05070c;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
