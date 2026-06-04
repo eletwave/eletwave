@@ -1212,6 +1212,20 @@ h2 {
   background: rgba(255, 255, 255, 0.1);
 }
 
+.option-card--check {
+  position: relative;
+  cursor: pointer;
+}
+
+.option-card--check input {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 16px;
+  height: 16px;
+  accent-color: #8ce7ff;
+}
+
 .option-card strong,
 .option-card span {
   display: block;
@@ -1246,6 +1260,22 @@ h2 {
 .field textarea {
   min-height: 120px;
   resize: vertical;
+}
+
+.field--consent {
+  display: flex;
+  grid-template-columns: none;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.field--consent input {
+  width: 18px;
+  min-height: 18px;
+  margin-top: 2px;
+  accent-color: #8ce7ff;
 }
 
 .quote-actions {
