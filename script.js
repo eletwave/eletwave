@@ -23,7 +23,7 @@
       "hero.title": "Installatori di impianti elettrici, fotovoltaico e sicurezza.",
       "hero.body":
         "Progettazione, installazione e manutenzione di impianti elettrici e soluzioni integrate per privati e aziende in FVG.",
-      "cta.quote": "Richiedi preventivo",
+      "cta.quote": "Preventivo online",
       "cta.services": "Scopri i servizi",
       "about.eyebrow": "Chi siamo",
       "about.title": "Un referente tecnico semplice, diretto e affidabile.",

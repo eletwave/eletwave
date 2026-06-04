@@ -1096,25 +1096,6 @@ h2 {
   font-weight: 600;
 }
 
-.floating-wa {
-  position: fixed;
-  z-index: 60;
-  right: 18px;
-  bottom: 18px;
-  width: 58px;
-  height: 58px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: transparent;
-}
-
-.floating-wa img {
-  width: 42px;
-  height: 42px;
-  filter: grayscale(1) brightness(0) invert(1) drop-shadow(0 0 14px rgba(255, 255, 255, 0.22));
-}
-
 body.quote-body {
   color-scheme: light;
   color: #111827;
