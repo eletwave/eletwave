@@ -1238,6 +1238,10 @@ body.quote-body {
   -webkit-box-decoration-break: clone;
 }
 
+.quote-hero h1 span {
+  color: var(--cyan);
+}
+
 .quote-hero h1 mark {
   color: #ffffff;
   background: #ff1fbf;

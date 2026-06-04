@@ -1342,7 +1342,8 @@
     }
 
     prevButton.disabled = history.length === 0;
-    nextButton.textContent = current === "contact" ? "Prepara invio" : "Avanti";
+    nextButton.hidden = current === "contact";
+    nextButton.textContent = "Avanti";
     updateSummary();
   }
 
