@@ -20,7 +20,7 @@
       "nav.contact": "CONTATTI",
       "nav.quote": "PREVENTIVO",
       "hero.eyebrow": "ELETWAVE • Smart Energy & Security",
-      "hero.title": "Installatori di impianti elettrici, fotovoltaico e sicurezza.",
+      "hero.title": "Installazioni di impianti elettrici, fotovoltaico e sicurezza.",
       "hero.body":
         "Progettazione, installazione e manutenzione di impianti elettrici e soluzioni integrate per privati e aziende in FVG.",
       "cta.quote": "Preventivo online",
