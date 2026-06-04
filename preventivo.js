@@ -1,6 +1,8 @@
 (function () {
   const stage = document.querySelector("#quiz-stage");
   const progress = document.querySelector("#quote-progress");
+  const stepLabel = document.querySelector("#quote-step-label");
+  const stepCount = document.querySelector("#quote-step-count");
   const prevButton = document.querySelector("#prev-step");
   const nextButton = document.querySelector("#next-step");
   const summaryList = document.querySelector("#summary-list");
@@ -964,6 +966,72 @@
       .replaceAll("'", "&#039;");
   }
 
+  const infoText = {
+    "Nuova installazione": "Per impianti o sistemi da realizzare da zero, con progettazione, materiali e installazione completa.",
+    "Assistenza tecnica / riparazione": "Per guasti, anomalie, dispositivi che non funzionano o controlli urgenti su impianti esistenti.",
+    "Modifica o ampliamento impianto": "Per aggiungere punti, linee, prese, luci, apparecchi o funzioni a un impianto gia presente.",
+    "Verifica, manutenzione o DICO": "Per controlli tecnici, manutenzioni, documentazione o verifica di conformita dell'impianto.",
+    "Consulenza online / preventivo": "Per analizzare un problema, un preventivo ricevuto o capire quale soluzione conviene prima di intervenire.",
+    "Kit predisposti / soluzioni pronte": "Per soluzioni gia impostate, da adattare al tuo caso con installazione o supporto Eletwave.",
+    "Non so / voglio un consiglio": "Per richieste non ancora chiare: ti guidiamo noi verso il percorso piu adatto.",
+    DICO: "Dichiarazione di Conformita. Eletwave puo rilasciarla solo per lavori eseguiti, installati o verificati in loco.",
+    "Non so": "Scegli questa voce se non hai ancora il dato: lo chiariremo nel contatto successivo.",
+    Altro: "Usa questa voce quando la tua situazione non rientra nelle opzioni disponibili.",
+    Emergenza: "Situazione potenzialmente pericolosa o bloccante, da valutare con priorita alta.",
+    "Entro 24 ore": "Intervento o contatto richiesto entro la giornata successiva.",
+    "Solo valutazione": "Non hai urgenza: vuoi capire costi, possibilita e soluzione migliore.",
+  };
+
+  function optionInfo(label, context = "") {
+    const clean = String(label || "").trim();
+    if (infoText[clean]) return infoText[clean];
+
+    const text = clean.toLowerCase();
+    const where = String(context || "").toLowerCase();
+
+    if (/appartamento|casa|villa|b&b|negozio|ufficio|capannone|garage|cantina|esterno|giardino|terrazzo|locale/.test(text)) {
+      return `Indica ${clean.toLowerCase()} come ambiente principale: aiuta a stimare spazi, accessi, posa cavi e materiali.`;
+    }
+
+    if (/kw|trifase|generatore|fornitura/.test(text)) {
+      return `Seleziona ${clean} per capire potenza disponibile, protezioni del quadro e compatibilita dei carichi.`;
+    }
+
+    if (/mq|superficie|oltre|meno/.test(text)) {
+      return `Serve a dimensionare tempi, quantita di materiali e complessita generale dell'intervento.`;
+    }
+
+    if (/^\d|pochi|giorni|mese|ore/.test(text)) {
+      return `Quantita o tempistica indicativa per "${context || clean}": aiuta a stimare durata, priorita e materiale necessario.`;
+    }
+
+    if (/fotovoltaico|accumulo|wallbox|domotica|allarme|videosorveglianza|wi-fi|rete|smart|home assistant/.test(text)) {
+      return `Predisposizione o servizio ${clean.toLowerCase()}: permette di valutare collegamenti, compatibilita e possibilita future.`;
+    }
+
+    if (/luci|prese|quadro|illuminazione|punto luce|linee|cavi|presa|forno|induzione|lavatrice|asciugatrice|climatizzatori|pompa|piscina/.test(text)) {
+      return `Voce tecnica ${clean.toLowerCase()}: indica quali parti dell'impianto vanno installate, modificate o controllate.`;
+    }
+
+    if (/foto|planimetria|document|schema|relazione|report|preventivo|bolletta/.test(text)) {
+      return `Materiale utile per valutare meglio la richiesta prima del contatto: se non puoi allegarlo ora, invialo dopo in chat.`;
+    }
+
+    if (/bruciato|scintille|caldo|salta|corrente|guasto|non funziona|problema/.test(text)) {
+      return `Descrive il sintomo principale: serve a capire priorita, rischio e tipo di controllo necessario.`;
+    }
+
+    if (/nuova|ristrutturazione|abitata|vuota|vecchio|valutando/.test(text)) {
+      return `Stato del lavoro: cambia accessibilita, tempi di posa e precisione del preventivo.`;
+    }
+
+    if (/^(si|no)$/.test(text)) {
+      return `Risposta rapida per confermare o escludere questa condizione nel percorso ${where || "selezionato"}.`;
+    }
+
+    return `Seleziona questa voce se "${clean}" descrive meglio la tua richiesta. Aiuta Eletwave a preparare una risposta piu precisa.`;
+  }
+
   function getBranch() {
     return branches[selectedCategory]?.subcategories?.[selectedSubcategory] || null;
   }
@@ -1066,17 +1134,29 @@
 
   function setProgress() {
     const total = totalSteps();
-    const percent = Math.max(8, Math.min(100, (currentStepNumber() / total) * 100));
+    const step = currentStepNumber();
+    const percent = Math.max(8, Math.min(100, (step / total) * 100));
     progress?.style.setProperty("--progress", `${percent}%`);
+    if (stepLabel) {
+      stepLabel.textContent = current === "contact" ? "Dati e invio" : `Step ${step}`;
+    }
+    if (stepCount) {
+      stepCount.textContent = `${step}/${total}`;
+    }
   }
 
-  function optionMarkup(option, selected) {
+  function optionMarkup(option, selected, valueOverride = "", context = "") {
     const label = Array.isArray(option) ? option[0] : option;
-    const body = Array.isArray(option) ? option[1] : "";
+    const providedInfo = Array.isArray(option) ? option[1] : "";
+    const info = providedInfo || optionInfo(label, context);
+    const value = valueOverride || label;
     return `
-      <button class="option-card ${selected ? "is-selected" : ""}" type="button" data-value="${escapeHtml(label)}">
-        <strong>${escapeHtml(label)}</strong>
-        ${body ? `<span>${escapeHtml(body)}</span>` : ""}
+      <button class="option-card ${selected ? "is-selected" : ""}" type="button" data-value="${escapeHtml(value)}">
+        <span class="option-card__head">
+          <strong>${escapeHtml(label)}</strong>
+          <span class="option-info" role="button" tabindex="0" aria-label="Informazioni su ${escapeHtml(label)}">i</span>
+        </span>
+        <span class="option-card__info">${escapeHtml(info)}</span>
       </button>`;
   }
 
@@ -1088,7 +1168,7 @@
         <p>Scegli il punto di partenza: il preventivo si apre solo sulle domande utili.</p>
         <div class="option-grid">
           ${categoryOrder
-            .map((id) => optionMarkup([branches[id].label, branches[id].body], selectedCategory === id).replace(`data-value="${escapeHtml(branches[id].label)}"`, `data-value="${id}"`))
+            .map((id) => optionMarkup([branches[id].label, branches[id].body], selectedCategory === id, id, "categoria principale"))
             .join("")}
         </div>
       </div>`;
@@ -1104,7 +1184,7 @@
         <p>Ora scegli la sottocategoria tecnica: da qui cambiano le domande successive.</p>
         <div class="option-grid">
           ${entries
-            .map(([id, branch]) => optionMarkup([branch.label, branch.outcome], selectedSubcategory === id).replace(`data-value="${escapeHtml(branch.label)}"`, `data-value="${id}"`))
+            .map(([id, branch]) => optionMarkup([branch.label, branch.outcome], selectedSubcategory === id, id, category.label))
             .join("")}
         </div>
       </div>`;
@@ -1121,7 +1201,7 @@
     let body = "";
 
     if (question.type === "options") {
-      body = `<div class="option-grid">${question.options.map((option) => optionMarkup(option, value === (Array.isArray(option) ? option[0] : option))).join("")}</div>`;
+      body = `<div class="option-grid">${question.options.map((option) => optionMarkup(option, value === (Array.isArray(option) ? option[0] : option), "", question.title)).join("")}</div>`;
     }
 
     if (question.type === "multi") {
@@ -1131,13 +1211,16 @@
           ${question.options
             .map((option) => {
               const label = Array.isArray(option) ? option[0] : option;
-              const optionBody = Array.isArray(option) ? option[1] : "";
+              const providedInfo = Array.isArray(option) ? option[1] : "";
+              const info = providedInfo || optionInfo(label, question.title);
+              const id = `check-${escapeHtml(question.key)}-${escapeHtml(label)}`.replace(/[^a-zA-Z0-9_-]/g, "-");
               return `
-                <label class="option-card option-card--check ${selected.includes(label) ? "is-selected" : ""}">
-                  <input type="checkbox" value="${escapeHtml(label)}" ${selected.includes(label) ? "checked" : ""} />
-                  <strong>${escapeHtml(label)}</strong>
-                  ${optionBody ? `<span>${escapeHtml(optionBody)}</span>` : ""}
-                </label>`;
+                <div class="option-card option-card--check ${selected.includes(label) ? "is-selected" : ""}">
+                  <input id="${id}" type="checkbox" value="${escapeHtml(label)}" ${selected.includes(label) ? "checked" : ""} />
+                  <label for="${id}">${escapeHtml(label)}</label>
+                  <span class="option-info" role="button" tabindex="0" aria-label="Informazioni su ${escapeHtml(label)}">i</span>
+                  <span class="option-card__info">${escapeHtml(info)}</span>
+                </div>`;
             })
             .join("")}
         </div>`;
@@ -1219,10 +1302,23 @@
             <label for="notes">Note finali</label>
             <textarea id="notes" placeholder="Aggiungi dettagli, vincoli o preferenze...">${escapeHtml(answers["Note finali"] || "")}</textarea>
           </div>
+          <div class="field field--full field--photo">
+            <label for="photos">Foto utili</label>
+            <input id="photos" type="file" accept="image/*,.pdf" multiple />
+            <small>Le foto non vengono inviate automaticamente dal sito: inviale o allegale dopo nella chat WhatsApp/email.</small>
+          </div>
           <label class="field field--full field--consent">
             <input id="consent" type="checkbox" ${answers.Consenso ? "checked" : ""} />
             <span>Confermo la correttezza delle informazioni e acconsento a essere contattato da Eletwave.</span>
           </label>
+          <div class="final-send-panel field--full">
+            <a class="button button--primary" data-send="whatsapp" href="https://wa.me/393930036372" target="_blank" rel="noopener noreferrer">
+              Invia WhatsApp
+            </a>
+            <a class="button button--ghost" data-send="email" href="mailto:info@eletwave.com">
+              Invia email
+            </a>
+          </div>
         </div>
       </div>`;
   }
@@ -1304,10 +1400,6 @@
     }
 
     updateSummary();
-    document.querySelector(".quote-summary")?.scrollIntoView({
-      block: "start",
-      behavior: "smooth",
-    });
   }
 
   function focusFirstInput() {
@@ -1349,6 +1441,8 @@
       Object.entries(fields).forEach(([id, key]) => {
         answers[key] = document.querySelector(`#${id}`)?.value.trim() || "";
       });
+      const photos = Array.from(document.querySelector("#photos")?.files || []).map((file) => file.name);
+      answers["Foto da inviare"] = photos.length ? photos : "Da inviare o allegare dopo in chat";
       answers.Consenso = Boolean(document.querySelector("#consent")?.checked);
     }
   }
@@ -1396,11 +1490,42 @@
     const encodedMessage = encodeURIComponent(message);
     whatsappLink.href = `https://wa.me/393930036372?text=${encodedMessage}`;
     emailLink.href = `mailto:info@eletwave.com?subject=${encodeURIComponent("Richiesta preventivo ELETWAVE")}&body=${encodedMessage}`;
+    document.querySelectorAll("[data-send='whatsapp']").forEach((link) => {
+      link.href = whatsappLink.href;
+    });
+    document.querySelectorAll("[data-send='email']").forEach((link) => {
+      link.href = emailLink.href;
+    });
   }
 
   stage.addEventListener("click", (event) => {
+    const info = event.target.closest(".option-info");
+    if (info) {
+      event.preventDefault();
+      event.stopPropagation();
+      const card = info.closest(".option-card");
+      stage.querySelectorAll(".option-card.is-info-open").forEach((openCard) => {
+        if (openCard !== card) {
+          openCard.classList.remove("is-info-open");
+        }
+      });
+      card?.classList.toggle("is-info-open");
+      return;
+    }
+
     const option = event.target.closest(".option-card");
-    if (!option || option.classList.contains("option-card--check")) {
+    if (!option) {
+      return;
+    }
+
+    if (option.classList.contains("option-card--check")) {
+      if (!event.target.matches("input, label")) {
+        const checkbox = option.querySelector("input[type='checkbox']");
+        if (checkbox) {
+          checkbox.checked = !checkbox.checked;
+          checkbox.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+      }
       return;
     }
 
@@ -1441,13 +1566,23 @@
     }
   });
 
+  stage.addEventListener("keydown", (event) => {
+    if ((event.key === "Enter" || event.key === " ") && event.target.matches(".option-info")) {
+      event.preventDefault();
+      event.target.click();
+    }
+  });
+
   stage.addEventListener("change", (event) => {
     if (event.target.matches("input[type='checkbox']")) {
       const card = event.target.closest(".option-card");
       card?.classList.toggle("is-selected", event.target.checked);
       saveCurrentInputs();
       updateSummary();
+      return;
     }
+
+    updateSummary();
   });
 
   stage.addEventListener("input", updateSummary);

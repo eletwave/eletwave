@@ -20,7 +20,7 @@
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body>
+  <body class="quote-body">
     <header class="topbar" id="top">
       <div class="topbar__inner">
         <nav class="topbar__nav" id="topbar-nav" aria-label="Navigazione principale">
@@ -50,18 +50,22 @@
     <main class="quote-page">
       <section class="quote-hero">
         <p class="eyebrow">Preventivo online</p>
-        <h1>Configura la richiesta in <em>pochi passaggi</em>.</h1>
+        <h1>Configura la richiesta</h1>
         <p>
-          Scegli il tipo di intervento: il quiz apre solo le domande utili per
-          quel percorso. Alla fine puoi inviare tutto via WhatsApp o email,
-          gia ordinato per una prima valutazione.
+          Una domanda alla volta, solo le scelte utili al tuo intervento.
         </p>
       </section>
 
       <section class="quote-layout" aria-label="Quiz preventivo Eletwave">
         <form class="quote-card" id="quote-form">
-          <div class="quote-progress" aria-hidden="true">
-            <span id="quote-progress"></span>
+          <div class="quote-progress-wrap">
+            <div class="quote-progress__meta">
+              <span id="quote-step-label">Step 1</span>
+              <span id="quote-step-count">1/1</span>
+            </div>
+            <div class="quote-progress" aria-hidden="true">
+              <span id="quote-progress"></span>
+            </div>
           </div>
 
           <div id="quiz-stage"></div>
