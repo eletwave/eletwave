@@ -1168,7 +1168,7 @@ body.quote-body {
 }
 
 .quote-brand strong {
-  display: inline-flex;
+  display: none;
   align-items: center;
   min-height: 26px;
   padding: 0 7px 1px;
@@ -1374,10 +1374,15 @@ body.quote-body {
   position: relative;
   min-height: 58px;
   padding: 14px 16px 14px 18px;
-  border: 1px solid #e1e5eb;
+  border: 1px solid transparent;
   border-radius: 14px;
-  background: #ffffff;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(135deg, rgba(255, 47, 94, 0.18), rgba(155, 92, 255, 0.16), rgba(35, 198, 255, 0.2)) border-box;
   color: #071225;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: left;
   cursor: pointer;
   box-shadow: none;
@@ -1387,11 +1392,10 @@ body.quote-body {
     transform 0.2s ease;
 }
 
-.option-card:hover,
 .option-card.is-selected {
   background: linear-gradient(135deg, #f1e7ff, #dff7ff);
   box-shadow: none;
-  border-color: #d6dce5;
+  border-color: transparent;
 }
 
 .option-card.is-selected {
@@ -1403,6 +1407,7 @@ body.quote-body {
   grid-template-columns: minmax(0, 1fr) 24px;
   gap: 12px;
   align-items: center;
+  width: 100%;
 }
 
 .option-card strong,
@@ -1451,11 +1456,20 @@ body.quote-body {
   display: block;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .option-card:hover {
+    background:
+      linear-gradient(#ffffff, #ffffff) padding-box,
+      linear-gradient(135deg, rgba(255, 47, 94, 0.32), rgba(155, 92, 255, 0.28), rgba(35, 198, 255, 0.32)) border-box;
+  }
+}
+
 .option-card--check {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 24px;
   gap: 12px;
   align-items: center;
+  align-content: center;
 }
 
 .option-card--check .option-card__info {
@@ -2145,6 +2159,7 @@ body.quote-body {
   }
 
   .quote-brand strong {
+    display: none;
     min-height: 28px;
     padding: 0 7px 1px;
     font-size: 0.58em;
@@ -2209,13 +2224,14 @@ body.quote-body {
   }
 
   .option-card {
-    min-height: 56px;
-    padding: 13px 14px 13px 15px;
+    min-height: 66px;
+    padding: 16px 15px;
   }
 
   .option-card strong,
   .option-card--check label {
-    font-size: 0.82rem;
+    font-size: 0.96rem;
+    line-height: 1.24;
   }
 
   .option-card__info {
@@ -2266,6 +2282,7 @@ body.quote-body {
   }
 
   .quote-brand strong {
+    display: none;
     min-height: 24px;
   }
 
@@ -2283,8 +2300,8 @@ body.quote-body {
   }
 
   .option-card {
-    min-height: 39px;
-    padding: 8px;
+    min-height: 62px;
+    padding: 14px 13px;
   }
 
   .option-info {
