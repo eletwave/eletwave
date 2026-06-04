@@ -1523,12 +1523,13 @@
     }
 
     if (option.classList.contains("option-card--check")) {
-      if (!event.target.matches("input, label")) {
-        const checkbox = option.querySelector("input[type='checkbox']");
-        if (checkbox) {
-          checkbox.checked = !checkbox.checked;
-          checkbox.dispatchEvent(new Event("change", { bubbles: true }));
-        }
+      event.preventDefault();
+      const checkbox = option.querySelector("input[type='checkbox']");
+      if (checkbox) {
+        checkbox.checked = !checkbox.checked;
+        option.classList.toggle("is-selected", checkbox.checked);
+        saveCurrentInputs();
+        updateSummary();
       }
       return;
     }
