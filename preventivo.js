@@ -1165,7 +1165,6 @@
       <div class="quiz-step is-active">
         <p class="eyebrow">Domanda 1</p>
         <h2>Di cosa hai bisogno?</h2>
-        <p>Scegli il punto di partenza: il preventivo si apre solo sulle domande utili.</p>
         <div class="option-grid">
           ${categoryOrder
             .map((id) => optionMarkup([branches[id].label, branches[id].body], selectedCategory === id, id, "categoria principale"))
@@ -1181,7 +1180,6 @@
       <div class="quiz-step is-active">
         <p class="eyebrow">Domanda 2</p>
         <h2>${escapeHtml(category.label)}</h2>
-        <p>Ora scegli la sottocategoria tecnica: da qui cambiano le domande successive.</p>
         <div class="option-grid">
           ${entries
             .map(([id, branch]) => optionMarkup([branch.label, branch.outcome], selectedSubcategory === id, id, category.label))
@@ -1256,7 +1254,6 @@
       <div class="quiz-step is-active">
         <p class="eyebrow">Domanda ${questionIndex + 3}</p>
         <h2>${escapeHtml(question.title)}</h2>
-        ${question.body ? `<p>${escapeHtml(question.body)}</p>` : ""}
         ${body}
       </div>`;
   }
@@ -1266,7 +1263,6 @@
       <div class="quiz-step is-active">
         <p class="eyebrow">Ultimo step</p>
         <h2>Dati per ricontattarti.</h2>
-        <p>Completa i dati: Eletwave ricevera categoria, ramo tecnico, risultato automatico e tutte le risposte raccolte.</p>
         <div class="form-grid">
           <div class="field">
             <label for="name">Nome e cognome</label>

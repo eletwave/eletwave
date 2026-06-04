@@ -787,27 +787,11 @@ h2 {
   min-width: 112px;
   height: 54px;
   padding: 0 18px;
-  border-radius: 999px;
-  border: 1px solid rgba(172, 195, 255, 0.14);
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.07),
-      rgba(255, 255, 255, 0.02)
-    ),
-    linear-gradient(
-      135deg,
-      rgba(35, 198, 255, 0.06),
-      rgba(111, 61, 255, 0.08) 56%,
-      rgba(255, 47, 94, 0.06)
-    );
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.26);
   transform: translate(-50%, -50%) rotate(var(--angle))
     translateY(calc(var(--radius) * -1)) rotate(calc(var(--angle) * -1));
-  isolation: isolate;
   will-change: transform;
 }
 
@@ -826,22 +810,7 @@ h2 {
 }
 
 .brands-pill::after {
-  content: "";
-  position: absolute;
-  inset: 7px;
-  border-radius: inherit;
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(35, 198, 255, 0.14),
-    rgba(111, 61, 255, 0.1) 56%,
-    transparent 76%
-  );
-  filter: blur(12px);
-  opacity: 0.26;
-  pointer-events: none;
-  z-index: 0;
-  animation: brands-pill-glow 7.2s ease-in-out infinite;
-  animation-play-state: paused;
+  content: none;
 }
 
 .brands-pill img,
@@ -879,22 +848,9 @@ h2 {
 
 .brands-pill.is-tesla,
 .brands-grid__item.is-tesla {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.18),
-      rgba(255, 255, 255, 0.08)
-    ),
-    linear-gradient(
-      135deg,
-      rgba(35, 198, 255, 0.08),
-      rgba(111, 61, 255, 0.1) 56%,
-      rgba(255, 47, 94, 0.08)
-    );
-  border-color: rgba(218, 228, 255, 0.28);
-  box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.2),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
 .brands-pill img {
@@ -905,18 +861,15 @@ h2 {
   animation-play-state: paused;
 }
 
-.brands-pill:nth-child(2n) img,
-.brands-pill:nth-child(2n)::after {
+.brands-pill:nth-child(2n) img {
   animation-delay: -1.4s;
 }
 
-.brands-pill:nth-child(3n) img,
-.brands-pill:nth-child(3n)::after {
+.brands-pill:nth-child(3n) img {
   animation-delay: -2.8s;
 }
 
-.brands-pill:nth-child(5n) img,
-.brands-pill:nth-child(5n)::after {
+.brands-pill:nth-child(5n) img {
   animation-delay: -4.1s;
 }
 
@@ -927,7 +880,6 @@ h2 {
 
 .brands-orbit.is-visible .brands-ring,
 .brands-orbit.is-visible .brands-pill,
-.brands-orbit.is-visible .brands-pill::after,
 .brands-orbit.is-visible .brands-pill img {
   animation-play-state: running;
 }
@@ -979,20 +931,6 @@ h2 {
 
 .brands-grid__item {
   min-height: 64px;
-  border-radius: 999px;
-  border: 1px solid rgba(172, 195, 255, 0.14);
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.07),
-      rgba(255, 255, 255, 0.02)
-    ),
-    linear-gradient(
-      135deg,
-      rgba(35, 198, 255, 0.06),
-      rgba(111, 61, 255, 0.08) 56%,
-      rgba(255, 47, 94, 0.06)
-    );
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1281,7 +1219,7 @@ body.quote-body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 7px;
   color: #071225;
   font-size: 0.78rem;
   font-weight: 800;
@@ -1290,7 +1228,7 @@ body.quote-body {
 }
 
 .quote-progress {
-  height: 11px;
+  height: 5px;
   overflow: hidden;
   border-radius: 999px;
   background: #edf0f4;
@@ -2358,17 +2296,3 @@ body.quote-body {
     opacity: 1;
   }
 }
-
-@keyframes brands-pill-glow {
-  0%,
-  100% {
-    opacity: 0.2;
-    transform: scale(0.96);
-  }
-
-  50% {
-    opacity: 0.38;
-    transform: scale(1.04);
-  }
-}
-
