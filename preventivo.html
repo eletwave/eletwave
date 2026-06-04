@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#05070c" />
+    <title>ELETWAVE | Preventivo online guidato</title>
+    <meta
+      name="description"
+      content="Compila il preventivo guidato ELETWAVE per impianti elettrici, fotovoltaico, sicurezza, reti dati, domotica e manutenzione."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar" id="top">
+      <div class="topbar__inner">
+        <nav class="topbar__nav" id="topbar-nav" aria-label="Navigazione principale">
+          <a href="./index.html#chi-siamo">Chi siamo</a>
+          <a href="./index.html#servizi">Servizi</a>
+          <a href="./index.html#territorio">Territorio</a>
+          <a href="./index.html#contatti">Contatti</a>
+          <a class="topbar__quote" href="./preventivo.html">Preventivo</a>
+        </nav>
+
+        <div class="topbar__actions">
+          <button
+            class="topbar__menu"
+            type="button"
+            aria-expanded="false"
+          aria-controls="topbar-nav"
+          aria-label="Apri menu"
+        >
+          <span class="topbar__menu-line" aria-hidden="true"></span>
+          <span class="topbar__menu-line" aria-hidden="true"></span>
+          <span class="topbar__menu-line" aria-hidden="true"></span>
+        </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="quote-page">
+      <section class="quote-hero">
+        <p class="eyebrow">Preventivo online</p>
+        <h1>Raccontaci il progetto in <em>pochi passaggi</em>.</h1>
+        <p>
+          La guida raccoglie le informazioni essenziali per preparare una prima
+          valutazione. Alla fine puoi inviarci tutto via WhatsApp o email:
+          arrivera gia ordinato, cosi possiamo richiamarti con domande mirate.
+        </p>
+      </section>
+
+      <section class="quote-layout" aria-label="Quiz preventivo Eletwave">
+        <form class="quote-card" id="quote-form">
+          <div class="quote-progress" aria-hidden="true">
+            <span id="quote-progress"></span>
+          </div>
+
+          <div id="quiz-stage"></div>
+
+          <div class="quote-actions">
+            <button class="button button--ghost" type="button" id="prev-step" disabled>
+              Indietro
+            </button>
+            <button class="button button--primary" type="button" id="next-step">
+              Avanti
+            </button>
+          </div>
+        </form>
+
+        <aside class="quote-summary" aria-live="polite">
+          <p class="eyebrow">Riepilogo</p>
+          <h3>Informazioni raccolte</h3>
+          <ul class="summary-list" id="summary-list">
+            <li><small>Servizi</small><span>Da selezionare</span></li>
+            <li><small>Zona</small><span>Da indicare</span></li>
+            <li><small>Priorita</small><span>Da selezionare</span></li>
+          </ul>
+          <div class="quote-actions">
+            <a class="button button--primary" id="send-whatsapp" href="https://wa.me/393930036372" target="_blank" rel="noopener noreferrer">
+              Invia WhatsApp
+            </a>
+            <a class="button button--ghost" id="send-email" href="mailto:info@eletwave.com">
+              Invia email
+            </a>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>ELETWAVE</p>
+      <p>&copy; <span id="year"></span> smart energy &amp; security solutions</p>
+    </footer>
+
+    <script src="./script.js"></script>
+    <script src="./preventivo.js"></script>
+  </body>
+</html>

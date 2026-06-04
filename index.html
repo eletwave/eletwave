@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="it">
   <head>
     <meta charset="utf-8" />
@@ -6,14 +6,11 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <meta name="theme-color" content="#05060b" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <title>
-      ELETWAVE | Installatori di impianti elettrici, fotovoltaico e sicurezza
-    </title>
+    <meta name="theme-color" content="#05070c" />
+    <title>ELETWAVE V3 | Impianti elettrici, fotovoltaico e sicurezza</title>
     <meta
       name="description"
-      content="ELETWAVE installa impianti elettrici, fotovoltaico, wallbox, videosorveglianza e reti dati per privati e aziende in FVG."
+      content="ELETWAVE installa impianti elettrici, fotovoltaico, wallbox, sicurezza e reti dati per privati e aziende in Friuli Venezia Giulia e Nord Est."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -34,14 +31,15 @@
           id="topbar-nav"
           aria-label="Navigazione principale"
         >
-          <a href="#chi-siamo">CHI SIAMO</a>
-          <a href="#perche-noi">PERCHÉ NOI</a>
-          <a href="#servizi">SERVIZI</a>
-          <a href="#contatti">CONTATTI</a>
+          <a href="#chi-siamo" data-i18n="nav.about">CHI SIAMO</a>
+          <a href="#servizi" data-i18n="nav.services">SERVIZI</a>
+          <a href="#territorio" data-i18n="nav.area">TERRITORIO</a>
+          <a href="#contatti" data-i18n="nav.contact">CONTATTI</a>
+          <a class="topbar__quote" href="./preventivo.html" data-i18n="nav.quote">PREVENTIVO</a>
           <div
             class="topbar__lang topbar__lang--menu"
             aria-label="Lingua sito"
-            data-lang="it"
+            data-lang-switcher
           >
             <button
               class="topbar__lang-code is-active"
@@ -90,7 +88,7 @@
         <div
           class="topbar__lang topbar__lang--desktop"
           aria-label="Lingua sito"
-          data-lang="it"
+          data-lang-switcher
         >
           <button
             class="topbar__lang-code is-active"
@@ -126,311 +124,124 @@
         <div class="hero__overlay"></div>
 
         <div class="hero__content reveal">
-          <p class="hero__eyebrow">ELETWAVE • Smart Energy & Security</p>
-          <h1>Installatori di impianti elettrici, fotovoltaico e sicurezza.</h1>
-          <p>
+          <p class="hero__eyebrow" data-i18n="hero.eyebrow">
+            ELETWAVE â€¢ Smart Energy & Security
+          </p>
+          <h1 data-i18n="hero.title">
+            Installatori di impianti elettrici, fotovoltaico e sicurezza.
+          </h1>
+          <p data-i18n="hero.body">
             Progettazione, installazione e manutenzione di impianti elettrici e
             soluzioni integrate per privati e aziende in FVG.
           </p>
         </div>
       </section>
 
-      <section class="manifesto" id="chi-siamo">
-        <p class="eyebrow reveal">Chi siamo</p>
-        <h2 class="reveal">
-          Competenza tecnica, rapidita di intervento e supporto costante per
-          privati e aziende.
+      <section class="manifesto section" id="chi-siamo">
+        <img
+          class="manifesto__logo reveal"
+          src="./assets/logo.png"
+          alt="Eletwave"
+        />
+        <p class="eyebrow reveal" data-i18n="about.eyebrow">Chi siamo</p>
+        <h2 class="reveal" data-i18n="about.title">
+          Un referente tecnico semplice, diretto e affidabile.
         </h2>
-        <p class="manifesto__lead reveal">
-          Eletwave è un’impresa artigiana del Friuli Venezia Giulia
-          specializzata in impianti elettrici e soluzioni tecnologiche
-          integrate per privati e aziende. Progettiamo, realizziamo e
-          manteniamo impianti elettrici civili e industriali, impianti
-          fotovoltaici, sistemi di domotica, sicurezza, automazioni e soluzioni
-          per l’efficientamento energetico. Seguiamo ogni cliente in modo
-          diretto e trasparente, dalla consulenza iniziale alla progettazione,
-          fino all’installazione e all’assistenza post-vendita. Ogni intervento
-          è realizzato con attenzione alla sicurezza, alla qualità dei materiali
-          e alla conformità normativa. Operiamo su tutto il territorio del
-          Friuli Venezia Giulia, garantendo professionalità, rapidità di
-          intervento e un rapporto chiaro e affidabile. Eletwave: energia,
-          tecnologia e sicurezza al servizio dei tuoi spazi.
+        <p class="manifesto__lead reveal" data-i18n="about.body">
+          Eletwave progetta, installa e mantiene impianti elettrici e soluzioni
+          integrate per energia, sicurezza, automazioni e connettivita. Lavoriamo
+          con attenzione a sicurezza, materiali e conformita, spiegando ogni
+          passaggio in modo chiaro.
         </p>
       </section>
 
-      <section class="why" id="perche-noi">
-        <div class="why__media">
-          <img
-            src="./assets/logo-why.png"
-            alt="Logo Eletwave"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-
-        <div class="why__content">
-          <p class="eyebrow reveal">Perche noi</p>
-          <h2 class="reveal">
-            Un unico partner tecnico per energia, impianti e sicurezza.
-          </h2>
-
-          <div class="why-list">
-            <article class="why-item">
-              <h3>Approccio completo</h3>
-              <p>
-                Dalla progettazione al collaudo fino alla manutenzione
-                programmata.
-              </p>
-            </article>
-
-            <article class="why-item">
-              <h3>Standard elevati</h3>
-              <p>
-                Soluzioni a norma, materiali selezionati e attenzione ai
-                dettagli esecutivi.
-              </p>
-            </article>
-
-            <article class="why-item">
-              <h3>Interventi rapidi</h3>
-              <p>
-                Tempi ridotti di attivazione e supporto diretto su guasti e
-                anomalie.
-              </p>
-            </article>
-
-            <article class="why-item">
-              <h3>Visione smart</h3>
-              <p>
-                Integrazione tra fotovoltaico, wallbox, domotica e controllo
-                intelligente.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="services" id="servizi">
+      <section class="services section" id="servizi">
         <div class="section-head reveal">
-          <p class="eyebrow">Servizi</p>
-          <h2>Soluzioni su misura per case, aziende e impianti complessi.</h2>
+          <p class="eyebrow" data-i18n="services.eyebrow">Servizi</p>
         </div>
 
-        <div class="services-showcase">
-          <article class="service-feature reveal">
-            <div class="service-feature__inner">
-              <div class="service-feature__media">
-                <img
-                  src="./assets/man-electrical-technician-working-switchboard-with-fuses-installation-connection-electrical-equipment-close-up.webp"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
-              <div class="service-feature__content">
-                <div class="service-feature__header">
-                  <h3>Impianti elettrici</h3>
-                </div>
-
-                <div class="service-feature__body">
-                  <p>
-                    Progettiamo e realizziamo impianti civili e industriali con
-                    quadri, linee dedicate e verifiche strumentali per consegne
-                    sicure, pulite e gia pronte all'uso.
-                  </p>
-
-                  <ul class="service-feature__list">
-                    <li>Impianti civili, industriali e quadri elettrici</li>
-                    <li>Adeguamenti normativi, collaudi e verifiche a norma</li>
-                    <li>Ricerca guasti, manutenzioni e ampliamenti impianto</li>
-                  </ul>
-                </div>
-              </div>
+        <div class="services-stack">
+          <article class="service-card reveal">
+            <img
+              src="./assets/man-electrical-technician-working-switchboard-with-fuses-installation-connection-electrical-equipment-close-up.webp"
+              alt=""
+            />
+            <div>
+              <p data-i18n="service.electrical.kicker">Impianti</p>
+              <h3 data-i18n="service.electrical.title">Elettrico</h3>
+              <span data-i18n="service.electrical.body">
+                Quadri, linee, adeguamenti, verifiche e manutenzioni.
+              </span>
             </div>
           </article>
 
-          <article class="service-feature service-feature--reverse reveal">
-            <div class="service-feature__inner">
-              <div class="service-feature__media">
-                <img
-                  src="./assets/impianto fotovoltaico.webp"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
-              <div class="service-feature__content">
-                <div class="service-feature__header">
-                  <h3>FV e accumulo</h3>
-                </div>
-
-                <div class="service-feature__body">
-                  <p>
-                    Realizziamo sistemi fotovoltaici completi con batterie e
-                    monitoraggio per aumentare l'autoconsumo, ridurre i prelievi
-                    e gestire meglio l'energia prodotta.
-                  </p>
-
-                  <ul class="service-feature__list">
-                    <li>Impianti fotovoltaici per casa, azienda e attivita</li>
-                    <li>
-                      Sistemi di accumulo e gestione intelligente dei carichi
-                    </li>
-                    <li>Monitoraggio produzione e ottimizzazione consumi</li>
-                  </ul>
-                </div>
-              </div>
+          <article class="service-card reveal">
+            <img src="./assets/impianto fotovoltaico.webp" alt="" />
+            <div>
+              <p data-i18n="service.solar.kicker">Energia</p>
+              <h3 data-i18n="service.solar.title">Fotovoltaico</h3>
+              <span data-i18n="service.solar.body">
+                Impianti FV, accumulo, monitoraggio e gestione carichi.
+              </span>
             </div>
           </article>
 
-          <article class="service-feature reveal">
-            <div class="service-feature__inner">
-              <div class="service-feature__media">
-                <img
-                  src="./assets/ChatGPT Image 26 gen 2026, 10_29_34.webp"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
-              <div class="service-feature__content">
-                <div class="service-feature__header">
-                  <h3>Wallbox</h3>
-                </div>
-
-                <div class="service-feature__body">
-                  <p>
-                    Installiamo wallbox domestiche e aziendali integrate con
-                    l'impianto elettrico e, se presente, con fotovoltaico e
-                    accumulo per una ricarica piu efficiente.
-                  </p>
-
-                  <ul class="service-feature__list">
-                    <li>Wallbox AC smart per casa, ufficio e azienda</li>
-                    <li>Bilanciamento carichi e priorita energetica</li>
-                    <li>Configurazione app, accessi e monitoraggio consumi</li>
-                  </ul>
-                </div>
-              </div>
+          <article class="service-card reveal">
+            <img src="./assets/ChatGPT Image 26 gen 2026, 10_29_34.webp" alt="" />
+            <div>
+              <p data-i18n="service.wallbox.kicker">Mobilita</p>
+              <h3 data-i18n="service.wallbox.title">Wallbox</h3>
+              <span data-i18n="service.wallbox.body">
+                Ricarica domestica e aziendale con bilanciamento dei carichi.
+              </span>
             </div>
           </article>
 
-          <article class="service-feature service-feature--reverse reveal">
-            <div class="service-feature__inner">
-              <div class="service-feature__media">
-                <img
-                  src="./assets/ChatGPT Image 26 gen 2026, 10_42_49.webp"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
-              <div class="service-feature__content">
-                <div class="service-feature__header">
-                  <h3>Videosorveglianza e antifurti</h3>
-                </div>
-
-                <div class="service-feature__body">
-                  <p>
-                    Proteggiamo abitazioni, uffici e attivita con telecamere,
-                    sensori e centrali antifurto pensate per controllo locale e
-                    remoto in tempo reale.
-                  </p>
-
-                  <ul class="service-feature__list">
-                    <li>Telecamere IP, NVR e accesso remoto da app</li>
-                    <li>
-                      Antifurti volumetrici, perimetrali e notifiche istantanee
-                    </li>
-                    <li>Sirene, sensori e copertura completa degli accessi</li>
-                  </ul>
-                </div>
-              </div>
+          <article class="service-card reveal">
+            <img src="./assets/ChatGPT Image 23 gen 2026, 18_09_17.webp" alt="" />
+            <div>
+              <p data-i18n="service.security.kicker">Sicurezza</p>
+              <h3 data-i18n="service.security.title">Videosorveglianza</h3>
+              <span data-i18n="service.security.body">
+                Telecamere, antifurti, sensori, notifiche e controllo remoto.
+              </span>
             </div>
           </article>
 
-          <article class="service-feature reveal">
-            <div class="service-feature__inner">
-              <div class="service-feature__media">
-                <img
-                  src="./assets/ChatGPT Image 23 gen 2026, 18_09_07.webp"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
+          <article class="service-card reveal">
+            <img src="./assets/ChatGPT Image 23 gen 2026, 18_09_07.webp" alt="" />
+            <div>
+              <p data-i18n="service.network.kicker">Reti</p>
+              <h3 data-i18n="service.network.title">Reti dati</h3>
+              <span data-i18n="service.network.body">
+                Cablaggio strutturato, rack, switch e Wi-Fi professionale.
+              </span>
+            </div>
+          </article>
 
-              <div class="service-feature__content">
-                <div class="service-feature__header">
-                  <h3>Reti</h3>
-                </div>
-
-                <div class="service-feature__body">
-                  <p>
-                    Realizziamo infrastrutture dati affidabili per uffici,
-                    aziende e abitazioni smart, con cablaggi ordinati e
-                    copertura stabile per ogni apparato connesso.
-                  </p>
-
-                  <ul class="service-feature__list">
-                    <li>Cablaggi strutturati, armadi rack e patch panel</li>
-                    <li>Switch, Wi-Fi professionale e segmentazione rete</li>
-                    <li>Reti per videosorveglianza, uffici e sistemi smart</li>
-                  </ul>
-                </div>
-              </div>
+          <article class="service-card reveal">
+            <img src="./assets/ChatGPT Image 26 gen 2026, 10_42_49.webp" alt="" />
+            <div>
+              <p data-i18n="service.smart.kicker">Smart</p>
+              <h3 data-i18n="service.smart.title">Automazioni</h3>
+              <span data-i18n="service.smart.body">
+                Domotica, accessi, cancelli e gestione intelligente dei consumi.
+              </span>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="coverage" id="dove-operiamo">
-        <div
-          class="coverage__visual reveal"
-          role="img"
-          aria-label="Mappa del Nord Est Italia con area operativa Eletwave lungo il confine sloveno."
-          style="
-            --coverage-origin-x: 58.96%;
-            --coverage-origin-y: 48.31%;
-            --coverage-pulse-size: 30.99%;
-          "
-        >
-          <div class="coverage__radar">
-            <img class="coverage-map" src="./assets/coverage-map.svg" alt="" />
-            <span
-              class="coverage-map__pulse coverage-map__pulse--1"
-              aria-hidden="true"
-            ></span>
-            <span class="coverage-map__point" aria-hidden="true"></span>
+      <section class="territory section" id="territorio">
+        <div class="territory__inner reveal">
+          <div>
+            <p class="eyebrow" data-i18n="territory.eyebrow">Territorio</p>
+            <h2 data-i18n="territory.title">Friuli Venezia Giulia e Nord Est.</h2>
           </div>
-        </div>
-
-        <div class="coverage__layout">
-          <div class="coverage__intro reveal">
-            <div class="coverage-areas">
-              <p class="coverage-areas__title">Operativi a</p>
-              <div class="coverage-areas__scroller">
-                <div class="coverage-areas__track">
-                  <span>Gorizia</span><span>Udine</span><span>Trieste</span
-                  ><span>Nova Gorica</span> <span>Grado</span
-                  ><span>Lignano</span><span>Pordenone</span
-                  ><span>Tarvisio</span> <span>Venezia</span><span>Treviso</span
-                  ><span>Padova</span><span>Desenzano</span>
-                  <span>Nova Gorica</span><span>Koper</span> <span>Gorizia</span
-                  ><span>Udine</span><span>Trieste</span
-                  ><span>Nova Gorica</span> <span>Grado</span
-                  ><span>Lignano</span><span>Pordenone</span
-                  ><span>Tarvisio</span> <span>Venezia</span><span>Treviso</span
-                  ><span>Padova</span><span>Desenzano</span>
-                  <span>Nova Gorica</span><span>Koper</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <p data-i18n="territory.body">
+            Con sede a Romans d'Isonzo, in provincia di Gorizia. Interventi
+            programmati, sopralluoghi e assistenza tecnica per privati e aziende.
+          </p>
         </div>
       </section>
 
@@ -524,12 +335,6 @@
               energia e connettivita, cosi ogni installazione parte da una base
               solida.
             </p>
-            <p class="sr-only">
-              Marchi utilizzati: ABB, BTicino, Eaton, Hikvision, Dahua, Axis,
-              Vimar, Gewiss, Legrand, Schneider Electric, Hager, Urmet,
-              Huawei, BYD, Tesla, Fronius, SMA, SolarEdge, Beghelli, Philips,
-              Osram, Ledvance, Cabur e Cembre.
-            </p>
           </div>
 
           <div
@@ -612,62 +417,91 @@
         </div>
       </section>
 
-      <section class="contact" id="contatti">
-        <div class="contact__info reveal">
-          <p class="eyebrow">Contatti</p>
-          <h2>Parliamo del tuo progetto.</h2>
-          <p>
-            Operativi in FVG su impianti elettrici, fotovoltaico, automazioni e
-            sicurezza. Risposta rapida via telefono, email o WhatsApp.
-          </p>
-
-          <ul>
-            <li>
-              <strong>Telefono:</strong>
-              <a href="tel:+393930036372">+39 3930036372</a>
-            </li>
-            <li>
-              <strong>Email:</strong>
-              <a href="mailto:eletwave@gmail.com">eletwave@gmail.com</a>
-            </li>
-            <li><strong>Zona operativa:</strong> FVG</li>
-            <li><strong>P.IVA:</strong> 01287600314</li>
-          </ul>
-
-          <div class="contact__socials">
-            <a
-              href="https://wa.me/393930036372"
-              target="_blank"
-              rel="noopener noreferrer"
-              >WhatsApp</a
-            >
-            <a
-              href="https://www.instagram.com/eletwave/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Instagram</a
-            >
+      <section class="contact section" id="contatti">
+        <div class="contact__inner reveal">
+          <div>
+            <p class="eyebrow" data-i18n="contact.eyebrow">Contatti</p>
+            <h2 data-i18n="contact.title">Parliamo del tuo impianto.</h2>
+            <p data-i18n="contact.body">
+              Descrivi il progetto o compila il preventivo guidato: ti
+              ricontattiamo con le prime indicazioni.
+            </p>
           </div>
+          <div class="contact__actions">
+            <a class="button button--primary" href="./preventivo.html" data-i18n="contact.quote">
+              Preventivo online
+            </a>
+            <a class="button button--ghost" href="https://wa.me/393930036372">
+              WhatsApp
+            </a>
+            <a class="button button--ghost" href="mailto:info@eletwave.com">
+              Email
+            </a>
+          </div>
+          <address class="contact__details">
+            <a href="tel:+393930036372">+39 3930036372</a>
+            <a href="mailto:info@eletwave.com">info@eletwave.com</a>
+            <span>P.IVA 01287600314</span>
+            <div class="contact__socials" aria-label="Profili social Eletwave">
+              <a
+                href="https://www.instagram.com/eletwave/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Profilo Instagram Eletwave"
+                title="Instagram"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="1" />
+                </svg>
+              </a>
+              <a
+                href="https://share.google/0ZUt30BVkBZEpRorM"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Profilo Google Eletwave"
+                title="Google"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M21 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.1a4.4 4.4 0 0 1-1.9 2.9v2.4h3.1c1.8-1.7 2.7-4.1 2.7-7.1Z" />
+                  <path d="M12 21c2.6 0 4.8-.9 6.3-2.3l-3.1-2.4c-.9.6-2 1-3.2 1a5.3 5.3 0 0 1-5-3.7H3.8v2.5A9.5 9.5 0 0 0 12 21Z" />
+                  <path d="M7 13.6a5.5 5.5 0 0 1 0-3.2V7.9H3.8a9.6 9.6 0 0 0 0 8.2l3.2-2.5Z" />
+                  <path d="M12 6.7c1.4 0 2.7.5 3.7 1.5l2.7-2.7A9.1 9.1 0 0 0 12 3a9.5 9.5 0 0 0-8.2 4.9L7 10.4a5.3 5.3 0 0 1 5-3.7Z" />
+                </svg>
+              </a>
+              <a
+                href="https://www.facebook.com/eletwave/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Profilo Facebook Eletwave"
+                title="Facebook"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M14 8.2V6.8c0-.7.2-1.1 1.2-1.1H17V3.2c-.8-.1-1.6-.2-2.4-.2-2.5 0-4.2 1.5-4.2 4.3v1.9H7.8V12h2.6v9H14v-9h2.7l.4-3H14Z" />
+                </svg>
+              </a>
+            </div>
+          </address>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>ELETWAVE. smart energy &amp; security solutions</p>
-      <p>&copy; <span id="year"></span> ELETWAVE</p>
+      <p>ELETWAVE</p>
+      <p>&copy; <span id="year"></span> smart energy &amp; security solutions</p>
     </footer>
 
     <a
       class="floating-wa"
       href="https://wa.me/393930036372"
-      target="_blank"
-      rel="noopener noreferrer"
       aria-label="Apri chat WhatsApp"
       title="Apri chat WhatsApp"
     >
-      <img src="./assets/icon-whatsapp.png" alt="" aria-hidden="true" />
+      <img src="./assets/icon-whatsapp.png" alt="" />
     </a>
 
     <script src="./script.js"></script>
   </body>
 </html>
+
