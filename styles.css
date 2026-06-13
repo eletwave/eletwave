@@ -2003,12 +2003,13 @@ body.quote-body {
 
 @media (max-width: 560px) {
   .hero {
-    min-height: calc(100svh + 28px);
+    min-height: calc(100svh - var(--topbar-offset) + 28px);
+    place-items: start center;
   }
 
   @supports (min-height: 100dvh) {
     .hero {
-      min-height: calc(100dvh + 28px);
+      min-height: calc(100dvh - var(--topbar-offset) + 28px);
     }
   }
 
@@ -2023,8 +2024,18 @@ body.quote-body {
   }
 
   .hero__content {
-    padding: calc(var(--topbar) + 38px) 0 96px;
+    min-height: calc(100svh - var(--topbar-offset));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 18px 0 58px;
     transform: none;
+  }
+
+  @supports (min-height: 100dvh) {
+    .hero__content {
+      min-height: calc(100dvh - var(--topbar-offset));
+    }
   }
 
   .hero__logo-wrap {
