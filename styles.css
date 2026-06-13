@@ -441,6 +441,10 @@ h1 {
     #f4f7fb;
 }
 
+.manifesto {
+  padding-inline: max(32px, calc((100vw - 1180px) / 2 + 32px));
+}
+
 .manifesto .eyebrow,
 .territory .eyebrow {
   color: #34516b;
@@ -493,7 +497,7 @@ h2 {
 
 .services {
   width: 100%;
-  padding-inline: max(20px, calc((100vw - 1180px) / 2));
+  padding-inline: max(32px, calc((100vw - 1180px) / 2 + 32px));
   background:
     radial-gradient(circle at 12% 12%, rgba(35, 198, 255, 0.12), transparent 28rem),
     radial-gradient(circle at 88% 20%, rgba(255, 47, 94, 0.1), transparent 28rem),
