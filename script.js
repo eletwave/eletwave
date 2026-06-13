@@ -22,7 +22,7 @@
       "hero.eyebrow": "ELETWAVE • Smart Energy & Security",
       "hero.title": "Installazioni di impianti elettrici, fotovoltaico e sicurezza.",
       "hero.body":
-        "Progettazione, installazione e manutenzione di impianti elettrici e soluzioni integrate per privati e aziende in FVG.",
+        "Progettazione, installazione e manutenzione per privati e aziende in FVG.",
       "cta.quote": "Preventivo online",
       "cta.services": "Scopri i servizi",
       "about.eyebrow": "Chi siamo",
