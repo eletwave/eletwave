@@ -11,7 +11,7 @@
 
   const translations = {
     it: {
-      title: "ELETWAVE V3 | Impianti elettrici, fotovoltaico e sicurezza",
+      title: "ELETWAVE | Impianti elettrici, fotovoltaico e sicurezza",
       description:
         "ELETWAVE installa impianti elettrici, fotovoltaico, wallbox, sicurezza e reti dati per privati e aziende in Friuli Venezia Giulia e Nord Est.",
       "nav.about": "CHI SIAMO",
@@ -62,7 +62,7 @@
       "contact.quote": "Preventivo online",
     },
     en: {
-      title: "ELETWAVE V3 | Electrical, solar and security systems",
+      title: "ELETWAVE | Electrical, solar and security systems",
       description:
         "ELETWAVE installs electrical systems, solar, wallboxes, security and data networks for homes and businesses in Friuli Venezia Giulia and North East Italy.",
       "nav.about": "ABOUT US",
@@ -110,7 +110,7 @@
       "contact.quote": "Online quote",
     },
     sl: {
-      title: "ELETWAVE V3 | Elektrika, fotovoltaika in varnost",
+      title: "ELETWAVE | Elektrika, fotovoltaika in varnost",
       description:
         "ELETWAVE namesca elektricne sisteme, fotovoltaiko, wallboxe, varnost in podatkovna omrezja za domove in podjetja v Furlaniji-Julijski krajini.",
       "nav.about": "O NAS",
