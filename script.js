@@ -28,7 +28,7 @@
       "about.eyebrow": "Chi siamo",
       "about.title": "Un referente tecnico semplice, diretto e affidabile.",
       "about.body":
-        "Eletwave progetta, installa e mantiene impianti elettrici e soluzioni integrate per energia, sicurezza, automazioni e connettivita. Lavoriamo con attenzione a sicurezza, materiali e conformita, spiegando ogni passaggio in modo chiaro.",
+        "Eletwave è una realtà giovane che lavora nel settore elettrico con un approccio pratico e preciso. Seguiamo interventi su impianti elettrici, fotovoltaico, sicurezza, automazioni e tecnologie per la casa e le attività, cercando sempre la soluzione più adatta al contesto. Il nostro modo di lavorare è semplice: capire bene il lavoro, spiegare cosa conviene fare e realizzarlo in modo ordinato, sicuro e professionale.",
       "services.eyebrow": "Servizi",
       "service.electrical.kicker": "Impianti",
       "service.electrical.title": "Elettrico",
