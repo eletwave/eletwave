@@ -51,7 +51,7 @@
       "territory.eyebrow": "Territorio",
       "territory.title": "Friuli Venezia Giulia e Nord Est.",
       "territory.body":
-        "Con sede a Romans d'Isonzo, in provincia di Gorizia. Interventi programmati, sopralluoghi e assistenza tecnica per privati e aziende.",
+        "Con sede a Romans d'Isonzo, in provincia di Gorizia. Operiamo principalmente in Friuli Venezia Giulia. Per interventi strutturati, installazioni complete o lavori programmati, valutiamo anche spostamenti fuori zona in base alle esigenze del cliente e al tipo di lavoro richiesto.",
       "brands.eyebrow": "Materiali",
       "brands.title": "Marchi e componenti affidabili.",
       "brands.body": "Scegliamo materiali adatti al progetto, alla durata e alla manutenzione futura.",
