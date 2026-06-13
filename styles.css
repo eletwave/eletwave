@@ -263,8 +263,7 @@ button {
 .hero {
   position: relative;
   z-index: 1;
-  min-height: 100vh;
-  min-height: 100svh;
+  min-height: 760px;
   overflow: hidden;
   display: grid;
   place-items: center;
@@ -273,12 +272,6 @@ button {
     radial-gradient(circle at 82% 20%, rgba(111, 61, 255, 0.24), transparent 30%),
     radial-gradient(circle at 50% 78%, rgba(255, 47, 94, 0.2), transparent 28%),
     linear-gradient(145deg, rgba(6, 8, 15, 0.78), rgba(12, 18, 31, 0.56) 48%, rgba(8, 12, 22, 0.72));
-}
-
-@supports (min-height: 100dvh) {
-  .hero {
-    min-height: 100dvh;
-  }
 }
 
 .hero::before,
@@ -528,17 +521,20 @@ h2 {
 .service-card {
   counter-increment: service;
   position: relative;
-  min-height: 285px;
+  min-height: 255px;
   display: grid;
-  grid-template-columns: 238px minmax(0, 1fr);
+  grid-template-columns: 154px 1fr;
   grid-column: span 4;
   overflow: visible;
   border: 0;
-  border-radius: 0;
-  background: transparent;
+  border-radius: var(--radius);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.035)),
+    rgba(255, 255, 255, 0.04);
   isolation: isolate;
   transition:
-    transform 0.28s ease;
+    transform 0.28s ease,
+    background 0.28s ease;
 }
 
 .service-card:nth-child(1),
@@ -559,41 +555,12 @@ h2 {
   grid-column: span 6;
 }
 
-.service-card:nth-child(1) {
-  --sticker-rotate: -6.5deg;
-  --sticker-x: -28px;
-  --sticker-y: -8px;
-}
-
-.service-card:nth-child(2) {
-  --sticker-rotate: 5.4deg;
-  --sticker-x: -18px;
-  --sticker-y: 10px;
-}
-
-.service-card:nth-child(3) {
-  --sticker-rotate: -3.2deg;
-  --sticker-x: -34px;
-  --sticker-y: 6px;
-}
-
-.service-card:nth-child(4) {
-  --sticker-rotate: 7.2deg;
-  --sticker-x: -22px;
-  --sticker-y: -12px;
-}
-
-.service-card:nth-child(5) {
-  --sticker-rotate: 3.1deg;
-  --sticker-x: -30px;
-  --sticker-y: -4px;
-}
-
-.service-card:nth-child(6) {
-  --sticker-rotate: -5.4deg;
-  --sticker-x: -16px;
-  --sticker-y: 12px;
-}
+.service-card:nth-child(1) { --sticker-rotate: -3.5deg; }
+.service-card:nth-child(2) { --sticker-rotate: 2.8deg; }
+.service-card:nth-child(3) { --sticker-rotate: -1.8deg; }
+.service-card:nth-child(4) { --sticker-rotate: 3.6deg; }
+.service-card:nth-child(5) { --sticker-rotate: 1.8deg; }
+.service-card:nth-child(6) { --sticker-rotate: -2.9deg; }
 
 .service-card::after {
   content: "";
@@ -610,6 +577,9 @@ h2 {
 
 .service-card:hover {
   transform: translateY(-4px);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.045)),
+    rgba(255, 255, 255, 0.055);
 }
 
 .service-card:hover::after {
@@ -619,17 +589,14 @@ h2 {
 .service-card img {
   position: relative;
   z-index: 1;
-  width: 246px;
-  height: 214px;
+  width: 118px;
+  height: 168px;
   min-height: 0;
   align-self: center;
-  justify-self: start;
-  margin-left: var(--sticker-x, -24px);
-  margin-top: var(--sticker-y, 0);
+  justify-self: center;
   object-fit: cover;
-  object-position: center;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 14px;
+  border-radius: 12px;
   box-shadow: 0 18px 34px rgba(0, 0, 0, 0.34);
   filter: saturate(0.96) contrast(1.04) brightness(0.92);
   transform: rotate(var(--sticker-rotate, -2deg));
@@ -639,7 +606,7 @@ h2 {
 }
 
 .service-card:hover img {
-  transform: rotate(var(--sticker-rotate, -2deg)) translateY(calc(var(--sticker-y, 0) - 3px)) scale(1.02);
+  transform: rotate(var(--sticker-rotate, -2deg)) translateY(-3px) scale(1.02);
   box-shadow: 0 22px 42px rgba(0, 0, 0, 0.42);
 }
 
@@ -649,7 +616,7 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 34px 52px 34px 36px;
+  padding: 28px 40px 28px 8px;
 }
 
 .service-card p {
@@ -1909,6 +1876,10 @@ body.quote-body {
     font-size: 3.25rem;
   }
 
+  .hero {
+    min-height: 720px;
+  }
+
   .hero h1 {
     font-size: 3.6rem;
   }
@@ -1936,19 +1907,11 @@ body.quote-body {
   .service-card:nth-child(5),
   .service-card:nth-child(6) {
     grid-column: span 6;
-    grid-template-columns: 184px minmax(0, 1fr);
+    grid-template-columns: 120px 1fr;
   }
 
   .service-card img {
-    width: 196px;
-    height: 178px;
-    min-height: 0;
-    margin-left: calc(var(--sticker-x, -18px) * 0.55);
-    margin-top: calc(var(--sticker-y, 0) * 0.55);
-  }
-
-  .service-card div {
-    padding: 26px 28px 26px 30px;
+    min-height: 230px;
   }
 
   .quote-summary {
@@ -2042,12 +2005,6 @@ body.quote-body {
     transform: none;
   }
 
-  .manifesto,
-  .services,
-  .territory {
-    padding-inline: 24px;
-  }
-
   .contact__inner,
   .quote-card,
   .quote-summary {
@@ -2062,9 +2019,9 @@ body.quote-body {
   .service-card:nth-child(5),
   .service-card:nth-child(6) {
     grid-column: auto;
-    grid-template-columns: 150px minmax(0, 1fr);
-    min-height: 156px;
-    background: transparent;
+    grid-template-columns: 118px 1fr;
+    min-height: 128px;
+    background: rgba(255, 255, 255, 0.055);
     box-shadow: none;
   }
 
@@ -2073,12 +2030,11 @@ body.quote-body {
   }
 
   .service-card img {
-    width: 166px;
-    height: 132px;
+    width: 88px;
+    height: 104px;
     min-height: 0;
-    margin-left: calc(var(--sticker-x, -18px) * 0.42);
-    margin-top: calc(var(--sticker-y, 0) * 0.42);
-    border-radius: 12px;
+    margin-left: 12px;
+    border-radius: 10px;
     object-fit: cover;
     filter: saturate(0.96) contrast(1.04) brightness(0.92);
     transform: rotate(var(--sticker-rotate, -2deg));
@@ -2086,7 +2042,7 @@ body.quote-body {
 
   .service-card div {
     justify-content: center;
-    padding: 18px 18px 18px 30px;
+    padding: 16px 16px 16px 18px;
   }
 
   .service-card p {
