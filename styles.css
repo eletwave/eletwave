@@ -618,36 +618,23 @@ h2 {
   font-size: 0.9rem;
 }
 
-.territory__inner,
 .contact__inner {
   border-radius: var(--radius);
   background: var(--panel);
 }
 
 .territory__inner {
-  max-width: 1180px;
+  max-width: 940px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(0, 0.54fr) minmax(260px, 0.46fr);
-  gap: 28px;
-  align-items: end;
-  padding: 52px;
-  text-align: left;
+  text-align: center;
   color: #071019;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(235, 242, 250, 0.96)),
-    white;
-  box-shadow: 0 24px 70px rgba(8, 16, 28, 0.1);
 }
 
 .territory__inner p:not(.eyebrow) {
-  max-width: 520px;
-  margin: 0;
-  color: #526173;
-}
-
-.territory__inner h2 {
-  font-size: 4.2rem;
+  max-width: 790px;
+  margin: 20px auto 0;
+  color: #4d5b6b;
+  font-size: 1.02rem;
 }
 
 .brands {
@@ -1977,7 +1964,6 @@ body.quote-body {
     transform: none;
   }
 
-  .territory__inner,
   .contact__inner,
   .quote-card,
   .quote-summary {
