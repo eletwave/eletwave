@@ -5,6 +5,7 @@
   const stepCount = document.querySelector("#quote-step-count");
   const prevButton = document.querySelector("#prev-step");
   const nextButton = document.querySelector("#next-step");
+  const quoteNavigation = document.querySelector("#quote-navigation");
   const summaryList = document.querySelector("#summary-list");
   const whatsappLink = document.querySelector("#send-whatsapp");
   const emailLink = document.querySelector("#send-email");
@@ -1344,9 +1345,16 @@
       stage.innerHTML = renderContact();
     }
 
-    prevButton.disabled = history.length === 0;
-    nextButton.hidden = current === "contact";
-    nextButton.textContent = "Avanti";
+    const question = current === "question" ? getQuestion() : null;
+    const needsConfirmation = Boolean(
+      question &&
+      (["multi", "text", "textarea"].includes(question.type) || question.key === "Upload disponibili"),
+    );
+
+    prevButton.hidden = history.length === 0;
+    nextButton.hidden = !needsConfirmation;
+    nextButton.textContent = question?.type === "multi" ? "Conferma selezione" : "Continua";
+    quoteNavigation.hidden = prevButton.hidden && nextButton.hidden;
     updateSummary();
   }
 

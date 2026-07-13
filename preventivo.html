@@ -85,7 +85,7 @@
           <div class="quote-progress-wrap">
             <div class="quote-progress__meta">
               <span id="quote-step-label">Step 1</span>
-              <span id="quote-step-count">1/1</span>
+              <span id="quote-step-count">1/…</span>
             </div>
             <div class="quote-progress" aria-hidden="true">
               <span id="quote-progress"></span>
@@ -94,12 +94,12 @@
 
           <div id="quiz-stage"></div>
 
-          <div class="quote-actions">
-            <button class="button button--ghost" type="button" id="prev-step" disabled>
+          <div class="quote-actions" id="quote-navigation" hidden>
+            <button class="button button--ghost" type="button" id="prev-step" hidden>
               Indietro
             </button>
-            <button class="button button--primary" type="button" id="next-step">
-              Avanti
+            <button class="button button--primary" type="button" id="next-step" hidden>
+              Continua
             </button>
           </div>
         </form>
