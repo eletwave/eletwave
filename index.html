@@ -12,6 +12,21 @@
       name="description"
       content="ELETWAVE installa impianti elettrici, fotovoltaico, wallbox, sicurezza e reti dati per privati e aziende in Friuli Venezia Giulia e Nord Est."
     />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="canonical" href="https://www.eletwave.com/" />
+    <link rel="icon" href="./assets/logo-why.png" type="image/png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:site_name" content="ELETWAVE" />
+    <meta property="og:title" content="ELETWAVE | Impianti elettrici, fotovoltaico e sicurezza" />
+    <meta property="og:description" content="Impianti elettrici, fotovoltaico, wallbox, sicurezza e reti dati per privati e aziende in Friuli Venezia Giulia e Nord Est." />
+    <meta property="og:url" content="https://www.eletwave.com/" />
+    <meta property="og:image" content="https://www.eletwave.com/assets/chi-siamo-bg.jpg" />
+    <meta property="og:image:alt" content="Tecnico ELETWAVE al lavoro su un impianto fotovoltaico" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ELETWAVE | Impianti elettrici, fotovoltaico e sicurezza" />
+    <meta name="twitter:description" content="Soluzioni elettriche, energia, sicurezza e connettività in Friuli Venezia Giulia e Nord Est." />
+    <meta name="twitter:image" content="https://www.eletwave.com/assets/chi-siamo-bg.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,8 +34,34 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Electrician",
+        "name": "ELETWAVE S.N.C.",
+        "legalName": "ELETWAVE S.N.C.",
+        "url": "https://www.eletwave.com/",
+        "logo": "https://www.eletwave.com/assets/logo-why.png",
+        "image": "https://www.eletwave.com/assets/chi-siamo-bg.jpg",
+        "telephone": "+39 393 003 6372",
+        "email": "info@eletwave.com",
+        "taxID": "01287600314",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Romans d'Isonzo",
+          "addressRegion": "Friuli Venezia Giulia",
+          "addressCountry": "IT"
+        },
+        "areaServed": ["Friuli Venezia Giulia", "Nord Est Italia"],
+        "sameAs": [
+          "https://www.instagram.com/eletwave/",
+          "https://www.facebook.com/eletwave/"
+        ]
+      }
+    </script>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Vai al contenuto</a>
     <div class="bg-glow bg-glow--left" aria-hidden="true"></div>
     <div class="bg-glow bg-glow--right" aria-hidden="true"></div>
 
@@ -39,6 +80,7 @@
           <div
             class="topbar__lang topbar__lang--menu"
             aria-label="Lingua sito"
+            role="group"
             data-lang-switcher
           >
             <button
@@ -70,7 +112,7 @@
         </nav>
 
         <a class="topbar__brand" href="#hero" aria-label="ELETWAVE">
-          <img src="./assets/logo-why.png" alt="ELETWAVE" />
+          <img src="./assets/logo-why.png" alt="ELETWAVE" width="782" height="110" />
         </a>
 
         <button
@@ -88,6 +130,7 @@
         <div
           class="topbar__lang topbar__lang--desktop"
           aria-label="Lingua sito"
+          role="group"
           data-lang-switcher
         >
           <button
@@ -119,13 +162,13 @@
       </div>
     </header>
 
-    <main>
+    <main id="main-content">
       <section class="hero" id="hero">
         <div class="hero__overlay"></div>
 
         <div class="hero__content reveal">
           <p class="hero__eyebrow" data-i18n="hero.eyebrow">
-            ELETWAVE â€¢ Smart Energy & Security
+            ELETWAVE • Smart Energy &amp; Security
           </p>
           <h1 data-i18n="hero.title">
             Installazioni di impianti elettrici, fotovoltaico e sicurezza.
@@ -152,8 +195,12 @@
       <section class="manifesto section" id="chi-siamo">
         <img
           class="manifesto__logo reveal"
-          src="./assets/logo.png"
-          alt="Eletwave"
+          src="./assets/logo-why.png"
+          alt="ELETWAVE"
+          width="782"
+          height="110"
+          loading="lazy"
+          decoding="async"
         />
         <p class="eyebrow reveal" data-i18n="about.eyebrow">Chi siamo</p>
         <h2 class="reveal" data-i18n="about.title">
@@ -179,6 +226,8 @@
             <img
               src="./assets/man-electrical-technician-working-switchboard-with-fuses-installation-connection-electrical-equipment-close-up.webp"
               alt=""
+              loading="lazy"
+              decoding="async"
             />
             <div>
               <p data-i18n="service.electrical.kicker">Impianti</p>
@@ -190,7 +239,7 @@
           </article>
 
           <article class="service-card reveal">
-            <img src="./assets/impianto fotovoltaico.webp" alt="" />
+            <img src="./assets/impianto fotovoltaico.webp" alt="" loading="lazy" decoding="async" />
             <div>
               <p data-i18n="service.solar.kicker">Energia</p>
               <h3 data-i18n="service.solar.title">Fotovoltaico</h3>
@@ -201,9 +250,9 @@
           </article>
 
           <article class="service-card reveal">
-            <img src="./assets/ChatGPT Image 26 gen 2026, 10_29_34.webp" alt="" />
+            <img src="./assets/ChatGPT Image 26 gen 2026, 10_29_34.webp" alt="" loading="lazy" decoding="async" />
             <div>
-              <p data-i18n="service.wallbox.kicker">Mobilita</p>
+              <p data-i18n="service.wallbox.kicker">Mobilità</p>
               <h3 data-i18n="service.wallbox.title">Wallbox</h3>
               <span data-i18n="service.wallbox.body">
                 Ricarica domestica e aziendale con bilanciamento dei carichi.
@@ -212,7 +261,7 @@
           </article>
 
           <article class="service-card reveal">
-            <img src="./assets/ChatGPT Image 26 gen 2026, 10_42_49.webp" alt="" />
+            <img src="./assets/ChatGPT Image 26 gen 2026, 10_42_49.webp" alt="" loading="lazy" decoding="async" />
             <div>
               <p data-i18n="service.security.kicker">Sicurezza</p>
               <h3 data-i18n="service.security.title">Videosorveglianza</h3>
@@ -223,7 +272,7 @@
           </article>
 
           <article class="service-card reveal">
-            <img src="./assets/ChatGPT Image 23 gen 2026, 18_09_07.webp" alt="" />
+            <img src="./assets/ChatGPT Image 23 gen 2026, 18_09_07.webp" alt="" loading="lazy" decoding="async" />
             <div>
               <p data-i18n="service.network.kicker">Reti</p>
               <h3 data-i18n="service.network.title">Reti dati</h3>
@@ -234,7 +283,7 @@
           </article>
 
           <article class="service-card reveal">
-            <img src="./assets/ChatGPT Image 23 gen 2026, 18_09_17.webp" alt="" />
+            <img src="./assets/ChatGPT Image 23 gen 2026, 18_09_17.webp" alt="" loading="lazy" decoding="async" />
             <div>
               <p data-i18n="service.smart.kicker">Smart</p>
               <h3 data-i18n="service.smart.title">Automazioni</h3>
@@ -344,91 +393,12 @@
           </div>
 
           <div class="brands-orbit__content">
-            <p class="eyebrow">IN GOOD COMPANY</p>
-            <h2>Brand e materiali che utilizziamo nei nostri progetti.</h2>
-            <p>
+            <p class="eyebrow" data-i18n="brands.eyebrow">In good company</p>
+            <h2 data-i18n="brands.title">Brand e materiali che utilizziamo nei nostri progetti.</h2>
+            <p data-i18n="brands.body">
               Selezioniamo marchi affidabili per impianti elettrici, sicurezza,
-              energia e connettivita, cosi ogni installazione parte da una base
-              solida.
+              energia e connettività, così ogni installazione parte da una base solida.
             </p>
-          </div>
-
-          <div
-            class="brands-grid"
-            aria-label="Marchi utilizzati nei progetti Eletwave"
-          >
-            <div class="brands-grid__item">
-              <img src="./assets/brands/abb.svg" alt="ABB" />
-            </div>
-            <div class="brands-grid__item">
-              <img src="./assets/brands/bticino.svg" alt="BTicino" />
-            </div>
-            <div class="brands-grid__item">
-              <img src="./assets/brands/eaton.svg" alt="Eaton" />
-            </div>
-            <div class="brands-grid__item">
-              <img src="./assets/brands/hikvision.svg" alt="Hikvision" />
-            </div>
-            <div class="brands-grid__item">
-              <img src="./assets/brands/dahua.svg" alt="Dahua" />
-            </div>
-            <div class="brands-grid__item">
-              <img src="./assets/brands/axis.svg" alt="Axis" />
-            </div>
-            <div class="brands-grid__item">
-              <img src="./assets/brands/vimar.png" alt="Vimar" />
-            </div>
-            <div class="brands-grid__item">
-              <img src="./assets/brands/gewiss.png" alt="Gewiss" />
-            </div>
-            <div class="brands-grid__item">
-              <img src="./assets/brands/legrand.png" alt="Legrand" />
-            </div>
-            <div class="brands-grid__item">
-              <img src="./assets/brands/schneider.svg" alt="Schneider Electric" />
-            </div>
-            <div class="brands-grid__item">
-              <img src="./assets/brands/hager.png" alt="Hager" />
-            </div>
-            <div class="brands-grid__item">
-              <img src="./assets/brands/urmet.png" alt="Urmet" />
-            </div>
-            <div class="brands-grid__item">
-              <img src="./assets/brands/huawei.svg" alt="Huawei" />
-            </div>
-            <div class="brands-grid__item">
-              <img src="./assets/brands/byd.svg" alt="BYD" />
-            </div>
-            <div class="brands-grid__item is-tesla">
-              <img src="./assets/brands/tesla.png" alt="Tesla" />
-            </div>
-            <div class="brands-grid__item">
-              <img src="./assets/brands/fronius.png" alt="Fronius" />
-            </div>
-            <div class="brands-grid__item">
-              <img src="./assets/brands/sma.svg" alt="SMA" />
-            </div>
-            <div class="brands-grid__item">
-              <img src="./assets/brands/solaredge.svg" alt="SolarEdge" />
-            </div>
-            <div class="brands-grid__item">
-              <img src="./assets/brands/beghelli.svg" alt="Beghelli" />
-            </div>
-            <div class="brands-grid__item">
-              <img src="./assets/brands/philips.svg" alt="Philips" />
-            </div>
-            <div class="brands-grid__item">
-              <img src="./assets/brands/osram.png" alt="Osram" />
-            </div>
-            <div class="brands-grid__item">
-              <img src="./assets/brands/ledvance.svg" alt="Ledvance" />
-            </div>
-            <div class="brands-grid__item">
-              <img src="./assets/brands/cabur.png" alt="Cabur" />
-            </div>
-            <div class="brands-grid__item">
-              <img src="./assets/brands/cembre.svg" alt="Cembre" />
-            </div>
           </div>
         </div>
       </section>
@@ -447,7 +417,7 @@
             <a class="button button--primary" href="./preventivo.html" data-i18n="contact.quote">
               Preventivo online
             </a>
-            <a class="button button--ghost" href="https://wa.me/393930036372">
+            <a class="button button--ghost" href="https://wa.me/393930036372" target="_blank" rel="noopener noreferrer">
               WhatsApp
             </a>
             <a class="button button--ghost" href="mailto:info@eletwave.com">
@@ -505,17 +475,17 @@
     <footer class="site-footer">
       <div class="site-footer__company">
         <p class="site-footer__name">ELETWAVE S.N.C.</p>
-        <p>Sede a Romans d&rsquo;Isonzo (GO)</p>
-        <p>P. IVA / C.F. 01287600314 &middot; REA GO-217192</p>
+        <p data-i18n="footer.location">Sede a Romans d&rsquo;Isonzo (GO)</p>
+        <p data-i18n="footer.tax">P. IVA / C.F. 01287600314 &middot; REA GO-217192</p>
         <p>
           PEC: <a href="mailto:eletwave@legalmail.it">eletwave@legalmail.it</a>
           &middot; Email: <a href="mailto:eletwave@gmail.com">eletwave@gmail.com</a>
         </p>
       </div>
       <nav class="site-footer__links" aria-label="Link legali">
-        <a href="#">Privacy Policy</a>
+        <a href="./privacy-policy.html" data-i18n="footer.privacy">Privacy Policy</a>
         <span aria-hidden="true">&middot;</span>
-        <a href="#">Cookie Policy</a>
+        <a href="./cookie-policy.html" data-i18n="footer.cookie">Cookie Policy</a>
       </nav>
     </footer>
 

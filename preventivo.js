@@ -46,7 +46,7 @@
   });
 
   const uploads = () => ({
-    ...q("Upload disponibili", "Hai foto o documenti utili?", ["Si", "No"], "Se hai foto, planimetrie o documenti, potrai allegarli dopo in chat WhatsApp o email."),
+    ...q("Upload disponibili", "Hai foto o documenti utili?", ["Sì", "No"], "Se hai foto, planimetrie o documenti, potrai allegarli dopo in chat WhatsApp o email."),
     optional: true,
   });
 
@@ -61,7 +61,7 @@
     "Altro",
   ]);
 
-  const commonUrgency = q("Urgenza", "Quanto e urgente?", [
+  const commonUrgency = q("Urgenza", "Quanto è urgente?", [
     "Emergenza",
     "Entro 24 ore",
     "Entro pochi giorni",
@@ -70,7 +70,7 @@
     "Non so",
   ]);
 
-  const propertyType = q("Tipo immobile", "Che tipo di immobile e?", [
+  const propertyType = q("Tipo immobile", "Che tipo di immobile è?", [
     "Appartamento",
     "Casa indipendente",
     "Villa",
@@ -162,7 +162,7 @@
           label: "Impianto per B&B, negozio o ufficio",
           outcome: "Sopralluogo consigliato",
           questions: [
-            q("Tipo attivita", "Tipo attivita", [
+            q("Tipo attivita", "Tipo attività", [
               "B&B",
               "Negozio",
               "Ufficio",
@@ -197,7 +197,7 @@
               "Ho DICO",
               "Non ho DICO",
               "Non so",
-              "Devo aprire attivita",
+              "Devo aprire attività",
               "Devo affittare",
               "Devo regolarizzare",
             ]),
@@ -288,7 +288,7 @@
               "Impianto vecchio",
               "Gia smart in parte",
             ]),
-            q("Neutro scatole", "Neutro nelle scatole comandi", ["Si", "No", "Non so"]),
+            q("Neutro scatole", "Neutro nelle scatole comandi", ["Sì", "No", "Non so"]),
             m("Servizio richiesto", "Servizio richiesto", [
               "Consulenza",
               "Progetto",
@@ -374,7 +374,7 @@
               "Altro",
             ]),
             q("Tecnologia", "Tecnologia preferita", ["Wi-Fi", "Cablate", "PoE", "Non so"]),
-            q("Predisposizioni", "Ci sono predisposizioni?", ["Si", "No", "In parte", "Non so"]),
+            q("Predisposizioni", "Ci sono predisposizioni?", ["Sì", "No", "In parte", "Non so"]),
             q("Registrazione", "Tipo registrazione", [
               "Solo live",
               "Continua",
@@ -384,10 +384,10 @@
               "Non so",
             ]),
             q("App telefono", "Vuoi controllo da app?", [
-              "Si",
+              "Sì",
               "No",
-              "Si con notifiche",
-              "Si con piu utenti",
+              "Sì con notifiche",
+              "Sì con più utenti",
               "Non so",
             ]),
             uploads("Foto zone da coprire, modem/router, quadro, planimetria."),
@@ -414,7 +414,7 @@
               "Oltre 30 m",
               "Non so",
             ]),
-            q("Smartphone", "Apertura da smartphone", ["Si", "No", "Non so"]),
+            q("Smartphone", "Apertura da smartphone", ["Sì", "No", "Non so"]),
             uploads("Vecchio citofono, cancello/porta, quadro, percorso cavi."),
           ],
         },
@@ -458,7 +458,7 @@
             q("Orientamento", "Orientamento", ["Sud", "Est", "Ovest", "Est/Ovest", "Nord", "Piu falde", "Non so"]),
             m("Ombre", "Ci sono ombre?", ["Nessuna", "Camino", "Alberi", "Palazzi", "Antenne", "Altre ombre", "Non so"]),
             powerSupply,
-            q("Accumulo", "Accumulo", ["Si", "No", "Forse", "Predisposizione"]),
+            q("Accumulo", "Accumulo", ["Sì", "No", "Forse", "Predisposizione"]),
             uploads("Bolletta, foto tetto, quadro, contatore, planimetria o screenshot mappa."),
           ],
         },
@@ -503,7 +503,7 @@
               "Altro",
             ]),
             q("Numero prese", "Numero prese", ["1-3", "4-6", "7-10", "Oltre 10"]),
-            q("Zone separate", "Zone separate", ["1", "2", "3", "4 o piu"]),
+            q("Zone separate", "Zone separate", ["1", "2", "3", "4 o più"]),
             powerSupply,
             q("Distanza alimentazione", "Distanza alimentazione/zona evento", [
               "Meno di 5 m",
@@ -573,8 +573,8 @@
               "Quadro vecchio",
               "Non so quale interruttore scatta",
             ]),
-            q("Succede accendendo qualcosa", "Succede quando accendi qualcosa?", ["Si", "No", "A volte", "Non so"]),
-            q("Succede quando piove", "Succede quando piove?", ["Si", "No", "Non so"]),
+            q("Succede accendendo qualcosa", "Succede quando accendi qualcosa?", ["Sì", "No", "A volte", "Non so"]),
+            q("Succede quando piove", "Succede quando piove?", ["Sì", "No", "Non so"]),
             powerSupply,
             q("Tipo quadro", "Tipo quadro", ["Piccolo appartamento", "Generale casa", "Negozio/ufficio", "Trifase", "Non so"]),
             uploads("Quadro chiuso, quadro aperto se sicuro, contatore, interruttore che scatta."),
@@ -619,7 +619,7 @@
             q("Sistema", "Sistema", ["Shelly", "Home Assistant", "Zigbee", "Wi-Fi", "BTicino/Legrand", "KNX", "Altro", "Non so"]),
             q("Tipo problema", "Tipo problema", ["Configurazione app", "Dispositivo offline", "Problema elettrico", "Automazione sbagliata", "Rete Wi-Fi", "Non so"]),
             q("Dispositivi coinvolti", "Dispositivi coinvolti", ["1", "2-5", "6-10", "Oltre 10"]),
-            q("Accesso remoto", "Accesso remoto possibile?", ["Si", "No", "Non so"]),
+            q("Accesso remoto", "Accesso remoto possibile?", ["Sì", "No", "Non so"]),
             uploads("Screenshot app, dispositivo, quadro, scatola comando, errore Home Assistant."),
           ],
         },
@@ -666,7 +666,7 @@
             m("Problema", "Che problema hai?", ["App non funziona", "Monitoraggio offline", "Produzione bassa", "Inverter in errore", "Batteria non carica", "Consumi non corretti", "Altro"]),
             t("Marca inverter", "Marca inverter", "Es. Huawei, Fronius, SMA..."),
             q("Potenza impianto", "Potenza impianto", ["3 kW", "4,5 kW", "6 kW", "Oltre 6 kW", "Non so"]),
-            q("Batteria", "Hai batteria?", ["Si", "No", "Non so"]),
+            q("Batteria", "Hai batteria?", ["Sì", "No", "Non so"]),
             t("Codice errore", "Codice errore se presente", "Es. codice visto su inverter o app"),
             uploads("Screenshot app, inverter, batteria, quadro, contatore."),
           ],
@@ -684,7 +684,7 @@
             q("Quante prese", "Quante prese?", ["1", "2-3", "4-6", "7-10", "Oltre 10"]),
             m("Dove", "Dove servono?", ["Cucina", "Soggiorno", "Camera", "Bagno", "Garage", "Esterno", "Negozio/ufficio", "Altro"]),
             q("Tipo posa", "Tipo posa", ["Incasso", "Canalina", "Cartongesso", "Tubazione esistente", "Non so"]),
-            q("Stato ambiente", "Stato ambiente", ["Casa abitata", "Muri finiti", "Lavori in corso", "Tracce gia fatte", "Non so"]),
+            q("Stato ambiente", "Stato ambiente", ["Casa abitata", "Muri finiti", "Lavori in corso", "Tracce già fatte", "Non so"]),
             q("Serie civile", "Serie civile", ["Uguale all'esistente", "Base", "Standard", "Premium", "Smart", "Non so"]),
             uploads("Punto intervento, presa esistente, quadro, planimetria semplice."),
           ],
@@ -695,7 +695,7 @@
           questions: [
             q("Quanti punti luce", "Quanti punti luce?", ["1", "2-3", "4-6", "7-10", "Oltre 10"]),
             m("Tipo luce", "Tipo luce", ["Lampadario", "Plafoniera", "Faretti", "LED strip", "Applique", "Esterno", "Altro"]),
-            q("Alimentazione esistente", "Alimentazione esistente?", ["Si", "No", "Non so"]),
+            q("Alimentazione esistente", "Alimentazione esistente?", ["Sì", "No", "Non so"]),
             q("Comando", "Tipo comando", ["Interruttore", "Deviatore", "Dimmer", "Sensore movimento", "Crepuscolare", "Smart/app", "Non so"]),
             uploads("Punto luce, soffitto/parete, interruttore, quadro."),
           ],
@@ -724,7 +724,7 @@
           outcome: "Consulenza smart",
           questions: [
             m("Cosa aggiungere", "Cosa vuoi aggiungere?", ["Luci smart", "Tapparelle smart", "Prese smart", "Sensori", "Controllo consumi", "Home Assistant", "Altro"]),
-            t("Quantita", "Quantita dispositivi", "Es. 4 tapparelle, 6 luci"),
+            t("Quantita", "Quantità dispositivi", "Es. 4 tapparelle, 6 luci"),
             t("Sistema esistente", "Sistema esistente", "Es. Shelly, Home Assistant, BTicino..."),
             uploads("Foto e screenshot utili."),
           ],
@@ -734,7 +734,7 @@
           outcome: "Progetto Wi-Fi",
           questions: [
             m("Cosa aggiungere", "Cosa vuoi aggiungere?", ["Punto rete", "Access point", "Rack", "Switch", "Rete ospiti", "Copertura esterna"]),
-            t("Quantita", "Quantita", "Es. 3 punti rete, 2 access point"),
+            t("Quantita", "Quantità", "Es. 3 punti rete, 2 access point"),
             uploads("Planimetria, modem/router, locali, rack, prese dati."),
           ],
         },
@@ -750,9 +750,9 @@
           questions: [
             propertyType,
             q("Eta impianto", "Eta impianto", ["Meno di 5 anni", "5-10 anni", "10-20 anni", "Oltre 20 anni", "Non so"]),
-            q("DICO presente", "DICO presente?", ["Si", "No", "Non so"]),
+            q("DICO presente", "DICO presente?", ["Sì", "No", "Non so"]),
             m("Problemi", "Problemi presenti", ["Salvavita scatta", "Contatore salta", "Prese vecchie", "Quadro vecchio", "Nessun problema", "Altro"]),
-            q("Report scritto", "Vuoi report scritto?", ["Si", "No", "Non so"]),
+            q("Report scritto", "Vuoi report scritto?", ["Sì", "No", "Non so"]),
             uploads("Quadro, contatore, prese, documenti impianto."),
           ],
         },
@@ -777,7 +777,7 @@
           ],
         },
         vendita_affitto: {
-          label: "Verifica per vendita/affitto/apertura attivita",
+          label: "Verifica per vendita/affitto/apertura attività",
           outcome: "Check documentale",
           questions: [
             q("Finalita", "Finalita", ["Vendere casa", "Affittare casa", "Aprire B&B", "Aprire negozio", "Aprire ufficio", "Regolarizzare impianto"]),
@@ -802,7 +802,7 @@
         secondo_parere: {
           label: "Secondo parere tecnico",
           outcome: "Consulenza online",
-          questions: [a("Descrizione problema", "Descrivi il problema"), a("Soluzione proposta", "Che soluzione ti hanno proposto?"), q("Preventivo Eletwave", "Vuoi anche un preventivo Eletwave?", ["Si", "No", "Non so"]), uploads("Foto, video o documenti.")],
+          questions: [a("Descrizione problema", "Descrivi il problema"), a("Soluzione proposta", "Che soluzione ti hanno proposto?"), q("Preventivo Eletwave", "Vuoi anche un preventivo Eletwave?", ["Sì", "No", "Non so"]), uploads("Foto, video o documenti.")],
         },
         analisi_preventivo: {
           label: "Analisi preventivo ricevuto",
@@ -818,14 +818,14 @@
           outcome: "Consulenza documentale",
           questions: [
             m("Documenti caricati", "Documenti che puoi inviare", ["DICO", "Allegati obbligatori", "Schema", "Relazione materiali", "Fattura", "Altro"]),
-            q("Motivo controllo", "Motivo controllo", ["Vendita", "Affitto", "Lavori appena fatti", "Dubbi su impresa", "Apertura attivita", "Altro"]),
+            q("Motivo controllo", "Motivo controllo", ["Vendita", "Affitto", "Lavori appena fatti", "Dubbi su impresa", "Apertura attività", "Altro"]),
             uploads("Documenti e allegati."),
           ],
         },
         smart_consulenza: {
           label: "Consulenza smart home",
           outcome: "Progetto smart home",
-          questions: [m("Cosa fare", "Cosa vuoi fare?", ["Luci", "Tapparelle", "Home Assistant", "Sensori", "Consumi", "Automazioni"]), t("Quantita e sistema", "Quantita dispositivi e sistema attuale", "Es. 8 luci, Shelly, app..."), uploads("Foto o screenshot.")],
+          questions: [m("Cosa fare", "Cosa vuoi fare?", ["Luci", "Tapparelle", "Home Assistant", "Sensori", "Consumi", "Automazioni"]), t("Quantita e sistema", "Quantità dispositivi e sistema attuale", "Es. 8 luci, Shelly, app..."), uploads("Foto o screenshot.")],
         },
         wifi_consulenza: {
           label: "Consulenza Wi-Fi",
@@ -882,12 +882,12 @@
         dj: {
           label: "Kit DJ/audio/luci",
           outcome: "Kit audio/luci",
-          questions: [m("Carichi", "Carichi", ["Console DJ", "Mixer", "Casse", "Subwoofer", "Luci palco", "Macchina fumo", "Schermi/video"]), q("Linee separate", "Linee separate audio/luci?", ["Si", "No", "Non so"]), powerSupply, uploads("Lista apparecchi, foto area, presa/quadro.")],
+          questions: [m("Carichi", "Carichi", ["Console DJ", "Mixer", "Casse", "Subwoofer", "Luci palco", "Macchina fumo", "Schermi/video"]), q("Linee separate", "Linee separate audio/luci?", ["Sì", "No", "Non so"]), powerSupply, uploads("Lista apparecchi, foto area, presa/quadro.")],
         },
         banco_bar: {
           label: "Kit banco bar/frigo/spillatore",
           outcome: "Kit banco bar",
-          questions: [m("Carichi", "Carichi", ["Frigo", "Congelatore", "Spillatore", "Macchina ghiaccio", "Banco bar", "Macchina caffe", "Luci banco"]), q("Uso", "Uso privato o pubblico?", ["Privato", "Pubblico", "Non so"]), q("Continuita frigo", "Serve continuita frigo?", ["Si", "No", "Non so"])],
+          questions: [m("Carichi", "Carichi", ["Frigo", "Congelatore", "Spillatore", "Macchina ghiaccio", "Banco bar", "Macchina caffè", "Luci banco"]), q("Uso", "Uso privato o pubblico?", ["Privato", "Pubblico", "Non so"]), q("Continuità frigo", "Serve continuità frigo?", ["Sì", "No", "Non so"])],
         },
         wifi_kit: {
           label: "Kit Wi-Fi/rete dati",
@@ -897,7 +897,7 @@
         smart_kit: {
           label: "Kit smart home/domotica",
           outcome: "Kit smart home",
-          questions: [q("Tipo kit", "Tipo kit", ["Luci smart", "Tapparelle smart", "Sensori", "Controllo consumi", "Home Assistant base", "B&B smart"]), t("Numero dispositivi", "Numero dispositivi", "Es. 6 luci, 4 tapparelle"), q("Neutro scatole", "Neutro nelle scatole?", ["Si", "No", "Non so"]), q("Servizio", "Servizio", ["Kit preconfigurato", "Assistenza remota", "Installazione", "Progetto smart home"])],
+          questions: [q("Tipo kit", "Tipo kit", ["Luci smart", "Tapparelle smart", "Sensori", "Controllo consumi", "Home Assistant base", "B&B smart"]), t("Numero dispositivi", "Numero dispositivi", "Es. 6 luci, 4 tapparelle"), q("Neutro scatole", "Neutro nelle scatole?", ["Sì", "No", "Non so"]), q("Servizio", "Servizio", ["Kit preconfigurato", "Assistenza remota", "Installazione", "Progetto smart home"])],
         },
         video_kit: {
           label: "Kit videosorveglianza/videocitofono",
@@ -907,7 +907,7 @@
         consumi_kit: {
           label: "Kit controllo consumi",
           outcome: "Kit monitoraggio",
-          questions: [q("Tipo kit", "Tipo kit", ["Misuratore energia generale", "Monitoraggio singole linee", "FV + consumi", "Home Assistant energia"]), powerSupply, m("Linee da monitorare", "Linee da monitorare", ["Generale", "Cucina", "Clima", "Wallbox", "Fotovoltaico", "Pompa", "Altro"]), q("Report consumi", "Vuoi report consumi?", ["Si", "No", "Non so"])],
+          questions: [q("Tipo kit", "Tipo kit", ["Misuratore energia generale", "Monitoraggio singole linee", "FV + consumi", "Home Assistant energia"]), powerSupply, m("Linee da monitorare", "Linee da monitorare", ["Generale", "Cucina", "Clima", "Wallbox", "Fotovoltaico", "Pompa", "Altro"]), q("Report consumi", "Vuoi report consumi?", ["Sì", "No", "Non so"])],
         },
         emergenza_kit: {
           label: "Kit emergenza/manutenzione",
@@ -931,7 +931,7 @@
           questions: [
             a("Descrizione", "Descrivi problema o obiettivo", "Scrivi liberamente cosa vorresti fare o capire..."),
             commonWhere,
-            q("Urgenza", "E urgente?", ["Si", "No", "Non so"]),
+            q("Urgenza", "È urgente?", ["Sì", "No", "Non so"]),
             q("Preferenza", "Come preferisci procedere?", ["Richiamata", "Consulenza online", "Preventivo", "Sopralluogo", "Non so"]),
             uploads("Foto quadro, problema, locale, documento/preventivo o altro."),
           ],
@@ -969,17 +969,17 @@
   const infoText = {
     "Nuova installazione": "Per impianti o sistemi da realizzare da zero, con progettazione, materiali e installazione completa.",
     "Assistenza tecnica / riparazione": "Per guasti, anomalie, dispositivi che non funzionano o controlli urgenti su impianti esistenti.",
-    "Modifica o ampliamento impianto": "Per aggiungere punti, linee, prese, luci, apparecchi o funzioni a un impianto gia presente.",
-    "Verifica, manutenzione o DICO": "Per controlli tecnici, manutenzioni, documentazione o verifica di conformita dell'impianto.",
+    "Modifica o ampliamento impianto": "Per aggiungere punti, linee, prese, luci, apparecchi o funzioni a un impianto già presente.",
+    "Verifica, manutenzione o DICO": "Per controlli tecnici, manutenzioni, documentazione o verifica di conformità dell'impianto.",
     "Consulenza online / preventivo": "Per analizzare un problema, un preventivo ricevuto o capire quale soluzione conviene prima di intervenire.",
-    "Kit predisposti / soluzioni pronte": "Per soluzioni gia impostate, da adattare al tuo caso con installazione o supporto Eletwave.",
-    "Non so / voglio un consiglio": "Per richieste non ancora chiare: ti guidiamo noi verso il percorso piu adatto.",
-    DICO: "Dichiarazione di Conformita. Eletwave puo rilasciarla solo per lavori eseguiti, installati o verificati in loco.",
+    "Kit predisposti / soluzioni pronte": "Per soluzioni già impostate, da adattare al tuo caso con installazione o supporto Eletwave.",
+    "Non so / voglio un consiglio": "Per richieste non ancora chiare: ti guidiamo noi verso il percorso più adatto.",
+    DICO: "Dichiarazione di Conformità. Eletwave può rilasciarla solo per lavori eseguiti, installati o verificati in loco.",
     "Non so": "Scegli questa voce se non hai ancora il dato: lo chiariremo nel contatto successivo.",
     Altro: "Usa questa voce quando la tua situazione non rientra nelle opzioni disponibili.",
-    Emergenza: "Situazione potenzialmente pericolosa o bloccante, da valutare con priorita alta.",
+    Emergenza: "Situazione potenzialmente pericolosa o bloccante, da valutare con priorità alta.",
     "Entro 24 ore": "Intervento o contatto richiesto entro la giornata successiva.",
-    "Solo valutazione": "Non hai urgenza: vuoi capire costi, possibilita e soluzione migliore.",
+    "Solo valutazione": "Non hai urgenza: vuoi capire costi, possibilità e soluzione migliore.",
   };
 
   function optionInfo(label, context = "") {
@@ -994,19 +994,19 @@
     }
 
     if (/kw|trifase|generatore|fornitura/.test(text)) {
-      return `Seleziona ${clean} per capire potenza disponibile, protezioni del quadro e compatibilita dei carichi.`;
+      return `Seleziona ${clean} per capire potenza disponibile, protezioni del quadro e compatibilità dei carichi.`;
     }
 
     if (/mq|superficie|oltre|meno/.test(text)) {
-      return `Serve a dimensionare tempi, quantita di materiali e complessita generale dell'intervento.`;
+      return `Serve a dimensionare tempi, quantità di materiali e complessità generale dell'intervento.`;
     }
 
     if (/^\d|pochi|giorni|mese|ore/.test(text)) {
-      return `Quantita o tempistica indicativa per "${context || clean}": aiuta a stimare durata, priorita e materiale necessario.`;
+      return `Quantità o tempistica indicativa per "${context || clean}": aiuta a stimare durata, priorità e materiale necessario.`;
     }
 
     if (/fotovoltaico|accumulo|wallbox|domotica|allarme|videosorveglianza|wi-fi|rete|smart|home assistant/.test(text)) {
-      return `Predisposizione o servizio ${clean.toLowerCase()}: permette di valutare collegamenti, compatibilita e possibilita future.`;
+      return `Predisposizione o servizio ${clean.toLowerCase()}: permette di valutare collegamenti, compatibilità e possibilità future.`;
     }
 
     if (/luci|prese|quadro|illuminazione|punto luce|linee|cavi|presa|forno|induzione|lavatrice|asciugatrice|climatizzatori|pompa|piscina/.test(text)) {
@@ -1018,18 +1018,18 @@
     }
 
     if (/bruciato|scintille|caldo|salta|corrente|guasto|non funziona|problema/.test(text)) {
-      return `Descrive il sintomo principale: serve a capire priorita, rischio e tipo di controllo necessario.`;
+      return `Descrive il sintomo principale: serve a capire priorità, rischio e tipo di controllo necessario.`;
     }
 
     if (/nuova|ristrutturazione|abitata|vuota|vecchio|valutando/.test(text)) {
-      return `Stato del lavoro: cambia accessibilita, tempi di posa e precisione del preventivo.`;
+      return `Stato del lavoro: cambia accessibilità, tempi di posa e precisione del preventivo.`;
     }
 
-    if (/^(si|no)$/.test(text)) {
+    if (/^(sì|si|no)$/.test(text)) {
       return `Risposta rapida per confermare o escludere questa condizione nel percorso ${where || "selezionato"}.`;
     }
 
-    return `Seleziona questa voce se "${clean}" descrive meglio la tua richiesta. Aiuta Eletwave a preparare una risposta piu precisa.`;
+    return `Seleziona questa voce se "${clean}" descrive meglio la tua richiesta. Aiuta Eletwave a preparare una risposta più precisa.`;
   }
 
   function getBranch() {
@@ -1073,7 +1073,7 @@
     if (/(odore di bruciato|scintille|quadro caldo|presa bruciata|presa scalda|non arriva corrente|emergenza)/.test(text)) {
       return {
         label: "Urgenza",
-        action: "Chiama subito Eletwave se la situazione e pericolosa.",
+        action: "Chiama subito Eletwave se la situazione è pericolosa.",
       };
     }
 
@@ -1105,7 +1105,7 @@
       };
     }
 
-    if (selectedCategory === "modifica" && /(1|2-3|4-6|incasso|canalina|punto luce|prese)/.test(text)) {
+    if (selectedCategory === "modifica" && ["prese", "punti_luce"].includes(selectedSubcategory)) {
       return {
         label: "Preventivo online possibile",
         action: "I dati raccolti possono bastare per una prima stima.",
@@ -1135,13 +1135,16 @@
   function setProgress() {
     const total = totalSteps();
     const step = currentStepNumber();
-    const percent = Math.max(8, Math.min(100, (step / total) * 100));
+    const hasKnownTotal = Boolean(getBranch());
+    const percent = hasKnownTotal
+      ? Math.max(8, Math.min(100, (step / total) * 100))
+      : current === "subcategory" ? 16 : 8;
     progress?.style.setProperty("--progress", `${percent}%`);
     if (stepLabel) {
       stepLabel.textContent = current === "contact" ? "Dati e invio" : `Step ${step}`;
     }
     if (stepCount) {
-      stepCount.textContent = `${step}/${total}`;
+      stepCount.textContent = hasKnownTotal ? `${step}/${total}` : `${step}/…`;
     }
   }
 
@@ -1150,14 +1153,15 @@
     const providedInfo = Array.isArray(option) ? option[1] : "";
     const info = providedInfo || optionInfo(label, context);
     const value = valueOverride || label;
+    const infoId = `info-${context}-${value}`.toLowerCase().replace(/[^a-z0-9_-]/g, "-");
     return `
-      <button class="option-card ${selected ? "is-selected" : ""}" type="button" data-value="${escapeHtml(value)}">
-        <span class="option-card__head">
+      <div class="option-card-shell">
+        <button class="option-card option-card--single ${selected ? "is-selected" : ""}" type="button" data-value="${escapeHtml(value)}">
           <strong>${escapeHtml(label)}</strong>
-          <span class="option-info" role="button" tabindex="0" aria-label="Informazioni su ${escapeHtml(label)}">i</span>
-        </span>
-        <span class="option-card__info">${escapeHtml(info)}</span>
-      </button>`;
+        </button>
+        <button class="option-info" type="button" aria-label="Informazioni su ${escapeHtml(label)}" aria-controls="${infoId}" aria-expanded="false">i</button>
+        <span class="option-card__info" id="${infoId}">${escapeHtml(info)}</span>
+      </div>`;
   }
 
   function renderCategory() {
@@ -1200,7 +1204,7 @@
 
     if (question.type === "options") {
       body = `<div class="option-grid">${question.options.map((option) => optionMarkup(option, value === (Array.isArray(option) ? option[0] : option), "", question.title)).join("")}</div>`;
-      if (question.key === "Upload disponibili" && value === "Si") {
+      if (question.key === "Upload disponibili" && value === "Sì") {
         body += `
           <div class="inline-notice">
             Perfetto: le foto o i documenti non vengono caricati dal sito. Inviali o allegali dopo nella chat WhatsApp o nella mail.
@@ -1217,13 +1221,14 @@
               const label = Array.isArray(option) ? option[0] : option;
               const providedInfo = Array.isArray(option) ? option[1] : "";
               const info = providedInfo || optionInfo(label, question.title);
-              const id = `check-${escapeHtml(question.key)}-${escapeHtml(label)}`.replace(/[^a-zA-Z0-9_-]/g, "-");
+              const id = `check-${question.key}-${label}`.replace(/[^a-zA-Z0-9_-]/g, "-");
+              const infoId = `info-${question.key}-${label}`.toLowerCase().replace(/[^a-z0-9_-]/g, "-");
               return `
                 <div class="option-card option-card--check ${selected.includes(label) ? "is-selected" : ""}">
                   <input id="${id}" type="checkbox" value="${escapeHtml(label)}" ${selected.includes(label) ? "checked" : ""} />
                   <label for="${id}">${escapeHtml(label)}</label>
-                  <span class="option-info" role="button" tabindex="0" aria-label="Informazioni su ${escapeHtml(label)}">i</span>
-                  <span class="option-card__info">${escapeHtml(info)}</span>
+                  <button class="option-info" type="button" aria-label="Informazioni su ${escapeHtml(label)}" aria-controls="${infoId}" aria-expanded="false">i</button>
+                  <span class="option-card__info" id="${infoId}">${escapeHtml(info)}</span>
                 </div>`;
             })
             .join("")}
@@ -1265,16 +1270,16 @@
         <h2>Dati per ricontattarti.</h2>
         <div class="form-grid">
           <div class="field">
-            <label for="name">Nome e cognome</label>
-            <input id="name" autocomplete="name" value="${escapeHtml(answers.Nome || "")}" />
+            <label for="name">Nome e cognome <span aria-hidden="true">*</span></label>
+            <input id="name" autocomplete="name" required aria-required="true" value="${escapeHtml(answers.Nome || "")}" />
           </div>
           <div class="field">
             <label for="phone">Telefono</label>
-            <input id="phone" autocomplete="tel" value="${escapeHtml(answers.Telefono || "")}" />
+            <input id="phone" type="tel" autocomplete="tel" aria-describedby="contact-method-help" value="${escapeHtml(answers.Telefono || "")}" />
           </div>
           <div class="field">
             <label for="email">Email</label>
-            <input id="email" type="email" autocomplete="email" value="${escapeHtml(answers.Email || "")}" />
+            <input id="email" type="email" autocomplete="email" aria-describedby="contact-method-help" value="${escapeHtml(answers.Email || "")}" />
           </div>
           <div class="field">
             <label for="city">Comune</label>
@@ -1308,15 +1313,17 @@
             <strong>Foto e documenti</strong>
             <small>Il sito non carica allegati: se hai foto, planimetrie o documenti utili, inviali dopo nella chat WhatsApp o allegali alla mail.</small>
           </div>
-          <label class="field field--full field--consent">
-            <input id="consent" type="checkbox" ${answers.Consenso ? "checked" : ""} />
-            <span>Confermo la correttezza delle informazioni e acconsento a essere contattato da Eletwave.</span>
-          </label>
+          <p class="field field--full field-help" id="contact-method-help">Inserisci almeno un recapito tra telefono ed email.</p>
+          <div class="field field--full field--consent">
+            <input id="consent" type="checkbox" required aria-required="true" ${answers.Consenso ? "checked" : ""} />
+            <span><label for="consent">Confermo la correttezza delle informazioni e acconsento a essere contattato da Eletwave.</label> Consulta la <a href="./privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</span>
+          </div>
+          <p class="contact-status field--full" id="contact-status" aria-live="polite">Per inviare servono nome, telefono o email e consenso.</p>
           <div class="final-send-panel field--full">
-            <a class="button button--primary" data-send="whatsapp" href="https://wa.me/393930036372" target="_blank" rel="noopener noreferrer">
+            <a class="button button--primary is-disabled" data-send="whatsapp" aria-disabled="true" target="_blank" rel="noopener noreferrer">
               Invia WhatsApp
             </a>
-            <a class="button button--ghost" data-send="email" href="mailto:info@eletwave.com">
+            <a class="button button--ghost is-disabled" data-send="email" aria-disabled="true">
               Invia email
             </a>
           </div>
@@ -1454,6 +1461,31 @@
       .map(([key, value]) => [key, answerText(value) || "Non indicato"]);
   }
 
+  function contactIsReady() {
+    if (current !== "contact") return false;
+
+    const name = String(answers.Nome || "").trim();
+    const phone = String(answers.Telefono || "").replace(/\D/g, "");
+    const email = String(answers.Email || "").trim();
+    const emailIsValid = !email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const hasContact = phone.length >= 6 || Boolean(email && emailIsValid);
+
+    return name.length >= 2 && hasContact && emailIsValid && answers.Consenso === true;
+  }
+
+  function setSendLink(link, href, enabled) {
+    if (!link) return;
+
+    link.classList.toggle("is-disabled", !enabled);
+    link.setAttribute("aria-disabled", String(!enabled));
+    link.tabIndex = enabled ? 0 : -1;
+    if (enabled) {
+      link.href = href;
+    } else {
+      link.removeAttribute("href");
+    }
+  }
+
   function updateSummary() {
     saveCurrentInputs();
     const result = detectResult();
@@ -1484,19 +1516,31 @@
       "Risposte configuratore:",
       ...responseRows().map(([key, value]) => `- ${key}: ${value}`),
       "",
-      "Nota DICO: la Dichiarazione di Conformita viene rilasciata solo per lavori eseguiti, installati o verificati in loco da Eletwave, secondo normativa applicabile.",
+      "Nota DICO: la Dichiarazione di Conformità viene rilasciata solo per lavori eseguiti, installati o verificati in loco da Eletwave, secondo la normativa applicabile.",
     ];
 
     const message = messageLines.join("\n");
     const encodedMessage = encodeURIComponent(message);
-    whatsappLink.href = `https://wa.me/393930036372?text=${encodedMessage}`;
-    emailLink.href = `mailto:info@eletwave.com?subject=${encodeURIComponent("Richiesta preventivo ELETWAVE")}&body=${encodedMessage}`;
+    const whatsappHref = `https://wa.me/393930036372?text=${encodedMessage}`;
+    const emailHref = `mailto:info@eletwave.com?subject=${encodeURIComponent("Richiesta preventivo ELETWAVE")}&body=${encodedMessage}`;
+    const canSend = contactIsReady();
+
+    setSendLink(whatsappLink, whatsappHref, canSend);
+    setSendLink(emailLink, emailHref, canSend);
     document.querySelectorAll("[data-send='whatsapp']").forEach((link) => {
-      link.href = whatsappLink.href;
+      setSendLink(link, whatsappHref, canSend);
     });
     document.querySelectorAll("[data-send='email']").forEach((link) => {
-      link.href = emailLink.href;
+      setSendLink(link, emailHref, canSend);
     });
+
+    const status = document.querySelector("#contact-status");
+    if (status) {
+      status.classList.toggle("is-ready", canSend);
+      status.textContent = canSend
+        ? "Dati completi: puoi inviare la richiesta con WhatsApp o email."
+        : "Per inviare servono nome, un recapito valido e il consenso.";
+    }
   }
 
   stage.addEventListener("click", (event) => {
@@ -1504,13 +1548,16 @@
     if (info) {
       event.preventDefault();
       event.stopPropagation();
-      const card = info.closest(".option-card");
-      stage.querySelectorAll(".option-card.is-info-open").forEach((openCard) => {
+      const card = info.closest(".option-card-shell, .option-card");
+      const willOpen = !card?.classList.contains("is-info-open");
+      stage.querySelectorAll(".is-info-open").forEach((openCard) => {
         if (openCard !== card) {
           openCard.classList.remove("is-info-open");
+          openCard.querySelector(".option-info")?.setAttribute("aria-expanded", "false");
         }
       });
-      card?.classList.toggle("is-info-open");
+      card?.classList.toggle("is-info-open", willOpen);
+      info.setAttribute("aria-expanded", String(willOpen));
       return;
     }
 
@@ -1569,13 +1616,6 @@
         return;
       }
       window.setTimeout(goNext, 140);
-    }
-  });
-
-  stage.addEventListener("keydown", (event) => {
-    if ((event.key === "Enter" || event.key === " ") && event.target.matches(".option-info")) {
-      event.preventDefault();
-      event.target.click();
     }
   });
 
