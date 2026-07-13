@@ -7,6 +7,8 @@
   const langSwitchers = Array.from(document.querySelectorAll("[data-lang-switcher]"));
   const i18nNodes = Array.from(document.querySelectorAll("[data-i18n]"));
   const metaDescription = document.querySelector('meta[name="description"]');
+  const mobileMenu = window.matchMedia("(max-width: 860px)");
+  const pageRegions = Array.from(document.querySelectorAll("main, footer"));
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const translations = {
@@ -36,7 +38,7 @@
       "service.solar.kicker": "Energia",
       "service.solar.title": "Fotovoltaico",
       "service.solar.body": "Impianti FV, accumulo, monitoraggio e gestione carichi.",
-      "service.wallbox.kicker": "Mobilita",
+      "service.wallbox.kicker": "Mobilità",
       "service.wallbox.title": "Wallbox",
       "service.wallbox.body": "Ricarica domestica e aziendale con bilanciamento dei carichi.",
       "service.security.kicker": "Sicurezza",
@@ -52,14 +54,18 @@
       "territory.title": "Friuli Venezia Giulia e Nord Est.",
       "territory.body":
         "Con sede a Romans d'Isonzo, in provincia di Gorizia. Operiamo principalmente in Friuli Venezia Giulia. Per interventi strutturati, installazioni complete o lavori programmati, valutiamo anche spostamenti fuori zona in base alle esigenze del cliente e al tipo di lavoro richiesto.",
-      "brands.eyebrow": "Materiali",
-      "brands.title": "Marchi e componenti affidabili.",
-      "brands.body": "Scegliamo materiali adatti al progetto, alla durata e alla manutenzione futura.",
+      "brands.eyebrow": "In good company",
+      "brands.title": "Brand e materiali che utilizziamo nei nostri progetti.",
+      "brands.body": "Selezioniamo marchi affidabili per impianti elettrici, sicurezza, energia e connettività, così ogni installazione parte da una base solida.",
       "contact.eyebrow": "Contatti",
       "contact.title": "Parliamo del tuo impianto.",
       "contact.body":
         "Descrivi il progetto o compila il preventivo guidato: ti ricontattiamo con le prime indicazioni.",
       "contact.quote": "Preventivo online",
+      "footer.location": "Sede a Romans d’Isonzo (GO)",
+      "footer.tax": "P. IVA / C.F. 01287600314 · REA GO-217192",
+      "footer.privacy": "Privacy Policy",
+      "footer.cookie": "Cookie Policy",
     },
     en: {
       title: "ELETWAVE | Electrical, solar and security systems",
@@ -101,61 +107,69 @@
       "territory.eyebrow": "Area",
       "territory.title": "Friuli Venezia Giulia and North East Italy.",
       "territory.body": "Based in Romans d'Isonzo, in the province of Gorizia. Scheduled work, site surveys and technical support for homes and businesses.",
-      "brands.eyebrow": "Materials",
-      "brands.title": "Reliable brands and components.",
-      "brands.body": "We choose materials suited to the project, durability and future maintenance.",
+      "brands.eyebrow": "In good company",
+      "brands.title": "Brands and materials we use in our projects.",
+      "brands.body": "We select reliable brands for electrical systems, security, energy and connectivity, giving every installation a solid foundation.",
       "contact.eyebrow": "Contact",
       "contact.title": "Let's talk about your system.",
       "contact.body": "Describe the project or fill in the guided quote: we will get back to you with first indications.",
       "contact.quote": "Online quote",
+      "footer.location": "Based in Romans d’Isonzo (GO), Italy",
+      "footer.tax": "VAT / Tax ID 01287600314 · REA GO-217192",
+      "footer.privacy": "Privacy Policy",
+      "footer.cookie": "Cookie Policy",
     },
     sl: {
       title: "ELETWAVE | Elektrika, fotovoltaika in varnost",
       description:
-        "ELETWAVE namesca elektricne sisteme, fotovoltaiko, wallboxe, varnost in podatkovna omrezja za domove in podjetja v Furlaniji-Julijski krajini.",
+        "ELETWAVE namešča električne sisteme, fotovoltaiko, wallboxe, varnost in podatkovna omrežja za domove in podjetja v Furlaniji-Julijski krajini.",
       "nav.about": "O NAS",
       "nav.services": "STORITVE",
-      "nav.area": "OBMOCJE",
+      "nav.area": "OBMOČJE",
       "nav.contact": "KONTAKT",
-      "nav.quote": "PREDRACUN",
+      "nav.quote": "PREDRAČUN",
       "hero.eyebrow": "ELETWAVE • Smart Energy & Security",
-      "hero.title": "Monterji elektricnih, soncnih in varnostnih sistemov.",
-      "hero.body": "Nacrtovanje, montaza in vzdrzevanje elektricnih sistemov ter integriranih resitev za domove in podjetja v Furlaniji-Julijski krajini.",
-      "cta.quote": "Zahtevaj predracun",
+      "hero.title": "Monterji električnih, sončnih in varnostnih sistemov.",
+      "hero.body": "Načrtovanje, montaža in vzdrževanje električnih sistemov ter integriranih rešitev za domove in podjetja v Furlaniji-Julijski krajini.",
+      "cta.quote": "Zahtevaj predračun",
       "cta.services": "Storitve",
       "about.eyebrow": "O nas",
-      "about.title": "Preprost, neposreden in zanesljiv tehnicni partner.",
+      "about.title": "Preprost, neposreden in zanesljiv tehnični partner.",
       "about.body":
-        "Eletwave nacrtuje, namesca in vzdrzuje elektricne sisteme ter povezane resitve za energijo, varnost, avtomatiko in povezljivost. Delamo jasno, varno in skladno.",
+        "Eletwave načrtuje, namešča in vzdržuje električne sisteme ter povezane rešitve za energijo, varnost, avtomatiko in povezljivost. Delamo jasno, varno in skladno.",
       "services.eyebrow": "Storitve",
       "service.electrical.kicker": "Sistemi",
       "service.electrical.title": "Elektrika",
-      "service.electrical.body": "Omarice, linije, nadgradnje, pregledi in vzdrzevanje.",
+      "service.electrical.body": "Omarice, linije, nadgradnje, pregledi in vzdrževanje.",
       "service.solar.kicker": "Energija",
       "service.solar.title": "Fotovoltaika",
       "service.solar.body": "FV sistemi, hranilniki, nadzor in upravljanje porabe.",
       "service.wallbox.kicker": "Mobilnost",
       "service.wallbox.title": "Wallbox",
-      "service.wallbox.body": "Domace in poslovno polnjenje z uravnavanjem obremenitev.",
+      "service.wallbox.body": "Domače in poslovno polnjenje z uravnavanjem obremenitev.",
       "service.security.kicker": "Varnost",
       "service.security.title": "Videonadzor",
       "service.security.body": "Kamere, alarmi, senzorji, obvestila in oddaljen nadzor.",
-      "service.network.kicker": "Omrezja",
-      "service.network.title": "Podatkovna omrezja",
+      "service.network.kicker": "Omrežja",
+      "service.network.title": "Podatkovna omrežja",
       "service.network.body": "Strukturirano kabliranje, racki, stikala in profesionalni Wi-Fi.",
       "service.smart.kicker": "Smart",
       "service.smart.title": "Avtomatizacija",
       "service.smart.body": "Domotika, dostopi, vrata in pametno upravljanje porabe.",
-      "territory.eyebrow": "Obmocje",
+      "territory.eyebrow": "Območje",
       "territory.title": "Furlanija-Julijska krajina in severovzhod.",
-      "territory.body": "S sedezem v Romans d'Isonzo, v pokrajini Gorica. Nacrtovani posegi, ogledi in tehnicna podpora za domove in podjetja.",
-      "brands.eyebrow": "Materiali",
-      "brands.title": "Zanesljive znamke in komponente.",
-      "brands.body": "Materiale izbiramo glede na projekt, trajnost in prihodnje vzdrzevanje.",
+      "territory.body": "S sedežem v Romans d'Isonzo, v pokrajini Gorica. Načrtovani posegi, ogledi in tehnična podpora za domove in podjetja.",
+      "brands.eyebrow": "In good company",
+      "brands.title": "Znamke in materiali, ki jih uporabljamo pri naših projektih.",
+      "brands.body": "Izbiramo zanesljive znamke za električne sisteme, varnost, energijo in povezljivost, da ima vsaka namestitev trdne temelje.",
       "contact.eyebrow": "Kontakt",
-      "contact.title": "Pogovorimo se o vasem sistemu.",
-      "contact.body": "Opisite projekt ali izpolnite vodeni predracun: odgovorimo s prvimi informacijami.",
-      "contact.quote": "Spletni predracun",
+      "contact.title": "Pogovorimo se o vašem sistemu.",
+      "contact.body": "Opišite projekt ali izpolnite vodeni predračun: odgovorimo s prvimi informacijami.",
+      "contact.quote": "Spletni predračun",
+      "footer.location": "Sedež v Romans d’Isonzo (GO), Italija",
+      "footer.tax": "ID za DDV / davčna št. 01287600314 · REA GO-217192",
+      "footer.privacy": "Pravilnik o zasebnosti",
+      "footer.cookie": "Pravilnik o piškotkih",
     },
   };
 
@@ -164,11 +178,14 @@
   }
 
   function setMenu(open) {
-    document.body.classList.toggle("is-menu-open", open);
-    topbar?.classList.toggle("is-menu-open", open);
+    const shouldOpen = Boolean(open && mobileMenu.matches);
+    document.body.classList.toggle("is-menu-open", shouldOpen);
+    topbar?.classList.toggle("is-menu-open", shouldOpen);
+    document.querySelector("#topbar-nav")?.toggleAttribute("inert", mobileMenu.matches && !shouldOpen);
+    pageRegions.forEach((region) => region.toggleAttribute("inert", shouldOpen));
     if (menuButton) {
-      menuButton.setAttribute("aria-expanded", String(open));
-      menuButton.setAttribute("aria-label", open ? "Chiudi menu" : "Apri menu");
+      menuButton.setAttribute("aria-expanded", String(shouldOpen));
+      menuButton.setAttribute("aria-label", shouldOpen ? "Chiudi menu" : "Apri menu");
     }
   }
 
@@ -201,7 +218,7 @@
     });
 
     try {
-      window.localStorage.setItem("eletwave-v3-lang", lang);
+      window.localStorage.setItem("eletwave-lang", lang);
     } catch (error) {
       /* storage unavailable */
     }
@@ -209,7 +226,9 @@
 
   function initialLanguage() {
     try {
-      const saved = window.localStorage.getItem("eletwave-v3-lang");
+      const saved =
+        window.localStorage.getItem("eletwave-lang") ||
+        window.localStorage.getItem("eletwave-v3-lang");
       if (saved && translations[saved]) {
         return saved;
       }
@@ -223,6 +242,15 @@
     setMenu(!document.body.classList.contains("is-menu-open"));
   });
 
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && document.body.classList.contains("is-menu-open")) {
+      setMenu(false);
+      menuButton?.focus();
+    }
+  });
+
+  mobileMenu.addEventListener("change", () => setMenu(false));
+
   navLinks.forEach((link) => {
     link.addEventListener("click", () => setMenu(false));
   });
@@ -234,7 +262,10 @@
     });
   });
 
-  setLanguage(initialLanguage());
+  setMenu(false);
+  if (i18nNodes.length > 0) {
+    setLanguage(initialLanguage());
+  }
 
   const revealItems = document.querySelectorAll(".reveal");
 

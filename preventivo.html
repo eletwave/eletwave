@@ -12,6 +12,16 @@
       name="description"
       content="Compila il preventivo guidato ELETWAVE per impianti elettrici, fotovoltaico, sicurezza, reti dati, domotica e manutenzione."
     />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="canonical" href="https://www.eletwave.com/preventivo.html" />
+    <link rel="icon" href="./assets/logo-why.png" type="image/png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:site_name" content="ELETWAVE" />
+    <meta property="og:title" content="ELETWAVE | Preventivo online guidato" />
+    <meta property="og:description" content="Prepara una richiesta tecnica ordinata per il tuo intervento elettrico, energetico o di sicurezza." />
+    <meta property="og:url" content="https://www.eletwave.com/preventivo.html" />
+    <meta property="og:image" content="https://www.eletwave.com/assets/chi-siamo-bg.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,10 +31,11 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body class="quote-body">
+    <a class="skip-link" href="#main-content">Vai al contenuto</a>
     <header class="topbar" id="top">
       <div class="topbar__inner">
         <a class="quote-brand" href="./index.html" aria-label="Vai al sito Eletwave">
-          <img src="./assets/logo-why.png" alt="Eletwave" />
+          <img src="./assets/logo-why.png" alt="ELETWAVE" width="782" height="110" />
           <span>Preventivo</span>
           <strong>online</strong>
         </a>
@@ -41,27 +52,31 @@
             class="topbar__menu"
             type="button"
             aria-expanded="false"
-          aria-controls="topbar-nav"
-          aria-label="Apri menu"
-        >
-          <span class="topbar__menu-line" aria-hidden="true"></span>
-          <span class="topbar__menu-line" aria-hidden="true"></span>
-          <span class="topbar__menu-line" aria-hidden="true"></span>
-        </button>
+            aria-controls="topbar-nav"
+            aria-label="Apri menu"
+          >
+            <span class="topbar__menu-line" aria-hidden="true"></span>
+            <span class="topbar__menu-line" aria-hidden="true"></span>
+            <span class="topbar__menu-line" aria-hidden="true"></span>
+          </button>
         </div>
       </div>
     </header>
 
-    <main class="quote-page">
+    <main class="quote-page" id="main-content">
       <section class="quote-hero">
         <p class="eyebrow">Preventivo online</p>
         <h1>
           Preventivo <span>guidato</span> per il tuo intervento
           <mark>Eletwave</mark>
         </h1>
-        <p>
+        <p class="quote-hero__intro">
           Rispondi a poche domande: il configuratore apre solo i passaggi utili
-          e prepara una richiesta gia ordinata.
+          e prepara una richiesta già ordinata.
+        </p>
+        <p class="quote-language-note">
+          Il configuratore tecnico è in italiano. Per assistenza in English o
+          slovenščini, scrivici su <a href="https://wa.me/393930036372" target="_blank" rel="noopener noreferrer">WhatsApp</a>.
         </p>
       </section>
 
@@ -95,13 +110,13 @@
           <ul class="summary-list" id="summary-list">
             <li><small>Servizi</small><span>Da selezionare</span></li>
             <li><small>Zona</small><span>Da indicare</span></li>
-            <li><small>Priorita</small><span>Da selezionare</span></li>
+            <li><small>Priorità</small><span>Da selezionare</span></li>
           </ul>
           <div class="quote-actions">
-            <a class="button button--primary" id="send-whatsapp" href="https://wa.me/393930036372" target="_blank" rel="noopener noreferrer">
+            <a class="button button--primary is-disabled" id="send-whatsapp" aria-disabled="true" target="_blank" rel="noopener noreferrer">
               Invia WhatsApp
             </a>
-            <a class="button button--ghost" id="send-email" href="mailto:info@eletwave.com">
+            <a class="button button--ghost is-disabled" id="send-email" aria-disabled="true">
               Invia email
             </a>
           </div>
@@ -110,8 +125,12 @@
     </main>
 
     <footer class="site-footer">
-      <p>ELETWAVE</p>
-      <p>&copy; <span id="year"></span> smart energy &amp; security solutions</p>
+      <p>&copy; <span id="year"></span> ELETWAVE S.N.C.</p>
+      <nav class="site-footer__links" aria-label="Link legali">
+        <a href="./privacy-policy.html">Privacy Policy</a>
+        <span aria-hidden="true">&middot;</span>
+        <a href="./cookie-policy.html">Cookie Policy</a>
+      </nav>
     </footer>
 
     <script src="./script.js"></script>
