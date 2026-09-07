@@ -31,7 +31,9 @@ async function versionAssets($, file) {
 async function save(file, $) {
   await versionAssets($, file);
   await mkdir(dirname(resolve(root, file)), { recursive: true });
-  await writeFile(resolve(root, file), $.html().replace(/[ \t]+$/gm, "").trimEnd() + "\n");
+  const html = $.html().replace(/[ \t]+$/gm, "")
+    .replace(/\s*<\/body>\s*<\/html>\s*$/, "\n  </body>\n</html>\n");
+  await writeFile(resolve(root, file), html);
 }
 
 const template = await readFile(resolve(root, "templates/home.html"), "utf8");

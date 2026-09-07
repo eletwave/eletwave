@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { readFile, readdir, stat } from "node:fs/promises";
 import { resolve, dirname } from "node:path";
 import vm from "node:vm";
+import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import { load } from "cheerio";
 import postcss from "postcss";
@@ -84,4 +85,12 @@ test("JavaScript and CSS parse", async () => {
   for (const file of scripts) new vm.Script(await readFile(file, "utf8"), { filename: file });
   postcss.parse(await readFile("styles.css", "utf8"));
   postcss.parse(await readFile("preventivo.css", "utf8"));
+});
+
+test("rebuilding does not change generated files", async () => {
+  const files = [...pages, "sitemap.xml"];
+  const before = await Promise.all(files.map(file => readFile(file, "utf8")));
+  execFileSync(process.execPath, ["scripts/build.mjs"]);
+  const after = await Promise.all(files.map(file => readFile(file, "utf8")));
+  assert.deepEqual(after, before);
 });
