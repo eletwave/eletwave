@@ -1,23 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.eletwave.com/</loc>
-    <lastmod>2026-07-13</lastmod>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://www.eletwave.com/preventivo.html</loc>
-    <lastmod>2026-07-13</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.eletwave.com/privacy-policy.html</loc>
-    <lastmod>2026-07-13</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.eletwave.com/cookie-policy.html</loc>
-    <lastmod>2026-07-13</lastmod>
-    <priority>0.3</priority>
-  </url>
+  <url><loc>https://www.eletwave.com/</loc></url>
+  <url><loc>https://www.eletwave.com/en/</loc></url>
+  <url><loc>https://www.eletwave.com/sl/</loc></url>
+  <url><loc>https://www.eletwave.com/preventivo.html</loc></url>
+  <url><loc>https://www.eletwave.com/privacy-policy.html</loc></url>
+  <url><loc>https://www.eletwave.com/cookie-policy.html</loc></url>
 </urlset>
