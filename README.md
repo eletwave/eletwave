@@ -9,8 +9,9 @@ Production: https://www.eletwave.com/
 - scripts/translations.mjs: Italian, English and Slovenian homepage text.
 - script.js: menu, focus and viewport animations.
 - styles.css: homepage, shared controls and legal pages.
-- preventivo-data.js: the 47 guided quote branches.
-- preventivo.js and preventivo.css: quote behavior and layout.
+- preventivo-data.js: 8 service groups, intent routing and 49 quote branches.
+- preventivo.js and preventivo.css: isolated quote behavior and layout.
+- scripts/build-quote-icons.mjs: generates the local Lucide icon sprite.
 - preventivo.html, privacy-policy.html, cookie-policy.html and 404.html: page sources.
 - assets/: only files referenced by the published site.
 
@@ -19,6 +20,15 @@ sitemap and hashes local CSS/JS references. Commit the generated pages together
 with their sources. Do not edit generated homepage files directly.
 
 ## Checks
+
+The quote starts from a service and narrows down to the requested intervention.
+Details, minimal contact information and an editable review follow. Single-choice
+answers advance immediately; multiple choices and text have explicit confirmation.
+Review edits can be saved or cancelled. Changing the intervention clears only its
+technical answers; contact drafts survive and consent must be reconfirmed.
+Nothing is persisted or sent automatically. WhatsApp/email links are prepared in
+the browser, with complete copy/download fallbacks for long requests. Photos are
+attached by the user in the destination app, not uploaded to this static site.
 
 Requires Node.js 22 or later.
 

@@ -936,5 +936,71 @@
     "consiglio",
   ];
 
-  window.EletwaveQuoteData = { branches, categoryOrder };
+  branches.nuova_installazione.subcategories.wallbox = {
+    label: "Installazione wallbox",
+    questions: [
+      q("Parcheggio", "Dove ricaricherai l'auto?", ["Garage privato", "Posto auto esterno", "Parcheggio condominiale", "Parcheggio aziendale"]),
+      powerSupply,
+      q("Fotovoltaico", "Hai un impianto fotovoltaico?", ["Sì", "No", "È in progetto"]),
+      q("Dispositivo", "Hai già scelto la wallbox?", ["Da scegliere insieme", "Scelta, ma da acquistare", "Già acquistata"]),
+      t("Veicolo", "Quale auto vuoi ricaricare?", "Marca e modello, se già noti"),
+      q("Tempistiche", "Quando vorresti installarla?", ["Appena possibile", "Entro un mese", "Entro tre mesi", "Sto valutando"]),
+      uploads("Se disponibili: foto del parcheggio, del quadro elettrico e della distanza tra i due."),
+    ],
+  };
+  branches.assistenza.subcategories.wallbox_assistenza = {
+    label: "Assistenza wallbox",
+    questions: [
+      q("Problema", "Che problema riscontri?", ["La ricarica non parte", "Ricarica lenta o interrotta", "Scatta una protezione", "App o connessione", "Altro"]),
+      t("Modello", "Qual è la wallbox?", "Marca e modello, se li conosci"),
+      commonWhere,
+      commonUrgency,
+      uploads("Se disponibili: foto della wallbox e del messaggio di errore. Non aprire quadri o dispositivi."),
+    ],
+  };
+
+  const intents = {
+    nuova_installazione: { label: "Installare un nuovo impianto", icon: "plus", body: "Progetto e realizzazione da zero" },
+    assistenza: { label: "Risolvere un problema", icon: "wrench", body: "Guasti, anomalie e assistenza" },
+    modifica: { label: "Migliorare un impianto esistente", icon: "sliders-horizontal", body: "Aggiunte, modifiche e ampliamenti" },
+    verifica: { label: "Verifiche e documentazione", icon: "clipboard-check", body: "Controlli, manutenzione e documenti" },
+    consulenza: { label: "Valutare un progetto", icon: "messages-square", body: "Consulenza e secondo parere" },
+    kit: { label: "Preparare una soluzione su misura", icon: "package", body: "Kit e configurazioni dedicate" },
+    consiglio: { label: "Ricevere un consiglio", icon: "messages-square", body: "Raccontaci la tua esigenza" },
+  };
+  const services = {
+    elettrico: { label: "Impianto elettrico", icon: "plug-zap", body: "Casa, attività, quadri e illuminazione", routes: {
+      nuova_installazione: ["elettrico_casa", "attivita", "quadro_nuovo"],
+      assistenza: ["impianto", "quadro_salvavita", "prese_luci"],
+      modifica: ["prese", "punti_luce", "linea_dedicata", "quadro_modifica"],
+      verifica: ["controllo_sicurezza", "manutenzione", "dico", "vendita_affitto", "report"],
+      consulenza: ["secondo_parere", "analisi_preventivo", "check_dico", "ristrutturazione"],
+      kit: ["consumi_kit", "emergenza_kit"],
+    } },
+    fotovoltaico: { label: "Fotovoltaico e accumulo", icon: "sun", body: "Produzione, batterie e consumi", routes: {
+      nuova_installazione: ["fotovoltaico"], assistenza: ["fv_assistenza"], consulenza: ["fv_consulenza"],
+    } },
+    wallbox: { label: "Ricarica auto", icon: "ev-charger", body: "Wallbox private e aziendali", routes: {
+      nuova_installazione: ["wallbox"], assistenza: ["wallbox_assistenza"],
+    } },
+    sicurezza: { label: "Sicurezza e videocitofoni", icon: "shield-check", body: "Telecamere, accessi e videocitofonia", routes: {
+      nuova_installazione: ["videosorveglianza", "videocitofono"],
+      assistenza: ["videosorveglianza_assistenza", "videocitofono_assistenza"], kit: ["video_kit"],
+    } },
+    rete: { label: "Wi-Fi e reti dati", icon: "wifi", body: "Copertura, connessioni e cablaggi", routes: {
+      nuova_installazione: ["rete_wifi"], assistenza: ["wifi_assistenza"], modifica: ["rete_modifica"],
+      consulenza: ["wifi_consulenza"], kit: ["wifi_kit"],
+    } },
+    domotica: { label: "Domotica", icon: "house", body: "Luci, comandi e automazioni smart", routes: {
+      nuova_installazione: ["smart_home"], assistenza: ["smart_assistenza"], modifica: ["smart_modifica"],
+      consulenza: ["smart_consulenza"], kit: ["smart_kit"],
+    } },
+    eventi: { label: "Eventi e impianti temporanei", icon: "calendar-days", body: "Stand, gazebo, palchi e allestimenti", routes: {
+      nuova_installazione: ["gazebo_evento"], consulenza: ["evento_consulenza"],
+      kit: ["stand", "gazebo_kit", "dj", "banco_bar", "personalizzato_kit"],
+    } },
+    consiglio: { label: "Altro / non so da dove partire", icon: "messages-square", body: "Descrivi liberamente ciò che ti serve", routes: { consiglio: ["consiglio"] } },
+  };
+
+  window.EletwaveQuoteData = { branches, categoryOrder, services, intents };
 })();

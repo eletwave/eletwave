@@ -4,6 +4,7 @@ import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { load } from "cheerio";
 import { translations } from "./translations.mjs";
+import "./build-quote-icons.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const base = "https://www.eletwave.com/";
