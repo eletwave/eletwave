@@ -1,92 +1,100 @@
 <!DOCTYPE html><html lang="it"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="theme-color" content="#05070c">
-    <title>ELETWAVE | Preventivo online guidato</title>
-    <meta name="description" content="Compila il preventivo guidato ELETWAVE per impianti elettrici, fotovoltaico, sicurezza, reti dati, domotica e manutenzione.">
+    <meta name="theme-color" content="#ffffff">
+    <title>ELETWAVE | Preventivo online</title>
+    <meta name="description" content="Richiedi un preventivo ELETWAVE per impianti elettrici, fotovoltaico, wallbox, sicurezza, reti dati e domotica.">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="canonical" href="https://www.eletwave.com/preventivo.html">
     <link rel="icon" href="./assets/logo-why.png" type="image/png">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="it_IT">
     <meta property="og:site_name" content="ELETWAVE">
-    <meta property="og:title" content="ELETWAVE | Preventivo online guidato">
-    <meta property="og:description" content="Prepara una richiesta tecnica ordinata per il tuo intervento elettrico, energetico o di sicurezza.">
+    <meta property="og:title" content="ELETWAVE | Preventivo online">
+    <meta property="og:description" content="Raccontaci il tuo progetto. Prepariamo insieme il prossimo intervento.">
     <meta property="og:url" content="https://www.eletwave.com/preventivo.html">
     <meta property="og:image" content="https://www.eletwave.com/assets/chi-siamo-bg.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles.css?v=a5f7a6d56f85">
-    <link rel="stylesheet" href="./preventivo.css?v=0f3b7e7de40e">
+    <link rel="stylesheet" href="./preventivo.css?v=bbc5cbdabc48">
+    <script src="./preventivo-data.js?v=ec9dd3509168" defer=""></script>
+    <script src="./preventivo.js?v=e6d8481c546a" defer=""></script>
   </head>
   <body class="quote-body">
     <a class="skip-link" href="#main-content">Vai al contenuto</a>
-    <header class="topbar" id="top">
-      <div class="topbar__inner">
-        <a class="quote-brand" href="./index.html" aria-label="Vai al sito Eletwave">
+    <header class="quote-header">
+      <div class="quote-header__inner">
+        <a class="header-link" href="./index.html" aria-label="Torna al sito Eletwave" title="Torna al sito">
+          <svg class="icon" aria-hidden="true"><use href="./assets/quote-icons.svg#arrow-left"></use></svg>
+          <span>Il sito</span>
+        </a>
+        <a class="quote-brand" href="./index.html" aria-label="Eletwave, homepage">
           <img src="./assets/logo-why.png" alt="ELETWAVE" width="782" height="110">
         </a>
-
+        <a class="header-link header-link--contact" href="tel:+393930036372" aria-label="Chiama Eletwave" title="Chiama Eletwave">
+          <svg class="icon" aria-hidden="true"><use href="./assets/quote-icons.svg#phone"></use></svg>
+          <span>Parliamone</span>
+        </a>
       </div>
     </header>
-
-    <main class="quote-page" id="main-content">
-      <section class="quote-hero">
-        <p class="eyebrow">Preventivo online</p>
-        <h1>
-          Preventivo <span>guidato</span> per il tuo intervento
-          <mark>Eletwave</mark>
-        </h1>
-        <p class="quote-hero__intro">
-          Rispondi a poche domande: il configuratore apre solo i passaggi utili
-          e prepara una richiesta già ordinata.
-        </p>
-        <p class="quote-language-note">
-          Il configuratore tecnico è in italiano. Per assistenza in English o
-          slovenščini, scrivici su <a href="https://wa.me/393930036372" target="_blank" rel="noopener noreferrer">WhatsApp</a>.
-        </p>
-      </section>
-
-      <section class="quote-layout" aria-label="Quiz preventivo Eletwave">
-        <form class="quote-card" id="quote-form">
-          <div class="quote-progress-wrap">
-            <div class="quote-progress__meta">
-              <span id="quote-step-label">Step 1</span>
-              <span id="quote-step-count">1/…</span>
-            </div>
-            <div class="quote-progress" aria-hidden="true">
-              <span id="quote-progress"></span>
-            </div>
-          </div>
-
+    <main id="main-content" class="quote-page">
+      <div class="page-heading">
+        <h1>Preventivo online</h1>
+        <button type="button" id="restart" class="icon-button" aria-label="Ricomincia il preventivo" title="Ricomincia il preventivo" hidden="">
+          <svg class="icon" aria-hidden="true"><use href="./assets/quote-icons.svg#rotate-ccw"></use></svg>
+        </button>
+      </div>
+      <nav class="quote-steps" aria-label="Fasi del preventivo" hidden="">
+        <ol id="quote-steps">
+          <li aria-current="step"><span class="step-number">1</span><span>Intervento</span></li>
+          <li><span class="step-number">2</span><span>Dettagli</span></li>
+          <li><span class="step-number">3</span><span>Contatti</span></li>
+          <li><span class="step-number">4</span><span>Riepilogo</span></li>
+        </ol>
+      </nav>
+      <div class="quote-layout" id="quote-workspace" hidden="">
+        <form id="quote-form" novalidate="">
           <div id="quiz-stage"></div>
-          <noscript><p>Per il preventivo guidato attiva JavaScript oppure <a href="https://wa.me/393930036372">contattaci su WhatsApp</a>.</p></noscript>
-
-          <div class="quote-actions" id="quote-navigation" hidden="">
-            <button class="button button--ghost" type="button" id="prev-step" hidden="">
-              Indietro
+          <div id="quote-navigation" class="quote-navigation">
+            <button type="button" id="prev-step" class="button button--quiet" hidden="">
+              <svg class="icon" aria-hidden="true"><use href="./assets/quote-icons.svg#arrow-left"></use></svg>Indietro
             </button>
-            <button class="button button--primary" type="button" id="next-step" hidden="">
-              Continua
+            <button type="button" id="next-step" class="button button--primary" hidden="">
+              <span>Conferma</span><svg class="icon" aria-hidden="true"><use href="./assets/quote-icons.svg#arrow-right"></use></svg>
             </button>
           </div>
         </form>
-
-      </section>
+        <aside class="quote-aside" aria-label="La tua richiesta">
+          <div class="request-summary" id="request-summary"></div>
+          <div class="aside-contact">
+            <span class="aside-caption">Preferisci parlarne?</span>
+            <a class="phone-link" href="tel:+393930036372">+39 393 003 6372<svg class="icon" aria-hidden="true"><use href="./assets/quote-icons.svg#phone"></use></svg></a>
+            <a class="text-link" href="https://wa.me/393930036372" target="_blank" rel="noopener noreferrer">Scrivici su WhatsApp<svg class="icon" aria-hidden="true"><use href="./assets/quote-icons.svg#arrow-right"></use></svg></a>
+            <p class="language-note">English / Slovenščina: <a href="https://wa.me/393930036372" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
+          </div>
+        </aside>
+      </div>
+      <p id="load-error" class="fallback">Per compilare la richiesta attiva JavaScript oppure <a href="https://wa.me/393930036372">scrivici su WhatsApp</a>. Puoi anche chiamare il <a href="tel:+393930036372">+39 393 003 6372</a>.</p>
+      <p id="quote-status" class="sr-only" role="status" aria-live="polite"></p>
     </main>
-
-    <footer class="site-footer">
-      <p>© <span id="year"></span> ELETWAVE S.N.C.</p>
-      <nav class="site-footer__links" aria-label="Link legali">
-        <a href="./privacy-policy.html">Privacy Policy</a>
-        <span aria-hidden="true">·</span>
-        <a href="./cookie-policy.html">Cookie Policy</a>
+    <footer class="quote-footer">
+      <p>© <span id="year">2026</span> ELETWAVE S.N.C.</p>
+      <nav aria-label="Link legali">
+        <a href="./privacy-policy.html">Privacy</a>
+        <a href="./cookie-policy.html">Cookie</a>
       </nav>
     </footer>
-
-    <script src="./script.js?v=a971518c7dfb"></script>
-    <script src="./preventivo-data.js?v=aa759f231601"></script>
-    <script src="./preventivo.js?v=824c75646316"></script>
+    <dialog id="reset-dialog" aria-labelledby="reset-title">
+      <form method="dialog">
+        <button class="icon-button dialog-close" value="cancel" aria-label="Chiudi" title="Chiudi"><svg class="icon" aria-hidden="true"><use href="./assets/quote-icons.svg#x"></use></svg></button>
+        <h2 id="reset-title">Vuoi ricominciare?</h2>
+        <p>Le risposte e i dati inseriti in questa richiesta verranno cancellati.</p>
+        <div class="dialog-actions">
+          <button class="button button--quiet" value="cancel" autofocus="">Annulla</button>
+          <button class="button button--primary" value="reset">Ricomincia</button>
+        </div>
+      </form>
+    </dialog>
   </body>
 </html>

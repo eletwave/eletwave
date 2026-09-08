@@ -11,10 +11,10 @@ import { translations } from "../scripts/translations.mjs";
 
 const pages = ["index.html", "en/index.html", "sl/index.html", "preventivo.html", "privacy-policy.html", "cookie-policy.html", "404.html", "v2/index.html"];
 const scripts = ["script.js", "preventivo.js", "preventivo-data.js"];
-test("47 branches have unique answer keys and valid questions", async () => {
+test("49 branches have valid questions and are reachable from the service navigation", async () => {
   const context = { window: {} };
   vm.runInNewContext(await readFile("preventivo-data.js", "utf8"), context);
-  const { branches, categoryOrder } = context.window.EletwaveQuoteData;
+  const { branches, categoryOrder, services, intents } = context.window.EletwaveQuoteData;
   assert.equal(categoryOrder.length, 7);
   let count = 0;
   for (const category of Object.values(branches)) {
@@ -29,7 +29,19 @@ test("47 branches have unique answer keys and valid questions", async () => {
       }
     }
   }
-  assert.equal(count, 47);
+  assert.equal(count, 49);
+  const reachable = new Set();
+  for (const service of Object.values(services)) {
+    assert.ok(service.label && service.icon && service.body);
+    for (const [intent, ids] of Object.entries(service.routes)) {
+      assert.ok(intents[intent]);
+      for (const id of ids) {
+        assert.ok(branches[intent].subcategories[id], intent + "/" + id);
+        reachable.add(intent + "/" + id);
+      }
+    }
+  }
+  assert.equal(reachable.size, count);
 });
 
 test("published pages have working local references and current asset versions", async () => {
