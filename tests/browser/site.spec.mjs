@@ -35,7 +35,7 @@ for (const width of [320, 360, 390, 768, 861, 1024, 1080, 1081, 1440]) {
         await page.screenshot({ path: testInfo.outputPath(name + "-viewport.png") });
       }
     }
-    for (const route of ["/preventivo.html", "/privacy-policy.html", "/cookie-policy.html", "/en/", "/sl/"]) {
+    for (const route of ["/preventivo.html", "/privacy-policy.html", "/privacy-crossumi.html", "/cookie-policy.html", "/en/", "/sl/"]) {
       await page.goto(route);
       expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth), route).toBeLessThanOrEqual(1);
     }
