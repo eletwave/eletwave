@@ -9,7 +9,7 @@ import { load } from "cheerio";
 import postcss from "postcss";
 import { translations } from "../scripts/translations.mjs";
 
-const pages = ["index.html", "en/index.html", "sl/index.html", "preventivo.html", "privacy-policy.html", "privacy-calcoli-elettrici.html", "cookie-policy.html", "404.html", "v2/index.html"];
+const pages = ["index.html", "en/index.html", "sl/index.html", "preventivo.html", "privacy-policy.html", "privacy-calcoli-elettrici.html", "privacy-crossumi.html", "cookie-policy.html", "404.html", "v2/index.html"];
 const scripts = ["script.js", "preventivo.js", "preventivo-data.js"];
 test("49 branches have valid questions and are reachable from the service navigation", async () => {
   const context = { window: {} };
