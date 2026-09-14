@@ -81,10 +81,10 @@ for (const [lang, route] of Object.entries(routes)) {
   }
   await save(route + "index.html", $);
 }
-for (const file of ["preventivo.html", "privacy-policy.html", "cookie-policy.html", "404.html"]) {
+for (const file of ["preventivo.html", "privacy-policy.html", "privacy-calcoli-elettrici.html", "cookie-policy.html", "404.html"]) {
   await save(file, load(await readFile(resolve(root, file), "utf8")));
 }
-const urls = ["", "en/", "sl/", "preventivo.html", "privacy-policy.html", "cookie-policy.html"];
+const urls = ["", "en/", "sl/", "preventivo.html", "privacy-policy.html", "privacy-calcoli-elettrici.html", "cookie-policy.html"];
 await writeFile(resolve(root, "sitemap.xml"),
   '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
   urls.map(url => `  <url><loc>${base + url}</loc></url>`).join("\n") + "\n</urlset>\n");
