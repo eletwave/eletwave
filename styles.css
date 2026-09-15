@@ -1803,6 +1803,14 @@ h2 {
 }
 
 .reveal.is-pending { opacity: 0; transform: translateY(16px); }
+.services { overflow: clip; }
+@media (prefers-reduced-motion: no-preference) {
+  .service-card.reveal.is-pending { transform: translateX(64px); }
+  .service-card.reveal.is-pending:nth-child(even) { transform: translateX(-64px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .service-card.reveal.is-pending { opacity: 1; transform: none; }
+}
 @media (max-width: 1080px) {
   .topbar__menu-line:nth-child(1) { top: 12px; }
   .topbar__menu-line:nth-child(2) { top: 21px; }
