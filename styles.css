@@ -553,11 +553,6 @@ h2 {
     var(--bg);
 }
 
-.contact__inner {
-  border-radius: var(--radius);
-  background: var(--panel);
-}
-
 .territory__inner {
   max-width: 940px;
   margin: 0 auto;
@@ -789,33 +784,69 @@ h2 {
   font-size: 0.875rem;
 }
 
-.contact__inner {
-  display: grid;
-  grid-template-columns: minmax(0, 0.55fr) minmax(280px, 0.45fr);
-  gap: 22px;
-  padding: 44px;
-  background:
-    radial-gradient(circle at 12% 18%, rgba(35, 198, 255, 0.14), transparent 24rem),
-    radial-gradient(circle at 86% 22%, rgba(255, 47, 94, 0.1), transparent 24rem),
-    rgba(255, 255, 255, 0.06);
+.contact {
+  width: 100%;
+  padding: 72px var(--section-pad);
+  border-top: 1px solid var(--line);
+  background: var(--bg-2);
 }
 
-.contact__inner p:not(.eyebrow) {
+.contact__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 72px;
+}
+
+.contact h2 {
+  font-size: 3rem;
+}
+
+.contact__body {
+  max-width: 43ch;
+  margin: 22px 0 0;
   color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.8;
 }
 
 .contact__actions {
   justify-content: flex-start;
   align-content: start;
-  margin-top: 0;
+  margin-top: 28px;
+}
+
+.contact__actions .button {
+  gap: 12px;
+}
+
+.contact__actions .button--ghost {
+  border: 1px solid #465366;
+  background: transparent;
+}
+
+.contact__actions .button--ghost:hover {
+  border-color: var(--cyan);
+  background: var(--panel);
+}
+
+.contact__icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .contact__details {
-  grid-column: 1 / -1;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 18px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
   margin: 0;
   color: var(--muted);
   font-style: normal;
@@ -823,46 +854,70 @@ h2 {
 
 .contact__details a {
   color: white;
-  font-weight: 500;
+}
+
+.contact__details > a {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr) 20px;
+  align-items: center;
+  gap: 16px;
+  min-height: 80px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.4rem;
+}
+
+.contact__details > a span {
+  overflow-wrap: anywhere;
+}
+
+.contact__details > a .contact__icon:first-child,
+.contact__details > a:hover {
+  color: #8fe9ff;
 }
 
 .contact__socials {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
+  gap: 8px 24px;
+  margin-top: 20px;
 }
 
 .contact__socials a {
-  width: 44px;
-  height: 44px;
-  display: grid;
-  place-items: center;
-  border: 0;
-  border-radius: var(--radius);
-  color: white;
-  background: rgba(255, 255, 255, 0.105);
-  transition:
-    transform 0.22s ease,
-    background 0.22s ease;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
 }
 
 .contact__socials a:hover {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.18);
+  color: #8fe9ff;
 }
 
-.contact__socials svg {
-  width: 19px;
-  height: 19px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.8;
+.contact__socials .contact__icon {
+  width: 14px;
+  height: 14px;
+  transform: rotate(-45deg);
 }
 
-.contact__socials a:nth-child(2) svg,
-.contact__socials a:nth-child(3) svg {
-  fill: currentColor;
-  stroke: none;
+@media (max-width: 920px) {
+  .contact__inner { gap: 36px; }
+  .contact h2 { font-size: 2.35rem; }
+  .contact__details > a { font-size: 1.1rem; gap: 10px; }
+}
+
+@media (max-width: 620px) {
+  .contact { padding: 48px 24px; }
+  .contact__inner { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .contact h2 { font-size: 2rem; }
+  .contact__body { margin-top: 18px; line-height: 1.65; }
+  .contact__actions { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; margin-top: 24px; }
+  .contact__actions .button { min-height: 52px; }
+  .contact__details > a { min-height: 68px; }
+  .contact__socials { justify-content: space-between; gap: 12px; margin-top: 16px; }
+  .contact__socials .contact__icon { display: none; }
 }
 
 .site-footer {
@@ -1208,8 +1263,7 @@ h2 {
   }
 
   .section-head,
-  .territory__inner,
-  .contact__inner {
+  .territory__inner {
     grid-template-columns: 1fr;
   }
 }
@@ -1284,10 +1338,6 @@ h2 {
     justify-content: center;
     padding: 18px 0 58px;
     transform: none;
-  }
-
-  .contact__inner {
-    padding: 24px;
   }
 
   .site-footer {
