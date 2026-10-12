@@ -5,7 +5,6 @@
   const topbar = document.querySelector(".topbar");
   const menuButton = document.querySelector(".topbar__menu");
   const nav = document.querySelector("#topbar-nav");
-  const mobileMenu = window.matchMedia("(max-width: 1080px)");
   const pageRegions = Array.from(document.querySelectorAll("main, footer"));
   const labels = {
     it: ["Apri menu", "Chiudi menu"],
@@ -14,10 +13,10 @@
   }[document.documentElement.lang] || ["Apri menu", "Chiudi menu"];
 
   function setMenu(open) {
-    const shouldOpen = Boolean(open && mobileMenu.matches && menuButton);
+    const shouldOpen = Boolean(open && menuButton);
     document.body.classList.toggle("is-menu-open", shouldOpen);
     topbar?.classList.toggle("is-menu-open", shouldOpen);
-    nav?.toggleAttribute("inert", mobileMenu.matches && !shouldOpen);
+    nav?.toggleAttribute("inert", !shouldOpen);
     pageRegions.forEach((region) => region.toggleAttribute("inert", shouldOpen));
     menuButton?.setAttribute("aria-expanded", String(shouldOpen));
     menuButton?.setAttribute("aria-label", labels[Number(shouldOpen)]);
@@ -31,8 +30,17 @@
       setMenu(false);
       menuButton?.focus();
     }
+    if (event.key === "Tab" && document.body.classList.contains("is-menu-open")) {
+      const controls = [menuButton, ...nav.querySelectorAll("a[href]")];
+      const index = controls.indexOf(document.activeElement);
+      const next = (index + (event.shiftKey ? -1 : 1) + controls.length) % controls.length;
+      event.preventDefault();
+      controls[next].focus();
+    }
   });
-  mobileMenu.addEventListener("change", () => setMenu(false));
+  document.addEventListener("click", (event) => {
+    if (!topbar?.contains(event.target)) setMenu(false);
+  });
   nav?.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       setMenu(false);
