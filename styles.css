@@ -212,17 +212,17 @@ button {
 
 .topbar__lang {
   --lang-index: 0;
-  --lang-pill-width: 44px;
-  --lang-pill-height: 44px;
   position: relative;
   display: grid;
-  grid-template-columns: repeat(3, var(--lang-pill-width));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: center;
   gap: 0;
-  padding: 3px;
+  padding: 6px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(20, 21, 25, 0.94);
+  box-shadow: 0 18px 48px rgba(16, 18, 25, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
 }
 
 .topbar__lang--menu {
@@ -234,34 +234,41 @@ button {
   z-index: 1;
   display: grid;
   place-items: center;
-  width: var(--lang-pill-width);
-  height: var(--lang-pill-height);
+  min-width: 0;
+  width: 100%;
+  height: 44px;
   padding: 0;
   border: 0;
   background: transparent;
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 300;
-  font-size: 0.62rem;
+  border-radius: 999px;
+  color: #b8bac3;
+  font-weight: 500;
+  font-size: 0.6875rem;
   letter-spacing: 0;
-  text-transform: uppercase;
+  text-transform: none;
   font-family: var(--font, "Montserrat", "Segoe UI", sans-serif);
   cursor: pointer;
+  white-space: nowrap;
+  transition: color 260ms ease, background-color 360ms ease;
 }
 
 .topbar__lang-code.is-active {
-  color: #ffffff;
+  color: #17181c;
+  font-weight: 700;
 }
 
 .topbar__lang-pill {
   position: absolute;
-  top: 3px;
-  left: 3px;
-  width: var(--lang-pill-width);
-  height: var(--lang-pill-height);
+  top: 6px;
+  left: 6px;
+  width: calc((100% - 12px) / 3);
+  height: 44px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-  transform: translateX(calc(var(--lang-index) * var(--lang-pill-width)));
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transform: translateX(calc(var(--lang-index) * 100%));
+  pointer-events: none;
+  transition: transform 460ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .topbar__lang--desktop {
@@ -1184,8 +1191,6 @@ h2 {
   .topbar__lang--menu {
     display: grid;
     margin-top: 12px;
-    --lang-pill-width: 44px;
-    --lang-pill-height: 44px;
   }
 
   .topbar__menu-line {
@@ -1844,4 +1849,27 @@ h2 {
 @media (prefers-reduced-motion: reduce) {
   .service-card.reveal.is-pending { opacity: 1; transform: none; }
 }
-.topbar__nav .topbar__lang-code { width: 44px; min-height: 44px; height: 44px; padding: 0; display: grid; }
+.topbar__nav .topbar__lang-code {
+  width: 100%;
+  min-height: 44px;
+  height: 44px;
+  padding: 0;
+  display: grid;
+  font-size: 0.6875rem;
+  text-transform: none;
+  color: #b8bac3;
+  opacity: 1;
+}
+
+.topbar__nav .topbar__lang-code.is-active { color: #17181c; }
+
+@media (hover: hover) and (pointer: fine) {
+  .topbar__nav .topbar__lang-code:not(.is-active):hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.07);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .topbar__lang-code, .topbar__lang-pill { transition: none; }
+}
