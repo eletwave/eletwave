@@ -221,6 +221,17 @@ for (const width of [320, 390, 768, 1024, 1440]) {
     const logo = await page.locator(".quote-brand img").boundingBox();
     expect(Math.abs(logo.x + logo.width / 2 - width / 2)).toBeLessThan(10);
     await expect.poll(() => page.locator(".quote-brand img").evaluate(el => el.naturalWidth)).toBeGreaterThan(0);
+    const choices = await page.locator(".choice").evaluateAll(nodes => nodes.map(el => ({
+      height: el.getBoundingClientRect().height,
+      titleSize: parseFloat(getComputedStyle(el.querySelector("strong")).fontSize),
+      bodySize: parseFloat(getComputedStyle(el.querySelector("small")).fontSize),
+    })));
+    for (const choice of choices) {
+      expect(choice.height).toBeGreaterThanOrEqual(64);
+      expect(choice.titleSize).toBeGreaterThanOrEqual(15);
+      expect(choice.bodySize).toBeGreaterThanOrEqual(13);
+    }
+    expect(await page.locator("#quote-steps li").first().evaluate(el => parseFloat(getComputedStyle(el).fontSize))).toBeGreaterThanOrEqual(12);
     await noOverflow(page);
     await page.screenshot({ path: testInfo.outputPath("service.png"), fullPage: true });
     const path = paths.find(p => p.branch === "wallbox");
@@ -232,6 +243,7 @@ for (const width of [320, 390, 768, 1024, 1440]) {
     await page.screenshot({ path: testInfo.outputPath("contact.png"), fullPage: true });
     await contacts(page);
     await page.locator("#next-step").click();
+    await expect(page.locator("#stage-title")).toBeFocused();
     await noOverflow(page);
     await page.screenshot({ path: testInfo.outputPath("review.png"), fullPage: true });
   });
