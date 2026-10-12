@@ -537,30 +537,34 @@ h2 {
 .brands {
   position: relative;
   z-index: 1;
-  padding: 0;
-  background: #080c14;
+  padding: 76px var(--section-pad) 60px;
+  background: var(--bg);
 }
 
 .brands-orbit {
   --outer-size: 860px;
-  --inner-size: 560px;
+  --inner-size: 684px;
   --orbit-top-outer: 62px;
-  --orbit-top-inner: 212px;
+  --orbit-top-inner: 186px;
   position: relative;
-  width: 100%;
-  padding: 248px 0 44px;
+  width: min(1160px, 100%);
+  margin: 0 auto;
+  padding: 298px 0 64px;
+  border: 1px solid rgba(160, 188, 255, 0.2);
+  border-radius: 8px;
   overflow: hidden;
+  background: linear-gradient(160deg, #070b14, #0a0f1a 48%, #080c14);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.36);
 }
 
 .brands-orbit__visual {
   position: absolute;
-  inset: -31px 0 auto;
-  height: 270px;
+  inset: -31px 0 0;
   z-index: 1;
   overflow: hidden;
   pointer-events: none;
-  -webkit-mask: linear-gradient(#000 72%, transparent 100%);
-  mask: linear-gradient(#000 72%, transparent 100%);
+  -webkit-mask: linear-gradient(#000 40%, transparent 74%);
+  mask: linear-gradient(#000 40%, transparent 74%);
 }
 
 .brands-ring {
@@ -719,7 +723,7 @@ h2 {
 .brands-orbit__content {
   position: relative;
   z-index: 3;
-  width: min(540px, calc(100% - 48px));
+  width: min(356px, calc(100% - 48px));
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -730,7 +734,7 @@ h2 {
 
 .brands-orbit__content .eyebrow {
   color: rgba(174, 213, 255, 0.72);
-  font-size: 0.75rem;
+  font-size: 0.68rem;
   letter-spacing: 0;
 }
 
@@ -738,17 +742,17 @@ h2 {
   width: 100%;
   margin: 0;
   font-family: var(--font-ui);
-  font-size: 2.25rem;
+  font-size: 2.58rem;
   font-weight: 300;
   line-height: 1.08;
   color: #ffffff;
 }
 
 .brands-orbit__content > p:not(.eyebrow) {
-  width: min(480px, 100%);
+  width: min(296px, 100%);
   margin: 0;
   color: #9aa7c5;
-  font-size: 0.875rem;
+  font-size: 0.84rem;
 }
 
 .contact {
@@ -957,10 +961,10 @@ h2 {
 @media (max-width: 1120px) {
   .brands-orbit {
     --outer-size: 710px;
-    --inner-size: 410px;
+    --inner-size: 560px;
     --orbit-top-outer: 82px;
-    --orbit-top-inner: 232px;
-    padding-top: 248px;
+    --orbit-top-inner: 164px;
+    padding-top: 272px;
   }
 
   .brands-pill {
@@ -988,22 +992,27 @@ h2 {
   }
 
   .brands-orbit__content {
-    width: min(540px, calc(100% - 48px));
+    width: min(306px, calc(100% - 32px));
     gap: 9px;
   }
 
   .brands-orbit__content h2 {
-    font-size: 2.25rem;
+    font-size: 2.28rem;
   }
 
   .brands-orbit__content > p:not(.eyebrow) {
-    width: min(480px, 100%);
+    width: min(266px, 100%);
+    font-size: 0.8rem;
   }
 }
 
 @media (max-width: 920px) {
+  .brands {
+    padding-bottom: 54px;
+  }
+
   .brands-orbit {
-    padding: 220px 0 36px;
+    padding: 272px 0 40px;
   }
 
   .brands-pill {
@@ -1032,19 +1041,19 @@ h2 {
   }
 
   .brands-orbit__content {
-    width: min(480px, calc(100% - 48px));
+    width: min(286px, calc(100% - 24px));
     gap: 8px;
   }
 
   .brands-orbit__visual {
     display: block;
-    inset: -24px 0 auto;
-    height: 300px;
+    inset: 10px 0 auto;
+    height: 322px;
     overflow: visible;
-    transform: scale(0.78);
+    transform: scale(0.58);
     transform-origin: top center;
-    -webkit-mask: linear-gradient(#000 72%, transparent 100%);
-    mask: linear-gradient(#000 72%, transparent 100%);
+    -webkit-mask: linear-gradient(#000 58%, transparent 88%);
+    mask: linear-gradient(#000 58%, transparent 88%);
   }
 
   .brands-orbit__content h2 {
@@ -1052,7 +1061,8 @@ h2 {
   }
 
   .brands-orbit__content > p:not(.eyebrow) {
-    width: min(440px, 100%);
+    width: min(248px, 100%);
+    font-size: 0.78rem;
   }
 }
 
@@ -1240,7 +1250,7 @@ h2 {
 
 @media (max-width: 760px) {
   .brands-orbit {
-    padding: 224px 0 32px;
+    padding: 224px 0 28px;
   }
 
   .brands-pill {
@@ -1269,17 +1279,17 @@ h2 {
   }
 
   .brands-orbit__visual {
-    inset: -24px -32% auto;
-    height: 300px;
+    inset: -24px -32% -18px;
+    height: auto;
     transform: scale(0.78);
     transform-origin: top center;
-    -webkit-mask: linear-gradient(#000 72%, transparent 100%);
-    mask: linear-gradient(#000 72%, transparent 100%);
+    -webkit-mask: linear-gradient(#000 78%, rgba(0, 0, 0, 0.94) 92%, transparent 100%);
+    mask: linear-gradient(#000 78%, rgba(0, 0, 0, 0.94) 92%, transparent 100%);
   }
 
   .brands-orbit__content {
     gap: 8px;
-    width: min(420px, calc(100% - 48px));
+    width: min(236px, calc(100% - 22px));
   }
 
   .brands-orbit__content h2 {
@@ -1287,7 +1297,8 @@ h2 {
   }
 
   .brands-orbit__content > p:not(.eyebrow) {
-    width: 100%;
+    width: min(220px, 100%);
+    font-size: 0.74rem;
   }
 }
 
