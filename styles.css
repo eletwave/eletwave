@@ -87,10 +87,6 @@ button {
 }
 
 .topbar {
-  --nav-a: rgba(255, 47, 94, 0.16);
-  --nav-b: rgba(8, 12, 24, 0.82);
-  --nav-c: rgba(35, 198, 255, 0.14);
-  --nav-line: rgba(255, 255, 255, 0.12);
   position: sticky;
   top: 0;
   z-index: 70;
@@ -100,25 +96,7 @@ button {
   padding: calc(9px + var(--safe-top)) var(--safe-right) 7px var(--safe-left);
   border: 0;
   border-radius: 0;
-  background: #080c17;
-}
-
-.topbar::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 12% 50%, var(--nav-a), transparent 34%),
-    radial-gradient(circle at 88% 40%, var(--nav-c), transparent 30%),
-    linear-gradient(
-      90deg,
-      color-mix(in srgb, var(--nav-a) 45%, rgba(5, 7, 14, 0.84)),
-      var(--nav-b) 52%,
-      color-mix(in srgb, var(--nav-c) 45%, rgba(5, 7, 14, 0.84))
-    );
-  border-bottom: 1px solid var(--nav-line);
-  box-shadow: 0 8px 18px rgba(3, 7, 16, 0.08);
-  pointer-events: none;
+  background: #000;
 }
 
 .topbar__inner {
@@ -1148,8 +1126,7 @@ h2 {
     overflow-x: hidden;
     overflow-y: auto;
     border-radius: 0;
-    background: linear-gradient(180deg, #101624, #080d18);
-    box-shadow: 0 22px 44px rgba(0, 0, 0, 0.28);
+    background: #000;
     transform: translateY(-14px);
     opacity: 0;
     visibility: hidden;
