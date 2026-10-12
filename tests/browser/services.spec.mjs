@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-const photos = ["eletwave-quadro-elettrico.jpg", "eletwave-fotovoltaico-installazione.jpg", "eletwave-wallbox.jpg", "eletwave-videosorveglianza.jpg", "ChatGPT Image 23 gen 2026, 18_09_07.webp", "eletwave-videocitofonia.jpg"];
+const photos = ["eletwave-quadro-elettrico.jpg", "eletwave-fotovoltaico-installazione.jpg", "eletwave-wallbox.jpg", "eletwave-videosorveglianza.jpg", "eletwave-dati-rack.jpg", "eletwave-videocitofonia.jpg"];
 
 for (const width of [320, 390, 768, 1440]) {
   test("original service rows enter from alternating sides " + width, async ({ page }, testInfo) => {
@@ -41,7 +41,7 @@ for (const route of ["/", "/en/", "/sl/"]) {
     await page.goto(route + "#servizi");
     await expect(page.locator(".service-card.is-pending")).toHaveCount(0);
     await expect(page.locator(".service-card img")).toHaveCount(6);
-    await expect(page.locator(".service-card img[data-i18n-alt]")).toHaveCount(5);
+    await expect(page.locator(".service-card img[data-i18n-alt]")).toHaveCount(6);
     for (const img of await page.locator(".service-card img[data-i18n-alt]").all()) {
       await expect(img).toHaveAttribute("alt", /.+/);
     }
