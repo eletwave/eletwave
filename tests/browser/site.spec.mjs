@@ -5,6 +5,9 @@ for (const width of [320, 360, 390, 768, 861, 1024, 1080, 1081, 1440]) {
     await page.setViewportSize({ width, height: 844 });
     await page.goto("/");
     await expect(page.locator(".topbar__brand")).toBeVisible();
+    await expect(page.locator(".topbar")).toHaveCSS("background-color", "rgb(0, 0, 0)");
+    await expect(page.locator(".topbar")).toHaveCSS("background-image", "none");
+    expect(await page.locator(".topbar").evaluate(el => getComputedStyle(el, "::before").backgroundImage)).toBe("none");
     const measurements = await page.evaluate(() => {
       const brand = document.querySelector(".topbar__brand").getBoundingClientRect();
       return { width: document.documentElement.clientWidth, scroll: document.documentElement.scrollWidth, center: brand.x + brand.width / 2 };
@@ -14,6 +17,11 @@ for (const width of [320, 360, 390, 768, 861, 1024, 1080, 1081, 1440]) {
       expect(Math.abs(measurements.center - measurements.width / 2)).toBeLessThan(2);
       await page.locator(".topbar__menu").click();
       await expect(page.locator("#topbar-nav")).toBeVisible();
+      await expect(page.locator("#topbar-nav")).toHaveCSS("background-color", "rgb(0, 0, 0)");
+      await expect(page.locator("#topbar-nav")).toHaveCSS("background-image", "none");
+      if ([320, 390].includes(width)) {
+        await page.screenshot({ path: testInfo.outputPath("menu-black.png") });
+      }
       await expect(page.locator("main")).toHaveAttribute("inert", "");
       await page.keyboard.press("Escape");
       await expect(page.locator("#topbar-nav")).toBeHidden();
