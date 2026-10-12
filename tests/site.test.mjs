@@ -79,6 +79,23 @@ test("each language has rendered content, canonical and reciprocal alternatives"
   }
 });
 
+test("favicon is a square PNG consistently referenced by published pages", async () => {
+  const icon = await readFile("assets/eletwave-favicon.png");
+  assert.equal(icon.subarray(0, 8).toString("hex"), "89504e470d0a1a0a");
+  assert.equal(icon.readUInt32BE(16), 528);
+  assert.equal(icon.readUInt32BE(20), 528);
+  for (const file of pages.filter(file => file !== "v2/index.html" && file !== "privacy-crossumi.html")) {
+    const $ = load(await readFile(file, "utf8"));
+    const link = $("link[rel=icon]");
+    assert.equal(link.length, 1, file);
+    assert.equal(link.attr("type"), "image/png", file);
+    assert.equal(link.attr("sizes"), "528x528", file);
+    const url = new URL(link.attr("href"), "https://www.eletwave.com/" + file);
+    assert.equal(url.pathname, "/assets/eletwave-favicon.png", file);
+    assert.equal(url.search, "", "favicon URL must remain stable");
+  }
+});
+
 test("no unused published assets or obsolete V2 code remain", async () => {
   const source = (await Promise.all([...pages, ...scripts, "styles.css", "preventivo.css"].map(f => readFile(f, "utf8")))).join("\n");
   const assets = await readdir("assets", { recursive: true, withFileTypes: true });
