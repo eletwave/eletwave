@@ -4,8 +4,9 @@ for (const width of [320, 360, 390, 768, 861, 1024, 1080, 1081, 1440]) {
   test("layout and menu " + width, async ({ page }, testInfo) => {
     await page.setViewportSize({ width, height: 844 });
     await page.goto("/");
-    await expect(page.locator(".topbar__brand")).toBeVisible();
-    await expect(page.locator(".topbar")).toHaveCSS("background-color", "rgb(0, 0, 0)");
+    await expect(page.locator(".topbar__brand")).toBeHidden();
+    await expect(page.locator(".topbar__menu")).toBeVisible();
+    await expect(page.locator(".topbar")).toHaveCSS("background-color", "rgba(0, 0, 0, 0)");
     await expect(page.locator(".topbar")).toHaveCSS("background-image", "none");
     expect(await page.locator(".topbar").evaluate(el => getComputedStyle(el, "::before").backgroundImage)).toBe("none");
     const measurements = await page.evaluate(() => {
@@ -13,8 +14,7 @@ for (const width of [320, 360, 390, 768, 861, 1024, 1080, 1081, 1440]) {
       return { width: document.documentElement.clientWidth, scroll: document.documentElement.scrollWidth, center: brand.x + brand.width / 2 };
     });
     expect(measurements.scroll).toBeLessThanOrEqual(measurements.width);
-    if (width <= 1080) {
-      expect(Math.abs(measurements.center - measurements.width / 2)).toBeLessThan(2);
+    {
       await page.locator(".topbar__menu").click();
       await expect(page.locator("#topbar-nav")).toBeVisible();
       await expect(page.locator("#topbar-nav")).toHaveCSS("background-color", "rgb(0, 0, 0)");
@@ -23,9 +23,16 @@ for (const width of [320, 360, 390, 768, 861, 1024, 1080, 1081, 1440]) {
         await page.screenshot({ path: testInfo.outputPath("menu-black.png") });
       }
       await expect(page.locator("main")).toHaveAttribute("inert", "");
+      await page.keyboard.press("Tab");
+      await expect(page.locator("#topbar-nav > a").first()).toBeFocused();
+      await page.keyboard.press("Shift+Tab");
+      await expect(page.locator(".topbar__menu")).toBeFocused();
       await page.keyboard.press("Escape");
       await expect(page.locator("#topbar-nav")).toBeHidden();
       await expect(page.locator(".topbar__menu")).toBeFocused();
+      await page.locator(".topbar__menu").click();
+      await page.mouse.click(5, 5);
+      await expect(page.locator("#topbar-nav")).toBeHidden();
     }
     for (const image of await page.locator(".service-card img").all()) {
       await image.scrollIntoViewIfNeeded();
@@ -54,11 +61,11 @@ test("language links work without JavaScript", async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
   await page.goto("/");
-  await page.locator(".topbar__lang--desktop [data-lang=en]").click();
+  await page.locator(".topbar__lang--menu [data-lang=en]").click();
   await expect(page).toHaveURL(/\/en\/$/);
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
   await expect(page.locator("#chi-siamo .reveal").first()).toHaveCSS("opacity", "1");
-  await page.locator(".topbar__lang--desktop [data-lang=sl]").click();
+  await page.locator(".topbar__lang--menu [data-lang=sl]").click();
   await expect(page.locator("html")).toHaveAttribute("lang", "sl");
   await context.close();
 });

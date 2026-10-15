@@ -28,7 +28,8 @@ for (const [width, height] of [[320, 568], [390, 568], [390, 844], [768, 1024], 
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width);
     const hero = await page.locator("#hero").boundingBox();
     const photo = await image.boundingBox();
-    expect(hero.y + hero.height).toBeLessThanOrEqual(height - 12);
+    expect(hero.y).toBe(0);
+    expect(hero.height).toBe(height);
     expect(photo.width).toBe(hero.width);
     expect(photo.height).toBe(hero.height);
     await page.screenshot({ path: testInfo.outputPath("hero.png") });

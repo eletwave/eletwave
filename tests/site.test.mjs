@@ -116,6 +116,40 @@ test("JavaScript and CSS parse", async () => {
   postcss.parse(await readFile("preventivo.css", "utf8"));
 });
 
+// Approved publication scope: keep services at the public e565bb6 baseline.
+test("services markup stays identical to the approved public version", async () => {
+  const hashes = {
+    "templates/home.html": "308031cc1c796be8d044b7e072f2e0367d37756badd2f48b63c4acd9e9090e5e",
+    "index.html": "439a4f3f795d74f69910d968122768e17aa8f8cfe8e71ed6e0907296e57ef5cf",
+    "en/index.html": "b02f8639c1ebd4082c0324cbb31190bedbce0b79d24980b125a73621e141184a",
+    "sl/index.html": "04532822d1cd4441db7bbb2e6a931d213ce8e02513d45cdb5905cdd064e3dd9f",
+  };
+  for (const [file, expected] of Object.entries(hashes)) {
+    const $ = load((await readFile(file, "utf8")).replace(/\r\n/g, "\n"));
+    assert.equal(createHash("sha256").update($.html($("#servizi"))).digest("hex"), expected, file);
+    assert.equal($(".service-fragments, .services-grid, script[src*='assets/motion/']").length, 0, file);
+  }
+});
+
+test("service styling and reveal rules stay identical to the public version", async () => {
+  const rules = [];
+  postcss.parse(await readFile("styles.css", "utf8")).walkRules(rule => {
+    if (!/\.service(?:s|-)|\.reveal/.test(rule.selector)) return;
+    const context = [];
+    let parent = rule.parent;
+    while (parent.type !== "root") {
+      context.unshift("@" + parent.name + " " + parent.params);
+      parent = parent.parent;
+    }
+    rules.push({
+      context,
+      selector: rule.selector,
+      declarations: rule.nodes.filter(node => node.type === "decl").map(node => [node.prop, node.value, node.important || false]),
+    });
+  });
+  assert.equal(createHash("sha256").update(JSON.stringify(rules)).digest("hex"), "ac23bc2b629993e2f83aa8d5829ccc87e32cfaf952de8654dc61de035488add6");
+});
+
 test("rebuilding does not change generated files", async () => {
   const files = [...pages, "sitemap.xml"];
   const before = await Promise.all(files.map(file => readFile(file, "utf8")));
