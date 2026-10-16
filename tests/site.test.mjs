@@ -10,7 +10,7 @@ import postcss from "postcss";
 import { translations } from "../scripts/translations.mjs";
 
 const pages = ["index.html", "en/index.html", "sl/index.html", "preventivo.html", "privacy-policy.html", "privacy-calcoli-elettrici.html", "privacy-crossumi.html", "cookie-policy.html", "404.html", "v2/index.html"];
-const scripts = ["script.js", "preventivo.js", "preventivo-data.js"];
+const scripts = ["script.js", "preventivo.js", "preventivo-data.js", "analytics.js"];
 test("49 branches have valid questions and are reachable from the service navigation", async () => {
   const context = { window: {} };
   vm.runInNewContext(await readFile("preventivo-data.js", "utf8"), context);
@@ -114,6 +114,22 @@ test("JavaScript and CSS parse", async () => {
   for (const file of scripts) new vm.Script(await readFile(file, "utf8"), { filename: file });
   postcss.parse(await readFile("styles.css", "utf8"));
   postcss.parse(await readFile("preventivo.css", "utf8"));
+  postcss.parse(await readFile("analytics.css", "utf8"));
+});
+
+test("only public website pages include consent-controlled analytics, never a remote Google tag", async () => {
+  const included = ["index.html", "en/index.html", "sl/index.html", "preventivo.html", "privacy-policy.html", "cookie-policy.html"];
+  for (const file of pages) {
+    const $ = load(await readFile(file, "utf8"));
+    assert.equal($("script[src*='analytics.js']").length, included.includes(file) ? 1 : 0, file);
+    assert.equal($("link[href*='analytics.css']").length, included.includes(file) ? 1 : 0, file);
+    assert.equal($("script[src*='googletagmanager'], link[href*='googletagmanager'], script[src*='google-analytics']").length, 0, file);
+  }
+  const source = await readFile("analytics.js", "utf8");
+  assert.match(source, /G-LN42Y4382J/);
+  assert.match(source, /send_page_view: false/);
+  assert.match(source, /allow_google_signals: false/);
+  assert.doesNotMatch(source, /\b(?:link_url|form_destination|user_id|user_data)\s*:/);
 });
 
 // Approved publication scope: keep services at the public e565bb6 baseline.
