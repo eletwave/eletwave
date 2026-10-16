@@ -30,6 +30,12 @@ async function versionAssets($, file) {
   });
 }
 async function save(file, $) {
+  const analyticsPages = ["index.html", "en/index.html", "sl/index.html", "preventivo.html", "privacy-policy.html", "cookie-policy.html"];
+  if (analyticsPages.includes(file)) {
+    const prefix = file.includes("/") ? "../" : "./";
+    if (!$("link[href*='analytics.css']").length) $("head").append(`\n    <link rel="stylesheet" href="${prefix}analytics.css">`);
+    if (!$("script[src*='analytics.js']").length) $("head").append(`\n    <script src="${prefix}analytics.js" defer></script>`);
+  }
   await versionAssets($, file);
   await mkdir(dirname(resolve(root, file)), { recursive: true });
   const html = $.html().replace(/[ \t]+$/gm, "")
